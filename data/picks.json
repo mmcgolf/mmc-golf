@@ -1,0 +1,32 @@
+{
+  "year": 2026,
+  "tournament": "The Masters",
+  "budget": 72,
+  "payouts": [
+    { "place": 1,  "label": "1st",  "amount": 500 },
+    { "place": 2,  "label": "2nd",  "amount": 250 },
+    { "place": 3,  "label": "3rd",  "amount": 150 },
+    { "place": 4,  "label": "4th",  "amount": 100 },
+    { "place": 5,  "label": "5th",  "amount": 75  },
+    { "place": 6,  "label": "6th",  "amount": 50  },
+    { "place": 7,  "label": "7th",  "amount": 40  },
+    { "place": 8,  "label": "8th",  "amount": 30  },
+    { "place": 9,  "label": "9th",  "amount": 25  },
+    { "place": 10, "label": "10th", "amount": 20  },
+    { "place": 11, "label": "11th", "amount": 15  },
+    { "place": 12, "label": "12th", "amount": 10  }
+  ],
+  "teams": [
+    {
+      "name": "Example Participant",
+      "picks": [
+        { "name": "Scottie Scheffler", "ppv": 18.9 },
+        { "name": "Rory McIlroy",      "ppv": 16.9 },
+        { "name": "Jon Rahm",          "ppv": 15.0 },
+        { "name": "Bryson DeChambeau", "ppv": 14.5 },
+        { "name": "Xander Schauffele", "ppv": 14.0 },
+        { "name": "Tommy Fleetwood",   "ppv": 13.7 }
+      ]
+    }
+  ]
+}
