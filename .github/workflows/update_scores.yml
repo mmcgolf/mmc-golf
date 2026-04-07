@@ -1,0 +1,45 @@
+# MMC Golf - Automatic Score Updater
+# Runs every 5 minutes during tournament days and pushes updated data.json
+# Enable/disable this workflow from the GitHub Actions tab in your repo.
+
+name: Update Live Scores
+
+on:
+  schedule:
+    # Runs every 5 minutes (UTC). Masters is typically Thu-Sun in April.
+    # GitHub Actions minimum is every 5 minutes.
+    - cron: '*/5 * * * *'
+  workflow_dispatch:  # Also allows manual trigger from GitHub UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch ESPN scores
+        run: python scripts/scrape_espn.py
+
+      - name: Build combined data.json
+        run: python scripts/build_data.py
+
+      - name: Commit and push if data changed
+        run: |
+          git config user.name  "MMC Bot"
+          git config user.email "mmc-bot@users.noreply.github.com"
+          git add data/scores.json data/data.json
+          # Only commit if something actually changed (avoids empty commits)
+          git diff --staged --quiet || git commit -m "Auto-update scores $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
