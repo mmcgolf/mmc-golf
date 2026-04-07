@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morris Major Championship</title>
+<style>
+  :root {
+    --green-dark: #0a3d0a;
+    --green-mid: #1a5c1a;
+    --green-light: #2d7a2d;
+    --green-accent: #4caf50;
+    --gold: #d4a843;
+    --gold-light: #f0d68a;
+    --gold-dim: rgba(212,168,67,0.5);
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-hover: #1c2333;
+    --bg-row-alt: rgba(255,255,255,0.02);
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --text-dim: #6e7681;
+    --cut-red: #f85149;
+    --under-par: #3fb950;
+    --over-par: #f85149;
+    --even-par: #e6edf3;
+    --border: rgba(255,255,255,0.08);
+    --highlight: rgba(212,168,67,0.12);
+    --safe-green: #3fb950;
+    --warn-yellow: #d4a843;
+    --danger-red: #f85149;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(135deg, #062806 0%, var(--green-dark) 30%, var(--green-mid) 60%, var(--green-dark) 100%);
+    border-bottom: 3px solid var(--gold);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 50% 80%, rgba(212,168,67,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 18px;
+    text-align: center;
+    position: relative;
+  }
+  .logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+  .logo-svg { flex-shrink: 0; }
+  .header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    line-height: 1.1;
+  }
+  .header h1 .thin { font-weight: 300; letter-spacing: 5px; font-size: 14px; display: block; color: rgba(255,255,255,0.7); margin-bottom: 2px; }
+  .tournament-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .tournament-name {
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+  .tournament-info {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+  }
+  .status-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--green-dark);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .status-badge.live {
+    background: #f85149;
+    color: white;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+  /* ===== NAV ===== */
+  .nav {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 0;
+    padding: 0 20px;
+    overflow-x: auto;
+  }
+  .nav-tab {
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: none;
+    border-top: none; border-left: none; border-right: none;
+  }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ===== MAIN ===== */
+  .main { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+  /* Search */
+  .search-bar { margin-bottom: 16px; position: relative; }
+  .search-bar input {
+    width: 100%;
+    padding: 12px 16px 12px 42px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-bar input:focus { border-color: var(--gold); }
+  .search-bar input::placeholder { color: var(--text-dim); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-dim); }
+
+  /* Stats */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; text-align: center; }
+  .stat-card .stat-value { font-size: 24px; font-weight: 700; color: var(--gold); }
+  .stat-card .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+
+  /* Tables */
+  .table-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    background: rgba(0,0,0,0.3);
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  thead th.r, td.r { text-align: right; }
+  thead th.c, td.c { text-align: center; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  #sec-leaderboard tbody tr { cursor: pointer; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--bg-row-alt); }
+  tbody tr:hover { background: var(--bg-card-hover); }
+  tbody tr.highlighted { background: var(--highlight) !important; }
+  td { padding: 10px 12px; font-size: 14px; white-space: nowrap; }
+
+  .rank-cell { font-weight: 700; color: var(--text-muted); width: 48px; text-align: center; }
+  .rank-cell.top { color: var(--gold); }
+  .team-name { font-weight: 600; }
+  .score-cell { font-weight: 700; font-variant-numeric: tabular-nums; font-family: 'SF Mono','Menlo',monospace; }
+  .under { color: var(--under-par); }
+  .over { color: var(--over-par); }
+  .even { color: var(--even-par); }
+  .cut-text { color: var(--cut-red); opacity: 0.7; font-size: 12px; }
+  .payout-cell { color: var(--gold); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  /* Gold dot for payout positions */
+  .gold-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+    box-shadow: 0 0 4px rgba(212,168,67,0.4);
+  }
+
+  /* Cut line */
+  .cut-line-row td {
+    position: relative;
+    padding-top: 20px !important;
+  }
+  .cut-line-row td::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 0; right: 0;
+    border-top: 2px dashed var(--gold-dim);
+  }
+  .cut-line-label {
+    position: absolute;
+    top: -4px;
+    left: 12px;
+    background: var(--bg-card);
+    padding: 0 8px;
+    font-size: 10px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  /* Money line */
+  .money-line-row td {
+    position: relative;
+    padding-top: 20px !important;
+  }
+  .money-line-row td::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 0; right: 0;
+    border-top: 2px dashed var(--gold);
+  }
+  .money-line-label {
+    position: absolute;
+    top: -4px;
+    left: 12px;
+    background: var(--bg-card);
+    padding: 0 8px;
+    font-size: 10px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  /* Cut status dots */
+  .cut-dots { display: inline-flex; gap: 3px; align-items: center; vertical-align: middle; }
+  .cut-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .cut-dot.made { background: var(--safe-green); }
+  .cut-dot.missed { background: var(--danger-red); opacity: 0.6; }
+  .cut-dot.pending { background: var(--text-dim); opacity: 0.5; }
+  .cut-summary {
+    font-size: 11px;
+    margin-left: 5px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .cut-summary.safe { color: var(--safe-green); }
+  .cut-summary.exact { color: var(--warn-yellow); }
+  .cut-summary.danger { color: var(--danger-red); }
+
+  /* Tiebreaker */
+  .tb-cell {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: 'SF Mono','Menlo',monospace;
+  }
+
+  /* ===== MODAL ===== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    max-width: 620px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 24px;
+    border-top: 3px solid var(--gold);
+  }
+  .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+  .modal-header h2 { font-size: 20px; color: var(--gold-light); }
+  .modal-header .modal-rank { font-size: 14px; color: var(--text-muted); margin-top: 2px; }
+  .modal-close { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; padding: 0 4px; line-height: 1; }
+  .modal-close:hover { color: var(--text); }
+  .modal-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .modal-stat { text-align: center; }
+  .modal-stat .ms-value { font-size: 28px; font-weight: 700; font-family: 'SF Mono','Menlo',monospace; }
+  .modal-stat .ms-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .modal-golfer {
+    display: grid;
+    grid-template-columns: 1fr 50px 50px 44px;
+    gap: 4px;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .modal-golfer:last-child { border-bottom: none; }
+  .modal-golfer .g-name { font-weight: 600; font-size: 14px; }
+  .modal-golfer .g-name .ppv-badge { font-size: 11px; color: var(--text-muted); font-weight: 400; margin-left: 6px; }
+  .modal-golfer .g-pos { font-size: 13px; color: var(--text-muted); text-align: center; }
+  .modal-golfer .g-score { font-weight: 700; font-family: monospace; text-align: right; }
+  .modal-golfer .g-thru { font-size: 13px; color: var(--text-muted); text-align: right; }
+  .modal-golfer.is-cut { opacity: 0.4; }
+  .modal-golfer.is-cut .g-name { text-decoration: line-through; }
+  .modal-golfer.counts .g-name { color: var(--gold-light); }
+  .modal-golfer.not-started .g-thru { color: var(--text-dim); }
+  .counting-label {
+    font-size: 11px; color: var(--text-dim); text-transform: uppercase;
+    letter-spacing: 0.5px; margin-top: 16px; margin-bottom: 4px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .counting-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ===== SECTION TOGGLE ===== */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* Popularity bar */
+  .popularity-bar {
+    display: inline-block; height: 6px; background: var(--green-accent);
+    border-radius: 3px; min-width: 2px; vertical-align: middle; margin-left: 6px;
+  }
+
+  .show-more-btn {
+    display: block; width: 100%; padding: 12px; background: none; border: none;
+    border-top: 1px solid var(--border); color: var(--gold); font-size: 13px;
+    font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .show-more-btn:hover { background: rgba(255,255,255,0.03); }
+  .last-updated { text-align: center; font-size: 12px; color: var(--text-dim); padding: 12px; }
+
+  /* Golfer table fix - allow wrapping on name col */
+  #sec-golfers td:nth-child(2) { white-space: normal; min-width: 140px; }
+
+  /* ===== GRID VIEW ===== */
+  .grid-controls {
+    display: flex; gap: 12px; align-items: center; margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .grid-controls label { font-size: 13px; color: var(--text-muted); }
+  .grid-controls select {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); padding: 6px 10px; font-size: 13px; outline: none;
+  }
+  .grid-controls select:focus { border-color: var(--gold); }
+  .grid-wrap {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+    overflow-x: auto; overflow-y: auto; max-height: 80vh; position: relative;
+  }
+  .grid-table { border-collapse: collapse; font-size: 12px; }
+  .grid-table th, .grid-table td { border: 1px solid var(--border); padding: 0; text-align: center; }
+  .grid-table thead th {
+    background: rgba(0,0,0,0.4); position: sticky; top: 0; z-index: 3;
+    padding: 4px 2px; font-weight: 600; color: var(--text-muted);
+  }
+  .grid-table thead th.grid-corner { z-index: 4; left: 0; min-width: 180px; }
+  .grid-table .grid-team-header {
+    writing-mode: vertical-lr; text-orientation: mixed;
+    transform: rotate(180deg); padding: 8px 3px;
+    min-width: 32px; max-width: 36px; font-size: 11px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    height: 130px; line-height: 1.2;
+  }
+  .grid-table .grid-team-header.in-money { color: var(--gold); }
+  .grid-table .grid-team-score {
+    font-size: 10px; font-family: 'SF Mono','Menlo',monospace;
+    font-weight: 700; display: block; margin-top: 4px;
+  }
+  .grid-table tbody th {
+    position: sticky; left: 0; z-index: 2; background: var(--bg-card);
+    text-align: left; padding: 5px 8px; font-weight: 600; min-width: 180px;
+    white-space: nowrap; font-size: 12px;
+  }
+  .grid-table tbody th .g-info {
+    display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  }
+  .grid-table tbody th .g-score-badge {
+    font-family: 'SF Mono','Menlo',monospace; font-size: 11px; font-weight: 700;
+    min-width: 32px; text-align: right;
+  }
+  .grid-table tbody th .g-ppv-badge {
+    font-size: 10px; color: var(--text-dim); font-weight: 400;
+  }
+  .grid-table tbody tr:nth-child(even) th { background: #181d26; }
+  .grid-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+  .grid-table tbody tr.grid-cut-row th { border-top: 2px dashed var(--cut-red); }
+  .grid-table tbody tr.grid-cut-row td { border-top: 2px dashed var(--cut-red); }
+
+  .grid-cell { width: 32px; height: 28px; min-width: 32px; }
+  .grid-cell.has-golfer { background: rgba(63,185,80,0.2); }
+  .grid-cell.has-golfer.counting { background: rgba(212,168,67,0.3); }
+  .grid-cell .grid-dot {
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  }
+  .grid-dot.counting { background: var(--gold); box-shadow: 0 0 4px rgba(212,168,67,0.5); }
+  .grid-dot.bench { background: var(--safe-green); opacity: 0.5; }
+  .grid-dot.cut-dot { background: var(--danger-red); opacity: 0.4; }
+
+  .grid-legend {
+    display: flex; gap: 16px; align-items: center; margin-top: 10px;
+    font-size: 12px; color: var(--text-muted);
+  }
+  .grid-legend-item { display: flex; align-items: center; gap: 5px; }
+  .grid-legend-dot {
+    display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+  }
+
+  /* ===== UNIQUENESS TAB ===== */
+  .uniq-header-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;
+  }
+  .uniq-dist-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 16px;
+  }
+  .uniq-dist-card h3 { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+  .uniq-bar-chart { display: flex; align-items: flex-end; gap: 2px; height: 80px; }
+  .uniq-bar {
+    flex: 1; background: var(--green-accent); border-radius: 2px 2px 0 0;
+    min-width: 4px; position: relative; transition: background 0.2s;
+  }
+  .uniq-bar:hover { background: var(--gold); }
+  .uniq-bar-label {
+    display: flex; justify-content: space-between; font-size: 10px; color: var(--text-dim); margin-top: 4px;
+  }
+  .uniq-score-badge {
+    display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 12px;
+    font-weight: 700; font-family: 'SF Mono','Menlo',monospace;
+  }
+  .uniq-high { background: rgba(63,185,80,0.15); color: var(--safe-green); }
+  .uniq-mid { background: rgba(212,168,67,0.15); color: var(--gold); }
+  .uniq-low { background: rgba(248,81,73,0.15); color: var(--danger-red); }
+  .uniq-pick-bar {
+    display: flex; align-items: center; gap: 6px; margin-bottom: 2px;
+  }
+  .uniq-pick-fill {
+    height: 14px; border-radius: 2px; transition: width 0.3s;
+  }
+  .uniq-pick-name { font-size: 12px; min-width: 100px; text-align: right; color: var(--text-muted); }
+  .uniq-pick-pct { font-size: 11px; color: var(--text-dim); font-family: monospace; min-width: 36px; }
+  .rivals-cell { font-size: 12px; color: var(--text-muted); }
+
+  @media (max-width: 640px) {
+    .header h1 { font-size: 20px; letter-spacing: 2px; }
+    .header h1 .thin { font-size: 11px; }
+    .logo-svg svg { width: 36px; height: 36px; }
+    .tournament-name { font-size: 14px; }
+    .nav-tab { padding: 10px 14px; font-size: 12px; }
+    td, thead th { padding: 8px 6px; font-size: 13px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .modal { padding: 16px; }
+    .hide-mobile { display: none; }
+    .modal-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo-row">
+      <div class="logo-svg">
+        <svg width="52" height="52" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Shield shape -->
+          <defs>
+            <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#1a5c1a"/>
+              <stop offset="100%" stop-color="#0a3d0a"/>
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f0d68a"/>
+              <stop offset="100%" stop-color="#d4a843"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 4 L92 20 L92 55 Q92 82 50 96 Q8 82 8 55 L8 20 Z" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="3"/>
+          <!-- Golf flag -->
+          <line x1="50" y1="22" x2="50" y2="62" stroke="#d4a843" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M50 22 L72 32 L50 42 Z" fill="url(#goldGrad)" opacity="0.9"/>
+          <!-- Green/hole -->
+          <ellipse cx="50" cy="64" rx="18" ry="6" fill="#2d7a2d" opacity="0.7"/>
+          <circle cx="50" cy="62" r="3" fill="#0a3d0a" stroke="#d4a843" stroke-width="1"/>
+          <!-- MMC text -->
+          <text x="50" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#f0d68a" letter-spacing="3">MMC</text>
+        </svg>
+      </div>
+      <h1>
+        <span class="thin">The Morris</span>
+        Major Championship
+      </h1>
+    </div>
+    <div class="tournament-row">
+      <span class="tournament-name" id="tournamentName">The Masters 2025</span>
+      <span class="status-badge" id="statusBadge">Final</span>
+    </div>
+    <div class="tournament-info" id="tournamentInfo">Augusta National Golf Club</div>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="nav-inner">
+    <button class="nav-tab active" data-tab="leaderboard">Leaderboard</button>
+    <button class="nav-tab" data-tab="golfers">Golfers</button>
+    <button class="nav-tab" data-tab="grid">Grid</button>
+    <button class="nav-tab" data-tab="ppv">Point Values</button>
+    <button class="nav-tab" data-tab="payouts">Payouts</button>
+    <button class="nav-tab" data-tab="uniqueness">Uniqueness</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- LEADERBOARD -->
+  <div class="section active" id="sec-leaderboard">
+    <div class="search-bar">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>
+      <input type="text" id="teamSearch" placeholder="Search for a team or participant...">
+    </div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-value" id="statTeams">0</div><div class="stat-label">Teams</div></div>
+      <div class="stat-card"><div class="stat-value" id="statLeader">-</div><div class="stat-label">Leader</div></div>
+      <div class="stat-card"><div class="stat-value" id="statAvg">-</div><div class="stat-label">Avg Score</div></div>
+      <div class="stat-card"><div class="stat-value" id="statCutRate">-</div><div class="stat-label">Avg Made Cut</div></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="c" style="width:48px">#</th>
+            <th>Team</th>
+            <th class="r">Total</th>
+            <th class="r hide-mobile" title="Tiebreaker: lowest individual score">Low</th>
+            <th class="c">Status</th>
+            <th class="r hide-mobile">Payout</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody"></tbody>
+      </table>
+      <button class="show-more-btn" id="showMoreBtn" style="display:none">Show All Teams</button>
+    </div>
+    <div class="last-updated" id="lastUpdated"></div>
+  </div>
+
+  <!-- GOLFERS -->
+  <div class="section" id="sec-golfers">
+    <div class="search-bar">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>
+      <input type="text" id="golferSearch" placeholder="Search for a golfer...">
+    </div>
+    <div class="table-wrap">
+      <table id="golferTable">
+        <thead>
+          <tr>
+            <th class="c" style="width:52px">Pos</th>
+            <th style="min-width:150px">Player</th>
+            <th class="r" style="width:52px">PPV</th>
+            <th class="r" style="width:60px">Total</th>
+            <th class="c hide-mobile" style="width:52px">Thru</th>
+            <th class="r hide-mobile" style="width:56px">Today</th>
+            <th class="r" style="width:60px">Teams</th>
+          </tr>
+        </thead>
+        <tbody id="golferBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PPV -->
+  <!-- UNIQUENESS -->
+  <div class="section" id="sec-uniqueness">
+    <div class="uniq-header-row">
+      <div class="uniq-dist-card">
+        <h3>Score Distribution</h3>
+        <div class="uniq-bar-chart" id="uniqDistChart"></div>
+        <div class="uniq-bar-label"><span>Chalk</span><span>Uniqueness Score</span><span>Contrarian</span></div>
+      </div>
+      <div class="uniq-dist-card">
+        <h3>Most &amp; Least Popular Picks</h3>
+        <div id="uniqPopularPicks"></div>
+      </div>
+    </div>
+    <div class="search-bar">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>
+      <input type="text" id="uniqSearch" placeholder="Search for a team...">
+    </div>
+    <div class="table-wrap">
+      <table id="uniqTable">
+        <thead>
+          <tr>
+            <th class="c" style="width:48px">#</th>
+            <th style="min-width:130px">Team</th>
+            <th class="c" style="width:90px" title="PPV-weighted uniqueness rating (primary)">Wtd. Rating</th>
+            <th class="c" style="width:80px" title="Equal-weight raw uniqueness score">Raw Score</th>
+            <th class="r" style="width:60px" title="Teams sharing 3+ golfers with this team">Rivals</th>
+          </tr>
+        </thead>
+        <tbody id="uniqBody"></tbody>
+      </table>
+    </div>
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-top:16px;font-size:13px;color:var(--text-muted);line-height:1.7">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);margin-bottom:8px;font-weight:600">Methodology</div>
+      <p style="margin-bottom:8px">Every golfer has an <strong style="color:var(--text)">ownership rate</strong> — the percentage of teams in the pool that picked them. A golfer selected by 5 of 182 teams has 2.7% ownership; one on 40 teams has 22%. The inverse — how many teams <em>didn't</em> pick them — is their <strong style="color:var(--text)">exclusivity</strong>.</p>
+      <p style="margin-bottom:8px">The <strong style="color:var(--text)">Weighted Rating</strong> (primary) multiplies each pick's exclusivity by its share of the team's 72-point budget before averaging. A 14-point player picked by 5% of teams contributes roughly twice as much to your rating as an 8-point player at the same ownership, because that expensive pick defines your roster more fundamentally. Click any team to see the per-golfer breakdown.</p>
+      <p style="margin-bottom:8px">The <strong style="color:var(--text)">Raw Score</strong> (secondary) treats all 6 picks equally regardless of PPV — a simple average of exclusivities. Comparing the two tells a story: a big gap means your uniqueness is concentrated either in your stars (weighted &gt; raw) or in your value picks (raw &gt; weighted).</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Rivals</strong> counts teams sharing 3 or more golfers with you. High rival counts mean your fate is tied to many others — your wins are their wins too.</p>
+      <p style="margin:0">A high rating isn't inherently better — popular picks are popular for a reason. But if you're hunting for a big payday, a contrarian roster gives you more separation from the field when your guys run hot.</p>
+    </div>
+  </div>
+
+  <div class="section" id="sec-ppv">
+    <div class="search-bar">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>
+      <input type="text" id="ppvSearch" placeholder="Search players...">
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="min-width:150px">Player</th>
+            <th class="r" style="width:90px">Point Value</th>
+            <th class="r" style="width:90px">Times Picked</th>
+            <th class="r" style="width:100px">Popularity</th>
+          </tr>
+        </thead>
+        <tbody id="ppvBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PAYOUTS -->
+  <!-- GRID -->
+  <div class="section" id="sec-grid">
+    <div class="grid-controls">
+      <label for="gridTeamCount">Show top</label>
+      <select id="gridTeamCount">
+        <option value="10">10 teams</option>
+        <option value="20" selected>20 teams</option>
+        <option value="30">30 teams</option>
+        <option value="50">50 teams</option>
+        <option value="0">All teams</option>
+      </select>
+      <div class="search-bar" style="margin-bottom:0;flex:1;min-width:180px">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>
+        <input type="text" id="gridSearch" placeholder="Highlight a team..." style="padding:8px 12px 8px 36px;font-size:13px">
+      </div>
+    </div>
+    <div class="grid-wrap" id="gridWrap"></div>
+    <div class="grid-legend">
+      <div class="grid-legend-item"><span class="grid-legend-dot" style="background:var(--gold);box-shadow:0 0 4px rgba(212,168,67,0.5)"></span> Counting</div>
+      <div class="grid-legend-item"><span class="grid-legend-dot" style="background:var(--safe-green);opacity:0.5"></span> Bench</div>
+      <div class="grid-legend-item"><span class="grid-legend-dot" style="background:var(--danger-red);opacity:0.4"></span> Cut</div>
+      <div class="grid-legend-item" style="margin-left:auto;color:var(--text-dim);font-size:11px">Golfers sorted by score &bull; Teams sorted by rank</div>
+    </div>
+  </div>
+
+  <div class="section" id="sec-payouts">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="c" style="width:64px">Place</th>
+            <th>Team</th>
+            <th class="r" style="width:80px">Score</th>
+            <th class="r" style="width:80px">Low</th>
+            <th class="r" style="width:100px">Payout</th>
+          </tr>
+        </thead>
+        <tbody id="payoutBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- Team Detail Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <h2 id="modalTeamName"></h2>
+        <div class="modal-rank" id="modalTeamRank"></div>
+      </div>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <div class="modal-stats">
+      <div class="modal-stat">
+        <div class="ms-value score-cell" id="modalScore"></div>
+        <div class="ms-label">Team Total</div>
+      </div>
+      <div class="modal-stat">
+        <div class="ms-value score-cell" id="modalLow"></div>
+        <div class="ms-label">Low Individual</div>
+      </div>
+      <div class="modal-stat">
+        <div class="ms-value" id="modalCutStatus"></div>
+        <div class="ms-label">Cut Status</div>
+      </div>
+    </div>
+    <div class="counting-label">Counting (Best 4)</div>
+    <div id="modalCountingGolfers"></div>
+    <div class="counting-label" style="margin-top:16px">Bench / Cut</div>
+    <div id="modalBenchGolfers"></div>
+    <div id="modalUniqSection" style="display:none">
+      <div class="counting-label" style="margin-top:20px">Uniqueness Breakdown</div>
+      <div id="modalUniqBreakdown"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// DATA loaded from data/data.json via fetch below
+
+const PAYOUT_COUNT = 12;
+
+function fmtScore(s) {
+  if (s === null || s === undefined) return '-';
+  if (s >= 500) return 'CUT';
+  if (s === 0) return 'E';
+  return s < 0 ? String(s) : '+' + s;
+}
+function scoreClass(s) {
+  if (s === null || s === undefined) return '';
+  if (s >= 500) return 'cut-text';
+  if (s < 0) return 'under';
+  if (s > 0) return 'over';
+  return 'even';
+}
+function fmtThru(g) {
+  if (g.cut) return 'CUT';
+  if (!g.thru && g.scoreToPar === null) return '-';
+  const t = String(g.thru || '');
+  if (t === '' || t === 'F' || t === '18') return 'F';
+  // Handle fractional (time-based) thru values from Excel
+  const n = parseFloat(t);
+  if (!isNaN(n) && n > 0 && n < 1) {
+    // Convert fraction of day to time
+    const totalMins = Math.round(n * 24 * 60);
+    let h = Math.floor(totalMins / 60);
+    const m = totalMins % 60;
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    if (h > 12) h -= 12;
+    if (h === 0) h = 12;
+    return h + ':' + String(m).padStart(2, '0') + ' ' + ampm;
+  }
+  if (t === '0') return 'F';
+  return t;
+}
+function isNotStarted(g) {
+  if (g.cut) return false;
+  if (g.scoreToPar === null && !g.thru) return true;
+  const t = String(g.thru || '');
+  const n = parseFloat(t);
+  if (!isNaN(n) && n > 0 && n < 1) return true; // Tee time
+  return false;
+}
+
+// Tab switching
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('sec-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// Modal
+const overlay = document.getElementById('modalOverlay');
+document.getElementById('modalClose').onclick = () => overlay.classList.remove('open');
+overlay.onclick = (e) => { if (e.target === overlay) overlay.classList.remove('open'); };
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('open'); });
+
+function showTeam(teamIdx) {
+  const team = DATA.teams[teamIdx];
+  document.getElementById('modalTeamName').textContent = team.name;
+  document.getElementById('modalTeamRank').textContent = 'Rank ' + team.rank + ' of ' + DATA.totalTeams;
+  
+  const scoreEl = document.getElementById('modalScore');
+  scoreEl.textContent = team.teamTotal < 500 ? fmtScore(team.teamTotal) : 'N/A';
+  scoreEl.className = 'ms-value score-cell ' + scoreClass(team.teamTotal);
+
+  const lowEl = document.getElementById('modalLow');
+  lowEl.textContent = team.lowestIndividual !== null ? fmtScore(team.lowestIndividual) : '-';
+  lowEl.className = 'ms-value score-cell ' + scoreClass(team.lowestIndividual);
+
+  const csEl = document.getElementById('modalCutStatus');
+  csEl.innerHTML = team.cutMade + '<span style="font-size:14px;color:var(--text-muted)"> / 6</span>';
+  csEl.style.color = team.cutMade >= 5 ? 'var(--safe-green)' : team.cutMade === 4 ? 'var(--warn-yellow)' : 'var(--danger-red)';
+
+  const made = team.golfers.filter(g => !g.cut && g.scoreToPar !== null).sort((a,b) => a.scoreToPar - b.scoreToPar);
+  const notStarted = team.golfers.filter(g => !g.cut && g.scoreToPar === null);
+  const counting = made.slice(0, 4);
+  const bench = [...made.slice(4), ...notStarted, ...team.golfers.filter(g => g.cut)];
+
+  function golferRow(g, isCounting) {
+    const ns = isNotStarted(g);
+    return '<div class="modal-golfer' + (g.cut ? ' is-cut' : '') + (isCounting ? ' counts' : '') + (ns ? ' not-started' : '') + '">' +
+      '<div class="g-name">' + g.name + '<span class="ppv-badge">' + g.ppv + ' pts</span></div>' +
+      '<div class="g-pos">' + (g.position || (ns ? '-' : '-')) + '</div>' +
+      '<div class="g-score score-cell ' + scoreClass(g.scoreToPar) + '">' + (ns ? '-' : fmtScore(g.scoreToPar)) + '</div>' +
+      '<div class="g-thru">' + fmtThru(g) + '</div></div>';
+  }
+
+  document.getElementById('modalCountingGolfers').innerHTML = counting.length ? counting.map(g => golferRow(g, true)).join('') : '<div style="padding:8px 0;color:var(--text-dim);font-size:13px">No counting scores yet</div>';
+  document.getElementById('modalBenchGolfers').innerHTML = bench.map(g => golferRow(g, false)).join('');
+  // Hide uniqueness section by default
+  document.getElementById('modalUniqSection').style.display = 'none';
+  overlay.classList.add('open');
+}
+
+function showTeamUniq(teamIdx) {
+  showTeam(teamIdx);
+  if (!_uniqData) return;
+  const td = _uniqData.teamData.find(t => t.teamIdx === teamIdx);
+  if (!td) return;
+
+  // Build per-golfer ownership breakdown table
+  let html = '<table style="width:100%;border-collapse:collapse;font-size:13px">' +
+    '<thead><tr style="border-bottom:1px solid var(--border)">' +
+    '<th style="text-align:left;padding:6px 4px;font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">Golfer</th>' +
+    '<th style="text-align:right;padding:6px 4px;font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">PPV</th>' +
+    '<th style="text-align:right;padding:6px 4px;font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">Budget %</th>' +
+    '<th style="text-align:right;padding:6px 4px;font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">Ownership</th>' +
+    '<th style="text-align:right;padding:6px 4px;font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">Exclusivity</th>' +
+    '<th style="text-align:right;padding:6px 4px;font-size:11px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">Wtd. Contrib</th>' +
+    '</tr></thead><tbody>';
+
+  // Sort picks by weighted contribution descending (biggest movers first)
+  const sorted = [...td.picks].sort((a, b) => b.weightedContrib - a.weightedContrib);
+  sorted.forEach(p => {
+    const ownColor = p.ownershipPct <= 5 ? 'var(--safe-green)' : p.ownershipPct >= 25 ? 'var(--cut-red)' : 'var(--gold)';
+    const contrib = Math.round(p.weightedContrib * 100);
+    html += '<tr style="border-bottom:1px solid rgba(255,255,255,0.05)">' +
+      '<td style="padding:7px 4px;font-weight:600">' + p.name + '</td>' +
+      '<td style="padding:7px 4px;text-align:right;color:var(--text-muted)">' + p.ppv + '</td>' +
+      '<td style="padding:7px 4px;text-align:right;color:var(--text-dim)">' + p.ppvWeight + '%</td>' +
+      '<td style="padding:7px 4px;text-align:right;font-family:monospace;font-weight:600;color:' + ownColor + '">' + p.ownershipPct + '%</td>' +
+      '<td style="padding:7px 4px;text-align:right;font-family:monospace;color:var(--text-muted)">' + p.exclusivity + '</td>' +
+      '<td style="padding:7px 4px;text-align:right;font-family:monospace;font-weight:700;color:var(--gold)">' + contrib + '</td>' +
+      '</tr>';
+  });
+
+  const totalContrib = sorted.reduce((s, p) => s + Math.round(p.weightedContrib * 100), 0);
+  html += '<tr style="border-top:1px solid var(--border)">' +
+    '<td colspan="5" style="padding:7px 4px;font-size:12px;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">Weighted Rating</td>' +
+    '<td style="padding:7px 4px;text-align:right;font-family:monospace;font-weight:700;font-size:16px;color:var(--gold)">' + td.score + '</td></tr>';
+  html += '<tr><td colspan="5" style="padding:3px 4px;font-size:12px;color:var(--text-dim);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">Raw Score</td>' +
+    '<td style="padding:3px 4px;text-align:right;font-family:monospace;color:var(--text-muted)">' + td.rawScore + '</td></tr>';
+  html += '</tbody></table>';
+
+  document.getElementById('modalUniqBreakdown').innerHTML = html;
+  document.getElementById('modalUniqSection').style.display = 'block';
+}
+
+// Build leaderboard
+let showAll = false;
+function renderLeaderboard(filter) {
+  let teams = DATA.teams;
+  if (filter) {
+    const q = filter.toLowerCase();
+    teams = teams.filter(t => t.name.toLowerCase().includes(q));
+  }
+
+  const payoutSet = new Set(DATA.payouts.map(p => p.name));
+  const payoutMap = {};
+  DATA.payouts.forEach(p => { payoutMap[p.name] = p.amount; });
+
+  // Find where the money line and cut line are
+  let moneyLineIdx = -1;
+  let cutLineIdx = -1;
+  if (!filter) {
+    for (let i = 0; i < teams.length; i++) {
+      if (payoutSet.has(teams[i].name)) moneyLineIdx = i;
+      if (teams[i].cutStatus === 'danger' && cutLineIdx === -1) cutLineIdx = i;
+    }
+  }
+
+  const display = (showAll || filter) ? teams : teams.slice(0, Math.max(40, moneyLineIdx + 5));
+  
+  let html = '';
+  display.forEach((t, displayIdx) => {
+    const globalIdx = DATA.teams.indexOf(t);
+    const isPayout = globalIdx <= moneyLineIdx && !filter;
+    const isMoneyLine = !filter && displayIdx > 0 && globalIdx === moneyLineIdx + 1;
+    const isCutLine = !filter && cutLineIdx > 0 && globalIdx === cutLineIdx && displayIdx > 0;
+    const payout = payoutMap[t.name];
+
+    // Cut status dots
+    let dots = '';
+    for (let i = 0; i < t.cutMade; i++) dots += '<span class="cut-dot made"></span>';
+    for (let i = 0; i < (t.pending || 0); i++) dots += '<span class="cut-dot pending"></span>';
+    for (let i = 0; i < t.cutMissed; i++) dots += '<span class="cut-dot missed"></span>';
+    const summaryClass = t.cutStatus === 'safe' ? 'safe' : t.cutStatus === 'exact' ? 'exact' : 'danger';
+    const summaryText = t.cutMade + '/' + (t.cutMade + t.cutMissed + (t.pending||0));
+
+    let rowClass = '';
+    if (isMoneyLine) rowClass = 'money-line-row';
+    if (isCutLine && !isMoneyLine) rowClass = 'cut-line-row';
+
+    html += '<tr class="' + rowClass + '" onclick="showTeam(' + globalIdx + ')">';
+    
+    if (isMoneyLine) {
+      html += '<td class="rank-cell" style="position:relative"><span class="money-line-label">Payout Line</span>';
+    } else if (isCutLine) {
+      html += '<td class="rank-cell" style="position:relative"><span class="cut-line-label">Cut Danger</span>';
+    } else {
+      html += '<td class="rank-cell';
+    }
+    if (isPayout && !isMoneyLine) html += ' top';
+    html += '">';
+    if (isPayout) html += '<span class="gold-dot"></span>';
+    html += t.rank + '</td>';
+
+    const displayName = t.name.replace(/#\d+ - /, '');
+    const teamNum = t.name.match(/#\d+/)?.[0] || '';
+    html += '<td class="team-name">' + displayName + ' <span style="color:var(--text-dim);font-weight:400;font-size:12px">' + teamNum + '</span></td>';
+    html += '<td class="r score-cell ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal >= 500 ? 'N/A' : fmtScore(t.teamTotal)) + '</td>';
+    html += '<td class="r tb-cell hide-mobile">' + (t.lowestIndividual !== null ? fmtScore(t.lowestIndividual) : '-') + '</td>';
+    html += '<td class="c"><span class="cut-dots">' + dots + '</span><span class="cut-summary ' + summaryClass + '">' + summaryText + '</span></td>';
+    html += '<td class="r payout-cell hide-mobile">' + (payout ? '$' + Math.round(payout).toLocaleString() : '') + '</td>';
+    html += '</tr>';
+  });
+
+  document.getElementById('leaderboardBody').innerHTML = html;
+  
+  const btn = document.getElementById('showMoreBtn');
+  if (!filter && !showAll && display.length < teams.length) {
+    btn.style.display = 'block';
+    btn.textContent = 'Show All ' + teams.length + ' Teams';
+  } else {
+    btn.style.display = 'none';
+  }
+}
+document.getElementById('showMoreBtn').onclick = () => { showAll = true; renderLeaderboard(); };
+
+// Stats
+
+// Search
+document.getElementById('teamSearch').addEventListener('input', (e) => renderLeaderboard(e.target.value));
+
+// Golfers tab
+function renderGolfers(filter) {
+  let golfers = DATA.golfers;
+  if (filter) {
+    const q = filter.toLowerCase();
+    golfers = golfers.filter(g => g.name.toLowerCase().includes(q));
+  }
+  let html = '';
+  golfers.forEach(g => {
+    const ns = isNotStarted(g);
+    html += '<tr>' +
+      '<td class="rank-cell">' + (g.position || (ns ? '-' : '-')) + '</td>' +
+      '<td class="team-name">' + g.name + '</td>' +
+      '<td class="r" style="color:var(--text-muted)">' + g.ppv + '</td>' +
+      '<td class="r score-cell ' + scoreClass(g.scoreToPar) + '">' + (ns ? '-' : fmtScore(g.scoreToPar)) + '</td>' +
+      '<td class="c hide-mobile' + (ns ? ' not-started' : '') + '">' + fmtThru(g) + '</td>' +
+      '<td class="r hide-mobile score-cell ' + (g.today && g.today < 70 ? 'under' : g.today && g.today > 72 ? 'over' : '') + '">' + (g.today || '-') + '</td>' +
+      '<td class="r">' + (_pickCounts[g.name] || 0) + '</td></tr>';
+  });
+  document.getElementById('golferBody').innerHTML = html;
+}
+document.getElementById('golferSearch').addEventListener('input', (e) => renderGolfers(e.target.value));
+
+// PPV tab
+// Compute true pick counts from actual team rosters
+
+function renderPPV(filter) {
+  let ppvs = DATA.ppvs;
+  if (filter) {
+    const q = filter.toLowerCase();
+    ppvs = ppvs.filter(p => p.name.toLowerCase().includes(q));
+  }
+  const maxPicks = Math.max(...DATA.ppvs.map(p => _pickCounts[p.name] || 0), 1);
+  const totalTeams = DATA.teams.length;
+  let html = '';
+  ppvs.forEach(p => {
+    const count = _pickCounts[p.name] || 0;
+    const pct = Math.round(count / totalTeams * 100);
+    const barW = Math.round(count / maxPicks * 80);
+    html += '<tr><td class="team-name">' + p.name + '</td>' +
+      '<td class="r score-cell" style="color:var(--gold)">' + p.ppv + '</td>' +
+      '<td class="r">' + count + ' <span style="color:var(--text-dim);font-size:11px;font-family:monospace">(' + pct + '%)</span></td>' +
+      '<td class="r"><span class="popularity-bar" style="width:' + barW + 'px"></span></td></tr>';
+  });
+  document.getElementById('ppvBody').innerHTML = html;
+}
+document.getElementById('ppvSearch').addEventListener('input', (e) => renderPPV(e.target.value));
+
+// Payouts tab
+function renderPayouts() {
+  let html = '';
+  DATA.payouts.forEach(p => {
+    const team = DATA.teams.find(t => t.name === p.name);
+    html += '<tr><td class="rank-cell top">' + p.place + '</td>' +
+      '<td class="team-name">' + p.name + '</td>' +
+      '<td class="r score-cell ' + scoreClass(team?.teamTotal) + '">' + fmtScore(team?.teamTotal) + '</td>' +
+      '<td class="r tb-cell">' + (team?.lowestIndividual !== null ? fmtScore(team?.lowestIndividual) : '-') + '</td>' +
+      '<td class="r payout-cell">$' + Math.round(p.amount).toLocaleString() + '</td></tr>';
+  });
+  document.getElementById('payoutBody').innerHTML = html;
+}
+
+// Uniqueness tab
+function calcUniqueness() {
+  const totalTeams = DATA.teams.length;
+
+  // Step 1: ownership % for each golfer
+  const ownership = {};
+  DATA.teams.forEach(t => {
+    t.golfers.forEach(g => {
+      ownership[g.name] = (ownership[g.name] || 0) + 1;
+    });
+  });
+  Object.keys(ownership).forEach(k => { ownership[k] = ownership[k] / totalTeams; });
+
+  const teamData = DATA.teams.map((t, idx) => {
+    const budgetUsed = t.golfers.reduce((s, g) => s + g.ppv, 0) || 72;
+
+    const picks = t.golfers.map(g => {
+      const own = ownership[g.name] || 0;
+      const exclusivity = 1 - own;           // 0–1, higher = rarer
+      const ppvWeight = g.ppv / budgetUsed;  // fraction of budget this pick consumes
+      const weightedContrib = exclusivity * ppvWeight; // PPV-weighted exclusivity
+      return {
+        name: g.name,
+        ppv: g.ppv,
+        ppvWeight: Math.round(ppvWeight * 100),  // % of budget
+        ownership: own,
+        ownershipPct: Math.round(own * 100),
+        exclusivity: Math.round(exclusivity * 100),
+        weightedContrib  // raw for summing
+      };
+    });
+
+    // Raw score: equal-weight average exclusivity × 100
+    const rawScore = Math.round(picks.reduce((s, p) => s + (1 - p.ownership), 0) / picks.length * 100);
+
+    // Weighted score: PPV-weighted exclusivity sum × 100
+    // Sum of (exclusivity × ppvWeight) across 6 picks; already sums to ~1 budget, so scale by 100
+    const weightedScore = Math.round(picks.reduce((s, p) => s + p.weightedContrib, 0) * 100);
+
+    // Count rivals: teams sharing 3+ golfers
+    const myNames = new Set(t.golfers.map(g => g.name));
+    let rivals = 0;
+    DATA.teams.forEach(other => {
+      if (other.name === t.name) return;
+      if (other.golfers.filter(g => myNames.has(g.name)).length >= 3) rivals++;
+    });
+
+    return {
+      name: t.name,
+      rank: t.rank,
+      teamIdx: idx,
+      score: weightedScore,   // primary = weighted
+      rawScore,               // secondary = unweighted
+      picks: picks.sort((a, b) => a.ownership - b.ownership),
+      rivals
+    };
+  });
+
+  teamData.sort((a, b) => b.score - a.score);
+  teamData.forEach((t, i) => {
+    if (i > 0 && t.score === teamData[i-1].score) t.uniqRank = teamData[i-1].uniqRank;
+    else t.uniqRank = i + 1;
+  });
+
+  return { teamData, ownership };
+}
+
+// Store computed uniqueness globally so showTeam can access it
+let _uniqData = null;
+
+function renderUniqueness(filter) {
+  _uniqData = calcUniqueness();
+  const { teamData, ownership } = _uniqData;
+  const totalTeams = DATA.teams.length;
+
+  // Distribution histogram — auto-zoom to actual weighted score range with fine buckets
+  const allScores = teamData.map(t => t.score);
+  const minScore = Math.floor(Math.min(...allScores) / 2) * 2;
+  const maxScore = Math.ceil(Math.max(...allScores) / 2) * 2;
+  const bucketSize = 2;
+  const numBuckets = Math.max(Math.ceil((maxScore - minScore) / bucketSize), 1);
+  const buckets = new Array(numBuckets).fill(0);
+  teamData.forEach(t => {
+    const b = Math.min(Math.floor((t.score - minScore) / bucketSize), numBuckets - 1);
+    buckets[b]++;
+  });
+  const maxBucket = Math.max(...buckets, 1);
+  let distHtml = '';
+  buckets.forEach((count, i) => {
+    const lo = minScore + i * bucketSize;
+    const hi = lo + bucketSize;
+    const h = Math.max(Math.round(count / maxBucket * 100), count > 0 ? 4 : 0);
+    distHtml += '<div class="uniq-bar" style="height:' + h + '%" title="' + lo + '-' + hi + ': ' + count + ' teams"></div>';
+  });
+  document.getElementById('uniqDistChart').innerHTML = distHtml;
+  document.querySelector('.uniq-bar-label').innerHTML = '<span>' + minScore + '</span><span>Weighted Rating</span><span>' + maxScore + '</span>';
+
+  // Most polarizing picks: golfers with widest range of ownership
+  const sorted = Object.entries(ownership).sort((a, b) => b[1] - a[1]);
+  const topPicked = sorted.slice(0, 5);
+  let popHtml = '';
+  topPicked.forEach(([name, pct]) => {
+    const w = Math.round(pct * 100);
+    popHtml += '<div class="uniq-pick-bar">' +
+      '<span class="uniq-pick-name">' + name + '</span>' +
+      '<div class="uniq-pick-fill" style="width:' + w + '%;background:var(--gold);opacity:' + (0.4 + pct * 0.6) + '"></div>' +
+      '<span class="uniq-pick-pct">' + w + '%</span></div>';
+  });
+  const bottomPicked = sorted.filter(s => s[1] > 0).slice(-5).reverse();
+  bottomPicked.forEach(([name, pct]) => {
+    const w = Math.max(Math.round(pct * 100), 1);
+    popHtml += '<div class="uniq-pick-bar">' +
+      '<span class="uniq-pick-name">' + name + '</span>' +
+      '<div class="uniq-pick-fill" style="width:' + w + '%;background:var(--safe-green);opacity:0.6;min-width:2px"></div>' +
+      '<span class="uniq-pick-pct">' + w + '%</span></div>';
+  });
+  document.getElementById('uniqPopularPicks').innerHTML = popHtml;
+
+  // Table
+  let filtered = teamData;
+  if (filter) {
+    const q = filter.toLowerCase();
+    filtered = teamData.filter(t => t.name.toLowerCase().includes(q));
+  }
+
+  let html = '';
+  filtered.forEach(t => {
+    const wClass = t.score >= 85 ? 'uniq-high' : t.score >= 70 ? 'uniq-mid' : 'uniq-low';
+    const rClass = t.rawScore >= 85 ? 'uniq-high' : t.rawScore >= 70 ? 'uniq-mid' : 'uniq-low';
+    html += '<tr style="cursor:pointer" onclick="showTeamUniq(' + t.teamIdx + ')">' +
+      '<td class="rank-cell">' + t.uniqRank + '</td>' +
+      '<td class="team-name">' + t.name.replace(/#\d+ - /, '') +
+        ' <span style="color:var(--text-dim);font-weight:400;font-size:12px">' + (t.name.match(/#\d+/)?.[0] || '') + '</span>' +
+        ' <span style="color:var(--text-dim);font-size:11px;font-weight:400">Rank ' + t.rank + '</span></td>' +
+      '<td class="c"><span class="uniq-score-badge ' + wClass + '">' + t.score + '</span></td>' +
+      '<td class="c"><span class="uniq-score-badge ' + rClass + '" style="opacity:0.65">' + t.rawScore + '</span></td>' +
+      '<td class="r">' + t.rivals + '</td>' +
+      '</tr>';
+  });
+  document.getElementById('uniqBody').innerHTML = html;
+}
+document.getElementById('uniqSearch').addEventListener('input', (e) => renderUniqueness(e.target.value));
+
+// Grid tab
+function renderGrid(teamCount, highlight) {
+  teamCount = teamCount || 20;
+  const teams = teamCount === 0 ? DATA.teams : DATA.teams.slice(0, teamCount);
+  const hl = (highlight || '').toLowerCase();
+
+  // Build lookup: for each team, which golfers and are they counting?
+  const teamGolferMap = {};
+  teams.forEach((t, ti) => {
+    const made = t.golfers.filter(g => !g.cut && g.scoreToPar !== null).sort((a,b) => a.scoreToPar - b.scoreToPar);
+    const countingNames = new Set(made.slice(0, 4).map(g => g.name));
+    const allNames = {};
+    t.golfers.forEach(g => {
+      allNames[g.name] = countingNames.has(g.name) ? 'counting' : (g.cut ? 'cut' : 'bench');
+    });
+    teamGolferMap[ti] = allNames;
+  });
+
+  // Unique golfers across these teams, sorted by score
+  const golferSet = {};
+  teams.forEach(t => {
+    t.golfers.forEach(g => {
+      if (!golferSet[g.name]) golferSet[g.name] = { ...g };
+    });
+  });
+  const golfers = Object.values(golferSet).sort((a, b) => {
+    const sa = a.cut ? 999 : (a.scoreToPar ?? 998);
+    const sb = b.cut ? 999 : (b.scoreToPar ?? 998);
+    return sa - sb;
+  });
+
+  // Find where the cut line is
+  let cutIdx = -1;
+  for (let i = 0; i < golfers.length; i++) {
+    if (golfers[i].cut) { cutIdx = i; break; }
+  }
+
+  // Build table
+  let html = '<table class="grid-table"><thead><tr>';
+  html += '<th class="grid-corner">Golfer</th>';
+  teams.forEach((t, ti) => {
+    const name = t.name.replace(/#\d+ - /, '');
+    const isHl = hl && t.name.toLowerCase().includes(hl);
+    const inMoney = t.rank <= 12;
+    html += '<th class="grid-team-header' + (inMoney ? ' in-money' : '') + '"' +
+      (isHl ? ' style="background:var(--highlight)"' : '') + '>' +
+      '<span>' + name + '</span>' +
+      '<span class="grid-team-score ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal < 500 ? fmtScore(t.teamTotal) : 'N/A') + '</span></th>';
+  });
+  html += '</tr></thead><tbody>';
+
+  golfers.forEach((g, gi) => {
+    const isCutRow = gi === cutIdx;
+    html += '<tr' + (isCutRow ? ' class="grid-cut-row"' : '') + '>';
+    html += '<th><div class="g-info"><span>' + g.name +
+      ' <span class="g-ppv-badge">' + g.ppv + '</span></span>' +
+      '<span class="g-score-badge ' + scoreClass(g.scoreToPar) + '">' +
+      (g.cut ? 'CUT' : fmtScore(g.scoreToPar)) + '</span></div></th>';
+
+    teams.forEach((t, ti) => {
+      const status = teamGolferMap[ti][g.name];
+      const isHl = hl && t.name.toLowerCase().includes(hl);
+      if (status) {
+        const cls = status === 'counting' ? 'counting' : (status === 'cut' ? '' : '');
+        html += '<td class="grid-cell has-golfer' + (status === 'counting' ? ' counting' : '') + '"' +
+          (isHl ? ' style="outline:2px solid var(--gold)"' : '') + '>' +
+          '<span class="grid-dot ' + (status === 'counting' ? 'counting' : status === 'cut' ? 'cut-dot' : 'bench') + '"></span></td>';
+      } else {
+        html += '<td class="grid-cell"' + (isHl ? ' style="background:rgba(212,168,67,0.05)"' : '') + '></td>';
+      }
+    });
+    html += '</tr>';
+  });
+
+  html += '</tbody></table>';
+  document.getElementById('gridWrap').innerHTML = html;
+}
+
+document.getElementById('gridTeamCount').addEventListener('change', (e) => {
+  renderGrid(parseInt(e.target.value), document.getElementById('gridSearch').value);
+});
+document.getElementById('gridSearch').addEventListener('input', (e) => {
+  renderGrid(parseInt(document.getElementById('gridTeamCount').value), e.target.value);
+});
+
+// ── Fetch live data then render ──────────────────────────────
+function initApp(data) {
+  window.DATA = data;
+
+  // Header status / name
+  const status = DATA.status || 'Upcoming';
+  const badge = document.getElementById('statusBadge');
+  if (badge) { badge.textContent = status; if (status === 'In Progress') badge.classList.add('live'); }
+  const nameEl = document.getElementById('tournamentName');
+  if (nameEl) nameEl.textContent = DATA.tournament + ' ' + DATA.year;
+
+  // Stats bar
+  const validTeams = DATA.teams.filter(t => t.teamTotal < 500);
+  document.getElementById('statTeams').textContent = DATA.totalTeams;
+  document.getElementById('statLeader').textContent = fmtScore(DATA.teams[0]?.teamTotal);
+  const scores = validTeams.map(t => t.teamTotal);
+  document.getElementById('statAvg').textContent = scores.length
+    ? fmtScore(Math.round(scores.reduce((a,b)=>a+b,0)/scores.length))
+    : 'E';
+  const avgCut = (DATA.teams.reduce((s,t) => s + t.cutMade, 0) / DATA.teams.length).toFixed(1);
+  document.getElementById('statCut').textContent = avgCut;
+
+  // Pick counts (used by PPV + Uniqueness tabs)
+  const _pickCounts = {};
+  DATA.teams.forEach(t => {
+    t.golfers.forEach(g => {
+      _pickCounts[g.name] = (_pickCounts[g.name] || 0) + 1;
+    });
+  });
+  window._pickCounts = _pickCounts;
+
+  // Tournament header update
+  const subtitle = document.getElementById('tournSubtitle');
+  if (subtitle) {
+    let statusText = DATA.tournament + ' · ' + DATA.year;
+    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' · ' + DATA.status;
+    if (DATA.status === 'In Progress' && DATA.round) statusText += ' · Round ' + DATA.round;
+    subtitle.textContent = statusText;
+  }
+  const lastUpdEl = document.getElementById('lastUpdated');
+  if (lastUpdEl && DATA.lastUpdated) {
+    try {
+      const d = new Date(DATA.lastUpdated);
+      lastUpdEl.textContent = 'Updated ' + d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+    } catch(e) {}
+  }
+
+  renderLeaderboard();
+  renderGolfers();
+  renderGrid();
+  renderUniqueness();
+  renderPPV();
+  renderPayouts();
+}
+
+fetch('data/data.json')
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(data => initApp(data))
+  .catch(err => {
+    document.querySelector('.main-content').innerHTML =
+      '<div style="padding:60px;text-align:center;color:#f85149">' +
+      '<h2 style="margin-bottom:12px">⚠ Could not load scores</h2>' +
+      '<p style="color:#8b949e">Make sure <code>data/data.json</code> exists and the site is running from a web server.</p>' +
+      '<p style="color:#8b949e;margin-top:8px;font-size:13px">Error: ' + err.message + '</p>' +
+      '</div>';
+    console.error('Data load error:', err);
+  });
+</script>
+</body>
+</html>
