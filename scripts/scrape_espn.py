@@ -86,6 +86,8 @@ def build_scores_json(event_id, event_name, venue):
 
     golfers = []
     for p in players_raw:
+        if not isinstance(p, dict):
+            continue
         athlete = p.get("athlete", p.get("player", {}))
         name = athlete.get("displayName", athlete.get("name", "Unknown"))
 
@@ -103,7 +105,8 @@ def build_scores_json(event_id, event_name, venue):
             p.get("currentRoundScore", None)
         )
 
-        thru_raw = p.get("thru", status.get("thru", {}).get("displayValue"))
+        _thru_s = status.get("thru", {})
+        thru_raw = p.get("thru", _thru_s.get("displayValue") if isinstance(_thru_s, dict) else _thru_s)
         thru = parse_thru(thru_raw)
 
         position = p.get("position", {})
