@@ -1738,10 +1738,17 @@ function buildGrid(){
     msg.className="et-msg";
     if(!email||!email.includes("@")){msg.className="et-msg error";msg.textContent="Please enter a valid email address.";return;}
     if(!team){msg.className="et-msg error";msg.textContent="Please select your team from the dropdown.";return;}
+    var fbzx=Math.floor(Math.random()*9007199254740991).toString();
     var fd=new FormData();
     fd.append("emailAddress",email);
     fd.append("entry.1669487535",team);
     sel.forEach(function(g){fd.append("entry.591771114",g.n+" - "+g.p.toFixed(1));});
+    fd.append("emailReceipt","true");
+    fd.append("fvv","1");
+    fd.append("pageHistory","0");
+    fd.append("fbzx",fbzx);
+    fd.append("partialResponse","[null,null,\""+fbzx+"\"]");
+    fd.append("submissionTimestamp",Date.now().toString());
     document.getElementById("et-submit").disabled=true;
     fetch(FORM_URL,{method:"POST",mode:"no-cors",body:fd})
       .then(function(){
