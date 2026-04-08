@@ -489,6 +489,42 @@
     .hide-mobile { display: none; }
     .modal-stats { grid-template-columns: 1fr 1fr; }
   }
+  /* ── Enter Team ── */
+  .et-wrap{max-width:820px;margin:0 auto;padding:20px 16px 40px}
+  .et-card{background:var(--surface);border:1px solid rgba(212,168,67,.2);border-radius:12px;padding:28px 24px}
+  .et-title{font-size:22px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin:0 0 4px;text-align:center}
+  .et-subtitle{color:rgba(255,255,255,.55);font-size:13px;text-align:center;margin:0 0 20px}
+  .et-budget{background:rgba(0,0,0,.3);border-radius:8px;padding:14px 16px;margin-bottom:16px}
+  .et-budget-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .et-budget-lbl{font-size:13px;color:rgba(255,255,255,.6)}
+  .et-budget-val{font-size:14px;font-weight:700;color:var(--gold)}
+  .et-bar-track{height:8px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden}
+  .et-bar-fill{height:100%;background:var(--gold);border-radius:4px;transition:width .25s,background .25s;width:0%}
+  .et-bar-fill.over{background:#e05555}
+  .et-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:28px;margin-bottom:16px;align-items:center}
+  .et-chip{background:rgba(212,168,67,.15);border:1px solid var(--gold);border-radius:20px;padding:3px 10px;font-size:12px;color:var(--gold);display:flex;align-items:center;gap:5px}
+  .et-chip-x{cursor:pointer;opacity:.7;font-size:13px;line-height:1}.et-chip-x:hover{opacity:1}
+  .et-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+  @media(max-width:580px){.et-fields{grid-template-columns:1fr}}
+  .et-field label{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:5px}
+  .et-field input,.et-field select{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(212,168,67,.25);border-radius:6px;padding:9px 11px;color:#fff;font-size:14px;box-sizing:border-box}
+  .et-field select option{background:#1a1a1a}
+  .et-golfers-hdr{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px;display:flex;justify-content:space-between}
+  .et-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:7px;margin-bottom:22px;max-height:400px;overflow-y:auto;padding-right:3px}
+  .et-golfer{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:9px 11px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:all .15s;user-select:none}
+  .et-golfer:hover:not(.et-disabled){border-color:rgba(212,168,67,.4);background:rgba(212,168,67,.07)}
+  .et-golfer.et-sel{background:rgba(212,168,67,.18);border-color:var(--gold)}
+  .et-golfer.et-disabled{opacity:.32;cursor:not-allowed}
+  .et-golfer-name{font-size:12px;color:rgba(255,255,255,.88)}
+  .et-golfer.et-sel .et-golfer-name{color:var(--gold);font-weight:600}
+  .et-golfer-pts{font-size:11px;color:rgba(212,168,67,.65);font-weight:600;white-space:nowrap}
+  .et-golfer.et-sel .et-golfer-pts{color:var(--gold)}
+  .et-submit-btn{width:100%;padding:13px;background:var(--gold);color:#0a1a0a;font-size:15px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;transition:opacity .2s}
+  .et-submit-btn:disabled{opacity:.28;cursor:not-allowed}
+  .et-submit-btn:not(:disabled):hover{opacity:.85}
+  .et-msg{margin-top:12px;text-align:center;font-size:14px;border-radius:6px;padding:10px 14px;display:none}
+  .et-msg.success{background:rgba(80,180,80,.15);border:1px solid rgba(80,180,80,.4);color:#7de07d;display:block}
+  .et-msg.error{background:rgba(220,60,60,.15);border:1px solid rgba(220,60,60,.4);color:#f08080;display:block}
 </style>
 </head>
 <body>
@@ -529,6 +565,7 @@
     <button class="nav-tab" data-tab="ppv">Point Values</button>
     <button class="nav-tab" data-tab="payouts">Payouts</button>
     <button class="nav-tab" data-tab="uniqueness">Uniqueness</button>
+    <button class="nav-tab" data-tab="enterteam">Enter Team</button>
   </div>
 </div>
 
@@ -623,11 +660,11 @@
     </div>
     <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-top:16px;font-size:13px;color:var(--text-muted);line-height:1.7">
       <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);margin-bottom:8px;font-weight:600">Methodology</div>
-      <p style="margin-bottom:8px">Every golfer has an <strong style="color:var(--text)">ownership rate</strong> â the percentage of teams in the pool that picked them. A golfer selected by 5 of 182 teams has 2.7% ownership; one on 40 teams has 22%. The inverse â how many teams <em>didn't</em> pick them â is their <strong style="color:var(--text)">exclusivity</strong>.</p>
+      <p style="margin-bottom:8px">Every golfer has an <strong style="color:var(--text)">ownership rate</strong> Ã¢ÂÂ the percentage of teams in the pool that picked them. A golfer selected by 5 of 182 teams has 2.7% ownership; one on 40 teams has 22%. The inverse Ã¢ÂÂ how many teams <em>didn't</em> pick them Ã¢ÂÂ is their <strong style="color:var(--text)">exclusivity</strong>.</p>
       <p style="margin-bottom:8px">The <strong style="color:var(--text)">Weighted Rating</strong> (primary) multiplies each pick's exclusivity by its share of the team's 72-point budget before averaging. A 14-point player picked by 5% of teams contributes roughly twice as much to your rating as an 8-point player at the same ownership, because that expensive pick defines your roster more fundamentally. Click any team to see the per-golfer breakdown.</p>
-      <p style="margin-bottom:8px">The <strong style="color:var(--text)">Raw Score</strong> (secondary) treats all 6 picks equally regardless of PPV â a simple average of exclusivities. Comparing the two tells a story: a big gap means your uniqueness is concentrated either in your stars (weighted &gt; raw) or in your value picks (raw &gt; weighted).</p>
-      <p style="margin-bottom:8px"><strong style="color:var(--text)">Rivals</strong> counts teams sharing 3 or more golfers with you. High rival counts mean your fate is tied to many others â your wins are their wins too.</p>
-      <p style="margin:0">A high rating isn't inherently better â popular picks are popular for a reason. But if you're hunting for a big payday, a contrarian roster gives you more separation from the field when your guys run hot.</p>
+      <p style="margin-bottom:8px">The <strong style="color:var(--text)">Raw Score</strong> (secondary) treats all 6 picks equally regardless of PPV Ã¢ÂÂ a simple average of exclusivities. Comparing the two tells a story: a big gap means your uniqueness is concentrated either in your stars (weighted &gt; raw) or in your value picks (raw &gt; weighted).</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Rivals</strong> counts teams sharing 3 or more golfers with you. High rival counts mean your fate is tied to many others Ã¢ÂÂ your wins are their wins too.</p>
+      <p style="margin:0">A high rating isn't inherently better Ã¢ÂÂ popular picks are popular for a reason. But if you're hunting for a big payday, a contrarian roster gives you more separation from the field when your guys run hot.</p>
     </div>
   </div>
 
@@ -692,6 +729,33 @@
         <tbody id="payoutBody"></tbody>
       </table>
     </div>
+
+  <!-- ENTER TEAM -->
+  <div class="section" id="sec-enterteam">
+    <div class="et-wrap">
+      <div class="et-card">
+        <h2 class="et-title">Enter Your Team</h2>
+        <p class="et-subtitle">Select exactly 6 golfers &middot; 72-point maximum budget</p>
+        <div class="et-budget">
+          <div class="et-budget-top">
+            <span class="et-budget-lbl">Points Used</span>
+            <span class="et-budget-val"><span id="et-pts">0.0</span> / 72.0 &nbsp;&middot;&nbsp; <span id="et-cnt">0</span> / 6 golfers</span>
+          </div>
+          <div class="et-bar-track"><div class="et-bar-fill" id="et-bar"></div></div>
+        </div>
+        <div class="et-chips" id="et-chips"><span style="color:rgba(255,255,255,.3);font-size:13px">No golfers selected yet</span></div>
+        <div class="et-fields">
+          <div class="et-field"><label>Email *</label><input type="email" id="et-email" placeholder="your@email.com"></div>
+          <div class="et-field"><label>Your Team *</label><select id="et-team"><option value="">-- Select your team --</option></select></div>
+        </div>
+        <div class="et-golfers-hdr"><span>Golfers</span><span id="et-rem">72.0 pts remaining</span></div>
+        <div class="et-grid" id="et-grid"></div>
+        <button class="et-submit-btn" id="et-submit" disabled>Submit Team</button>
+        <div class="et-msg" id="et-msg"></div>
+      </div>
+    </div>
+  </div>
+
   </div>
 
 </div>
@@ -1042,7 +1106,7 @@ function calcUniqueness() {
 
     const picks = t.golfers.map(g => {
       const own = ownership[g.name] || 0;
-      const exclusivity = 1 - own;           // 0â1, higher = rarer
+      const exclusivity = 1 - own;           // 0Ã¢ÂÂ1, higher = rarer
       const ppvWeight = g.ppv / budgetUsed;  // fraction of budget this pick consumes
       const weightedContrib = exclusivity * ppvWeight; // PPV-weighted exclusivity
       return {
@@ -1056,11 +1120,11 @@ function calcUniqueness() {
       };
     });
 
-    // Raw score: equal-weight average exclusivity Ã 100
+    // Raw score: equal-weight average exclusivity ÃÂ 100
     const rawScore = Math.round(picks.reduce((s, p) => s + (1 - p.ownership), 0) / picks.length * 100);
 
-    // Weighted score: PPV-weighted exclusivity sum Ã 100
-    // Sum of (exclusivity Ã ppvWeight) across 6 picks; already sums to ~1 budget, so scale by 100
+    // Weighted score: PPV-weighted exclusivity sum ÃÂ 100
+    // Sum of (exclusivity ÃÂ ppvWeight) across 6 picks; already sums to ~1 budget, so scale by 100
     const weightedScore = Math.round(picks.reduce((s, p) => s + p.weightedContrib, 0) * 100);
 
     // Count rivals: teams sharing 3+ golfers
@@ -1099,7 +1163,7 @@ function renderUniqueness(filter) {
   const { teamData, ownership } = _uniqData;
   const totalTeams = DATA.teams.length;
 
-  // Distribution histogram â auto-zoom to actual weighted score range with fine buckets
+  // Distribution histogram Ã¢ÂÂ auto-zoom to actual weighted score range with fine buckets
   const allScores = teamData.map(t => t.score);
   const minScore = Math.floor(Math.min(...allScores) / 2) * 2;
   const maxScore = Math.ceil(Math.max(...allScores) / 2) * 2;
@@ -1252,7 +1316,7 @@ document.getElementById('gridSearch').addEventListener('input', (e) => {
   renderGrid(parseInt(document.getElementById('gridTeamCount').value), e.target.value);
 });
 
-// ââ Fetch live data then render ââââââââââââââââââââââââââââââ
+// Ã¢ÂÂÃ¢ÂÂ Fetch live data then render Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂÃ¢ÂÂ
 function initApp(data) {
   window.DATA = data;
 
@@ -1286,9 +1350,9 @@ function initApp(data) {
   // Tournament header update
   const subtitle = document.getElementById('tournSubtitle');
   if (subtitle) {
-    let statusText = DATA.tournament + ' Â· ' + DATA.year;
-    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' Â· ' + DATA.status;
-    if (DATA.status === 'In Progress' && DATA.round) statusText += ' Â· Round ' + DATA.round;
+    let statusText = DATA.tournament + ' ÃÂ· ' + DATA.year;
+    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' ÃÂ· ' + DATA.status;
+    if (DATA.status === 'In Progress' && DATA.round) statusText += ' ÃÂ· Round ' + DATA.round;
     subtitle.textContent = statusText;
   }
   const lastUpdEl = document.getElementById('lastUpdated');
@@ -1316,12 +1380,361 @@ fetch('data/data.json')
   .catch(err => {
     document.querySelector('.main-content').innerHTML =
       '<div style="padding:60px;text-align:center;color:#f85149">' +
-      '<h2 style="margin-bottom:12px">â  Could not load scores</h2>' +
+      '<h2 style="margin-bottom:12px">Ã¢ÂÂ  Could not load scores</h2>' +
       '<p style="color:#8b949e">Make sure <code>data/data.json</code> exists and the site is running from a web server.</p>' +
       '<p style="color:#8b949e;margin-top:8px;font-size:13px">Error: ' + err.message + '</p>' +
       '</div>';
     console.error('Data load error:', err);
   });
+
+
+// ── Enter Team Form ──
+(function(){
+  var BUDGET=72.0, REQUIRED=6;
+  var FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLScL3PwKV6Y2r9z5g0RSf74kgYlGi_-TAil1KclSURTLGKsT9w/formResponse";
+  var TEAMS=[
+    "#1 - Dylan Morris",
+    "#2 - Chris Chiles",
+    "#3 - Jim Pendergast",
+    "#4 - David Kater",
+    "#5 - Brody Connolly",
+    "#6 - Kerry Coker",
+    "#7 - Wesley Osborne",
+    "#8 - Corey Neilson",
+    "#9 - Ryan Dunn",
+    "#10 - Brett Bitove",
+    "#11 - Chris Ernst",
+    "#12 - Eric Taylor",
+    "#13 - George Simon",
+    "#14 - Jordan Graumann",
+    "#15 - Keith Taylor",
+    "#16 - Nick Simon",
+    "#17 - J.J. Bitove",
+    "#18 - Piper Morris",
+    "#19 - Will Rawley",
+    "#20 - Garth Tymeson",
+    "#21 - Kyle Tymeson",
+    "#22 - Ed Sclater",
+    "#23 - Kyle Dalton",
+    "#24 - Aaron Crandall",
+    "#25 - Chris Coleman",
+    "#26 - Dan Marsh",
+    "#27 - Jay Evans",
+    "#28 - John Krall",
+    "#29 - Joshua Marsh",
+    "#30 - Kevin Oakes",
+    "#31 - Michael Reardon",
+    "#32 - Paul Hussmann",
+    "#33 - Peter Willingham",
+    "#34 - Scott Kater",
+    "#35 - Jon Warford",
+    "#36 - Adam Stone",
+    "#37 - Ben Freedland",
+    "#38 - Brad Kropp",
+    "#39 - Chris Whipple",
+    "#40 - Danny Grimes",
+    "#41 - Elliot Krochmalny",
+    "#42 - Gary Gambetta",
+    "#43 - Jack Knauss",
+    "#44 - James Glenn",
+    "#45 - Joseph Kirby",
+    "#46 - Josh Phillips",
+    "#47 - Ken Koncilja",
+    "#48 - Kevin Beers",
+    "#49 - Mark Grady",
+    "#50 - Matt Krochmalny",
+    "#51 - Matthew Stephens",
+    "#52 - Michael Skiles",
+    "#53 - Nelson Adcock",
+    "#54 - Nick Provenzo",
+    "#55 - Ryan Dalton",
+    "#56 - Eric Platt",
+    "#57 - Kellen Lund",
+    "#58 - Chris Polony",
+    "#59 - Dale Davis",
+    "#60 - Aaron Crist",
+    "#61 - Adam Ewald",
+    "#62 - Alex Sklar",
+    "#63 - Ben Phillips",
+    "#64 - Blake Morris",
+    "#65 - Brad Jalovec",
+    "#66 - Braden Dalton",
+    "#67 - Brian Sikel",
+    "#68 - Bryant Palmer",
+    "#69 - Chase Neilson",
+    "#70 - Chris Caesar",
+    "#71 - Chuck Droege",
+    "#72 - Craig Hill",
+    "#73 - Dan Judge",
+    "#74 - Dominic Musarra",
+    "#75 - Don Hill",
+    "#76 - Doug Logan",
+    "#77 - Drew Chintala",
+    "#78 - George Beran",
+    "#79 - Gordy Grafflin",
+    "#80 - Haines Maxwell",
+    "#81 - Hunter DeCoudres",
+    "#82 - Hunter Rice",
+    "#83 - Jamie Allen",
+    "#84 - Jason Skaggs",
+    "#85 - Jason Wachs",
+    "#86 - Jayanth Swathirajan",
+    "#87 - Jeffrey Little",
+    "#88 - Jeremy Meyer",
+    "#89 - Jerry Von Deylen",
+    "#90 - John Tierney",
+    "#91 - Jon Von Deylen",
+    "#92 - Kelin Althoff",
+    "#93 - Kevin Ball",
+    "#94 - Kevin Rose",
+    "#95 - Luke Sedler",
+    "#96 - Marc Foster",
+    "#97 - Mark Bernstein",
+    "#98 - Matt Henderson",
+    "#99 - Matt Nieman",
+    "#100 - Matthew Perry",
+    "#101 - Matthew Spering",
+    "#102 - Michael Molnar",
+    "#103 - Mickey Knauss",
+    "#104 - Mike Alexander",
+    "#105 - Mike Lundy",
+    "#106 - Murray Matheson",
+    "#107 - Nathan Ill",
+    "#108 - Nick Dose",
+    "#109 - Nick Dunn",
+    "#110 - Patrick Eberle",
+    "#111 - Paul Meyer",
+    "#112 - Porter Sesnon",
+    "#113 - Rob Meussner",
+    "#114 - Royce Jones - 1",
+    "#115 - Royce Jones - 2",
+    "#116 - Ryan Furrer",
+    "#117 - Ryan Shane",
+    "#118 - Ryan Skaggs",
+    "#119 - Scott Hole",
+    "#120 - Scott Jell",
+    "#121 - Sean Kelleher",
+    "#122 - Sean McKeon",
+    "#123 - Steve Francis",
+    "#124 - Steven Kolodny",
+    "#125 - Tim Shields",
+    "#126 - Tim Shields and KD",
+    "#127 - Timbes Riley",
+    "#128 - Todd Casabella",
+    "#129 - Tyler Miller",
+    "#130 - Vince Massoli",
+    "#131 - Wanda Warford",
+    "#132 - John Westrup",
+    "#133 - Dan Winters",
+    "#134 - Jason Hulbert",
+    "#135 - Joe Clifford & Bill Okeefe",
+    "#136 - Joe Clifford & Steve Shaughnessy",
+    "#137 - Jake Osterfeld",
+    "#138 - Kyle Tully",
+    "#139 - Ish Bhalla",
+    "#140 - Jamie Jelinek",
+    "#141 - Alec Knauss",
+    "#142 - Ally Wylie",
+    "#143 - Andrew Wernick",
+    "#144 - Bill Hunt",
+    "#145 - Jamie Ostarchvic",
+    "#146 - Kenny Leavitt",
+    "#147 - Kevin Tully",
+    "#148 - Kyle Kolbet",
+    "#149 - Luke Miller",
+    "#150 - Matthew Somerman",
+    "#151 - Michael Kirstein",
+    "#152 - Nate Coleman and Greg Worden",
+    "#153 - Randy Roggow",
+    "#154 - Jack Lane",
+    "#155 - Jeremy Rosen",
+    "#156 - Joseph Riley",
+    "#157 - Drew Bell",
+    "#158 - Jesse Schultz",
+    "#159 - Nate Coleman & Jesse Schultz",
+    "#160 - Nick Stout",
+    "#161 - Stephen Meek",
+    "#162 - Tierney, Tauber, Wood, Taylor LLC",
+    "#163 - Whitney Saulsberry",
+    "#164 - Zachery Wentz",
+    "#165 - Rob James",
+    "#166 - Neil Coughlin",
+    "#167 - Alex Hierlmeier",
+    "#168 - Sam Crist",
+    "#169 - Brandon Jones",
+    "#170 - Peter Gilfillan",
+    "#171 - Robert McAllister",
+    "#172 - Bradley Pierce",
+    "#173 - Kevin Wear",
+    "#174 - Brian Letzelter",
+    "#175 - David Phillips",
+    "#176 - Dennis Carroll",
+    "#177 - Steve Astrein",
+    "#178 - James Wright",
+    "#179 - Alex Griffiths",
+    "#180 - David Fliehs"
+  ];
+  var GOLFERS=[
+    {n:"Scottie Scheffler",p:17.7},
+    {n:"Rory McIlroy",p:15.7},
+    {n:"Bryson DeChambeau",p:15.5},
+    {n:"Jon Rahm",p:15.3},
+    {n:"Ludvig Aberg",p:14.8},
+    {n:"Xander Schauffele",p:14.5},
+    {n:"Tommy Fleetwood",p:14.1},
+    {n:"Collin Morikawa",p:14},
+    {n:"Cameron Young",p:14},
+    {n:"Justin Rose",p:13.8},
+    {n:"Patrick Reed",p:13.7},
+    {n:"Hideki Matsuyama",p:13.4},
+    {n:"Viktor Hovland",p:13.3},
+    {n:"Matt Fitzpatrick",p:13.1},
+    {n:"Robert MacIntyre",p:13},
+    {n:"Brooks Koepka",p:12.8},
+    {n:"Jordan Spieth",p:12.7},
+    {n:"Justin Thomas",p:12.4},
+    {n:"Shane Lowry",p:12.2},
+    {n:"Tyrrell Hatton",p:12.1},
+    {n:"Chris Gotterup",p:11.8},
+    {n:"Sepp Straka",p:11.8},
+    {n:"Patrick Cantlay",p:11.7},
+    {n:"Russell Henley",p:11.7},
+    {n:"Akshay Bhatia",p:11.5},
+    {n:"Si Woo Kim",p:11.5},
+    {n:"Min Woo Lee",p:11.2},
+    {n:"Corey Conners",p:11.2},
+    {n:"Ben Griffin",p:11},
+    {n:"Jason Day",p:11},
+    {n:"J.J. Spaun",p:11},
+    {n:"Cameron Smith",p:10.9},
+    {n:"Sungjae Im",p:10.9},
+    {n:"Nicolai Hojgaard",p:10.9},
+    {n:"Jacob Bridgeman",p:10.8},
+    {n:"Sam Burns",p:10.8},
+    {n:"Jake Knapp",p:10.8},
+    {n:"Harris English",p:10.6},
+    {n:"Max Homa",p:10.6},
+    {n:"Marco Penge",p:10.6},
+    {n:"Gary Woodland",p:10.6},
+    {n:"Adam Scott",p:10.4},
+    {n:"Maverick McNealy",p:10.4},
+    {n:"Wyndham Clark",p:10.2},
+    {n:"Ryan Fox",p:10.2},
+    {n:"Sergio Garcia",p:10.2},
+    {n:"Daniel Berger",p:10.2},
+    {n:"Alex Noren",p:10.1},
+    {n:"Dustin Johnson",p:10.1},
+    {n:"Keegan Bradley",p:10.1},
+    {n:"Tom McKibbin",p:9.9},
+    {n:"Rasmus Hojgaard",p:9.9},
+    {n:"Harry Hall",p:9.9},
+    {n:"Kurt Kitayama",p:9.8},
+    {n:"Ryan Gerard",p:9.8},
+    {n:"Aaron Rai",p:9.8},
+    {n:"Rasmus Neergaard-Petersen",p:9.6},
+    {n:"John Keefer",p:9.6},
+    {n:"Nicolas Echavarria",p:9.6},
+    {n:"Michael Kim",p:9.6},
+    {n:"Michael Brennan",p:9.5},
+    {n:"Casey Jarvis",p:9.5},
+    {n:"Carlos Ortiz",p:9.5},
+    {n:"Max Greyserman",p:9.5},
+    {n:"Sami Valimaki",p:9.4},
+    {n:"Brian Harman",p:9.4},
+    {n:"Nick Taylor",p:9.4},
+    {n:"Matthew McCarty",p:9.4},
+    {n:"Andrew Novak",p:9.2},
+    {n:"Sam Stevens",p:9.2},
+    {n:"Davis Riley",p:9.2},
+    {n:"Kristoffer Reitan",p:9.1},
+    {n:"Hao-Tong Li",p:9.1},
+    {n:"Charl Schwartzel",p:9.1},
+    {n:"Bubba Watson",p:9.1},
+    {n:"Zach Johnson",p:9.1},
+    {n:"Aldrich Potgieter",p:8.9},
+    {n:"Naoyuki Kataoka",p:8.9},
+    {n:"Brian Campbell",p:8.9},
+    {n:"Danny Willett",p:8.9},
+    {n:"Jackson Herrington",p:8.9},
+    {n:"Angel Cabrera",p:8.8},
+    {n:"Ethan Fang",p:8.8},
+    {n:"Brandon Holtz",p:8.8},
+    {n:"Fifa Laopakdee",p:8.8},
+    {n:"Vijay Singh",p:8.8},
+    {n:"Mason Howell",p:8.6},
+    {n:"Fred Couples",p:8.6},
+    {n:"Mike Weir",p:8.6},
+    {n:"Mateo Pulcini",p:8.6},
+    {n:"Jose Maria Olazabal",p:8.6}
+  ];
+  var sel=[];
+  function totalPts(){return Math.round(sel.reduce(function(s,g){return s+g.p;},0)*10)/10;}
+  function updateUI(){
+    var pts=totalPts(), cnt=sel.length, rem=Math.round((BUDGET-pts)*10)/10;
+    document.getElementById("et-pts").textContent=pts.toFixed(1);
+    document.getElementById("et-cnt").textContent=cnt;
+    document.getElementById("et-rem").textContent=rem.toFixed(1)+" pts remaining";
+    var bar=document.getElementById("et-bar");
+    bar.style.width=Math.min(pts/BUDGET*100,100)+"%";
+    bar.className="et-bar-fill"+(pts>BUDGET?" over":"");
+    var chips=document.getElementById("et-chips");
+    if(sel.length===0){chips.innerHTML='<span style="color:rgba(255,255,255,.3);font-size:13px">No golfers selected yet</span>';}
+    else{chips.innerHTML=sel.map(function(g){return'<div class="et-chip">'+g.n+' ('+g.p+')'+ '<span class="et-chip-x" data-n="'+g.n+'">&#10005;</span></div>';}).join("");
+      chips.querySelectorAll(".et-chip-x").forEach(function(x){x.addEventListener("click",function(){desel(x.dataset.n);});});}
+    document.querySelectorAll(".et-golfer").forEach(function(card){
+      var isSel=sel.some(function(g){return g.n===card.dataset.n;});
+      var wouldOver=!isSel&&(pts+parseFloat(card.dataset.p)>BUDGET);
+      var full=!isSel&&cnt>=REQUIRED;
+      card.className="et-golfer"+(isSel?" et-sel":"")+((wouldOver||full)?" et-disabled":"");
+    });
+    document.getElementById("et-submit").disabled=!(cnt===REQUIRED&&pts<=BUDGET);
+  }
+  function desel(name){sel=sel.filter(function(g){return g.n!==name;});updateUI();}
+  function buildGrid(){
+    var grid=document.getElementById("et-grid");
+    grid.innerHTML=GOLFERS.map(function(g){return'<div class="et-golfer" data-n="'+g.n+'" data-p="'+g.p+'"><span class="et-golfer-name">'+g.n+'</span><span class="et-golfer-pts">'+g.p.toFixed(1)+'</span></div>';}).join("");
+    grid.querySelectorAll(".et-golfer").forEach(function(card){
+      card.addEventListener("click",function(){
+        if(card.classList.contains("et-sel")){desel(card.dataset.n);}
+        else if(!card.classList.contains("et-disabled")){sel.push({n:card.dataset.n,p:parseFloat(card.dataset.p)});updateUI();}
+      });
+    });
+  }
+  function buildTeams(){
+    var s=document.getElementById("et-team");
+    TEAMS.forEach(function(t){var o=document.createElement("option");o.value=t;o.textContent=t;s.appendChild(o);});
+  }
+  document.getElementById("et-submit").addEventListener("click",function(){
+    var email=document.getElementById("et-email").value.trim();
+    var team=document.getElementById("et-team").value;
+    var msg=document.getElementById("et-msg");
+    msg.className="et-msg";
+    if(!email||!email.includes("@")){msg.className="et-msg error";msg.textContent="Please enter a valid email address.";return;}
+    if(!team){msg.className="et-msg error";msg.textContent="Please select your team from the dropdown.";return;}
+    var fd=new FormData();
+    fd.append("emailAddress",email);
+    fd.append("entry.1669487535",team);
+    sel.forEach(function(g){fd.append("entry.591771114",g.n+" - "+g.p.toFixed(1));});
+    document.getElementById("et-submit").disabled=true;
+    fetch(FORM_URL,{method:"POST",mode:"no-cors",body:fd})
+      .then(function(){
+        msg.className="et-msg success";
+        msg.textContent="\u2713 Team submitted! A confirmation will be sent to "+email;
+        sel=[];document.getElementById("et-email").value="";
+        document.getElementById("et-team").value="";updateUI();
+      }).catch(function(){
+        msg.className="et-msg error";
+        msg.textContent="Submission failed. Please try again.";
+        document.getElementById("et-submit").disabled=false;
+      });
+  });
+  var _etInit=false;
+  document.querySelectorAll(".nav-tab").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      if(btn.dataset.tab==="enterteam"&&!_etInit){buildGrid();buildTeams();_etInit=true;}
+    });
+  });
+})();
 </script>
 </body>
 </html>
