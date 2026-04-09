@@ -1,44 +1,21 @@
 """
 MMC Golf - ESPN Leaderboard Scraper
-Fetches live scores from ESPN's API and writes data/scores.json
-Runs via GitHub Actions every 5 minutes during tournaments.
+Fetches live scores from ESPN's API and writes data/scores.json.
 """
 
 import json
-import requests
-import re
 import os
+import requests
 from datetime import datetime, timezone
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-}
-
-# ESPN's undocumented but stable public API
-SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard"
-LEADERBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?event={event_id}"
-
-
-def fetch_current_event_id():
-    """Auto-discover the active or most recent tournament event ID."""
-    r = requests.get(SCOREBOARD_URL, headers=HEADERS, timeout=15)
-    r.raise_for_status()
-    data = r.json()
-    events = data.get("events", [])
-    if not events:
-        raise ValueError("No active golf events found on ESPN scoreboard")
-    # Prefer the first active event; fall back to the first listed
-    for event in events:
-        status = event.get("status", {}).get("type", {}).get("name", "")
-        if status in ("STATUS_IN_PROGRESS", "STATUS_SCHEDULED"):
-            return event["id"], event.get("name", "Tournament"), event.get("competitions", [{}])[0].get("venue", {}).get("fullName", "")
-    # Fall back to first event (could be recently completed)
-    e = events[0]
-    return e["id"], e.get("name", "Tournament"), e.get("competitions", [{}])[0].get("venue", {}).get("fullName", "")
+DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=pga"
+LEADERBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=pga&event={event_id}"
+HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 
 def parse_score(value):
-    """Convert ESPN score string to integer. 'E' -> 0, '-5' -> -5, '+3' -> 3."""
+    """Parse score string like '+4', '-2', 'E' into integer."""
     if value is None:
         return None
     v = str(value).strip()
@@ -50,14 +27,23 @@ def parse_score(value):
         return None
 
 
-def parse_thru(value):
-    """Parse thru value - returns hole number, 'F', or tee time string."""
-    if value is None:
-        return None
-    v = str(value).strip()
-    if v in ("", "-"):
-        return None
-    return v
+def fetch_current_event_id():
+    """Auto-discover the active tournament event ID."""
+    r = requests.get(SCOREBOARD_URL, headers=HEADERS, timeout=15)
+    r.raise_for_status()
+    data = r.json()
+    events = data.get("events", [])
+    if not events:
+        raise ValueError("No events found in ESPN scoreboard response")
+    event = events[0]
+    event_id = event["id"]
+    event_name = event.get("name", "Unknown Tournament")
+    venue = ""
+    try:
+        venue = event["competitions"][0]["venue"]["fullName"]
+    except (KeyError, IndexError):
+        pass
+    return event_id, event_name, venue
 
 
 def fetch_leaderboard(event_id):
@@ -72,71 +58,70 @@ def build_scores_json(event_id, event_name, venue):
     """Parse ESPN leaderboard JSON into our data format."""
     raw = fetch_leaderboard(event_id)
 
-    # Navigate to competitors list
-    competition = raw.get("leaderboard", {})
-    players_raw = competition.get("players", [])
-
-    # Fallback: try events path
-    if not players_raw:
-        events = raw.get("events", [])
-        if events:
-            comps = events[0].get("competitions", [])
-            if comps:
-                players_raw = comps[0].get("competitors", [])
+    try:
+        competition = raw["events"][0]["competitions"][0]
+        players_raw = competition["competitors"]
+    except (KeyError, IndexError):
+        players_raw = []
+        competition = {}
 
     golfers = []
     for p in players_raw:
-        if not isinstance(p, dict):
-            continue
-        athlete = p.get("athlete", p.get("player", {}))
+        athlete = p.get("athlete", {})
         name = athlete.get("displayName", athlete.get("name", "Unknown"))
 
-        # Strip country prefix if present (ESPN sometimes prepends flag/country)
-        # e.g. "United StatesScottie Scheffler" -> "Scottie Scheffler"
-        name = re.sub(r"^[A-Z][a-z].*?(?=[A-Z][a-z]+\s[A-Z])", "", name).strip()
+        score_display = p.get("score", {}).get("displayValue", None)
+        score_to_par = parse_score(score_display)
 
-        stats = p.get("statistics", p.get("linescores", []))
+        linescores = p.get("linescores", [])
+        today = None
+        if linescores:
+            today = parse_score(linescores[-1].get("displayValue"))
+
         status = p.get("status", {})
+        thru_raw = status.get("thru", None)
+        if thru_raw is not None:
+            thru_int = int(thru_raw)
+            status_name = status.get("type", {}).get("name", "")
+            if thru_int == 18 and status_name == "STATUS_FINISH":
+                thru = "F"
+            elif thru_int == 0:
+                thru = None
+            else:
+                thru = str(thru_int)
+        else:
+            thru = None
 
-        score_to_par = parse_score(
-            p.get("total", status.get("thruHoleScore", None))
-        )
-        today = parse_score(
-            p.get("currentRoundScore", None)
-        )
-
-        _thru_s = status.get("thru", {})
-        thru_raw = p.get("thru", _thru_s.get("displayValue") if isinstance(_thru_s, dict) else _thru_s)
-        thru = parse_thru(thru_raw)
-
-        position = p.get("position", {})
-        pos_display = position.get("displayName", position) if isinstance(position, dict) else str(position)
-
-        cut = p.get("status", {}).get("type", {}).get("name", "") == "STATUS_CUT"
-        if not cut and score_to_par is not None and score_to_par >= 999:
-            cut = True
+        pos_display = status.get("position", {}).get("displayName", "")
+        cut = status.get("type", {}).get("name", "") == "STATUS_CUT"
 
         golfers.append({
             "name": name,
-            "position": pos_display,
+            "position": {"displayName": pos_display} if pos_display else {},
             "scoreToPar": score_to_par,
             "today": today,
             "thru": thru,
             "cut": cut
         })
 
-    # Determine tournament status
-    status_type = raw.get("status", {}).get("type", {}).get("name", "")
-    if status_type == "STATUS_IN_PROGRESS":
+    try:
+        comp_status = competition["status"]["type"]["name"]
+    except KeyError:
+        comp_status = ""
+
+    if comp_status == "STATUS_IN_PROGRESS":
         status = "In Progress"
-    elif status_type == "STATUS_FINAL":
+    elif comp_status == "STATUS_FINAL":
         status = "Final"
-    elif status_type == "STATUS_SCHEDULED":
+    elif comp_status == "STATUS_SCHEDULED":
         status = "Upcoming"
     else:
-        status = status_type or "Unknown"
+        status = comp_status or "Unknown"
 
-    current_round = raw.get("status", {}).get("period", 1)
+    try:
+        current_round = competition["status"]["period"]
+    except KeyError:
+        current_round = 1
 
     return {
         "tournament": event_name,
@@ -160,17 +145,15 @@ def main():
 
     try:
         scores = build_scores_json(event_id, event_name, venue)
-        print(f"  Parsed {len(scores['golfers'])} players | Status: {scores['status']}")
+        print(f"  Parsed {len(scores['golfers'])} players | Status: {scores['status']} | Round: {scores['round']}")
     except Exception as e:
         print(f"  ERROR parsing leaderboard: {e}")
         raise
 
-    out_path = os.path.join(os.path.dirname(__file__), "..", "data", "scores.json")
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    out_path = os.path.join(DATA_DIR, "scores.json")
     with open(out_path, "w") as f:
         json.dump(scores, f, indent=2)
-
-    print(f"  Saved to data/scores.json")
+    print(f"  Wrote {out_path}")
 
 
 if __name__ == "__main__":
