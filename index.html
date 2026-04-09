@@ -489,7 +489,7 @@
     .hide-mobile { display: none; }
     .modal-stats { grid-template-columns: 1fr 1fr; }
   }
-  /* ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Enter Team ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ */
+  /* ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Enter Team ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ */
   .et-wrap{max-width:820px;margin:0 auto;padding:20px 16px 40px}
   .et-card{background:var(--surface);border:1px solid rgba(212,168,67,.2);border-radius:12px;padding:28px 24px}
   .et-title{font-size:22px;font-weight:700;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin:0 0 4px;text-align:center}
@@ -745,19 +745,19 @@
     <div class="et-wrap">
       <div class="et-card">
         <div class="et-closed" id="et-closed-banner" style="display:none">
-          <div class="et-closed-icon">ð</div>
+          <div class="et-closed-icon">Ã°ÂÂÂ</div>
           <div class="et-closed-title">Submissions Closed</div>
           <div class="et-closed-sub">Team entry locked at the first tee time.<br>Check the Leaderboard to follow the action!</div>
         </div>
         <div id="et-form-body">
         <h2 class="et-title">Enter Your Team</h2>
-        <p class="et-subtitle">Select exactly 6 golfers &middot; 72-point maximum budget</p>
+        <p class="et-subtitle">Select exactly 6 golfers · 72-point maximum budget</p>
         <div class="et-budget">
           <div class="et-budget-top">
             <span class="et-budget-lbl">Points Used</span>
-            <span class="et-budget-val"><span id="et-pts">0.0</span> / 72.0 &nbsp;&middot;&nbsp; <span id="et-cnt">0</span> / 6</span>
+            <span class="et-budget-val"><span id="et-pts">0.0</span> / 72.0 &nbsp;·&nbsp; <span id="et-cnt">0</span> / 6</span>
           </div>
-          <div class="et-budget-avgs"><span class="et-avg-stat">Avg Spent: <strong id="et-avg-spent">—</strong></span><span class="et-avg-stat">Avg Remaining: <strong id="et-avg-rem">—</strong></span></div>
+          <div class="et-budget-avgs"><span class="et-avg-stat">Avg Spent: <strong id="et-avg-spent">â</strong></span><span class="et-avg-stat">Avg Remaining: <strong id="et-avg-rem">â</strong></span></div>
           <div class="et-bar-track"><div class="et-bar-fill" id="et-bar"></div></div>
         <div class="et-chips" id="et-chips"><span style="color:rgba(255,255,255,.3);font-size:13px">No golfers selected yet</span></div>
         </div>
@@ -1122,7 +1122,7 @@ function calcUniqueness() {
 
     const picks = t.golfers.map(g => {
       const own = ownership[g.name] || 0;
-      const exclusivity = 1 - own;           // 0ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ1, higher = rarer
+      const exclusivity = 1 - own;           // 0ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ1, higher = rarer
       const ppvWeight = g.ppv / budgetUsed;  // fraction of budget this pick consumes
       const weightedContrib = exclusivity * ppvWeight; // PPV-weighted exclusivity
       return {
@@ -1136,11 +1136,11 @@ function calcUniqueness() {
       };
     });
 
-    // Raw score: equal-weight average exclusivity ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ 100
+    // Raw score: equal-weight average exclusivity ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ 100
     const rawScore = Math.round(picks.reduce((s, p) => s + (1 - p.ownership), 0) / picks.length * 100);
 
-    // Weighted score: PPV-weighted exclusivity sum ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ 100
-    // Sum of (exclusivity ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ppvWeight) across 6 picks; already sums to ~1 budget, so scale by 100
+    // Weighted score: PPV-weighted exclusivity sum ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ 100
+    // Sum of (exclusivity ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ppvWeight) across 6 picks; already sums to ~1 budget, so scale by 100
     const weightedScore = Math.round(picks.reduce((s, p) => s + p.weightedContrib, 0) * 100);
 
     // Count rivals: teams sharing 3+ golfers
@@ -1332,7 +1332,7 @@ document.getElementById('gridSearch').addEventListener('input', (e) => {
   renderGrid(parseInt(document.getElementById('gridTeamCount').value), e.target.value);
 });
 
-// ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Fetch live data then render ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ
+// ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Fetch live data then render ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ
 function initApp(data) {
   window.DATA = data;
 
@@ -1366,9 +1366,9 @@ function initApp(data) {
   // Tournament header update
   const subtitle = document.getElementById('tournSubtitle');
   if (subtitle) {
-    let statusText = DATA.tournament + ' &middot; ' + DATA.year;
-    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' &middot; ' + DATA.status;
-    if (DATA.status === 'In Progress' && DATA.round) statusText += ' &middot; Round ' + DATA.round;
+    let statusText = DATA.tournament + ' · ' + DATA.year;
+    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' · ' + DATA.status;
+    if (DATA.status === 'In Progress' && DATA.round) statusText += ' · Round ' + DATA.round;
     subtitle.textContent = statusText;
   }
   const lastUpdEl = document.getElementById('lastUpdated');
@@ -1396,7 +1396,7 @@ fetch('data/data.json')
   .catch(err => {
     (document.querySelector('.main-content') || document.querySelector('.tab-panels') || document.body).innerHTML =
       '<div style="padding:60px;text-align:center;color:#f85149">' +
-      '<h2 style="margin-bottom:12px">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ  Could not load scores</h2>' +
+      '<h2 style="margin-bottom:12px">ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ  Could not load scores</h2>' +
       '<p style="color:#8b949e">Make sure <code>data/data.json</code> exists and the site is running from a web server.</p>' +
       '<p style="color:#8b949e;margin-top:8px;font-size:13px">Error: ' + err.message + '</p>' +
       '</div>';
@@ -1404,7 +1404,7 @@ fetch('data/data.json')
   });
 
 
-// ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ Enter Team Form ÃÂ¢ÃÂÃÂÃÂ¢ÃÂÃÂ
+// ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Enter Team Form ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
 (function(){
   var BUDGET=72.0, REQUIRED=6;
   var LOCKOUT_TIME = new Date("2026-04-09T12:00:00Z"); // Masters R1 first tee time (8am ET)
@@ -1692,8 +1692,8 @@ fetch('data/data.json')
     document.getElementById("et-pts").textContent=pts.toFixed(1);
     document.getElementById("et-cnt").textContent=cnt;
     document.getElementById("et-rem").textContent=rem.toFixed(1)+" pts remaining";
-    var avgSpent = cnt>0 ? (pts/cnt).toFixed(1) : "—";
-    var avgRem = (REQUIRED-cnt)>0 ? (rem/(REQUIRED-cnt)).toFixed(1) : "—";
+    var avgSpent = cnt>0 ? (pts/cnt).toFixed(1) : "â";
+    var avgRem = (REQUIRED-cnt)>0 ? (rem/(REQUIRED-cnt)).toFixed(1) : "â";
     document.getElementById("et-avg-spent").textContent=avgSpent;
     document.getElementById("et-avg-rem").textContent=avgRem;
     var bar=document.getElementById("et-bar");
