@@ -1738,12 +1738,12 @@ function buildGrid(){
     msg.className="et-msg";
     if(!email||!email.includes("@")){msg.className="et-msg error";msg.textContent="Please enter a valid email address.";return;}
     if(!team){msg.className="et-msg error";msg.textContent="Please select your team from the dropdown.";return;}
-    var fd=new FormData();
-    fd.append("email",email);
-    fd.append("team",team);
-    sel.forEach(function(g){fd.append("golfers",g.n+" - "+g.p.toFixed(1));});
+    var params=new URLSearchParams();
+    params.append("email",email);
+    params.append("team",team);
+    sel.forEach(function(g){params.append("golfers",g.n+" - "+g.p.toFixed(1));});
     document.getElementById("et-submit").disabled=true;
-    fetch(FORM_URL,{method:"POST",mode:"no-cors",body:fd})
+    fetch(FORM_URL+"?"+params.toString(),{method:"GET",mode:"no-cors"})
       .then(function(){
         msg.className="et-msg success";
         msg.textContent="\u2713 Team submitted! A confirmation will be sent to "+email;
