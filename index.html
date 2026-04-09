@@ -667,11 +667,11 @@
     </div>
     <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px 20px;margin-top:16px;font-size:13px;color:var(--text-muted);line-height:1.7">
       <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text-dim);margin-bottom:8px;font-weight:600">Methodology</div>
-      <p style="margin-bottom:8px">Every golfer has an <strong style="color:var(--text)">ownership rate</strong> ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ the percentage of teams in the pool that picked them. A golfer selected by 5 of 182 teams has 2.7% ownership; one on 40 teams has 22%. The inverse ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ how many teams <em>didn't</em> pick them ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ is their <strong style="color:var(--text)">exclusivity</strong>.</p>
+      <p style="margin-bottom:8px">Every golfer has an <strong style="color:var(--text)">ownership rate</strong> &mdash; the percentage of teams in the pool that picked them. A golfer selected by 5 of 182 teams has 2.7% ownership; one on 40 teams has 22%. The inverse &mdash; how many teams <em>didn't</em> pick them &mdash; is their <strong style="color:var(--text)">exclusivity</strong>.</p>
       <p style="margin-bottom:8px">The <strong style="color:var(--text)">Weighted Rating</strong> (primary) multiplies each pick's exclusivity by its share of the team's 72-point budget before averaging. A 14-point player picked by 5% of teams contributes roughly twice as much to your rating as an 8-point player at the same ownership, because that expensive pick defines your roster more fundamentally. Click any team to see the per-golfer breakdown.</p>
-      <p style="margin-bottom:8px">The <strong style="color:var(--text)">Raw Score</strong> (secondary) treats all 6 picks equally regardless of PPV ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ a simple average of exclusivities. Comparing the two tells a story: a big gap means your uniqueness is concentrated either in your stars (weighted &gt; raw) or in your value picks (raw &gt; weighted).</p>
-      <p style="margin-bottom:8px"><strong style="color:var(--text)">Rivals</strong> counts teams sharing 3 or more golfers with you. High rival counts mean your fate is tied to many others ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ your wins are their wins too.</p>
-      <p style="margin:0">A high rating isn't inherently better ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ popular picks are popular for a reason. But if you're hunting for a big payday, a contrarian roster gives you more separation from the field when your guys run hot.</p>
+      <p style="margin-bottom:8px">The <strong style="color:var(--text)">Raw Score</strong> (secondary) treats all 6 picks equally regardless of PPV &mdash; a simple average of exclusivities. Comparing the two tells a story: a big gap means your uniqueness is concentrated either in your stars (weighted &gt; raw) or in your value picks (raw &gt; weighted).</p>
+      <p style="margin-bottom:8px"><strong style="color:var(--text)">Rivals</strong> counts teams sharing 3 or more golfers with you. High rival counts mean your fate is tied to many others &mdash; your wins are their wins too.</p>
+      <p style="margin:0">A high rating isn't inherently better &mdash; popular picks are popular for a reason. But if you're hunting for a big payday, a contrarian roster gives you more separation from the field when your guys run hot.</p>
     </div>
   </div>
 
@@ -1179,7 +1179,7 @@ function renderUniqueness(filter) {
   const { teamData, ownership } = _uniqData;
   const totalTeams = DATA.teams.length;
 
-  // Distribution histogram ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ auto-zoom to actual weighted score range with fine buckets
+  // Distribution histogram &mdash; auto-zoom to actual weighted score range with fine buckets
   const allScores = teamData.map(t => t.score);
   const minScore = Math.floor(Math.min(...allScores) / 2) * 2;
   const maxScore = Math.ceil(Math.max(...allScores) / 2) * 2;
@@ -1352,7 +1352,7 @@ function initApp(data) {
     ? fmtScore(Math.round(scores.reduce((a,b)=>a+b,0)/scores.length))
     : 'E';
   const avgCut = (DATA.teams.reduce((s,t) => s + t.cutMade, 0) / DATA.teams.length).toFixed(1);
-  document.getElementById('statCut').textContent = avgCut;
+  const cutEl = document.getElementById('statCut'); if (cutEl) cutEl.textContent = avgCut;
 
   // Pick counts (used by PPV + Uniqueness tabs)
   const _pickCounts = {};
@@ -1366,9 +1366,9 @@ function initApp(data) {
   // Tournament header update
   const subtitle = document.getElementById('tournSubtitle');
   if (subtitle) {
-    let statusText = DATA.tournament + ' ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ· ' + DATA.year;
-    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ· ' + DATA.status;
-    if (DATA.status === 'In Progress' && DATA.round) statusText += ' ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ· Round ' + DATA.round;
+    let statusText = DATA.tournament + ' &middot; ' + DATA.year;
+    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' &middot; ' + DATA.status;
+    if (DATA.status === 'In Progress' && DATA.round) statusText += ' &middot; Round ' + DATA.round;
     subtitle.textContent = statusText;
   }
   const lastUpdEl = document.getElementById('lastUpdated');
@@ -1394,7 +1394,7 @@ fetch('data/data.json')
   })
   .then(data => initApp(data))
   .catch(err => {
-    document.querySelector('.main-content').innerHTML =
+    (document.querySelector('.main-content') || document.querySelector('.tab-panels') || document.body).innerHTML =
       '<div style="padding:60px;text-align:center;color:#f85149">' +
       '<h2 style="margin-bottom:12px">ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ  Could not load scores</h2>' +
       '<p style="color:#8b949e">Make sure <code>data/data.json</code> exists and the site is running from a web server.</p>' +
