@@ -501,7 +501,7 @@
   .et-bar-track{height:8px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden}
   .et-bar-fill{height:100%;background:var(--gold);border-radius:4px;transition:width .25s,background .25s;width:0%}
   .et-bar-fill.over{background:#e05555}
-  .et-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:28px;margin-bottom:16px;align-items:center}
+  .et-chips{display:flex;flex-wrap:wrap;gap:6px;min-height:28px;margin-top:10px;margin-bottom:0;align-items:center}
   .et-chip{background:rgba(212,168,67,.15);border:1px solid var(--gold);border-radius:20px;padding:3px 10px;font-size:12px;color:var(--gold);display:flex;align-items:center;gap:5px}
   .et-chip-x{cursor:pointer;opacity:.7;font-size:13px;line-height:1}.et-chip-x:hover{opacity:1}
   .et-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
@@ -759,8 +759,8 @@
           </div>
           <div class="et-budget-avgs"><span class="et-avg-stat">Avg Spent: <strong id="et-avg-spent">—</strong></span><span class="et-avg-stat">Avg Remaining: <strong id="et-avg-rem">—</strong></span></div>
           <div class="et-bar-track"><div class="et-bar-fill" id="et-bar"></div></div>
-        </div>
         <div class="et-chips" id="et-chips"><span style="color:rgba(255,255,255,.3);font-size:13px">No golfers selected yet</span></div>
+        </div>
         <div class="et-fields">
           <div class="et-field"><label>Email *</label><input type="email" id="et-email" placeholder="your@email.com"></div>
           <div class="et-field"><label>Your Team *</label><select id="et-team"><option value="">-- Select your team --</option></select></div>
