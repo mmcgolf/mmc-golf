@@ -1408,7 +1408,7 @@ fetch('data/data.json')
 (function(){
   var BUDGET=72.0, REQUIRED=6;
   var LOCKOUT_TIME = new Date("2026-04-09T12:00:00Z"); // Masters R1 first tee time (8am ET)
-  var FORM_URL="https://docs.google.com/forms/d/e/1FAIpQLScL3PwKV6Y2r9z5g0RSf74kgYlGi_-TAil1KclSURTLGKsT9w/formResponse";
+  var FORM_URL="https://script.google.com/macros/s/AKfycbytx6i5attVBBJPFXY0-Sr0RtppKoJI2sYynOalXbLadnV4q_yVanAbsI-_IgAiBHYBDw/exec";
   var TEAMS=[
     "#1 - Dylan Morris",
     "#2 - Chris Chiles",
@@ -1738,17 +1738,10 @@ function buildGrid(){
     msg.className="et-msg";
     if(!email||!email.includes("@")){msg.className="et-msg error";msg.textContent="Please enter a valid email address.";return;}
     if(!team){msg.className="et-msg error";msg.textContent="Please select your team from the dropdown.";return;}
-    var fbzx=Math.floor(Math.random()*9007199254740991).toString();
     var fd=new FormData();
-    fd.append("emailAddress",email);
-    fd.append("entry.1669487535",team);
-    sel.forEach(function(g){fd.append("entry.591771114",g.n+" - "+g.p.toFixed(1));});
-    fd.append("emailReceipt","true");
-    fd.append("fvv","1");
-    fd.append("pageHistory","0");
-    fd.append("fbzx",fbzx);
-    fd.append("partialResponse","[null,null,\""+fbzx+"\"]");
-    fd.append("submissionTimestamp",Date.now().toString());
+    fd.append("email",email);
+    fd.append("team",team);
+    sel.forEach(function(g){fd.append("golfers",g.n+" - "+g.p.toFixed(1));});
     document.getElementById("et-submit").disabled=true;
     fetch(FORM_URL,{method:"POST",mode:"no-cors",body:fd})
       .then(function(){
