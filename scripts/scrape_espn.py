@@ -115,6 +115,10 @@ def build_scores_json(event_id, event_name, venue):
         status = "Final"
     elif comp_status == "STATUS_SCHEDULED":
         status = "Upcoming"
+    elif comp_status in ("STATUS_PLAY_COMPLETE", "STATUS_END_PERIOD"):
+        status = "Round Complete"
+    elif comp_status == "STATUS_BETWEEN_PERIODS":
+        status = "Between Rounds"
     else:
         status = comp_status or "Unknown"
 
