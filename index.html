@@ -391,6 +391,8 @@
     background: rgba(0,0,0,0.4); position: sticky; top: 0; z-index: 3;
     padding: 4px 2px; font-weight: 600; color: var(--text-muted);
   }
+  /* Sticky headers for all regular tables */
+  .table-wrap table thead th { position: sticky; top: 0; z-index: 2; background: var(--bg-card); box-shadow: 0 1px 0 var(--border); }
   .grid-table thead th.grid-corner { z-index: 4; left: 0; min-width: 180px; }
   .grid-table .grid-team-header {
     writing-mode: vertical-lr; text-orientation: mixed;
@@ -532,6 +534,24 @@
   .et-budget-avgs{display:flex;justify-content:space-between;margin-top:6px;margin-bottom:2px}
   .et-avg-stat{font-size:12px;color:rgba(255,255,255,.5)}
   .et-avg-stat strong{color:var(--gold-light);font-weight:600}
+  /* ===== TEAMS TAB ===== */
+  .teams-grid { display: flex; flex-direction: column; gap: 10px; }
+  .team-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .team-card.in-money { border-color: rgba(212,168,67,0.4); }
+  .team-card-header { display: flex; align-items: center; gap: 10px; padding: 9px 14px; background: rgba(255,255,255,0.025); border-bottom: 1px solid var(--border); cursor: pointer; }
+  .tc-rank { font-size: 13px; color: var(--text-dim); min-width: 30px; font-family: monospace; }
+  .tc-name { flex: 1; font-weight: 600; font-size: 14px; }
+  .tc-score { font-family: 'SF Mono','Menlo',monospace; font-weight: 700; font-size: 15px; }
+  .team-golfers { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; padding: 6px 8px; }
+  .tg-row { display: flex; align-items: center; gap: 5px; padding: 3px 6px; border-radius: 4px; font-size: 12px; min-width: 0; }
+  .tg-row.is-counting { background: rgba(212,168,67,0.1); }
+  .tg-row.is-cut { opacity: 0.4; }
+  .tg-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tg-ppv { font-size: 10px; color: var(--text-dim); margin-left: 3px; flex-shrink: 0; }
+  .tg-pos { font-size: 11px; color: var(--text-muted); min-width: 28px; text-align: right; font-family: monospace; flex-shrink: 0; }
+  .tg-score { font-family: monospace; font-weight: 700; font-size: 12px; min-width: 28px; text-align: right; flex-shrink: 0; }
+  .tg-thru { font-size: 10px; color: var(--text-dim); min-width: 18px; text-align: center; flex-shrink: 0; }
+  @media (max-width: 600px) { .team-golfers { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -572,6 +592,7 @@
     <button class="nav-tab" data-tab="ppv">Point Values</button>
     <button class="nav-tab" data-tab="payouts">Payouts</button>
     <button class="nav-tab" data-tab="uniqueness">Uniqueness</button>
+    <button class="nav-tab" data-tab="teams">Teams</button>
     <button class="nav-tab" data-tab="enterteam">Enter Team</button>
   </div>
 </div>
@@ -740,12 +761,20 @@
   
 
   </div>
+<!-- TEAMS -->
+  <div class="section" id="sec-teams">
+    <div class="search-bar">
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>
+      <input type="text" id="teamsSearch" placeholder="Search teams...">
+    </div>
+    <div class="teams-grid" id="teamsGrid"></div>
+  </div>
 <!-- ENTER TEAM -->
   <div class="section" id="sec-enterteam">
     <div class="et-wrap">
       <div class="et-card">
         <div class="et-closed" id="et-closed-banner" style="display:none">
-          <div class="et-closed-icon">Ã°ÂÂÂ</div>
+          <div class="et-closed-icon">&#x1F512;</div>
           <div class="et-closed-title">Submissions Closed</div>
           <div class="et-closed-sub">Team entry locked at the first tee time.<br>Check the Leaderboard to follow the action!</div>
         </div>
@@ -757,7 +786,7 @@
             <span class="et-budget-lbl">Points Used</span>
             <span class="et-budget-val"><span id="et-pts">0.0</span> / 72.0 &nbsp;·&nbsp; <span id="et-cnt">0</span> / 6</span>
           </div>
-          <div class="et-budget-avgs"><span class="et-avg-stat">Avg Spent: <strong id="et-avg-spent">â</strong></span><span class="et-avg-stat">Avg Remaining: <strong id="et-avg-rem">â</strong></span></div>
+          <div class="et-budget-avgs"><span class="et-avg-stat">Avg Spent: <strong id="et-avg-spent">&#x2014;</strong></span><span class="et-avg-stat">Avg Remaining: <strong id="et-avg-rem">&#x2014;</strong></span></div>
           <div class="et-bar-track"><div class="et-bar-fill" id="et-bar"></div></div>
         <div class="et-chips" id="et-chips"><span style="color:rgba(255,255,255,.3);font-size:13px">No golfers selected yet</span></div>
         </div>
@@ -900,7 +929,7 @@ function showTeam(teamIdx) {
     const ns = isNotStarted(g);
     return '<div class="modal-golfer' + (g.cut ? ' is-cut' : '') + (isCounting ? ' counts' : '') + (ns ? ' not-started' : '') + '">' +
       '<div class="g-name">' + g.name + '<span class="ppv-badge">' + g.ppv + ' pts</span></div>' +
-      '<div class="g-pos">' + (g.position || (ns ? '-' : '-')) + '</div>' +
+      '<div class="g-pos">' + (g.position?.displayName || '-') + '</div>' +
       '<div class="g-score score-cell ' + scoreClass(g.scoreToPar) + '">' + (ns ? '-' : fmtScore(g.scoreToPar)) + '</div>' +
       '<div class="g-thru">' + fmtThru(g) + '</div></div>';
   }
@@ -965,16 +994,16 @@ function renderLeaderboard(filter) {
     teams = teams.filter(t => t.name.toLowerCase().includes(q));
   }
 
-  const payoutSet = new Set(DATA.payouts.map(p => p.name));
+  const payoutSet = new Set(DATA.payouts.map(p => p.place));
   const payoutMap = {};
-  DATA.payouts.forEach(p => { payoutMap[p.name] = p.amount; });
+  DATA.payouts.forEach(p => { payoutMap[p.place] = p.amount; });
 
   // Find where the money line and cut line are
   let moneyLineIdx = -1;
   let cutLineIdx = -1;
   if (!filter) {
     for (let i = 0; i < teams.length; i++) {
-      if (payoutSet.has(teams[i].name)) moneyLineIdx = i;
+      if (payoutSet.has(teams[i].rank)) moneyLineIdx = i;
       if (teams[i].cutStatus === 'danger' && cutLineIdx === -1) cutLineIdx = i;
     }
   }
@@ -987,7 +1016,7 @@ function renderLeaderboard(filter) {
     const isPayout = globalIdx <= moneyLineIdx && !filter;
     const isMoneyLine = !filter && displayIdx > 0 && globalIdx === moneyLineIdx + 1;
     const isCutLine = !filter && cutLineIdx > 0 && globalIdx === cutLineIdx && displayIdx > 0;
-    const payout = payoutMap[t.name];
+    const payout = payoutMap[t.rank];
 
     // Cut status dots
     let dots = '';
@@ -1053,12 +1082,12 @@ function renderGolfers(filter) {
   golfers.forEach(g => {
     const ns = isNotStarted(g);
     html += '<tr>' +
-      '<td class="rank-cell">' + (g.position || (ns ? '-' : '-')) + '</td>' +
+      '<td class="rank-cell">' + (g.position?.displayName || '-') + '</td>' +
       '<td class="team-name">' + g.name + '</td>' +
       '<td class="r" style="color:var(--text-muted)">' + g.ppv + '</td>' +
       '<td class="r score-cell ' + scoreClass(g.scoreToPar) + '">' + (ns ? '-' : fmtScore(g.scoreToPar)) + '</td>' +
       '<td class="c hide-mobile' + (ns ? ' not-started' : '') + '">' + fmtThru(g) + '</td>' +
-      '<td class="r hide-mobile score-cell ' + (g.today && g.today < 70 ? 'under' : g.today && g.today > 72 ? 'over' : '') + '">' + (g.today || '-') + '</td>' +
+      '<td class="r hide-mobile score-cell ' + scoreClass(g.today) + '">' + (g.today !== null && g.today !== undefined ? fmtScore(g.today) : '-') + '</td>' +
       '<td class="r">' + (_pickCounts[g.name] || 0) + '</td></tr>';
   });
   document.getElementById('golferBody').innerHTML = html;
@@ -1094,9 +1123,9 @@ document.getElementById('ppvSearch').addEventListener('input', (e) => renderPPV(
 function renderPayouts() {
   let html = '';
   DATA.payouts.forEach(p => {
-    const team = DATA.teams.find(t => t.name === p.name);
+    const team = DATA.teams.find(t => t.rank === p.place);
     html += '<tr><td class="rank-cell top">' + p.place + '</td>' +
-      '<td class="team-name">' + p.name + '</td>' +
+      '<td class="team-name">' + (team?.name || 'TBD') + '</td>' +
       '<td class="r score-cell ' + scoreClass(team?.teamTotal) + '">' + fmtScore(team?.teamTotal) + '</td>' +
       '<td class="r tb-cell">' + (team?.lowestIndividual !== null ? fmtScore(team?.lowestIndividual) : '-') + '</td>' +
       '<td class="r payout-cell">$' + Math.round(p.amount).toLocaleString() + '</td></tr>';
@@ -1341,7 +1370,7 @@ function initApp(data) {
   const badge = document.getElementById('statusBadge');
   if (badge) { badge.textContent = status; if (status === 'In Progress') badge.classList.add('live'); }
   const nameEl = document.getElementById('tournamentName');
-  if (nameEl) nameEl.textContent = DATA.tournament + ' ' + DATA.year;
+  if (nameEl) nameEl.textContent = DATA.tournament;
 
   // Stats bar
   const validTeams = DATA.teams.filter(t => t.teamTotal < 500);
@@ -1366,7 +1395,8 @@ function initApp(data) {
   // Tournament header update
   const subtitle = document.getElementById('tournSubtitle');
   if (subtitle) {
-    let statusText = DATA.tournament + ' · ' + DATA.year;
+    let statusText = String(DATA.year || '');
+    if (DATA.course) statusText += ' · ' + DATA.course;
     if (DATA.status && DATA.status !== 'Upcoming') statusText += ' · ' + DATA.status;
     if (DATA.status === 'In Progress' && DATA.round) statusText += ' · Round ' + DATA.round;
     subtitle.textContent = statusText;
@@ -1385,7 +1415,49 @@ function initApp(data) {
   renderUniqueness();
   renderPPV();
   renderPayouts();
+  renderTeams();
 }
+
+
+// Teams tab
+function renderTeams(filter) {
+  let teams = DATA.teams;
+  if (filter) {
+    const q = filter.toLowerCase();
+    teams = teams.filter(t => t.name.toLowerCase().includes(q));
+  }
+  const payoutCount = DATA.payouts ? DATA.payouts.length : 12;
+  let html = '';
+  teams.forEach(t => {
+    const inMoney = t.rank <= payoutCount;
+    html += '<div class="team-card' + (inMoney ? ' in-money' : '') + '">';
+    const teamIdx = DATA.teams.indexOf(t);
+    html += '<div class="team-card-header" onclick="showTeam(' + teamIdx + ')" style="cursor:pointer">';
+    html += '<span class="tc-rank">' + t.rank + '</span>';
+    html += '<span class="tc-name">' + t.name.replace(/^#\d+ - /, '') + '</span>';
+    html += '<span class="tc-score score-cell ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal >= 500 ? 'N/A' : fmtScore(t.teamTotal)) + '</span>';
+    html += '</div>';
+    const made = t.golfers.filter(g => !g.cut && g.scoreToPar !== null).sort((a,b) => a.scoreToPar - b.scoreToPar);
+    const notStarted = t.golfers.filter(g => !g.cut && g.scoreToPar === null);
+    const cutG = t.golfers.filter(g => g.cut);
+    const counting = made.slice(0, 4);
+    const bench = [...made.slice(4), ...notStarted];
+    html += '<div class="team-golfers">';
+    [...counting, ...bench, ...cutG].forEach(g => {
+      const isCounting = counting.includes(g);
+      const ns = isNotStarted(g);
+      html += '<div class="tg-row' + (g.cut ? ' is-cut' : isCounting ? ' is-counting' : '') + '">';
+      html += '<span class="tg-name">' + g.name + '<span class="tg-ppv">' + g.ppv + '</span></span>';
+      html += '<span class="tg-pos">' + (g.position?.displayName || '') + '</span>';
+      html += '<span class="tg-score score-cell ' + scoreClass(g.scoreToPar) + '">' + (g.cut ? 'CUT' : ns ? '-' : fmtScore(g.scoreToPar)) + '</span>';
+      html += '<span class="tg-thru">' + fmtThru(g) + '</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+  });
+  document.getElementById('teamsGrid').innerHTML = html || '<div style="padding:20px;color:var(--text-muted)">No teams found</div>';
+}
+document.getElementById('teamsSearch').addEventListener('input', e => renderTeams(e.target.value));
 
 fetch('data/data.json')
   .then(r => {
@@ -1402,6 +1474,14 @@ fetch('data/data.json')
       '</div>';
     console.error('Data load error:', err);
   });
+
+// Auto-refresh every 3 minutes
+setInterval(() => {
+  fetch('data/data.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(d => initApp(d))
+    .catch(() => {});
+}, 3 * 60 * 1000);
 
 
 // ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Enter Team Form ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
