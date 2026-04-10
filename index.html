@@ -552,6 +552,8 @@
   .tg-score { font-family: monospace; font-weight: 700; font-size: 12px; min-width: 28px; text-align: right; flex-shrink: 0; }
   .tg-thru { font-size: 10px; color: var(--text-dim); min-width: 18px; text-align: center; flex-shrink: 0; }
   @media (max-width: 600px) { .team-golfers { grid-template-columns: 1fr; } }
+.table-wrap thead th{position:sticky;top:0;z-index:2;background:var(--bg-card)}
+.grid-wrap thead th{position:sticky;top:0;z-index:2;background:var(--bg-card)}
 </style>
 </head>
 <body>
@@ -587,12 +589,12 @@
 <div class="nav">
   <div class="nav-inner">
     <button class="nav-tab active" data-tab="leaderboard">Leaderboard</button>
+    <button class="nav-tab" data-tab="teams">Teams</button>
     <button class="nav-tab" data-tab="golfers">Golfers</button>
     <button class="nav-tab" data-tab="grid">Grid</button>
     <button class="nav-tab" data-tab="ppv">Point Values</button>
     <button class="nav-tab" data-tab="payouts">Payouts</button>
     <button class="nav-tab" data-tab="uniqueness">Uniqueness</button>
-    <button class="nav-tab" data-tab="teams">Teams</button>
     <button class="nav-tab" data-tab="enterteam">Enter Team</button>
   </div>
 </div>
@@ -1084,11 +1086,11 @@ function renderGolfers(filter) {
     html += '<tr>' +
       '<td class="rank-cell">' + (g.position?.displayName || '-') + '</td>' +
       '<td class="team-name">' + g.name + '</td>' +
-      '<td class="r" style="color:var(--text-muted)">' + g.ppv + '</td>' +
+      '<td class="r" style="color:var(--text-muted)">' + ((DATA.ppvs||[]).find(p=>p.name===g.name)||{ppv:''}).ppv + '</td>' +
       '<td class="r score-cell ' + scoreClass(g.scoreToPar) + '">' + (ns ? '-' : fmtScore(g.scoreToPar)) + '</td>' +
       '<td class="c hide-mobile' + (ns ? ' not-started' : '') + '">' + fmtThru(g) + '</td>' +
       '<td class="r hide-mobile score-cell ' + scoreClass(g.today) + '">' + (g.today !== null && g.today !== undefined ? fmtScore(g.today) : '-') + '</td>' +
-      '<td class="r">' + (_pickCounts[g.name] || 0) + '</td></tr>';
+      '<td class="r">' + (_pickCounts[(window._normN||String)(g.name)] || 0) + '</td></tr>';
   });
   document.getElementById('golferBody').innerHTML = html;
 }
@@ -1103,11 +1105,11 @@ function renderPPV(filter) {
     const q = filter.toLowerCase();
     ppvs = ppvs.filter(p => p.name.toLowerCase().includes(q));
   }
-  const maxPicks = Math.max(...DATA.ppvs.map(p => _pickCounts[p.name] || 0), 1);
+  const maxPicks = Math.max(...DATA.ppvs.map(p => _pickCounts[(window._normN||String)(p.name)] || 0), 1);
   const totalTeams = DATA.teams.length;
   let html = '';
   ppvs.forEach(p => {
-    const count = _pickCounts[p.name] || 0;
+    const count = _pickCounts[(window._normN||String)(p.name)] || 0;
     const pct = Math.round(count / totalTeams * 100);
     const barW = Math.round(count / maxPicks * 80);
     html += '<tr><td class="team-name">' + p.name + '</td>' +
@@ -1386,13 +1388,16 @@ function initApp(data) {
   const cutEl = document.getElementById('statCut'); if (cutEl) cutEl.textContent = avgCut;
 
   // Pick counts (used by PPV + Uniqueness tabs)
+  const _normN = n => (n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   const _pickCounts = {};
   DATA.teams.forEach(t => {
     t.golfers.forEach(g => {
-      _pickCounts[g.name] = (_pickCounts[g.name] || 0) + 1;
+      const _k = _normN(g.name);
+      _pickCounts[_k] = (_pickCounts[_k] || 0) + 1;
     });
   });
   window._pickCounts = _pickCounts;
+  window._normN = _normN;
 
   // Tournament header update
   const subtitle = document.getElementById('tournSubtitle');
@@ -1436,7 +1441,7 @@ function renderTeams(filter) {
     const teamIdx = DATA.teams.indexOf(t);
     html += '<div class="team-card-header" onclick="showTeam(' + teamIdx + ')" style="cursor:pointer">';
     html += '<span class="tc-rank">' + t.rank + '</span>';
-    html += '<span class="tc-name">' + t.name.replace(/^#\d+ - /, '') + '</span>';
+    html += '<span class="tc-name">' + t.name + '</span>';
     html += '<span class="tc-score score-cell ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal >= 500 ? 'N/A' : fmtScore(t.teamTotal)) + '</span>';
     html += '</div>';
     const made = t.golfers.filter(g => !g.cut && g.scoreToPar !== null).sort((a,b) => a.scoreToPar - b.scoreToPar);
