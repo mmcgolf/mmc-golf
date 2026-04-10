@@ -2,9 +2,9 @@
   "tournament": "Masters Tournament",
   "year": 2026,
   "course": "",
-  "status": "STATUS_PLAY_COMPLETE",
+  "status": "Round Complete",
   "round": 1,
-  "lastUpdated": "2026-04-09T23:50:59.810467+00:00",
+  "lastUpdated": "2026-04-10T00:45:55.112479+00:00",
   "totalTeams": 181,
   "teams": [
     {
@@ -15222,129 +15222,389 @@
   "ppvs": [
     {
       "name": "Scottie Scheffler",
-      "ppv": 18.9
+      "ppv": 17.7
     },
     {
       "name": "Rory McIlroy",
-      "ppv": 16.9
-    },
-    {
-      "name": "Jon Rahm",
-      "ppv": 15.0
+      "ppv": 15.7
     },
     {
       "name": "Bryson DeChambeau",
-      "ppv": 14.5
+      "ppv": 15.5
     },
     {
-      "name": "Xander Schauffele",
-      "ppv": 14.0
-    },
-    {
-      "name": "Tommy Fleetwood",
-      "ppv": 13.7
-    },
-    {
-      "name": "Shane Lowry",
-      "ppv": 13.4
+      "name": "Jon Rahm",
+      "ppv": 15.3
     },
     {
       "name": "Ludvig Aberg",
+      "ppv": 14.8
+    },
+    {
+      "name": "Xander Schauffele",
+      "ppv": 14.5
+    },
+    {
+      "name": "Tommy Fleetwood",
+      "ppv": 14.1
+    },
+    {
+      "name": "Cameron Young",
+      "ppv": 14
+    },
+    {
+      "name": "Collin Morikawa",
+      "ppv": 14
+    },
+    {
+      "name": "Justin Rose",
+      "ppv": 13.8
+    },
+    {
+      "name": "Patrick Reed",
+      "ppv": 13.7
+    },
+    {
+      "name": "Hideki Matsuyama",
+      "ppv": 13.4
+    },
+    {
+      "name": "Viktor Hovland",
+      "ppv": 13.3
+    },
+    {
+      "name": "Matt Fitzpatrick",
       "ppv": 13.1
     },
     {
       "name": "Robert MacIntyre",
-      "ppv": 13.0
+      "ppv": 13
     },
     {
-      "name": "Tyrrell Hatton",
+      "name": "Brooks Koepka",
       "ppv": 12.8
     },
     {
-      "name": "Collin Morikawa",
-      "ppv": 12.5
+      "name": "Jordan Spieth",
+      "ppv": 12.7
     },
     {
       "name": "Justin Thomas",
+      "ppv": 12.4
+    },
+    {
+      "name": "Shane Lowry",
       "ppv": 12.2
     },
     {
-      "name": "Viktor Hovland",
-      "ppv": 12.0
+      "name": "Tyrrell Hatton",
+      "ppv": 12.1
     },
     {
-      "name": "Matt Fitzpatrick",
-      "ppv": 12.0
+      "name": "Chris Gotterup",
+      "ppv": 11.8
+    },
+    {
+      "name": "Sepp Straka",
+      "ppv": 11.8
     },
     {
       "name": "Joaqu\u00edn Niemann",
       "ppv": 11.8
     },
     {
+      "name": "Russell Henley",
+      "ppv": 11.7
+    },
+    {
       "name": "Patrick Cantlay",
       "ppv": 11.7
+    },
+    {
+      "name": "Akshay Bhatia",
+      "ppv": 11.5
+    },
+    {
+      "name": "Si Woo Kim",
+      "ppv": 11.5
+    },
+    {
+      "name": "Corey Conners",
+      "ppv": 11.2
+    },
+    {
+      "name": "Min Woo Lee",
+      "ppv": 11.2
+    },
+    {
+      "name": "Jason Day",
+      "ppv": 11
+    },
+    {
+      "name": "Ben Griffin",
+      "ppv": 11
+    },
+    {
+      "name": "J.J. Spaun",
+      "ppv": 11
+    },
+    {
+      "name": "Sungjae Im",
+      "ppv": 10.9
+    },
+    {
+      "name": "Cameron Smith",
+      "ppv": 10.9
+    },
+    {
+      "name": "Nicolai Hojgaard",
+      "ppv": 10.9
+    },
+    {
+      "name": "Jacob Bridgeman",
+      "ppv": 10.8
+    },
+    {
+      "name": "Jake Knapp",
+      "ppv": 10.8
+    },
+    {
+      "name": "Sam Burns",
+      "ppv": 10.8
+    },
+    {
+      "name": "Harris English",
+      "ppv": 10.6
+    },
+    {
+      "name": "Gary Woodland",
+      "ppv": 10.6
+    },
+    {
+      "name": "Max Homa",
+      "ppv": 10.6
+    },
+    {
+      "name": "Marco Penge",
+      "ppv": 10.6
+    },
+    {
+      "name": "Adam Scott",
+      "ppv": 10.4
+    },
+    {
+      "name": "Maverick McNealy",
+      "ppv": 10.4
+    },
+    {
+      "name": "Ryan Fox",
+      "ppv": 10.2
+    },
+    {
+      "name": "Daniel Berger",
+      "ppv": 10.2
+    },
+    {
+      "name": "Sergio Garcia",
+      "ppv": 10.2
+    },
+    {
+      "name": "Wyndham Clark",
+      "ppv": 10.2
+    },
+    {
+      "name": "Alex Noren",
+      "ppv": 10.1
+    },
+    {
+      "name": "Keegan Bradley",
+      "ppv": 10.1
+    },
+    {
+      "name": "Dustin Johnson",
+      "ppv": 10.1
+    },
+    {
+      "name": "Rasmus Hojgaard",
+      "ppv": 9.9
+    },
+    {
+      "name": "Harry Hall",
+      "ppv": 9.9
+    },
+    {
+      "name": "Aaron Rai",
+      "ppv": 9.8
+    },
+    {
+      "name": "Ryan Gerard",
+      "ppv": 9.8
+    },
+    {
+      "name": "Kurt Kitayama",
+      "ppv": 9.8
+    },
+    {
+      "name": "Michael Kim",
+      "ppv": 9.6
+    },
+    {
+      "name": "Nicolas Echavarria",
+      "ppv": 9.6
+    },
+    {
+      "name": "Max Greyserman",
+      "ppv": 9.5
+    },
+    {
+      "name": "Casey Jarvis",
+      "ppv": 9.5
+    },
+    {
+      "name": "Carlos Ortiz",
+      "ppv": 9.5
+    },
+    {
+      "name": "Brian Harman",
+      "ppv": 9.4
+    },
+    {
+      "name": "Nick Taylor",
+      "ppv": 9.4
+    },
+    {
+      "name": "Matthew McCarty",
+      "ppv": 9.4
+    },
+    {
+      "name": "Sami Valimaki",
+      "ppv": 9.4
+    },
+    {
+      "name": "Sam Stevens",
+      "ppv": 9.2
+    },
+    {
+      "name": "Andrew Novak",
+      "ppv": 9.2
+    },
+    {
+      "name": "Kristoffer Reitan",
+      "ppv": 9.1
+    },
+    {
+      "name": "Zach Johnson",
+      "ppv": 9.1
+    },
+    {
+      "name": "Hao-Tong Li",
+      "ppv": 9.1
+    },
+    {
+      "name": "Bubba Watson",
+      "ppv": 9.1
+    },
+    {
+      "name": "Charl Schwartzel",
+      "ppv": 9.1
+    },
+    {
+      "name": "Aldrich Potgieter",
+      "ppv": 8.9
+    },
+    {
+      "name": "Danny Willett",
+      "ppv": 8.9
+    },
+    {
+      "name": "Vijay Singh",
+      "ppv": 8.8
+    },
+    {
+      "name": "Fifa Laopakdee",
+      "ppv": 8.8
+    },
+    {
+      "name": "Ethan Fang",
+      "ppv": 8.8
+    },
+    {
+      "name": "Mateo Pulcini",
+      "ppv": 8.6
+    },
+    {
+      "name": "Mason Howell",
+      "ppv": 8.6
+    },
+    {
+      "name": "Fred Couples",
+      "ppv": 8.6
+    },
+    {
+      "name": "Mike Weir",
+      "ppv": 8.6
     }
   ],
   "payouts": [
     {
       "place": 1,
       "label": "1st",
-      "amount": 500
+      "amount": 1681.25
     },
     {
       "place": 2,
       "label": "2nd",
-      "amount": 250
+      "amount": 1200
     },
     {
       "place": 3,
       "label": "3rd",
-      "amount": 150
+      "amount": 750
     },
     {
       "place": 4,
       "label": "4th",
-      "amount": 100
+      "amount": 500
     },
     {
       "place": 5,
       "label": "5th",
-      "amount": 75
+      "amount": 350
     },
     {
       "place": 6,
       "label": "6th",
-      "amount": 50
+      "amount": 250
     },
     {
       "place": 7,
       "label": "7th",
-      "amount": 40
+      "amount": 200
     },
     {
       "place": 8,
       "label": "8th",
-      "amount": 30
+      "amount": 175
     },
     {
       "place": 9,
       "label": "9th",
-      "amount": 25
+      "amount": 150
     },
     {
       "place": 10,
       "label": "10th",
-      "amount": 20
+      "amount": 150
     },
     {
       "place": 11,
       "label": "11th",
-      "amount": 15
+      "amount": 125
     },
     {
       "place": 12,
       "label": "12th",
-      "amount": 10
+      "amount": 125
     }
   ]
 }
