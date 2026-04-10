@@ -45,7 +45,7 @@ NAME_ALIASES = {
     "hideki matsuyama": "hideki matsuyama",
     "corey conners": "corey conners",
     "rory mcilroy": "rory mcilroy",
-    "hoaquin niemann": "joaquín niemann",
+    "hoaquin niemann": "joaquÃ­n niemann",
     "brendan steele": "brendan steele",
 }
 
@@ -200,8 +200,19 @@ def main():
         else:
             t["rank"] = i + 1
 
-    # Build PPVs list (sorted by value desc)
-    ppvs = sorted(ppvs_data.get("players", []), key=lambda p: -p.get("ppv", 0))
+    # Build PPVs from actual team picks (ensures all picked players appear in PPV tab)
+    ppv_map = {}
+    for team in picks_data.get("teams", []):
+        for pick in team.get("picks", []):
+            name = pick["name"]
+            ppv = pick.get("ppv", 0)
+            if name not in ppv_map:
+                ppv_map[name] = ppv
+    # Also include any extras from ppvs.json
+    for p in ppvs_data.get("players", []):
+        if p.get("name") and p["name"] not in ppv_map:
+            ppv_map[p["name"]] = p.get("ppv", 0)
+    ppvs = sorted([{"name": k, "ppv": v} for k, v in ppv_map.items()], key=lambda p: -p["ppv"])
 
     # Payouts
     payouts = picks_data.get("payouts", [])
