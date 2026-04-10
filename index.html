@@ -1367,8 +1367,10 @@ function initApp(data) {
 
   // Header status / name
   const status = DATA.status || 'Upcoming';
+  const _statusMap = {'In Progress':'In Progress','Final':'Final','Upcoming':'Upcoming','Round Complete':'Round Complete','Between Rounds':'Between Rounds'};
+  const _displayStatus = _statusMap[status] || status.replace(/^STATUS_/,'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
   const badge = document.getElementById('statusBadge');
-  if (badge) { badge.textContent = status; if (status === 'In Progress') badge.classList.add('live'); }
+  if (badge) { badge.textContent = _displayStatus; if (status === 'In Progress') badge.classList.add('live'); }
   const nameEl = document.getElementById('tournamentName');
   if (nameEl) nameEl.textContent = DATA.tournament;
 
@@ -1397,8 +1399,6 @@ function initApp(data) {
   if (subtitle) {
     let statusText = String(DATA.year || '');
     if (DATA.course) statusText += ' · ' + DATA.course;
-    const _statusMap = {'In Progress':'In Progress','Final':'Final','Upcoming':'Upcoming','Round Complete':'Round Complete','Between Rounds':'Between Rounds'};
-    const _displayStatus = _statusMap[DATA.status] || (DATA.status||'').replace(/^STATUS_/,'').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
     if (DATA.status && DATA.status !== 'Upcoming') statusText += ' · ' + _displayStatus;
     if (DATA.status === 'In Progress' && DATA.round) statusText += ' · Round ' + DATA.round;
     subtitle.textContent = statusText;
