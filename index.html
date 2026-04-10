@@ -164,7 +164,7 @@
   .stat-card .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 
   /* Tables */
-  .table-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .table-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; }
   thead th {
     background: rgba(0,0,0,0.3);
@@ -552,8 +552,9 @@
   .tg-score { font-family: monospace; font-weight: 700; font-size: 12px; min-width: 28px; text-align: right; flex-shrink: 0; }
   .tg-thru { font-size: 10px; color: var(--text-dim); min-width: 18px; text-align: center; flex-shrink: 0; }
   @media (max-width: 600px) { .team-golfers { grid-template-columns: 1fr; } }
-.table-wrap thead th{position:sticky;top:0;z-index:2;background:var(--bg-card)}
+.table-wrap thead th{position:sticky;top:43px;z-index:2;background:var(--bg-card)}
 .grid-wrap thead th{position:sticky;top:0;z-index:2;background:var(--bg-card)}
+.sort-th{cursor:pointer;user-select:none}.sort-th::after{content:" ⇅";opacity:.4;font-size:.75em}.sort-th.asc::after{content:" ↑";opacity:1}.sort-th.desc::after{content:" ↓";opacity:1}
 </style>
 </head>
 <body>
@@ -642,13 +643,13 @@
       <table id="golferTable">
         <thead>
           <tr>
-            <th class="c" style="width:52px">Pos</th>
-            <th style="min-width:150px">Player</th>
-            <th class="r" style="width:52px">PPV</th>
-            <th class="r" style="width:60px">Total</th>
-            <th class="c hide-mobile" style="width:52px">Thru</th>
-            <th class="r hide-mobile" style="width:56px">Today</th>
-            <th class="r" style="width:60px">Teams</th>
+            <th class="c sort-th" style="width:52px" onclick="_sortTable('golferBody',0,'rank',this)">Pos</th>
+            <th class="sort-th" style="min-width:150px" onclick="_sortTable('golferBody',1,'str',this)">Player</th>
+            <th class="r sort-th" style="width:52px" onclick="_sortTable('golferBody',2,'num',this)">PPV</th>
+            <th class="r sort-th" style="width:60px" onclick="_sortTable('golferBody',3,'score',this)">Total</th>
+            <th class="c hide-mobile sort-th" style="width:52px" onclick="_sortTable('golferBody',4,'num',this)">Thru</th>
+            <th class="r hide-mobile sort-th" style="width:56px" onclick="_sortTable('golferBody',5,'score',this)">Today</th>
+            <th class="r sort-th" style="width:60px" onclick="_sortTable('golferBody',6,'num',this)">Teams</th>
           </tr>
         </thead>
         <tbody id="golferBody"></tbody>
@@ -707,9 +708,9 @@
       <table>
         <thead>
           <tr>
-            <th style="min-width:150px">Player</th>
-            <th class="r" style="width:90px">Point Value</th>
-            <th class="r" style="width:90px">Times Picked</th>
+            <th class="sort-th" style="min-width:150px" onclick="_sortTable('ppvBody',0,'str',this)">Player</th>
+            <th class="r sort-th" style="width:90px" onclick="_sortTable('ppvBody',1,'num',this)">Point Value</th>
+            <th class="r sort-th" style="width:90px" onclick="_sortTable('ppvBody',2,'pct',this)">Times Picked</th>
             <th class="r" style="width:100px">Popularity</th>
           </tr>
         </thead>
@@ -1850,6 +1851,45 @@ function buildGrid(){
     });
   });
 })();
+
+function _sortTable(tbodyId, colIdx, type, th) {
+  var tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  var cur = th.classList.contains('asc') ? 'asc' : th.classList.contains('desc') ? 'desc' : null;
+  th.closest('table').querySelectorAll('.sort-th').forEach(function(el){ el.classList.remove('asc','desc'); });
+  var dir = (cur === 'asc') ? 'desc' : 'asc';
+  th.classList.add(dir);
+  var rows = Array.from(tbody.querySelectorAll('tr'));
+  function cellVal(row) { var c = row.cells[colIdx]; return c ? c.textContent.trim() : ''; }
+  function parseVal(v) {
+    if (type === 'rank') {
+      if (!v || v==='MC'||v==='CUT'||v==='WD'||v==='--') return 9999;
+      var n = parseInt(v.replace(/^T/,''));
+      return isNaN(n) ? 9998 : n;
+    } else if (type === 'score') {
+      if (!v || v==='--') return 9999;
+      if (v==='E') return 0;
+      var n = parseFloat(v);
+      return isNaN(n) ? 9999 : n;
+    } else if (type === 'num') {
+      var n = parseFloat(v);
+      return isNaN(n) ? 9999 : n;
+    } else if (type === 'pct') {
+      var n = parseInt(v);
+      return isNaN(n) ? 0 : n;
+    } else {
+      return v.toLowerCase();
+    }
+  }
+  rows.sort(function(a, b) {
+    var av = parseVal(cellVal(a)), bv = parseVal(cellVal(b));
+    if (type === 'str') return dir==='asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    if (av < bv) return dir==='asc' ? -1 : 1;
+    if (av > bv) return dir==='asc' ? 1 : -1;
+    return 0;
+  });
+  rows.forEach(function(r){ tbody.appendChild(r); });
+}
 </script>
 </body>
 </html>
