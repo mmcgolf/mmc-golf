@@ -384,6 +384,7 @@
   .grid-wrap {
     background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
     overflow-x: auto; overflow-y: auto; max-height: 80vh; position: relative;
+    display: inline-block; max-width: 100%;
   }
   .grid-table { border-collapse: collapse; font-size: 12px; }
   .grid-table th, .grid-table td { border: 1px solid var(--border); padding: 0; text-align: center; }
@@ -393,7 +394,7 @@
   }
   /* Sticky headers for all regular tables */
   .table-wrap table thead th { position: sticky; top: 43px; z-index: 2; background: var(--bg-card); box-shadow: 0 1px 0 var(--border); }
-  .grid-table thead th.grid-corner { z-index: 4; left: 0; min-width: 180px; }
+  .grid-table thead th.grid-corner { z-index: 4; left: 0; min-width: 140px; width: 180px; max-width: 200px; }
   .grid-table .grid-team-header {
     writing-mode: vertical-lr; text-orientation: mixed;
     transform: rotate(180deg); padding: 8px 3px;
@@ -581,7 +582,7 @@
 .tier-names-wrap{display:flex;flex-wrap:wrap;gap:5px}
 .tier-chip{font-size:.73rem;background:rgba(255,255,255,.08);border-radius:20px;padding:3px 9px;color:var(--text-secondary)}
 .tier-chip.hi{background:rgba(255,215,0,.18);color:var(--gold);font-weight:600}
-.trophy-intro{text-align:center;color:var(--text-secondary);margin-bottom:28px;font-style:italic;font-size:.9rem;max-width:680px;margin-left:auto;margin-right:auto}
+.trophy-intro{text-align:center;color:var(--gold);margin-bottom:28px;font-style:italic;font-size:1.15rem;max-width:680px;margin-left:auto;margin-right:auto;font-family:Georgia,"Palatino Linotype",serif;letter-spacing:.03em;opacity:.9}
 .trophy-sec{margin-bottom:40px}
 .trophy-sec-title{font-size:1.1rem;font-weight:700;color:var(--gold);margin-bottom:14px;padding-bottom:7px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
 .plaque-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:11px}
@@ -591,6 +592,14 @@
 .plaque-year{font-size:.66rem;color:#d4a82a;font-weight:700;letter-spacing:3px;margin-bottom:5px;text-transform:uppercase}
 .plaque-name{font-size:.8rem;color:#f0ddb0;font-weight:600;line-height:1.4}
 
+
+.charity-thermometer{margin:0 auto 28px;max-width:520px;padding:0 8px}
+.thermo-labels{display:flex;justify-content:space-between;margin-bottom:8px;font-size:.85rem;font-weight:600}
+.thermo-goal{color:var(--text-muted)}
+.thermo-raised{color:#4caf50;font-size:.9rem}
+.thermo-bar-wrap{background:rgba(255,255,255,.1);border-radius:20px;height:22px;overflow:hidden;border:1px solid var(--border)}
+.thermo-bar-fill{background:linear-gradient(90deg,#388e3c,#66bb6a);height:100%;border-radius:20px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;min-width:40px;transition:width .8s ease}
+.thermo-pct{color:#fff;font-size:.75rem;font-weight:700;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -891,22 +900,26 @@
       <div class="chart-title">Year-by-Year Charitable Giving</div>
       <div class="chart-bars-row"><div class="chart-col"><div class="chart-lbl">$1.7k</div><div class="chart-bar" style="height:20%"></div><div class="chart-yr">2016</div></div><div class="chart-col"><div class="chart-lbl">$2.4k</div><div class="chart-bar" style="height:28%"></div><div class="chart-yr">2017</div></div><div class="chart-col"><div class="chart-lbl">$3.0k</div><div class="chart-bar" style="height:35%"></div><div class="chart-yr">2018</div></div><div class="chart-col"><div class="chart-lbl">$3.7k</div><div class="chart-bar" style="height:43%"></div><div class="chart-yr">2019</div></div><div class="chart-col"><div class="chart-lbl">$2.3k</div><div class="chart-bar" style="height:27%"></div><div class="chart-yr">2020</div></div><div class="chart-col"><div class="chart-lbl">$4.0k</div><div class="chart-bar" style="height:47%"></div><div class="chart-yr">2021</div></div><div class="chart-col"><div class="chart-lbl">$5.2k</div><div class="chart-bar" style="height:61%"></div><div class="chart-yr">2022</div></div><div class="chart-col"><div class="chart-lbl">$5.8k</div><div class="chart-bar" style="height:68%"></div><div class="chart-yr">2023</div></div><div class="chart-col"><div class="chart-lbl">$7.0k</div><div class="chart-bar" style="height:82%"></div><div class="chart-yr">2024</div></div><div class="chart-col"><div class="chart-lbl">$7.3k</div><div class="chart-bar" style="height:85%"></div><div class="chart-yr">2025</div></div><div class="chart-col"><div class="chart-lbl">$8.5k</div><div class="chart-bar" style="height:100%"></div><div class="chart-yr">2026</div></div></div>
     </div>
+    <div class="charity-thermometer">
+      <div class="thermo-labels"><span class="thermo-goal">🎯 Goal: $8,000</span><span class="thermo-raised">✅ Raised: $8,525</span></div>
+      <div class="thermo-bar-wrap"><div class="thermo-bar-fill" style="width:100%"><span class="thermo-pct">107%</span></div></div>
+    </div>
     <div class="tier-section-title">Honor Roll of Donors</div>
     <div class="tier-cards-grid">
       <div class="tier-card t-grandslam">
         <div class="tier-hdr"><span class="tier-ico">🏆</span><div><div class="tier-name">Career Grand Slam</div></div></div>
         <div class="tier-thresh">$3,000+ Lifetime Giving</div>
-        <div class="tier-names-wrap"><span class="tier-chip hi">Wesley Osborne</span><span class="tier-chip hi">George Simon</span><span class="tier-chip hi">Brody Connolly</span></div>
+        <div class="tier-names-wrap"><span class="tier-chip hi">Chris Chiles</span></div>
       </div>
       <div class="tier-card t-green">
-        <div class="tier-hdr"><span class="tier-ico">🤺</span><div><div class="tier-name">Green Jacket</div></div></div>
+        <div class="tier-hdr"><span class="tier-ico">🤵</span><div><div class="tier-name">Green Jacket</div></div></div>
         <div class="tier-thresh">$250+ in 2026</div>
-        <div class="tier-names-wrap"><span class="tier-chip ">Dylan Morris</span><span class="tier-chip ">Chris Chiles</span><span class="tier-chip ">Jim Pendergast</span><span class="tier-chip ">David Kater</span></div>
+        <div class="tier-names-wrap"><span class="tier-chip ">Chris Chiles</span><span class="tier-chip ">Jim Pendergast</span><span class="tier-chip ">David Kater</span></div>
       </div>
       <div class="tier-card t-claret">
         <div class="tier-hdr"><span class="tier-ico">🏺</span><div><div class="tier-name">Claret Jug</div></div></div>
         <div class="tier-thresh">$150+ in 2026</div>
-        <div class="tier-names-wrap"><span class="tier-chip ">Brody Connolly</span><span class="tier-chip ">Kerry Coker</span><span class="tier-chip ">Wesley Osborne</span><span class="tier-chip ">Corey Neilson</span></div>
+        <div class="tier-names-wrap"><span class="tier-chip ">Brody Connolly</span><span class="tier-chip ">Kerry Coker</span><span class="tier-chip ">Corey Neilson</span><span class="tier-chip ">Wesley Osborne</span></div>
       </div>
       <div class="tier-card t-usopen">
         <div class="tier-hdr"><span class="tier-ico">🏅</span><div><div class="tier-name">US Open Trophy</div></div></div>
@@ -914,7 +927,7 @@
         <div class="tier-names-wrap"><span class="tier-chip ">Ryan Dunn</span><span class="tier-chip ">Brett Bitove</span><span class="tier-chip ">Chris Ernst</span><span class="tier-chip ">Eric Taylor</span><span class="tier-chip ">George Simon</span><span class="tier-chip ">Jordan Graumann</span><span class="tier-chip ">Keith Taylor</span><span class="tier-chip ">Nick Simon</span><span class="tier-chip ">J.J. Bitove</span><span class="tier-chip ">Piper Morris</span><span class="tier-chip ">Will Rawley</span><span class="tier-chip ">Rob James</span><span class="tier-chip ">Brian Letzelter</span></div>
       </div>
       <div class="tier-card">
-        <div class="tier-hdr"><span class="tier-ico">🏈</span><div><div class="tier-name">Wanamaker Trophy</div></div></div>
+        <div class="tier-hdr"><span class="tier-ico">⛳</span><div><div class="tier-name">Wanamaker Trophy</div></div></div>
         <div class="tier-thresh">$50+ in 2026</div>
         <div class="tier-names-wrap"><span class="tier-chip ">Garth Tymeson</span><span class="tier-chip ">Kyle Tymeson</span><span class="tier-chip ">Ed Sclater</span><span class="tier-chip ">Kyle Dalton</span><span class="tier-chip ">Aaron Crandall</span><span class="tier-chip ">Chris Coleman</span><span class="tier-chip ">Dan Marsh</span><span class="tier-chip ">Jay Evans</span><span class="tier-chip ">John Krall</span><span class="tier-chip ">Joshua Marsh</span><span class="tier-chip ">Kevin Oakes</span><span class="tier-chip ">Michael Reardon</span><span class="tier-chip ">Paul Hussmann</span><span class="tier-chip ">Peter Willingham</span><span class="tier-chip ">Scott Kater</span><span class="tier-chip ">Jon Warford</span><span class="tier-chip ">Adam Stone</span><span class="tier-chip ">Ben Freedland</span><span class="tier-chip ">Brad Kropp</span><span class="tier-chip ">Chris Whipple</span><span class="tier-chip ">Danny Grimes</span><span class="tier-chip ">Elliot Krochmalny</span><span class="tier-chip ">Gary Gambetta</span><span class="tier-chip ">Jack Knauss</span><span class="tier-chip ">James Glenn</span><span class="tier-chip ">Joseph Kirby</span><span class="tier-chip ">Josh Phillips</span><span class="tier-chip ">Ken Koncilja</span><span class="tier-chip ">Kevin Beers</span><span class="tier-chip ">Mark Grady</span><span class="tier-chip ">Matt Krochmalny</span><span class="tier-chip ">Matthew Stephens</span><span class="tier-chip ">Michael Skiles</span><span class="tier-chip ">Nelson Adcock</span><span class="tier-chip ">Nick Provenzo</span><span class="tier-chip ">Ryan Dalton</span><span class="tier-chip ">Neil Coughlin</span></div>
       </div>
@@ -923,8 +936,11 @@
 
 
   <!-- TROPHY ROOM -->
+
+
+  <!-- TROPHY ROOM -->
   <div class="section" id="sec-trophy">
-    <p class="trophy-intro">Where we celebrate past champions and imagine the possibilities of the future.</p>
+    <p class="trophy-intro">Where we celebrate past champions and imagine future possibilities.</p>
     <div class="trophy-sec">
       <div class="trophy-sec-title">🏕 The Masters</div>
       <div class="plaque-grid"><div class="plaque"><div class="plaque-year">2011</div><div class="plaque-name">Dan Phillips</div></div><div class="plaque"><div class="plaque-year">2012</div><div class="plaque-name">Chris Chiles</div></div><div class="plaque"><div class="plaque-year">2013</div><div class="plaque-name">Paul Hussmann</div></div><div class="plaque"><div class="plaque-year">2014</div><div class="plaque-name">Nick Simon</div></div><div class="plaque"><div class="plaque-year">2015</div><div class="plaque-name">Danny Grimes</div></div><div class="plaque"><div class="plaque-year">2016</div><div class="plaque-name">Chris Polony</div></div><div class="plaque"><div class="plaque-year">2017</div><div class="plaque-name">Phil Nelson</div></div><div class="plaque"><div class="plaque-year">2018</div><div class="plaque-name">Jason Skaggs & Jeffrey Little</div></div><div class="plaque"><div class="plaque-year">2019</div><div class="plaque-name">Tierney, Wood & Tauber LLC</div></div><div class="plaque"><div class="plaque-year">2020</div><div class="plaque-name">Brett Bitove</div></div><div class="plaque"><div class="plaque-year">2021</div><div class="plaque-name">Adam Ewald</div></div><div class="plaque"><div class="plaque-year">2022</div><div class="plaque-name">Kevin Rose</div></div><div class="plaque"><div class="plaque-year">2023</div><div class="plaque-name">Kyle Dalton & Ally Wylie</div></div><div class="plaque"><div class="plaque-year">2024</div><div class="plaque-name">Jon Von Deylen</div></div><div class="plaque"><div class="plaque-year">2025</div><div class="plaque-name">Patrick Eberle</div></div><div class="plaque"><div class="plaque-year">2026</div><div class="plaque-name">In Progress 🌿</div></div></div>
@@ -1112,8 +1128,13 @@ function renderLeaderboard(filter) {
     }
   }
 
-  const display = (showAll || filter) ? teams : teams.slice(0, Math.max(40, moneyLineIdx + 5));
+  const display = (showAll || filter) ? teams : teams;
   
+  // Compute tied ranks for T prefix
+  const _rankCnt = {};
+  teams.forEach(t2 => { _rankCnt[t2.rank] = (_rankCnt[t2.rank]||0)+1; });
+  const _tiedRanks = new Set(Object.keys(_rankCnt).filter(k=>_rankCnt[k]>1).map(Number));
+
   let html = '';
   display.forEach((t, displayIdx) => {
     const globalIdx = DATA.teams.indexOf(t);
@@ -1146,7 +1167,7 @@ function renderLeaderboard(filter) {
     if (isPayout && !isMoneyLine) html += ' top';
     html += '">';
     if (isPayout) html += '<span class="gold-dot"></span>';
-    html += t.rank + '</td>';
+    html += (_tiedRanks.has(t.rank) ? 'T' : '') + t.rank + '</td>';
 
     const displayName = t.name.replace(/#\d+ - /, '');
     const teamNum = t.name.match(/#\d+/)?.[0] || '';
@@ -1226,13 +1247,808 @@ document.getElementById('ppvSearch').addEventListener('input', (e) => renderPPV(
 // Payouts tab
 function renderPayouts() {
   let html = '';
-  DATA.payouts.forEach(p => {
-    const team = DATA.teams.find(t => t.rank === p.place);
-    html += '<tr><td class="rank-cell top">' + p.place + '</td>' +
-      '<td class="team-name">' + (team?.name || 'TBD') + '</td>' +
-      '<td class="r score-cell ' + scoreClass(team?.teamTotal) + '">' + fmtScore(team?.teamTotal) + '</td>' +
-      '<td class="r tb-cell">' + (team?.lowestIndividual !== null ? fmtScore(team?.lowestIndividual) : '-') + '</td>' +
-      '<td class="r payout-cell">$' + Math.round(p.amount).toLocaleString() + '</td></tr>';
+  const maxPlace = DATA.payouts.length;
+  const payByPlace = {};
+  DATA.payouts.forEach(p => { payByPlace[p.place] = p.amount; });
+
+  // Find teams in payout zone: collect unique ranks up through enough teams to fill payout slots
+  // Walk sorted teams; once we've covered maxPlace slots (accounting for ties), stop
+  const payTeams = [];
+  let slotsUsed = 0;
+  const seenRanks = new Set();
+  for (let i = 0; i < DATA.teams.length; i++) {
+    const t = DATA.teams[i];
+    if (!seenRanks.has(t.rank)) {
+      if (slotsUsed >= maxPlace) break;
+      seenRanks.add(t.rank);
+    }
+    payTeams.push(t);
+    slotsUsed++;
+  }
+
+  // Group by rank
+  const rankMap = {};
+  payTeams.forEach(t => {
+    if (!rankMap[t.rank]) rankMap[t.rank] = [];
+    rankMap[t.rank].push(t);
+  });
+
+  const ranks = Object.keys(rankMap).map(Number).sort((a,b)=>a-b);
+  ranks.forEach(rank => {
+    const grp = rankMap[rank];
+    const isTied = grp.length > 1;
+    let totalPay = 0;
+    for (let pl = rank; pl < rank + grp.length; pl++) {
+      if (payByPlace[pl]) totalPay += payByPlace[pl];
+    }
+    const splitPay = grp.length > 0 ? totalPay / grp.length : 0;
+    const rankLabel = (isTied ? 'T' : '') + rank;
+    grp.forEach(team => {
+      html += '<tr><td class="rank-cell top">' + rankLabel + '</td>' +
+        '<td class="team-name">' + (team.name || 'TBD') + '</td>' +
+        '<td class="r score-cell ' + scoreClass(team.teamTotal) + '">' + fmtScore(team.teamTotal) + '</td>' +
+        '<td class="r tb-cell">' + (team.lowestIndividual !== null ? fmtScore(team.lowestIndividual) : '-') + '</td>' +
+        (splitPay > 0 ? '<td class="r payout-cell">
+
+// Uniqueness tab
+function calcUniqueness() {
+  const totalTeams = DATA.teams.length;
+
+  // Step 1: ownership % for each golfer
+  const ownership = {};
+  DATA.teams.forEach(t => {
+    t.golfers.forEach(g => {
+      ownership[g.name] = (ownership[g.name] || 0) + 1;
+    });
+  });
+  Object.keys(ownership).forEach(k => { ownership[k] = ownership[k] / totalTeams; });
+
+  const teamData = DATA.teams.map((t, idx) => {
+    const budgetUsed = t.golfers.reduce((s, g) => s + g.ppv, 0) || 72;
+
+    const picks = t.golfers.map(g => {
+      const own = ownership[g.name] || 0;
+      const exclusivity = 1 - own;           // 0ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ1, higher = rarer
+      const ppvWeight = g.ppv / budgetUsed;  // fraction of budget this pick consumes
+      const weightedContrib = exclusivity * ppvWeight; // PPV-weighted exclusivity
+      return {
+        name: g.name,
+        ppv: g.ppv,
+        ppvWeight: Math.round(ppvWeight * 100),  // % of budget
+        ownership: own,
+        ownershipPct: Math.round(own * 100),
+        exclusivity: Math.round(exclusivity * 100),
+        weightedContrib  // raw for summing
+      };
+    });
+
+    // Raw score: equal-weight average exclusivity ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ 100
+    const rawScore = Math.round(picks.reduce((s, p) => s + (1 - p.ownership), 0) / picks.length * 100);
+
+    // Weighted score: PPV-weighted exclusivity sum ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ 100
+    // Sum of (exclusivity ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ ppvWeight) across 6 picks; already sums to ~1 budget, so scale by 100
+    const weightedScore = Math.round(picks.reduce((s, p) => s + p.weightedContrib, 0) * 100);
+
+    // Count rivals: teams sharing 3+ golfers
+    const myNames = new Set(t.golfers.map(g => g.name));
+    let rivals = 0;
+    DATA.teams.forEach(other => {
+      if (other.name === t.name) return;
+      if (other.golfers.filter(g => myNames.has(g.name)).length >= 3) rivals++;
+    });
+
+    return {
+      name: t.name,
+      rank: t.rank,
+      teamIdx: idx,
+      score: weightedScore,   // primary = weighted
+      rawScore,               // secondary = unweighted
+      picks: picks.sort((a, b) => a.ownership - b.ownership),
+      rivals
+    };
+  });
+
+  teamData.sort((a, b) => b.score - a.score);
+  teamData.forEach((t, i) => {
+    if (i > 0 && t.score === teamData[i-1].score) t.uniqRank = teamData[i-1].uniqRank;
+    else t.uniqRank = i + 1;
+  });
+
+  return { teamData, ownership };
+}
+
+// Store computed uniqueness globally so showTeam can access it
+let _uniqData = null;
+
+function renderUniqueness(filter) {
+  _uniqData = calcUniqueness();
+  const { teamData, ownership } = _uniqData;
+  const totalTeams = DATA.teams.length;
+
+  // Distribution histogram &mdash; auto-zoom to actual weighted score range with fine buckets
+  const allScores = teamData.map(t => t.score);
+  const minScore = Math.floor(Math.min(...allScores) / 2) * 2;
+  const maxScore = Math.ceil(Math.max(...allScores) / 2) * 2;
+  const bucketSize = 2;
+  const numBuckets = Math.max(Math.ceil((maxScore - minScore) / bucketSize), 1);
+  const buckets = new Array(numBuckets).fill(0);
+  teamData.forEach(t => {
+    const b = Math.min(Math.floor((t.score - minScore) / bucketSize), numBuckets - 1);
+    buckets[b]++;
+  });
+  const maxBucket = Math.max(...buckets, 1);
+  let distHtml = '';
+  buckets.forEach((count, i) => {
+    const lo = minScore + i * bucketSize;
+    const hi = lo + bucketSize;
+    const h = Math.max(Math.round(count / maxBucket * 100), count > 0 ? 4 : 0);
+    distHtml += '<div class="uniq-bar" style="height:' + h + '%" title="' + lo + '-' + hi + ': ' + count + ' teams"></div>';
+  });
+  document.getElementById('uniqDistChart').innerHTML = distHtml;
+  document.querySelector('.uniq-bar-label').innerHTML = '<span>' + minScore + '</span><span>Weighted Rating</span><span>' + maxScore + '</span>';
+
+  // Most polarizing picks: golfers with widest range of ownership
+  const sorted = Object.entries(ownership).sort((a, b) => b[1] - a[1]);
+  const topPicked = sorted.slice(0, 5);
+  let popHtml = '';
+  topPicked.forEach(([name, pct]) => {
+    const w = Math.round(pct * 100);
+    popHtml += '<div class="uniq-pick-bar">' +
+      '<span class="uniq-pick-name">' + name + '</span>' +
+      '<div class="uniq-pick-fill" style="width:' + w + '%;background:var(--gold);opacity:' + (0.4 + pct * 0.6) + '"></div>' +
+      '<span class="uniq-pick-pct">' + w + '%</span></div>';
+  });
+  const bottomPicked = sorted.filter(s => s[1] > 0).slice(-5).reverse();
+  bottomPicked.forEach(([name, pct]) => {
+    const w = Math.max(Math.round(pct * 100), 1);
+    popHtml += '<div class="uniq-pick-bar">' +
+      '<span class="uniq-pick-name">' + name + '</span>' +
+      '<div class="uniq-pick-fill" style="width:' + w + '%;background:var(--safe-green);opacity:0.6;min-width:2px"></div>' +
+      '<span class="uniq-pick-pct">' + w + '%</span></div>';
+  });
+  document.getElementById('uniqPopularPicks').innerHTML = popHtml;
+
+  // Table
+  let filtered = teamData;
+  if (filter) {
+    const q = filter.toLowerCase();
+    filtered = teamData.filter(t => t.name.toLowerCase().includes(q));
+  }
+
+  let html = '';
+  filtered.forEach(t => {
+    const wClass = t.score >= 85 ? 'uniq-high' : t.score >= 70 ? 'uniq-mid' : 'uniq-low';
+    const rClass = t.rawScore >= 85 ? 'uniq-high' : t.rawScore >= 70 ? 'uniq-mid' : 'uniq-low';
+    html += '<tr style="cursor:pointer" onclick="showTeamUniq(' + t.teamIdx + ')">' +
+      '<td class="rank-cell">' + t.uniqRank + '</td>' +
+      '<td class="team-name">' + t.name.replace(/#\d+ - /, '') +
+        ' <span style="color:var(--text-dim);font-weight:400;font-size:12px">' + (t.name.match(/#\d+/)?.[0] || '') + '</span>' +
+        ' <span style="color:var(--text-dim);font-size:11px;font-weight:400">Rank ' + t.rank + '</span></td>' +
+      '<td class="c"><span class="uniq-score-badge ' + wClass + '">' + t.score + '</span></td>' +
+      '<td class="c"><span class="uniq-score-badge ' + rClass + '" style="opacity:0.65">' + t.rawScore + '</span></td>' +
+      '<td class="r">' + t.rivals + '</td>' +
+      '</tr>';
+  });
+  document.getElementById('uniqBody').innerHTML = html;
+}
+document.getElementById('uniqSearch').addEventListener('input', (e) => renderUniqueness(e.target.value));
+
+// Grid tab
+function renderGrid(teamCount, highlight) {
+  teamCount = teamCount || 20;
+  const teams = teamCount === 0 ? DATA.teams : DATA.teams.slice(0, teamCount);
+  const hl = (highlight || '').toLowerCase();
+
+  // Build lookup: for each team, which golfers and are they counting?
+  const teamGolferMap = {};
+  teams.forEach((t, ti) => {
+    const made = t.golfers.filter(g => !g.cut && g.scoreToPar !== null).sort((a,b) => a.scoreToPar - b.scoreToPar);
+    const countingNames = new Set(made.slice(0, 4).map(g => g.name));
+    const allNames = {};
+    t.golfers.forEach(g => {
+      allNames[g.name] = countingNames.has(g.name) ? 'counting' : (g.cut ? 'cut' : 'bench');
+    });
+    teamGolferMap[ti] = allNames;
+  });
+
+  // Unique golfers across these teams, sorted by score
+  const golferSet = {};
+  teams.forEach(t => {
+    t.golfers.forEach(g => {
+      if (!golferSet[g.name]) golferSet[g.name] = { ...g };
+    });
+  });
+  const golfers = Object.values(golferSet).sort((a, b) => {
+    const sa = a.cut ? 999 : (a.scoreToPar ?? 998);
+    const sb = b.cut ? 999 : (b.scoreToPar ?? 998);
+    return sa - sb;
+  });
+
+  // Find where the cut line is
+  let cutIdx = -1;
+  for (let i = 0; i < golfers.length; i++) {
+    if (golfers[i].cut) { cutIdx = i; break; }
+  }
+
+  // Build table
+  let html = '<table class="grid-table"><thead><tr>';
+  html += '<th class="grid-corner">Golfer</th>';
+  teams.forEach((t, ti) => {
+    const name = t.name.replace(/#\d+ - /, '');
+    const isHl = hl && t.name.toLowerCase().includes(hl);
+    const inMoney = t.rank <= 12;
+    html += '<th class="grid-team-header' + (inMoney ? ' in-money' : '') + '"' +
+      (isHl ? ' style="background:var(--highlight)"' : '') + '>' +
+      '<span>' + name + '</span>' +
+      '<span class="grid-team-score ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal < 500 ? fmtScore(t.teamTotal) : 'N/A') + '</span></th>';
+  });
+  html += '</tr></thead><tbody>';
+
+  golfers.forEach((g, gi) => {
+    const isCutRow = gi === cutIdx;
+    html += '<tr' + (isCutRow ? ' class="grid-cut-row"' : '') + '>';
+    html += '<th><div class="g-info"><span>' + g.name +
+      ' <span class="g-ppv-badge">' + g.ppv + '</span></span>' +
+      '<span class="g-score-badge ' + scoreClass(g.scoreToPar) + '">' +
+      (g.cut ? 'CUT' : fmtScore(g.scoreToPar)) + '</span></div></th>';
+
+    teams.forEach((t, ti) => {
+      const status = teamGolferMap[ti][g.name];
+      const isHl = hl && t.name.toLowerCase().includes(hl);
+      if (status) {
+        const cls = status === 'counting' ? 'counting' : (status === 'cut' ? '' : '');
+        html += '<td class="grid-cell has-golfer' + (status === 'counting' ? ' counting' : '') + '"' +
+          (isHl ? ' style="outline:2px solid var(--gold)"' : '') + '>' +
+          '<span class="grid-dot ' + (status === 'counting' ? 'counting' : status === 'cut' ? 'cut-dot' : 'bench') + '"></span></td>';
+      } else {
+        html += '<td class="grid-cell"' + (isHl ? ' style="background:rgba(212,168,67,0.05)"' : '') + '></td>';
+      }
+    });
+    html += '</tr>';
+  });
+
+  html += '</tbody></table>';
+  document.getElementById('gridWrap').innerHTML = html;
+}
+
+document.getElementById('gridTeamCount').addEventListener('change', (e) => {
+  renderGrid(parseInt(e.target.value), document.getElementById('gridSearch').value);
+});
+document.getElementById('gridSearch').addEventListener('input', (e) => {
+  renderGrid(parseInt(document.getElementById('gridTeamCount').value), e.target.value);
+});
+
+// ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Fetch live data then render ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ
+function initApp(data) {
+  window.DATA = data;
+
+  // Header status / name
+  const status = DATA.status || 'Upcoming';
+  const _statusMap = {'In Progress':'In Progress','Final':'Final','Upcoming':'Upcoming','Round Complete':'Round Complete','Between Rounds':'Between Rounds'};
+  const _displayStatus = _statusMap[status] || status.replace(/^STATUS_/,'').replace(/_/g,' ').toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
+  const badge = document.getElementById('statusBadge');
+  if (badge) { badge.textContent = _displayStatus; if (status === 'In Progress') badge.classList.add('live'); }
+  const nameEl = document.getElementById('tournamentName');
+  if (nameEl) nameEl.textContent = DATA.tournament;
+
+  // Stats bar
+  const validTeams = DATA.teams.filter(t => t.teamTotal < 500);
+  document.getElementById('statTeams').textContent = DATA.totalTeams;
+  document.getElementById('statLeader').textContent = fmtScore(DATA.teams[0]?.teamTotal);
+  const scores = validTeams.map(t => t.teamTotal);
+  document.getElementById('statAvg').textContent = scores.length
+    ? fmtScore(Math.round(scores.reduce((a,b)=>a+b,0)/scores.length))
+    : 'E';
+  const avgCut = (DATA.teams.reduce((s,t) => s + t.cutMade, 0) / DATA.teams.length).toFixed(1);
+  const cutEl = document.getElementById('statCut'); if (cutEl) cutEl.textContent = avgCut;
+
+  // Pick counts (used by PPV + Uniqueness tabs)
+  const _normN = n => (n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const _pickCounts = {};
+  DATA.teams.forEach(t => {
+    t.golfers.forEach(g => {
+      const _k = _normN(g.name);
+      _pickCounts[_k] = (_pickCounts[_k] || 0) + 1;
+    });
+  });
+  window._pickCounts = _pickCounts;
+  window._normN = _normN;
+
+  // Tournament header update
+  const subtitle = document.getElementById('tournSubtitle');
+  if (subtitle) {
+    let statusText = String(DATA.year || '');
+    if (DATA.course) statusText += ' · ' + DATA.course;
+    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' · ' + _displayStatus;
+    if (DATA.status === 'In Progress' && DATA.round) statusText += ' · Round ' + DATA.round;
+    subtitle.textContent = statusText;
+  }
+  const lastUpdEl = document.getElementById('lastUpdated');
+  if (lastUpdEl && DATA.lastUpdated) {
+    try {
+      const d = new Date(DATA.lastUpdated);
+      lastUpdEl.textContent = 'Updated ' + d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+    } catch(e) {}
+  }
+
+  renderLeaderboard();
+  renderGolfers();
+  renderGrid();
+  renderUniqueness();
+  renderPPV();
+  renderPayouts();
+  renderTeams();
+}
+
+
+// Teams tab
+function renderTeams(filter) {
+  let teams = DATA.teams;
+  if (filter) {
+    const q = filter.toLowerCase();
+    teams = teams.filter(t => t.name.toLowerCase().includes(q));
+  }
+  const payoutCount = DATA.payouts ? DATA.payouts.length : 12;
+  let html = '';
+  teams.forEach(t => {
+    const inMoney = t.rank <= payoutCount;
+    html += '<div class="team-card' + (inMoney ? ' in-money' : '') + '">';
+    const teamIdx = DATA.teams.indexOf(t);
+    html += '<div class="team-card-header" onclick="showTeam(' + teamIdx + ')" style="cursor:pointer">';
+    html += '<span class="tc-rank">' + t.rank + '</span>';
+    html += '<span class="tc-name">' + t.name + '</span>';
+    html += '<span class="tc-score score-cell ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal >= 500 ? 'N/A' : fmtScore(t.teamTotal)) + '</span>';
+    html += '</div>';
+    const made = t.golfers.filter(g => !g.cut && g.scoreToPar !== null).sort((a,b) => a.scoreToPar - b.scoreToPar);
+    const notStarted = t.golfers.filter(g => !g.cut && g.scoreToPar === null);
+    const cutG = t.golfers.filter(g => g.cut);
+    const counting = made.slice(0, 4);
+    const bench = [...made.slice(4), ...notStarted];
+    html += '<div class="team-golfers">';
+    [...counting, ...bench, ...cutG].forEach(g => {
+      const isCounting = counting.includes(g);
+      const ns = isNotStarted(g);
+      html += '<div class="tg-row' + (g.cut ? ' is-cut' : isCounting ? ' is-counting' : '') + '">';
+      html += '<span class="tg-name">' + g.name + '<span class="tg-ppv">' + g.ppv + '</span></span>';
+      html += '<span class="tg-pos">' + (g.position?.displayName || '') + '</span>';
+      html += '<span class="tg-score score-cell ' + scoreClass(g.scoreToPar) + '">' + (g.cut ? 'CUT' : ns ? '-' : fmtScore(g.scoreToPar)) + '</span>';
+      html += '<span class="tg-thru">' + fmtThru(g) + '</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+  });
+  document.getElementById('teamsGrid').innerHTML = html || '<div style="padding:20px;color:var(--text-muted)">No teams found</div>';
+}
+document.getElementById('teamsSearch').addEventListener('input', e => renderTeams(e.target.value));
+
+fetch('data/data.json')
+  .then(r => {
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  })
+  .then(data => initApp(data))
+  .catch(err => {
+    (document.querySelector('.main-content') || document.querySelector('.tab-panels') || document.body).innerHTML =
+      '<div style="padding:60px;text-align:center;color:#f85149">' +
+      '<h2 style="margin-bottom:12px">ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ  Could not load scores</h2>' +
+      '<p style="color:#8b949e">Make sure <code>data/data.json</code> exists and the site is running from a web server.</p>' +
+      '<p style="color:#8b949e;margin-top:8px;font-size:13px">Error: ' + err.message + '</p>' +
+      '</div>';
+    console.error('Data load error:', err);
+  });
+
+// Auto-refresh every 5 minutes
+setInterval(() => {
+  fetch('data/data.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(d => initApp(d))
+    .catch(() => {});
+}, 5 * 60 * 1000);
+
+
+// ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Enter Team Form ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
+(function(){
+  var BUDGET=72.0, REQUIRED=6;
+  var LOCKOUT_TIME = new Date("2026-04-09T12:00:00Z"); // Masters R1 first tee time (8am ET)
+  var FORM_URL="https://script.google.com/macros/s/AKfycbyFe9ndPTfFG7C1swsPWBb-ox8i_6L7sy18ZGx5-5a0FgRY9IT29wiq9AF5DY_eGYOZcg/exec";
+  var TEAMS=[
+    "#1 - Dylan Morris",
+    "#2 - Chris Chiles",
+    "#3 - Jim Pendergast",
+    "#4 - David Kater",
+    "#5 - Brody Connolly",
+    "#6 - Kerry Coker",
+    "#7 - Wesley Osborne",
+    "#8 - Corey Neilson",
+    "#9 - Ryan Dunn",
+    "#10 - Brett Bitove",
+    "#11 - Chris Ernst",
+    "#12 - Eric Taylor",
+    "#13 - George Simon",
+    "#14 - Jordan Graumann",
+    "#15 - Keith Taylor",
+    "#16 - Nick Simon",
+    "#17 - J.J. Bitove",
+    "#18 - Piper Morris",
+    "#19 - Will Rawley",
+    "#20 - Garth Tymeson",
+    "#21 - Kyle Tymeson",
+    "#22 - Ed Sclater",
+    "#23 - Kyle Dalton",
+    "#24 - Aaron Crandall",
+    "#25 - Chris Coleman",
+    "#26 - Dan Marsh",
+    "#27 - Jay Evans",
+    "#28 - John Krall",
+    "#29 - Joshua Marsh",
+    "#30 - Kevin Oakes",
+    "#31 - Michael Reardon",
+    "#32 - Paul Hussmann",
+    "#33 - Peter Willingham",
+    "#34 - Scott Kater",
+    "#35 - Jon Warford",
+    "#36 - Adam Stone",
+    "#37 - Ben Freedland",
+    "#38 - Brad Kropp",
+    "#39 - Chris Whipple",
+    "#40 - Danny Grimes",
+    "#41 - Elliot Krochmalny",
+    "#42 - Gary Gambetta",
+    "#43 - Jack Knauss",
+    "#44 - James Glenn",
+    "#45 - Joseph Kirby",
+    "#46 - Josh Phillips",
+    "#47 - Ken Koncilja",
+    "#48 - Kevin Beers",
+    "#49 - Mark Grady",
+    "#50 - Matt Krochmalny",
+    "#51 - Matthew Stephens",
+    "#52 - Michael Skiles",
+    "#53 - Nelson Adcock",
+    "#54 - Nick Provenzo",
+    "#55 - Ryan Dalton",
+    "#56 - Eric Platt",
+    "#57 - Kellen Lund",
+    "#58 - Chris Polony",
+    "#59 - Dale Davis",
+    "#60 - Aaron Crist",
+    "#61 - Adam Ewald",
+    "#62 - Alex Sklar",
+    "#63 - Ben Phillips",
+    "#64 - Blake Morris",
+    "#65 - Brad Jalovec",
+    "#66 - Braden Dalton",
+    "#67 - Brian Sikel",
+    "#68 - Bryant Palmer",
+    "#69 - Chase Neilson",
+    "#70 - Chris Caesar",
+    "#71 - Chuck Droege",
+    "#72 - Craig Hill",
+    "#73 - Dan Judge",
+    "#74 - Dominic Musarra",
+    "#75 - Don Hill",
+    "#76 - Doug Logan",
+    "#77 - Drew Chintala",
+    "#78 - George Beran",
+    "#79 - Gordy Grafflin",
+    "#80 - Haines Maxwell",
+    "#81 - Hunter DeCoudres",
+    "#82 - Hunter Rice",
+    "#83 - Jamie Allen",
+    "#84 - Jason Skaggs",
+    "#85 - Jason Wachs",
+    "#86 - Jayanth Swathirajan",
+    "#87 - Jeffrey Little",
+    "#88 - Jeremy Meyer",
+    "#89 - Jerry Von Deylen",
+    "#90 - John Tierney",
+    "#91 - Jon Von Deylen",
+    "#92 - Kelin Althoff",
+    "#93 - Kevin Ball",
+    "#94 - Kevin Rose",
+    "#95 - Luke Sedler",
+    "#96 - Marc Foster",
+    "#97 - Mark Bernstein",
+    "#98 - Matt Henderson",
+    "#99 - Matt Nieman",
+    "#100 - Matthew Perry",
+    "#101 - Matthew Spering",
+    "#102 - Michael Molnar",
+    "#103 - Mickey Knauss",
+    "#104 - Mike Alexander",
+    "#105 - Mike Lundy",
+    "#106 - Murray Matheson",
+    "#107 - Nathan Ill",
+    "#108 - Nick Dose",
+    "#109 - Nick Dunn",
+    "#110 - Patrick Eberle",
+    "#111 - Paul Meyer",
+    "#112 - Porter Sesnon",
+    "#113 - Rob Meussner",
+    "#114 - Royce Jones - 1",
+    "#115 - Royce Jones - 2",
+    "#116 - Ryan Furrer",
+    "#117 - Ryan Shane",
+    "#118 - Ryan Skaggs",
+    "#119 - Scott Hole",
+    "#120 - Scott Jell",
+    "#121 - Sean Kelleher",
+    "#122 - Sean McKeon",
+    "#123 - Steve Francis",
+    "#124 - Steven Kolodny",
+    "#125 - Tim Shields",
+    "#126 - Tim Shields and KD",
+    "#127 - Timbes Riley",
+    "#128 - Todd Casabella",
+    "#129 - Tyler Miller",
+    "#130 - Vince Massoli",
+    "#131 - Wanda Warford",
+    "#132 - John Westrup",
+    "#133 - Dan Winters",
+    "#134 - Jason Hulbert",
+    "#135 - Joe Clifford & Bill Okeefe",
+    "#136 - Joe Clifford & Steve Shaughnessy",
+    "#137 - Jake Osterfeld",
+    "#138 - Kyle Tully",
+    "#139 - Ish Bhalla",
+    "#140 - Jamie Jelinek",
+    "#141 - Alec Knauss",
+    "#142 - Ally Wylie",
+    "#143 - Andrew Wernick",
+    "#144 - Bill Hunt",
+    "#145 - Jamie Ostarchvic",
+    "#146 - Kenny Leavitt",
+    "#147 - Kevin Tully",
+    "#148 - Kyle Kolbet",
+    "#149 - Luke Miller",
+    "#150 - Matthew Somerman",
+    "#151 - Michael Kirstein",
+    "#152 - Nate Coleman and Greg Worden",
+    "#153 - Randy Roggow",
+    "#154 - Jack Lane",
+    "#155 - Jeremy Rosen",
+    "#156 - Joseph Riley",
+    "#157 - Drew Bell",
+    "#158 - Jesse Schultz",
+    "#159 - Nate Coleman & Jesse Schultz",
+    "#160 - Nick Stout",
+    "#161 - Stephen Meek",
+    "#162 - Tierney, Tauber, Wood, Taylor LLC",
+    "#163 - Whitney Saulsberry",
+    "#164 - Zachery Wentz",
+    "#165 - Rob James",
+    "#166 - Neil Coughlin",
+    "#167 - Alex Hierlmeier",
+    "#168 - Sam Crist",
+    "#169 - Brandon Jones",
+    "#170 - Peter Gilfillan",
+    "#171 - Robert McAllister",
+    "#172 - Bradley Pierce",
+    "#173 - Kevin Wear",
+    "#174 - Brian Letzelter",
+    "#175 - David Phillips",
+    "#176 - Dennis Carroll",
+    "#177 - Steve Astrein",
+    "#178 - James Wright",
+    "#179 - Alex Griffiths",
+    "#180 - David Fliehs",
+    "#181 - Tim Rattigan"
+  ];
+  var GOLFERS=[
+    {n:"Scottie Scheffler",p:17.7},
+    {n:"Rory McIlroy",p:15.7},
+    {n:"Bryson DeChambeau",p:15.5},
+    {n:"Jon Rahm",p:15.3},
+    {n:"Ludvig Aberg",p:14.8},
+    {n:"Xander Schauffele",p:14.5},
+    {n:"Tommy Fleetwood",p:14.1},
+    {n:"Collin Morikawa",p:14},
+    {n:"Cameron Young",p:14},
+    {n:"Justin Rose",p:13.8},
+    {n:"Patrick Reed",p:13.7},
+    {n:"Hideki Matsuyama",p:13.4},
+    {n:"Viktor Hovland",p:13.3},
+    {n:"Matt Fitzpatrick",p:13.1},
+    {n:"Robert MacIntyre",p:13},
+    {n:"Brooks Koepka",p:12.8},
+    {n:"Jordan Spieth",p:12.7},
+    {n:"Justin Thomas",p:12.4},
+    {n:"Shane Lowry",p:12.2},
+    {n:"Tyrrell Hatton",p:12.1},
+    {n:"Chris Gotterup",p:11.8},
+    {n:"Sepp Straka",p:11.8},
+    {n:"Patrick Cantlay",p:11.7},
+    {n:"Russell Henley",p:11.7},
+    {n:"Akshay Bhatia",p:11.5},
+    {n:"Si Woo Kim",p:11.5},
+    {n:"Min Woo Lee",p:11.2},
+    {n:"Corey Conners",p:11.2},
+    {n:"Ben Griffin",p:11},
+    {n:"Jason Day",p:11},
+    {n:"J.J. Spaun",p:11},
+    {n:"Cameron Smith",p:10.9},
+    {n:"Sungjae Im",p:10.9},
+    {n:"Nicolai Hojgaard",p:10.9},
+    {n:"Jacob Bridgeman",p:10.8},
+    {n:"Sam Burns",p:10.8},
+    {n:"Jake Knapp",p:10.8},
+    {n:"Harris English",p:10.6},
+    {n:"Max Homa",p:10.6},
+    {n:"Marco Penge",p:10.6},
+    {n:"Gary Woodland",p:10.6},
+    {n:"Adam Scott",p:10.4},
+    {n:"Maverick McNealy",p:10.4},
+    {n:"Wyndham Clark",p:10.2},
+    {n:"Ryan Fox",p:10.2},
+    {n:"Sergio Garcia",p:10.2},
+    {n:"Daniel Berger",p:10.2},
+    {n:"Alex Noren",p:10.1},
+    {n:"Dustin Johnson",p:10.1},
+    {n:"Keegan Bradley",p:10.1},
+    {n:"Tom McKibbin",p:9.9},
+    {n:"Rasmus Hojgaard",p:9.9},
+    {n:"Harry Hall",p:9.9},
+    {n:"Kurt Kitayama",p:9.8},
+    {n:"Ryan Gerard",p:9.8},
+    {n:"Aaron Rai",p:9.8},
+    {n:"Rasmus Neergaard-Petersen",p:9.6},
+    {n:"John Keefer",p:9.6},
+    {n:"Nicolas Echavarria",p:9.6},
+    {n:"Michael Kim",p:9.6},
+    {n:"Michael Brennan",p:9.5},
+    {n:"Casey Jarvis",p:9.5},
+    {n:"Carlos Ortiz",p:9.5},
+    {n:"Max Greyserman",p:9.5},
+    {n:"Sami Valimaki",p:9.4},
+    {n:"Brian Harman",p:9.4},
+    {n:"Nick Taylor",p:9.4},
+    {n:"Matthew McCarty",p:9.4},
+    {n:"Andrew Novak",p:9.2},
+    {n:"Sam Stevens",p:9.2},
+    {n:"Davis Riley",p:9.2},
+    {n:"Kristoffer Reitan",p:9.1},
+    {n:"Hao-Tong Li",p:9.1},
+    {n:"Charl Schwartzel",p:9.1},
+    {n:"Bubba Watson",p:9.1},
+    {n:"Zach Johnson",p:9.1},
+    {n:"Aldrich Potgieter",p:8.9},
+    {n:"Naoyuki Kataoka",p:8.9},
+    {n:"Brian Campbell",p:8.9},
+    {n:"Danny Willett",p:8.9},
+    {n:"Jackson Herrington",p:8.9},
+    {n:"Angel Cabrera",p:8.8},
+    {n:"Ethan Fang",p:8.8},
+    {n:"Brandon Holtz",p:8.8},
+    {n:"Fifa Laopakdee",p:8.8},
+    {n:"Vijay Singh",p:8.8},
+    {n:"Mason Howell",p:8.6},
+    {n:"Fred Couples",p:8.6},
+    {n:"Mike Weir",p:8.6},
+    {n:"Mateo Pulcini",p:8.6},
+    {n:"Jose Maria Olazabal",p:8.6}
+  ];
+  var sel=[];
+  function totalPts(){return Math.round(sel.reduce(function(s,g){return s+g.p;},0)*10)/10;}
+  function updateUI(){
+    var pts=totalPts(), cnt=sel.length, rem=Math.round((BUDGET-pts)*10)/10;
+    document.getElementById("et-pts").textContent=pts.toFixed(1);
+    document.getElementById("et-cnt").textContent=cnt;
+    document.getElementById("et-rem").textContent=rem.toFixed(1)+" pts remaining";
+    var avgSpent = cnt>0 ? (pts/cnt).toFixed(1) : "â";
+    var avgRem = (REQUIRED-cnt)>0 ? (rem/(REQUIRED-cnt)).toFixed(1) : "â";
+    document.getElementById("et-avg-spent").textContent=avgSpent;
+    document.getElementById("et-avg-rem").textContent=avgRem;
+    var bar=document.getElementById("et-bar");
+    bar.style.width=Math.min(pts/BUDGET*100,100)+"%";
+    bar.className="et-bar-fill"+(pts>BUDGET?" over":"");
+    var chips=document.getElementById("et-chips");
+    if(sel.length===0){chips.innerHTML='<span style="color:rgba(255,255,255,.3);font-size:13px">No golfers selected yet</span>';}
+    else{chips.innerHTML=sel.map(function(g){return'<div class="et-chip">'+g.n+' ('+g.p+')'+ '<span class="et-chip-x" data-n="'+g.n+'">&#10005;</span></div>';}).join("");
+      chips.querySelectorAll(".et-chip-x").forEach(function(x){x.addEventListener("click",function(){desel(x.dataset.n);});});}
+    document.querySelectorAll(".et-golfer").forEach(function(card){
+      var isSel=sel.some(function(g){return g.n===card.dataset.n;});
+      var wouldOver=!isSel&&(pts+parseFloat(card.dataset.p)>BUDGET);
+      var full=!isSel&&cnt>=REQUIRED;
+      card.className="et-golfer"+(isSel?" et-sel":"")+((wouldOver||full)?" et-disabled":"");
+    });
+    document.getElementById("et-submit").disabled=!(cnt===REQUIRED&&pts<=BUDGET);
+  }
+  function desel(name){sel=sel.filter(function(g){return g.n!==name;});updateUI();}
+    function checkLockout(){
+    if(new Date() >= LOCKOUT_TIME){
+      document.getElementById("et-closed-banner").style.display="block";
+      document.getElementById("et-form-body").style.display="none";
+    }
+  }
+function buildGrid(){
+    var grid=document.getElementById("et-grid");
+    grid.innerHTML=GOLFERS.map(function(g){return'<div class="et-golfer" data-n="'+g.n+'" data-p="'+g.p+'"><span class="et-golfer-name">'+g.n+'</span><span class="et-golfer-pts">'+g.p.toFixed(1)+'</span></div>';}).join("");
+    grid.querySelectorAll(".et-golfer").forEach(function(card){
+      card.addEventListener("click",function(){
+        if(card.classList.contains("et-sel")){desel(card.dataset.n);}
+        else if(!card.classList.contains("et-disabled")){sel.push({n:card.dataset.n,p:parseFloat(card.dataset.p)});updateUI();}
+      });
+    });
+  }
+  function buildTeams(){
+    var s=document.getElementById("et-team");
+    TEAMS.forEach(function(t){var o=document.createElement("option");o.value=t;o.textContent=t;s.appendChild(o);});
+  }
+  document.getElementById("et-submit").addEventListener("click",function(){
+    var email=document.getElementById("et-email").value.trim();
+    var team=document.getElementById("et-team").value;
+    var msg=document.getElementById("et-msg");
+    msg.className="et-msg";
+    if(!email||!email.includes("@")){msg.className="et-msg error";msg.textContent="Please enter a valid email address.";return;}
+    if(!team){msg.className="et-msg error";msg.textContent="Please select your team from the dropdown.";return;}
+    var params=new URLSearchParams();
+    params.append("email",email);
+    params.append("team",team);
+    sel.forEach(function(g){params.append("golfers",g.n+" - "+g.p.toFixed(1));});
+    document.getElementById("et-submit").disabled=true;
+    fetch(FORM_URL+"?"+params.toString(),{method:"GET",mode:"no-cors"})
+      .then(function(){
+        msg.className="et-msg success";
+        msg.textContent="\u2713 Team submitted! A confirmation will be sent to "+email;
+        sel=[];document.getElementById("et-email").value="";
+        document.getElementById("et-team").value="";updateUI();
+      }).catch(function(){
+        msg.className="et-msg error";
+        msg.textContent="Submission failed. Please try again.";
+        document.getElementById("et-submit").disabled=false;
+      });
+  });
+  var _etInit=false;
+  document.querySelectorAll(".nav-tab").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      if(btn.dataset.tab==="enterteam"&&!_etInit){buildGrid();buildTeams();checkLockout();_etInit=true;}
+    });
+  });
+})();
+
+function _sortTable(tbodyId, colIdx, type, th) {
+  var tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  var cur = th.classList.contains('asc') ? 'asc' : th.classList.contains('desc') ? 'desc' : null;
+  th.closest('table').querySelectorAll('.sort-th').forEach(function(el){ el.classList.remove('asc','desc'); });
+  var dir = (cur === 'asc') ? 'desc' : 'asc';
+  th.classList.add(dir);
+  var rows = Array.from(tbody.querySelectorAll('tr'));
+  function cellVal(row) { var c = row.cells[colIdx]; return c ? c.textContent.trim() : ''; }
+  function parseVal(v) {
+    if (type === 'rank') {
+      if (!v || v==='MC'||v==='CUT'||v==='WD'||v==='--') return 9999;
+      var n = parseInt(v.replace(/^T/,''));
+      return isNaN(n) ? 9998 : n;
+    } else if (type === 'score') {
+      if (!v || v==='--') return 9999;
+      if (v==='E') return 0;
+      var n = parseFloat(v);
+      return isNaN(n) ? 9999 : n;
+    } else if (type === 'num') {
+      var n = parseFloat(v);
+      return isNaN(n) ? 9999 : n;
+    } else if (type === 'pct') {
+      var n = parseInt(v);
+      return isNaN(n) ? 0 : n;
+    } else {
+      return v.toLowerCase();
+    }
+  }
+  rows.sort(function(a, b) {
+    var av = parseVal(cellVal(a)), bv = parseVal(cellVal(b));
+    if (type === 'str') return dir==='asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+    if (av < bv) return dir==='asc' ? -1 : 1;
+    if (av > bv) return dir==='asc' ? 1 : -1;
+    return 0;
+  });
+  rows.forEach(function(r){ tbody.appendChild(r); });
+}
+</script>
+</body>
+</html> + Math.round(splitPay).toLocaleString() + '</td>' : '<td class="r payout-cell">-</td>') +
+        '</tr>';
+    });
   });
   document.getElementById('payoutBody').innerHTML = html;
 }
