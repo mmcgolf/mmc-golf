@@ -167,7 +167,7 @@
   .stat-card .stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 
   /* Tables */
-  .table-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow-x: auto; }
+  .table-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; overflow-x: clip; }
   table { width: 100%; border-collapse: collapse; }
   thead th {
     background: var(--bg-card);
@@ -176,7 +176,7 @@
     font-size: 11px;
     font-weight: 600;
     position: sticky;
-    top: 43px;
+    top: 44px;
     z-index: 2;
     color: var(--text-muted);
     text-transform: uppercase;
@@ -1140,12 +1140,22 @@ function renderLeaderboard(filter) {
   teams.forEach(t2 => { _rankCnt[t2.rank] = (_rankCnt[t2.rank]||0)+1; });
   const _tiedRanks = new Set(Object.keys(_rankCnt).filter(k=>_rankCnt[k]>1).map(Number));
   let html = '';
+  const _splitPayMap = {};
+  const _rkGrp = {};
+  DATA.teams.forEach(t2 => { if(!_rkGrp[t2.rank]) _rkGrp[t2.rank]=[]; _rkGrp[t2.rank].push(t2); });
+  const _placeAmt = {};
+  DATA.payouts.forEach(p => { _placeAmt[p.place] = p.amount; });
+  Object.keys(_rkGrp).forEach(rk => {
+    const g = _rkGrp[rk]; let tot = 0;
+    for(let i=0; i<g.length; i++) tot += (_placeAmt[+rk+i]||0);
+    _splitPayMap[rk] = tot/g.length;
+  });
   display.forEach((t, displayIdx) => {
     const globalIdx = DATA.teams.indexOf(t);
     const isPayout = globalIdx <= moneyLineIdx && !filter;
     const isMoneyLine = !filter && displayIdx > 0 && globalIdx === moneyLineIdx + 1;
     const isCutLine = !filter && cutLineIdx > 0 && globalIdx === cutLineIdx && displayIdx > 0;
-    const payout = payoutMap[t.rank];
+    const payout = isPayout ? (_splitPayMap[t.rank] || 0) : 0;
 
     // Cut status dots
     let dots = '';
@@ -1169,7 +1179,7 @@ function renderLeaderboard(filter) {
       html += '<td class="rank-cell';
     }
     if (isPayout && !isMoneyLine) html += ' top';
-    html += '">';
+    if (!isMoneyLine && !isCutLine) html += '">';
     if (isPayout) html += '<span class="gold-dot"></span>';
     html += (_tiedRanks.has(t.rank) ? 'T' : '') + t.rank + '</td>';
 
