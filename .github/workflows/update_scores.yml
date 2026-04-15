@@ -42,7 +42,7 @@ jobs:
         run: |
           git config user.name  "MMC Bot"
           git config user.email "mmc-bot@users.noreply.github.com"
-          git add data/scores.json data/data.json
+          git add data/scores.json data/data.json data/name_cache.json
           # Only commit if something actually changed (avoids empty commits)
           git diff --staged --quiet || git commit -m "Auto-update scores $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
