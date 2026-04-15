@@ -49,6 +49,23 @@ NAME_ALIASES = {
     "brendan steele": "brendan steele",
 }
 
+NAME_CACHE_PATH = os.path.join(DATA_DIR, "name_cache.json")
+
+
+def load_name_cache():
+    """Load persistent dk->espn name match cache from disk."""
+    if os.path.exists(NAME_CACHE_PATH):
+        with open(NAME_CACHE_PATH) as f:
+            return json.load(f)
+    return {}
+
+
+def save_name_cache(cache):
+    """Persist name match cache to disk."""
+    with open(NAME_CACHE_PATH, "w") as f:
+        json.dump(cache, f, indent=2)
+    print(f"  Saved name cache: {len(cache)} entries")
+
 
 def fuzzy_match(name, candidates, threshold=0.82):
     """
@@ -91,7 +108,7 @@ def build_golfer_lookup(scores):
     return lookup
 
 
-def resolve_pick(pick_name, golfer_lookup, espn_names):
+def resolve_pick(pick_name, golfer_lookup, espn_names, name_cache=None):
     """
     Resolve a DK/pick name to ESPN golfer data.
     Returns golfer dict (possibly with score=None if not found on leaderboard).
@@ -104,12 +121,23 @@ def resolve_pick(pick_name, golfer_lookup, espn_names):
     if norm in golfer_lookup:
         return golfer_lookup[norm].copy()
 
+    # Check persistent name cache before expensive fuzzy match
+    if name_cache is not None and norm in name_cache:
+        cached_espn = name_cache[norm]
+        if cached_espn in golfer_lookup:
+            return golfer_lookup[cached_espn].copy()
+        norm_cached = normalize_name(cached_espn)
+        if norm_cached in golfer_lookup:
+            return golfer_lookup[norm_cached].copy()
+
     # Fuzzy fallback
     matched, score = fuzzy_match(pick_name, espn_names)
     if matched:
         g = golfer_lookup[matched].copy()
         if score < 1.0:
             print(f"  NAME MATCH: '{pick_name}' -> '{matched}' (score={score:.2f})")
+            if name_cache is not None:
+                name_cache[norm] = matched  # persist for future runs
         return g
 
     # Not found - return a placeholder (pre-tournament or withdrew)
@@ -163,6 +191,10 @@ def main():
     golfer_lookup = build_golfer_lookup(scores)
     espn_names = [g["name"] for g in scores.get("golfers", [])]
 
+    # Load name match cache (avoids fuzzy matching on every 5-min cycle)
+    name_cache = load_name_cache()
+    _cache_size_before = len(name_cache)
+
     # Build teams
     teams = []
     for team in picks_data.get("teams", []):
@@ -170,7 +202,7 @@ def main():
         for pick in team.get("picks", []):
             name = pick["name"]
             ppv = pick.get("ppv", 0)
-            g = resolve_pick(name, golfer_lookup, espn_names)
+            g = resolve_pick(name, golfer_lookup, espn_names, name_cache)
             g["ppv"] = ppv
             resolved_golfers.append(g)
 
@@ -230,6 +262,10 @@ def main():
         "ppvs": ppvs,
         "payouts": payouts
     }
+
+    # Save name cache if any new matches were discovered
+    if len(name_cache) > _cache_size_before:
+        save_name_cache(name_cache)
 
     out_path = os.path.join(DATA_DIR, "data.json")
     with open(out_path, "w") as f:
