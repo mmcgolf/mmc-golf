@@ -2244,8 +2244,7 @@ async function renderHistoryTab(key) {
 
     // Payout
     if (payout > 0) {
-      html += '<td class="payout-cell">
-</html> + Math.round(payout).toLocaleString() + '</td>';
+      html += '<td class="payout-cell">' + String.fromCharCode(36) + Math.round(payout).toLocaleString() + '</td>';
     } else {
       html += '<td class="payout-cell">-</td>';
     }
