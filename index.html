@@ -2163,12 +2163,9 @@ async function renderHistoryTab(key) {
   }
 
   const payoutMap = {};
-  const payoutSet = new Set();
-  if (data.payouts) {
-    data.payouts.forEach(p => { payoutMap[p.place] = p.amount; payoutSet.add(p.place); });
-  }
+  const payoutCount = data.payouts ? data.payouts.length : 12;
+  if (data.payouts) data.payouts.forEach(p => { payoutMap[p.place] = p.amount; });
 
-  // Compute split payouts for ties (same logic as main leaderboard)
   const _splitPayMap = {};
   if (data.teams) {
     const rankGroups = {};
@@ -2178,17 +2175,14 @@ async function renderHistoryTab(key) {
     });
     Object.entries(rankGroups).forEach(([rank, grp]) => {
       const r = parseInt(rank);
-      let total = 0, cnt = 0;
-      for (let i = r; i < r + grp.length; i++) {
-        if (payoutMap[i]) { total += payoutMap[i]; cnt++; }
-      }
-      if (cnt > 0) _splitPayMap[r] = total / grp.length;
+      let total = 0;
+      for (let i = r; i < r + grp.length; i++) if (payoutMap[i]) total += payoutMap[i];
+      if (total > 0) _splitPayMap[r] = total / grp.length;
     });
   }
 
-  const isPayout = (rank) => !!_splitPayMap[rank];
-  const lastPayRank = data.payouts ? Math.max(...data.payouts.map(p => p.place)) : 0;
-
+  const winScore = data.winnerScore;
+  const winScoreFmt = winScore < 0 ? String(winScore) : winScore === 0 ? 'E' : '+' + winScore;
   let html = '';
 
   // Tournament header
@@ -2199,67 +2193,61 @@ async function renderHistoryTab(key) {
   html += '</div>';
   html += '<div class="history-header-winner">';
   html += '<div class="history-header-winner-label">Tournament Winner</div>';
-  html += '<div class="history-header-winner-name">' + data.winner + ' (' + (data.winnerScore <= 0 ? data.winnerScore : '+' + data.winnerScore) + ')</div>';
+  html += '<div class="history-header-winner-name">' + data.winner + ' (' + winScoreFmt + ')</div>';
   html += '</div>';
   html += '</div>';
 
-  // Leaderboard table
-  html += '<div class="table-wrap"><table class="leaderboard-table"><thead><tr>';
-  html += '<th>Rank</th><th>Team</th><th>Score</th>';
-  html += '<th>G1</th><th>G2</th><th>G3</th><th>G4</th><th>G5</th><th>G6</th>';
-  html += '<th>Payout</th>';
-  html += '</tr></thead><tbody>';
+  // Search bar
+  html += '<div class="search-bar" style="margin-bottom:16px">';
+  html += '<svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>';
+  html += '<input type="text" id="histSearch" placeholder="Search teams..." oninput="filterHistTeams(this.value)">';
+  html += '</div>';
 
-  (data.teams || []).forEach((t, idx) => {
-    const isMoneyLine = idx < (data.teams.length - 1) &&
-      payoutSet.has(t.rank) && !payoutSet.has(data.teams[idx + 1].rank);
-    const payout = isPayout(t.rank) ? _splitPayMap[t.rank] : 0;
+  // Teams grid
+  html += '<div class="teams-grid" id="histTeamsGrid">';
+  (data.teams || []).forEach(t => {
+    const inMoney = t.rank <= payoutCount;
+    html += '<div class="team-card' + (inMoney ? ' in-money' : '') + '">';
+    html += '<div class="team-card-header">';
+    html += '<span class="tc-rank">' + t.rank + '</span>';
+    html += '<span class="tc-name">' + t.name + '</span>';
+    const payout = _splitPayMap[t.rank];
+    if (payout) html += '<span style="font-size:11px;color:var(--gold);margin-right:6px">' + String.fromCharCode(36) + Math.round(payout).toLocaleString() + '</span>';
+    html += '<span class="tc-score score-cell ' + scoreClass(t.teamTotal) + '">' + fmtScore(t.teamTotal) + '</span>';
+    html += '</div>';
 
-    const rowClass = idx % 2 === 1 ? ' class="alt-row"' : '';
-    html += '<tr' + rowClass + '>';
+    const made = t.golfers.filter(g => !g.cut).sort((a,b) => (a.scoreToPar != null ? a.scoreToPar : 999) - (b.scoreToPar != null ? b.scoreToPar : 999));
+    const cutGs = t.golfers.filter(g => g.cut);
+    const counting = made.slice(0, 4);
+    const bench = made.slice(4);
 
-    // Rank
-    html += '<td class="rank-cell">' + t.rank + '</td>';
-
-    // Team name
-    html += '<td class="name-cell">' + t.name + '</td>';
-
-    // Score
-    const sc = t.teamTotal;
-    const scClass = sc < 0 ? 'under' : sc > 0 ? 'over' : 'even';
-    const scFmt = sc < 0 ? String(sc) : sc > 0 ? '+' + sc : 'E';
-    html += '<td class="score-cell ' + scClass + '">' + scFmt + '</td>';
-
-    // Golfer cells
-    t.golfers.forEach(g => {
-      if (g.cut) {
-        html += '<td class="golfer-cell"><span class="cut-text" title="' + g.name + '">CUT</span></td>';
-      } else {
-        const gs = g.scoreToPar;
-        const gc = gs < 0 ? 'under' : gs > 0 ? 'over' : 'even';
-        const gf = gs < 0 ? String(gs) : gs > 0 ? '+' + gs : 'E';
-        html += '<td class="golfer-cell ' + gc + '" title="' + g.name + ' (' + (g.position || '') + ')">' + gf + '</td>';
-      }
+    html += '<div class="team-golfers">';
+    [...counting, ...bench, ...cutGs].forEach(g => {
+      const isCounting = counting.indexOf(g) !== -1;
+      html += '<div class="tg-row' + (g.cut ? ' is-cut' : isCounting ? ' is-counting' : '') + '">';
+      html += '<span class="tg-name">' + g.name + '<span class="tg-ppv">' + g.ppv + '</span></span>';
+      html += '<span class="tg-pos">' + (g.cut ? '' : (g.position || '')) + '</span>';
+      const sc = g.cut ? 9999 : g.scoreToPar;
+      html += '<span class="tg-score score-cell ' + scoreClass(sc) + '">' + (g.cut ? 'CUT' : fmtScore(sc)) + '</span>';
+      html += '<span class="tg-thru">F</span>';
+      html += '</div>';
     });
-
-    // Payout
-    if (payout > 0) {
-      html += '<td class="payout-cell">' + String.fromCharCode(36) + Math.round(payout).toLocaleString() + '</td>';
-    } else {
-      html += '<td class="payout-cell">-</td>';
-    }
-
-    html += '</tr>';
-
-    if (isMoneyLine) {
-      html += '<tr class="money-line-row"><td colspan="10"><span class="money-line-label">&#x1F4B0; Money Line</span></td></tr>';
-    }
+    html += '</div></div>';
   });
+  html += '</div>';
 
-  html += '</tbody></table></div>';
   cont.innerHTML = html;
 }
 
+function filterHistTeams(q) {
+  const grid = document.getElementById('histTeamsGrid');
+  if (!grid) return;
+  const lq = q.toLowerCase();
+  grid.querySelectorAll('.team-card').forEach(card => {
+    const name = card.querySelector('.tc-name') ? card.querySelector('.tc-name').textContent.toLowerCase() : '';
+    card.style.display = name.includes(lq) ? '' : 'none';
+  });
+}
 // Auto-load history when tab is clicked
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.nav-tab').forEach(tab => {
