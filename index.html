@@ -1871,6 +1871,8 @@ setInterval(() => {
       if (typeof renderLeaderboard==='function') renderLeaderboard();
       if (typeof renderTeams==='function') renderTeams();
       if (typeof renderGolfers==='function') renderGolfers();
+      if (typeof renderPayouts==='function') renderPayouts();
+      if (typeof renderPPV==='function') renderPPV();
       if (typeof renderGrid==='function') renderGrid();
       const lu = document.getElementById('lastUpdated');
       if (lu) { const d=new Date(window.DATA.lastUpdated); lu.textContent='Updated '+d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
