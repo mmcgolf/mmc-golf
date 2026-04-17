@@ -1722,7 +1722,83 @@ setInterval(() => {
     .then(r => r.json())
     .then(d => initApp(d))
     .catch(() => {});
-}, 5 * 60 * 1000);
+}, 60 * 1000);
+
+// -- Live ESPN direct fetch --------------------------------------------------
+// Fetches scores directly from ESPN every 60s during In Progress,
+// bypassing GitHub Actions delay entirely.
+(function startLiveFetch() {
+  const _ESPN = 'https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=pga';
+  function _norm(n) { return (n||'').normalize('NFD').replace(/[---]/g,'').toLowerCase().trim(); }
+
+  async function _fetchLive() {
+    if (!window.DATA || window.DATA.status !== 'In Progress') return;
+    try {
+      const resp = await fetch(_ESPN + '?t=' + Date.now());
+      const json = await resp.json();
+      const comps = json.events?.[0]?.competitions?.[0]?.competitors || [];
+      if (!comps.length) return;
+
+      // Build name-data lookup
+      const _map = {};
+      comps.forEach(p => {
+        const k = _norm(p.athlete?.displayName);
+        const stp = (p.statistics || []).find(s => s.name === 'scoreToPar');
+        const tn = p.status?.type?.name || '';
+        _map[k] = {
+          pos: p.status?.position?.displayName || null,
+          stp: (stp && stp.value !== undefined) ? stp.value : null,
+          thru: (p.status?.thru > 0) ? String(p.status.thru) : null,
+          cut: tn.includes('CUT') || tn.includes('WD') || tn.includes('DQ')
+        };
+      });
+
+      // Update DATA.golfers
+      (window.DATA.golfers || []).forEach(g => {
+        const e = _map[_norm(g.name)]; if (!e) return;
+        if (e.stp !== null) g.scoreToPar = e.stp;
+        if (e.pos) { g.position = g.position || {}; g.position.displayName = e.pos; }
+        g.thru = e.thru; g.cut = e.cut;
+      });
+
+      // Update team golfer copies + recompute teamTotal
+      (window.DATA.teams || []).forEach(t => {
+        (t.golfers || []).forEach(g => {
+          const e = _map[_norm(g.name)]; if (!e) return;
+          if (e.stp !== null) g.scoreToPar = e.stp;
+          if (e.pos) { g.position = g.position || {}; g.position.displayName = e.pos; }
+          g.thru = e.thru; g.cut = e.cut;
+        });
+        const active = t.golfers.filter(g => !g.cut && g.scoreToPar !== null && g.scoreToPar !== undefined).map(g => g.scoreToPar);
+        active.sort((a,b) => a-b);
+        t.cutMade = active.length;
+        const top4 = active.slice(0,4);
+        while (top4.length < 4) top4.push(1000);
+        t.teamTotal = top4.reduce((s,x)=>s+x,0);
+      });
+
+      // Re-rank
+      const ranked = window.DATA.teams.filter(t => t.teamTotal < 4000).slice().sort((a,b) => a.teamTotal - b.teamTotal);
+      let rk = 1;
+      ranked.forEach((t,i) => { if (i>0 && t.teamTotal !== ranked[i-1].teamTotal) rk=i+1; t.rank=rk; });
+
+      // Timestamp
+      window.DATA.lastUpdated = new Date().toISOString();
+
+      // Re-render visible tabs
+      if (typeof renderLeaderboard==='function') renderLeaderboard();
+      if (typeof renderTeams==='function') renderTeams();
+      if (typeof renderGolfers==='function') renderGolfers();
+      if (typeof renderGrid==='function') renderGrid();
+      const lu = document.getElementById('lastUpdated');
+      if (lu) { const d=new Date(window.DATA.lastUpdated); lu.textContent='Updated '+d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); }
+    } catch(_e) { /* silent */ }
+  }
+
+  window._fetchLiveScores = _fetchLive;
+  _fetchLive(); // run immediately on load
+  setInterval(_fetchLive, 60*1000);
+})();
 
 
 // ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Enter Team Form ÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂ
