@@ -2290,6 +2290,10 @@ function _sortTable(tbodyId, colIdx, type, th) {
     }
   }
   rows.sort(function(a, b) {
+    var aF=a.classList.contains('fav-sep-row'), bF=b.classList.contains('fav-sep-row');
+    if (aF && bF) return 0;
+    if (aF) return -1;
+    if (bF) return 1;
     var av = parseVal(cellVal(a)), bv = parseVal(cellVal(b));
     if (type === 'str') return dir==='asc' ? av.localeCompare(bv) : bv.localeCompare(av);
     if (av < bv) return dir==='asc' ? -1 : 1;
