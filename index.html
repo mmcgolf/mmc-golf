@@ -1243,22 +1243,16 @@ function renderLeaderboard(filter) {
     for(let i=0; i<g.length; i++) tot += (_placeAmt[+rk+i]||0);
     _splitPayMap[rk] = tot/g.length;
   });
-  // --- Favorites pinned section ---
+  // --- Favorites (sorted to top) ---
   const _favTnames = _getFavs().t;
-  if (_favTnames.length && !filter) {
-    const _favRows = display.filter(t => _favTnames.includes(t.name));
-    if (_favRows.length) {
-      html += '<tr class="fav-sep-row"><td colspan="99">&#9733; Favorites</td></tr>';
-      _favRows.forEach(t => {
-        const _gi = DATA.teams.indexOf(t);
-        const _dn = t.name.replace(/#\d+ - /,'');
-        const _tn = t.name.match(/#\d+/)?.[0]||'';
-        html += '<tr onclick="showTeam('+_gi+')" style="cursor:pointer"><td class="rank-cell">'+(_tiedRanks.has(t.rank)?'T':'')+t.rank+'</td><td class="team-name">'+_dn+' <span style="color:var(--text-dim);font-weight:400;font-size:12px">'+_tn+'</span>'+_starT(t.name)+'</td><td class="r score-cell '+scoreClass(t.teamTotal)+'">'+(t.teamTotal>=500?'N/A':fmtScore(t.teamTotal))+'</td></tr>';
-      });
-      html += '<tr class="fav-sep-row"><td colspan="99"></td></tr>';
-    }
-  }
-  display.forEach((t, displayIdx) => {
+  const _dispWithFavs = (function(){
+    if(!_favTnames.length) return display;
+    var fi=display.filter(function(t){return _favTnames.includes(t.name);});
+    var ot=display.filter(function(t){return !_favTnames.includes(t.name);});
+    return fi.length ? fi.concat([{_isSep:true}],ot) : display;
+  })();
+  _dispWithFavs.forEach((t, displayIdx) => {
+    if(t._isSep){html+='<tr class="fav-sep-row"><td colspan="99">--- All Teams ---</td></tr>';return;}
     const globalIdx = DATA.teams.indexOf(t);
     const isPayout = globalIdx <= moneyLineIdx && !filter;
     const isMoneyLine = !filter && displayIdx > 0 && globalIdx === moneyLineIdx + 1;
@@ -1302,7 +1296,11 @@ function renderLeaderboard(filter) {
   });
 
   document.getElementById('leaderboardBody').innerHTML = html;
-  
+  // Re-apply sort after data refresh
+  if(window._tblSortStates&&window._tblSortStates['leaderboardBody']){
+    var _ss=window._tblSortStates['leaderboardBody'];
+    _sortTable('leaderboardBody',_ss.colIdx,_ss.type,null,_ss.dir);
+  }  
   const btn = document.getElementById('showMoreBtn');
   if (!filter && !showAll && display.length < teams.length) {
     btn.style.display = 'block';
@@ -1332,20 +1330,16 @@ function renderGolfers(filter) {
     return sa - sb;
   });
   let html = '';
-  // --- Favorites pinned section ---
+  // --- Favorites (sorted to top) ---
   const _favGnames = _getFavs().g;
-  if (_favGnames.length && !filter) {
-    const _favGs = golfers.filter(g => _favGnames.includes(g.name));
-    if (_favGs.length) {
-      html += '<tr class="fav-sep-row"><td colspan="99">&#9733; Favorites</td></tr>';
-      _favGs.forEach(g => {
-        const _ns = isNotStarted(g);
-        html += '<tr><td class="rank-cell">'+(g.position?.displayName||'-')+'</td><td class="team-name">'+g.name+_starG(g.name)+'</td><td class="r score-cell '+scoreClass(g.scoreToPar)+'">'+(_ns?'-':fmtScore(g.scoreToPar))+'</td><td class="c hide-mobile '+(_ns?' not-started':'')+'">'+fmtThru(g)+'</td></tr>';
-      });
-      html += '<tr class="fav-sep-row"><td colspan="99"></td></tr>';
-    }
-  }
-  golfers.forEach(g => {
+  const _golfersWithFavs = (function(){
+    if(!_favGnames.length) return golfers;
+    var fi=golfers.filter(function(g){return _favGnames.includes(g.name);});
+    var ot=golfers.filter(function(g){return !_favGnames.includes(g.name);});
+    return fi.length ? fi.concat([{_isSep:true}],ot) : golfers;
+  })();
+  _golfersWithFavs.forEach(g => {
+    if(g._isSep){html+='<tr class="fav-sep-row"><td colspan="99">--- All Golfers ---</td></tr>';return;}
     const ns = isNotStarted(g);
     html += '<tr>' +
       '<td class="rank-cell">' + (g.position?.displayName || '-') + '</td>' +
@@ -1372,21 +1366,16 @@ function renderPPV(filter) {
   const maxPicks = Math.max(...DATA.ppvs.map(p => _pickCounts[(window._normN||String)(p.name)] || 0), 1);
   const totalTeams = DATA.teams.length;
   let html = '';
-  // --- Favorites pinned section ---
-  const _favGnames2 = _getFavs().g;
-  if (_favGnames2.length && !filter) {
-    const _favPs = ppvs.filter(p => _favGnames2.includes(p.name));
-    if (_favPs.length) {
-      html += '<tr class="fav-sep-row"><td colspan="99">&#9733; Favorites</td></tr>';
-      _favPs.forEach(p => {
-        const _cnt = _pickCounts[(window._normN||String)(p.name)]||0;
-        const _pct = Math.round(_cnt/totalTeams*100);
-        html += '<tr><td class="team-name">'+p.name+_starG(p.name)+'</td><td class="r score-cell" style="color:var(--gold)">'+p.ppv+'</td><td class="r">'+_cnt+' ('+_pct+'%)</td><td class="r"></td></tr>';
-      });
-      html += '<tr class="fav-sep-row"><td colspan="99"></td></tr>';
-    }
-  }
-  ppvs.forEach(p => {
+  // --- Favorites (sorted to top) ---
+  const _favGnamesPPV = _getFavs().g;
+  const _ppvsWithFavs = (function(){
+    if(!_favGnamesPPV.length) return ppvs;
+    var fi=ppvs.filter(function(p){return _favGnamesPPV.includes(p.name);});
+    var ot=ppvs.filter(function(p){return !_favGnamesPPV.includes(p.name);});
+    return fi.length ? fi.concat([{_isSep:true}],ot) : ppvs;
+  })();
+  _ppvsWithFavs.forEach(p => {
+    if(p._isSep){html+='<tr class="fav-sep-row"><td colspan="99">--- All Golfers ---</td></tr>';return;}
     const count = _pickCounts[(window._normN||String)(p.name)] || 0;
     const pct = Math.round(count / totalTeams * 100);
     const barW = Math.round(count / maxPicks * 80);
@@ -1756,18 +1745,12 @@ function renderTeams(filter) {
   let html = '';
   const _favTnames2 = _getFavs().t;
   if (_favTnames2.length && !filter) {
-    const _favCards = teams.filter(t => _favTnames2.includes(t.name));
-    if (_favCards.length) {
-      html += '<div class="fav-sep-div">&#9733; Favorites</div>';
-      _favCards.forEach(t => {
-        const _ti = DATA.teams.indexOf(t);
-        const inM = t.rank <= payoutCount;
-        html += '<div class="team-card'+(inM?' in-money':'')+'"><div class="team-card-header" onclick="showTeam('+_ti+')" style="cursor:pointer"><span class="tc-rank">'+t.rank+'</span><span class="tc-name">'+t.name+'</span><span class="tc-score score-cell '+scoreClass(t.teamTotal)+'">'+fmtScore(t.teamTotal)+'</span><span class="tc-fav fav-on" data-fn="'+t.name+'" onclick="_toggleFavT(this.dataset.fn,event)">&#9733;</span></div></div>';
-      });
-      html += '<div class="fav-sep-div"></div>';
-    }
+    var _favI=teams.filter(function(t){return _favTnames2.includes(t.name);});
+    var _othI=teams.filter(function(t){return !_favTnames2.includes(t.name);});
+    if(_favI.length){ teams=_favI.concat([{_isSep:true}],_othI); }
   }
   teams.forEach(t => {
+    if(t._isSep){html+='<div class="fav-sep-div">--- All Teams ---</div>';return;}
     const inMoney = t.rank <= payoutCount;
     html += '<div class="team-card' + (inMoney ? ' in-money' : '') + '">';
     const teamIdx = DATA.teams.indexOf(t);
@@ -2260,13 +2243,18 @@ function buildGrid(){
   });
 })();
 
-function _sortTable(tbodyId, colIdx, type, th) {
+function _sortTable(tbodyId, colIdx, type, th, forcedir) {
   var tbody = document.getElementById(tbodyId);
   if (!tbody) return;
-  var cur = th.classList.contains('asc') ? 'asc' : th.classList.contains('desc') ? 'desc' : null;
-  th.closest('table').querySelectorAll('.sort-th').forEach(function(el){ el.classList.remove('asc','desc'); });
-  var dir = (cur === 'asc') ? 'desc' : 'asc';
-  th.classList.add(dir);
+  var dir;
+  if(forcedir){
+    dir=forcedir;
+  } else {
+    var cur=th.classList.contains('asc')?'asc':th.classList.contains('desc')?'desc':null;
+    th.closest('table').querySelectorAll('.sort-th').forEach(function(el){el.classList.remove('asc','desc');});
+    dir=(cur==='asc')?'desc':'asc';
+    th.classList.add(dir);
+  }
   var rows = Array.from(tbody.querySelectorAll('tr'));
   function cellVal(row) { var c = row.cells[colIdx]; return c ? c.textContent.trim() : ''; }
   function parseVal(v) {
@@ -2300,6 +2288,8 @@ function _sortTable(tbodyId, colIdx, type, th) {
     if (av > bv) return dir==='asc' ? 1 : -1;
     return 0;
   });
+  window._tblSortStates=window._tblSortStates||{};
+  window._tblSortStates[tbodyId]={colIdx:colIdx,type:type,dir:dir};
   rows.forEach(function(r){ tbody.appendChild(r); });
 }
 
