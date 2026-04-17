@@ -1325,6 +1325,12 @@ function renderGolfers(filter) {
     const q = filter.toLowerCase();
     golfers = golfers.filter(g => g.name.toLowerCase().includes(q));
   }
+  // Default sort: best score first, not-yet-started last
+  golfers = golfers.slice().sort((a,b) => {
+    const sa = (a.scoreToPar===null||a.scoreToPar===undefined) ? 1000 : a.scoreToPar;
+    const sb = (b.scoreToPar===null||b.scoreToPar===undefined) ? 1000 : b.scoreToPar;
+    return sa - sb;
+  });
   let html = '';
   // --- Favorites pinned section ---
   const _favGnames = _getFavs().g;
