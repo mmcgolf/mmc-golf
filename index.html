@@ -676,6 +676,15 @@
 .thermo-bar-fill{background:linear-gradient(90deg,#388e3c,#66bb6a);height:100%;border-radius:20px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;min-width:40px;transition:width .8s ease}
 .thermo-pct{color:#fff;font-size:.75rem;font-weight:700;white-space:nowrap}
 
+
+  /* --- Favorites --- */
+  .fav-star{cursor:pointer;font-size:12px;float:right;margin-left:4px;opacity:0.2;transition:opacity .15s;user-select:none;}
+  .fav-star.fav-on{opacity:1;color:#f5c518;}
+  .fav-sep-row td{background:rgba(212,168,67,.07);color:rgba(212,168,67,.75);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 10px!important;border-bottom:1px solid rgba(212,168,67,.12);pointer-events:none;}
+  .fav-sep-div{background:rgba(212,168,67,.07);border-bottom:1px solid rgba(212,168,67,.12);color:rgba(212,168,67,.75);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;margin:0;}
+  .tc-fav{cursor:pointer;font-size:12px;opacity:0.2;transition:opacity .15s;user-select:none;margin-left:auto;padding-left:8px;flex-shrink:0;}
+  .tc-fav.fav-on{opacity:1;color:#f5c518;}
+  @media(max-width:640px){.table-wrap{overflow-x:auto;}}
 </style>
 </head>
 <body>
@@ -1234,6 +1243,21 @@ function renderLeaderboard(filter) {
     for(let i=0; i<g.length; i++) tot += (_placeAmt[+rk+i]||0);
     _splitPayMap[rk] = tot/g.length;
   });
+  // --- Favorites pinned section ---
+  const _favTnames = _getFavs().t;
+  if (_favTnames.length && !filter) {
+    const _favRows = display.filter(t => _favTnames.includes(t.name));
+    if (_favRows.length) {
+      html += '<tr class="fav-sep-row"><td colspan="99">&#9733; Favorites</td></tr>';
+      _favRows.forEach(t => {
+        const _gi = DATA.teams.indexOf(t);
+        const _dn = t.name.replace(/#\d+ - /,'');
+        const _tn = t.name.match(/#\d+/)?.[0]||'';
+        html += '<tr onclick="showTeam('+_gi+')" style="cursor:pointer"><td class="rank-cell">'+(_tiedRanks.has(t.rank)?'T':'')+t.rank+'</td><td class="team-name">'+_dn+' <span style="color:var(--text-dim);font-weight:400;font-size:12px">'+_tn+'</span>'+_starT(t.name)+'</td><td class="r score-cell '+scoreClass(t.teamTotal)+'">'+(t.teamTotal>=500?'N/A':fmtScore(t.teamTotal))+'</td></tr>';
+      });
+      html += '<tr class="fav-sep-row"><td colspan="99"></td></tr>';
+    }
+  }
   display.forEach((t, displayIdx) => {
     const globalIdx = DATA.teams.indexOf(t);
     const isPayout = globalIdx <= moneyLineIdx && !filter;
@@ -1269,7 +1293,7 @@ function renderLeaderboard(filter) {
 
     const displayName = t.name.replace(/#\d+ - /, '');
     const teamNum = t.name.match(/#\d+/)?.[0] || '';
-    html += '<td class="team-name">' + displayName + ' <span style="color:var(--text-dim);font-weight:400;font-size:12px">' + teamNum + '</span></td>';
+    html += '<td class="team-name">' + displayName + ' <span style="color:var(--text-dim);font-weight:400;font-size:12px">' + teamNum + '</span>' + _starT(t.name) + '</td>';
     html += '<td class="r score-cell ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal >= 500 ? 'N/A' : fmtScore(t.teamTotal)) + '</td>';
     html += '<td class="r tb-cell hide-mobile">' + (t.lowestIndividual !== null ? fmtScore(t.lowestIndividual) : '-') + '</td>';
     html += '<td class="c"><span class="cut-dots">' + dots + '</span><span class="cut-summary ' + summaryClass + '">' + summaryText + '</span></td>';
@@ -1302,11 +1326,24 @@ function renderGolfers(filter) {
     golfers = golfers.filter(g => g.name.toLowerCase().includes(q));
   }
   let html = '';
+  // --- Favorites pinned section ---
+  const _favGnames = _getFavs().g;
+  if (_favGnames.length && !filter) {
+    const _favGs = golfers.filter(g => _favGnames.includes(g.name));
+    if (_favGs.length) {
+      html += '<tr class="fav-sep-row"><td colspan="99">&#9733; Favorites</td></tr>';
+      _favGs.forEach(g => {
+        const _ns = isNotStarted(g);
+        html += '<tr><td class="rank-cell">'+(g.position?.displayName||'-')+'</td><td class="team-name">'+g.name+_starG(g.name)+'</td><td class="r score-cell '+scoreClass(g.scoreToPar)+'">'+(_ns?'-':fmtScore(g.scoreToPar))+'</td><td class="c hide-mobile '+(_ns?' not-started':'')+'">'+fmtThru(g)+'</td></tr>';
+      });
+      html += '<tr class="fav-sep-row"><td colspan="99"></td></tr>';
+    }
+  }
   golfers.forEach(g => {
     const ns = isNotStarted(g);
     html += '<tr>' +
       '<td class="rank-cell">' + (g.position?.displayName || '-') + '</td>' +
-      '<td class="team-name">' + g.name + '</td>' +
+      '<td class="team-name">' + g.name + _starG(g.name) + '</td>' +
       '<td class="r" style="color:var(--text-muted)">' + ((DATA.ppvs||[]).find(p=>{const n=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');return p.name===g.name||n(p.name)===n(g.name);})||{ppv:''}).ppv + '</td>' +
       '<td class="r score-cell ' + scoreClass(g.scoreToPar) + '">' + (ns ? '-' : fmtScore(g.scoreToPar)) + '</td>' +
       '<td class="c hide-mobile' + (ns ? ' not-started' : '') + '">' + fmtThru(g) + '</td>' +
@@ -1329,11 +1366,25 @@ function renderPPV(filter) {
   const maxPicks = Math.max(...DATA.ppvs.map(p => _pickCounts[(window._normN||String)(p.name)] || 0), 1);
   const totalTeams = DATA.teams.length;
   let html = '';
+  // --- Favorites pinned section ---
+  const _favGnames2 = _getFavs().g;
+  if (_favGnames2.length && !filter) {
+    const _favPs = ppvs.filter(p => _favGnames2.includes(p.name));
+    if (_favPs.length) {
+      html += '<tr class="fav-sep-row"><td colspan="99">&#9733; Favorites</td></tr>';
+      _favPs.forEach(p => {
+        const _cnt = _pickCounts[(window._normN||String)(p.name)]||0;
+        const _pct = Math.round(_cnt/totalTeams*100);
+        html += '<tr><td class="team-name">'+p.name+_starG(p.name)+'</td><td class="r score-cell" style="color:var(--gold)">'+p.ppv+'</td><td class="r">'+_cnt+' ('+_pct+'%)</td><td class="r"></td></tr>';
+      });
+      html += '<tr class="fav-sep-row"><td colspan="99"></td></tr>';
+    }
+  }
   ppvs.forEach(p => {
     const count = _pickCounts[(window._normN||String)(p.name)] || 0;
     const pct = Math.round(count / totalTeams * 100);
     const barW = Math.round(count / maxPicks * 80);
-    html += '<tr><td class="team-name">' + p.name + '</td>' +
+    html += '<tr><td class="team-name">' + p.name + _starG(p.name) + '</td>' +
       '<td class="r score-cell" style="color:var(--gold)">' + p.ppv + '</td>' +
       '<td class="r">' + count + ' <span style="color:var(--text-dim);font-size:11px;font-family:monospace">(' + pct + '%)</span></td>' +
       '<td class="r"><span class="popularity-bar" style="width:' + barW + 'px"></span></td></tr>';
@@ -1347,6 +1398,23 @@ function renderPayouts() {
   const rankMap = {};
   DATA.teams.forEach(t => { if (!rankMap[t.rank]) rankMap[t.rank]=[]; rankMap[t.rank].push(t); });
   const placeAmt = {};
+  // --- Favorites pinned section ---
+  const _favTnames3 = _getFavs().t;
+  if (_favTnames3.length) {
+    const _payTeams = DATA.teams.filter(t => _favTnames3.includes(t.name) && t.rank <= (DATA.payouts?.length||12));
+    if (_payTeams.length) {
+      html += '<tr class="fav-sep-row"><td colspan="99">&#9733; Favorites</td></tr>';
+      _payTeams.forEach(t => {
+        const _rk = Object.keys(rankMap).find(k => rankMap[k].includes(t));
+        const _grp = rankMap[_rk]||[t];
+        let _tot=0; for(let i=0;i<_grp.length;i++) _tot+=(placeAmt[+_rk+i]||0);
+        const _split = _tot/_grp.length;
+        const _pfx = _grp.length>1?'T':'';
+        html += '<tr><td class="rank-cell top">'+_pfx+(_rk||'-')+'</td><td class="team-name">'+(t.name||'').replace(/#\d+ - /,'')+_starT(t.name)+'</td><td class="r score-cell '+scoreClass(t.teamTotal)+'">'+fmtScore(t.teamTotal)+'</td><td class="r tb-cell">'+(t.lowestIndividual!==null?fmtScore(t.lowestIndividual):'-')+'</td><td class="r payout-cell">$'+Math.round(_split).toLocaleString()+'</td></tr>';
+      });
+      html += '<tr class="fav-sep-row"><td colspan="99"></td></tr>';
+    }
+  }
   DATA.payouts.forEach(p => { placeAmt[p.place]=p.amount; });
   let html=''; const consumedPlaces=new Set();
   DATA.payouts.forEach(p => {
@@ -1362,7 +1430,7 @@ function renderPayouts() {
     const splitPay=totalPay/grp.length;
     const prefix=grp.length>1?'T':'';
     grp.forEach(team => {
-      html+='<tr><td class="rank-cell top">'+prefix+p.place+'</td><td class="team-name">'+(team.name||'').replace(/#\d+ - /,'')+'</td><td class="r score-cell '+scoreClass(team.teamTotal)+'">'+fmtScore(team.teamTotal)+'</td><td class="r tb-cell">'+(team.lowestIndividual!==null?fmtScore(team.lowestIndividual):'-')+'</td><td class="r payout-cell">$'+Math.round(splitPay).toLocaleString()+'</td></tr>';
+      html+='<tr><td class="rank-cell top">'+prefix+p.place+'</td><td class="team-name">'+(team.name||'').replace(/#\d+ - /,'')+_starT(team.name||'')+'</td><td class="r score-cell '+scoreClass(team.teamTotal)+'">'+fmtScore(team.teamTotal)+'</td><td class="r tb-cell">'+(team.lowestIndividual!==null?fmtScore(team.lowestIndividual):'-')+'</td><td class="r payout-cell">$'+Math.round(splitPay).toLocaleString()+'</td></tr>';
     });
   });
   document.getElementById('payoutBody').innerHTML=html;
@@ -1597,6 +1665,17 @@ document.getElementById('gridSearch').addEventListener('input', (e) => {
 });
 
 // ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Fetch live data then render ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ
+
+// --- Favorites helpers ---
+function _getFavs(){try{return JSON.parse(localStorage.getItem('mmc_favs')||'{"t":[],"g":[]}')}catch(e){return{t:[],g:[]}}}
+function _saveFavs(f){localStorage.setItem('mmc_favs',JSON.stringify(f))}
+function _isFavT(n){return _getFavs().t.includes(n)}
+function _isFavG(n){return _getFavs().g.includes(n)}
+function _toggleFavT(n,e){if(e)e.stopPropagation();const f=_getFavs(),i=f.t.indexOf(n);if(i===-1)f.t.push(n);else f.t.splice(i,1);_saveFavs(f);renderLeaderboard();renderTeams();renderPayouts();}
+function _toggleFavG(n,e){if(e)e.stopPropagation();const f=_getFavs(),i=f.g.indexOf(n);if(i===-1)f.g.push(n);else f.g.splice(i,1);_saveFavs(f);renderGolfers();renderPPV();}
+function _starT(n){return '<span class="fav-star'+(_isFavT(n)?' fav-on':'')+'" data-fn="'+n.replace(/"/g,'&quot;')+'" onclick="_toggleFavT(this.dataset.fn,event)">&#9733;</span>';}
+function _starG(n){return '<span class="fav-star'+(_isFavG(n)?' fav-on':'')+'" data-fn="'+n.replace(/"/g,'&quot;')+'" onclick="_toggleFavG(this.dataset.fn,event)">&#9733;</span>';}
+
 function initApp(data) {
   window.DATA = data;
 
@@ -1669,6 +1748,19 @@ function renderTeams(filter) {
   }
   const payoutCount = DATA.payouts ? DATA.payouts.length : 12;
   let html = '';
+  const _favTnames2 = _getFavs().t;
+  if (_favTnames2.length && !filter) {
+    const _favCards = teams.filter(t => _favTnames2.includes(t.name));
+    if (_favCards.length) {
+      html += '<div class="fav-sep-div">&#9733; Favorites</div>';
+      _favCards.forEach(t => {
+        const _ti = DATA.teams.indexOf(t);
+        const inM = t.rank <= payoutCount;
+        html += '<div class="team-card'+(inM?' in-money':'')+'"><div class="team-card-header" onclick="showTeam('+_ti+')" style="cursor:pointer"><span class="tc-rank">'+t.rank+'</span><span class="tc-name">'+t.name+'</span><span class="tc-score score-cell '+scoreClass(t.teamTotal)+'">'+fmtScore(t.teamTotal)+'</span><span class="tc-fav fav-on" data-fn="'+t.name.replace(/"/g,\'&quot;\')+'" onclick="_toggleFavT(this.dataset.fn,event)">&#9733;</span></div></div>';
+      });
+      html += '<div class="fav-sep-div"></div>';
+    }
+  }
   teams.forEach(t => {
     const inMoney = t.rank <= payoutCount;
     html += '<div class="team-card' + (inMoney ? ' in-money' : '') + '">';
@@ -1676,6 +1768,7 @@ function renderTeams(filter) {
     html += '<div class="team-card-header" onclick="showTeam(' + teamIdx + ')" style="cursor:pointer">';
     html += '<span class="tc-rank">' + t.rank + '</span>';
     html += '<span class="tc-name">' + t.name + '</span>';
+    html += '<span class="tc-fav'+(_isFavT(t.name)?' fav-on':'')+'" data-fn="'+t.name.replace(/"/g,\'&quot;\')+'" onclick="_toggleFavT(this.dataset.fn,event)">&#9733;</span>';
     html += '<span class="tc-score score-cell ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal >= 500 ? 'N/A' : fmtScore(t.teamTotal)) + '</span>';
     html += '</div>';
     const made = t.golfers.filter(g => !g.cut && g.scoreToPar !== null).sort((a,b) => a.scoreToPar - b.scoreToPar);
