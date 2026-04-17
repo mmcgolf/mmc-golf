@@ -1398,6 +1398,8 @@ function renderPayouts() {
   const rankMap = {};
   DATA.teams.forEach(t => { if (!rankMap[t.rank]) rankMap[t.rank]=[]; rankMap[t.rank].push(t); });
   const placeAmt = {};
+  DATA.payouts.forEach(p => { placeAmt[p.place]=p.amount; });
+  let html=''; const consumedPlaces=new Set();
   // --- Favorites pinned section ---
   const _favTnames3 = _getFavs().t;
   if (_favTnames3.length) {
@@ -1415,8 +1417,6 @@ function renderPayouts() {
       html += '<tr class="fav-sep-row"><td colspan="99"></td></tr>';
     }
   }
-  DATA.payouts.forEach(p => { placeAmt[p.place]=p.amount; });
-  let html=''; const consumedPlaces=new Set();
   DATA.payouts.forEach(p => {
     if (consumedPlaces.has(p.place)) return;
     const grp=rankMap[p.place]||[];
