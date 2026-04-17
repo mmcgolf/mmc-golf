@@ -1756,7 +1756,7 @@ function renderTeams(filter) {
       _favCards.forEach(t => {
         const _ti = DATA.teams.indexOf(t);
         const inM = t.rank <= payoutCount;
-        html += '<div class="team-card'+(inM?' in-money':'')+'"><div class="team-card-header" onclick="showTeam('+_ti+')" style="cursor:pointer"><span class="tc-rank">'+t.rank+'</span><span class="tc-name">'+t.name+'</span><span class="tc-score score-cell '+scoreClass(t.teamTotal)+'">'+fmtScore(t.teamTotal)+'</span><span class="tc-fav fav-on" data-fn="'+t.name.replace(/"/g,\'&quot;\')+'" onclick="_toggleFavT(this.dataset.fn,event)">&#9733;</span></div></div>';
+        html += '<div class="team-card'+(inM?' in-money':'')+'"><div class="team-card-header" onclick="showTeam('+_ti+')" style="cursor:pointer"><span class="tc-rank">'+t.rank+'</span><span class="tc-name">'+t.name+'</span><span class="tc-score score-cell '+scoreClass(t.teamTotal)+'">'+fmtScore(t.teamTotal)+'</span><span class="tc-fav fav-on" data-fn="'+t.name+'" onclick="_toggleFavT(this.dataset.fn,event)">&#9733;</span></div></div>';
       });
       html += '<div class="fav-sep-div"></div>';
     }
@@ -1768,7 +1768,7 @@ function renderTeams(filter) {
     html += '<div class="team-card-header" onclick="showTeam(' + teamIdx + ')" style="cursor:pointer">';
     html += '<span class="tc-rank">' + t.rank + '</span>';
     html += '<span class="tc-name">' + t.name + '</span>';
-    html += '<span class="tc-fav'+(_isFavT(t.name)?' fav-on':'')+'" data-fn="'+t.name.replace(/"/g,\'&quot;\')+'" onclick="_toggleFavT(this.dataset.fn,event)">&#9733;</span>';
+    html += '<span class="tc-fav'+(_isFavT(t.name)?' fav-on':'')+'" data-fn="'+t.name+'" onclick="_toggleFavT(this.dataset.fn,event)">&#9733;</span>';
     html += '<span class="tc-score score-cell ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal >= 500 ? 'N/A' : fmtScore(t.teamTotal)) + '</span>';
     html += '</div>';
     const made = t.golfers.filter(g => !g.cut && g.scoreToPar !== null).sort((a,b) => a.scoreToPar - b.scoreToPar);
