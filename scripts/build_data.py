@@ -60,7 +60,7 @@ NAME_ALIASES = {
     "hideki matsuyama": "hideki matsuyama",
     "corey conners": "corey conners",
     "rory mcilroy": "rory mcilroy",
-    "joaquin niemann": "joaquín niemann",
+    "joaquin niemann": "joaqu\u00edn niemann",
     # Add new aliases here as needed
 }
 
