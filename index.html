@@ -1811,7 +1811,7 @@ setInterval(() => {
 // bypassing GitHub Actions delay entirely.
 (function startLiveFetch() {
   const _ESPN = 'https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=pga';
-  function _norm(n) { return (n||'').normalize('NFD').replace(/[---]/g,'').toLowerCase().trim(); }
+  function _norm(n) { if(!n)return ''; let s=n.replace(/[\xf8\xd8]/g,'o').replace(/[\xe6\xc6]/g,'ae').replace(/[\xf0\xd0]/g,'d'); const b=s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[.\-']/g,'').toLowerCase().trim(); const A={'nico echavarria':'nicolas echavarria','matt mccarty':'matthew mccarty'}; return A[b]||b; }
 
   async function _fetchLive() {
     if (!window.DATA || window.DATA.status !== 'In Progress') return;
