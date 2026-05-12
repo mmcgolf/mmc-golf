@@ -1344,7 +1344,7 @@ function renderGolfers(filter) {
     html += '<tr>' +
       '<td class="rank-cell">' + (g.position?.displayName || '-') + '</td>' +
       '<td class="team-name">' + g.name + _starG(g.name) + '</td>' +
-      '<td class="r" style="color:var(--text-muted)">' + ((DATA.ppvs||[]).find(p=>{const n=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');return p.name===g.name||n(p.name)===n(g.name);})||{ppv:''}).ppv + '</td>' +
+      '<td class="r" style="color:var(--text-muted)">' + ((DATA.ppvs||[]).find(p=>{const n=_norm;return p.name===g.name||n(p.name)===n(g.name);})||{ppv:''}).ppv + '</td>' +
       '<td class="r score-cell ' + scoreClass(g.scoreToPar) + '">' + (ns ? '-' : fmtScore(g.scoreToPar)) + '</td>' +
       '<td class="c hide-mobile' + (ns ? ' not-started' : '') + '">' + fmtThru(g) + '</td>' +
       '<td class="r hide-mobile score-cell ' + scoreClass(g.today) + '">' + (g.today !== null && g.today !== undefined ? fmtScore(g.today) : '-') + '</td>' +
@@ -1695,7 +1695,7 @@ function initApp(data) {
   const cutEl = document.getElementById('statCut'); if (cutEl) cutEl.textContent = avgCut;
 
   // Pick counts (used by PPV + Uniqueness tabs)
-  const _normN = n => (n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const _normN = n => _norm(n);
   window._normN = _normN;
   const _pickCounts = {};
   DATA.teams.forEach(t => {
