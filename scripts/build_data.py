@@ -36,17 +36,32 @@ def normalize_name(name):
 # Common name variations - add more as you encounter them each year
 # Format: { "dk_name": "espn_name" }
 NAME_ALIASES = {
+    # 2026 PGA Championship - DraftKings name -> ESPN name (normalized, lowercased)
+    # normalize_name() strips . - ' and lowercases, so only add aliases where
+    # normalized DK name still doesn't match normalized ESPN name.
+
+    # Hyphen in surname becomes nothing after normalize (DK: neergaardpetersen, ESPN: neergaard petersen)
+    "rasmus neergaardpetersen": "rasmus neergaard petersen",
+
+    # Middle name in DK not used by ESPN
+    "jayden trey schaper": "jayden schaper",
+
+    # Middle initial in DK not used by ESPN
+    "jordan l smith": "jordan smith",
+
+    # Compound surname in DK, ESPN uses only first part
+    "angel ayora fanegas": "angel ayora",
+
+    # Common recurring aliases (identity mappings kept for safety)
     "tom kim": "tom kim",
-    "tommy fleetwood": "tommy fleetwood",
     "min woo lee": "min woo lee",
-    "byeong hun an": "byeong hun an",
     "si woo kim": "si woo kim",
     "sungjae im": "sungjae im",
     "hideki matsuyama": "hideki matsuyama",
     "corey conners": "corey conners",
     "rory mcilroy": "rory mcilroy",
-    "hoaquin niemann": "joaquÃ­n niemann",
-    "brendan steele": "brendan steele",
+    "joaquin niemann": "joaqu�n niemann",
+    # Add new aliases here as needed
 }
 
 NAME_CACHE_PATH = os.path.join(DATA_DIR, "name_cache.json")
