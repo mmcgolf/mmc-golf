@@ -270,7 +270,8 @@ def main():
     ppvs = sorted([{"name": k, "ppv": v} for k, v in ppv_map.items()], key=lambda p: -p["ppv"])
 
     # Payouts
-    payouts = picks_data.get("payouts", [])
+    payouts_raw = picks_data.get("payouts", [])
+    payouts = [{"place": i + 1, "amount": amt} for i, amt in enumerate(payouts_raw)]
 
     out = {
         "tournament": scores.get("tournament", "The Masters"),
