@@ -1,10 +1,12 @@
 """
 MMC Golf - ESPN Leaderboard Scraper
 Fetches live scores from ESPN's API and writes data/scores.json.
+Retries up to 3 times with backoff on network errors.
 """
 
 import json
 import os
+import time
 import requests
 from datetime import datetime, timezone
 
@@ -12,6 +14,24 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 SCOREBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=pga"
 LEADERBOARD_URL = "https://site.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=pga&event={event_id}"
 HEADERS = {"User-Agent": "Mozilla/5.0"}
+MAX_RETRIES = 3
+RETRY_DELAY = 5  # seconds between retries
+
+
+def fetch_with_retry(url, retries=MAX_RETRIES):
+    """GET a URL, retrying up to `retries` times on failure."""
+    last_err = None
+    for attempt in range(1, retries + 1):
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=20)
+            r.raise_for_status()
+            return r
+        except Exception as e:
+            last_err = e
+            if attempt < retries:
+                print(f"  Attempt {attempt} failed: {e}. Retrying in {RETRY_DELAY}s...")
+                time.sleep(RETRY_DELAY)
+    raise last_err
 
 
 def parse_score(value):
@@ -29,8 +49,7 @@ def parse_score(value):
 
 def fetch_current_event_id():
     """Auto-discover the active tournament event ID."""
-    r = requests.get(SCOREBOARD_URL, headers=HEADERS, timeout=15)
-    r.raise_for_status()
+    r = fetch_with_retry(SCOREBOARD_URL)
     data = r.json()
     events = data.get("events", [])
     if not events:
@@ -49,8 +68,7 @@ def fetch_current_event_id():
 def fetch_leaderboard(event_id):
     """Fetch full leaderboard for a specific event."""
     url = LEADERBOARD_URL.format(event_id=event_id)
-    r = requests.get(url, headers=HEADERS, timeout=15)
-    r.raise_for_status()
+    r = fetch_with_retry(url)
     return r.json()
 
 
