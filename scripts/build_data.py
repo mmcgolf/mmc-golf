@@ -123,7 +123,7 @@ def build_golfer_lookup(scores):
     return lookup
 
 
-def resolve_pick(pick_name, golfer_lookup, espn_names, name_cache=None):
+def resolve_pick(pick_name, golfer_lookup, espn_names, name_cache=None, wd_players=None):
     """
     Resolve a DK/pick name to ESPN golfer data.
     Returns golfer dict (possibly with score=None if not found on leaderboard).
@@ -155,6 +155,12 @@ def resolve_pick(pick_name, golfer_lookup, espn_names, name_cache=None):
                 name_cache[norm] = matched  # persist for future runs
         return g
 
+    # Check WD list before giving up
+    if wd_players:
+        norm = normalize_name(pick_name)
+        if any(normalize_name(w) == norm for w in wd_players):
+            print(f"  WD: '{pick_name}' - treating as missed cut")
+            return {"name": pick_name, "position": "WD", "scoreToPar": None, "today": None, "thru": "WD", "cut": True}
     # Not found - return a placeholder (pre-tournament or withdrew)
     print(f"  NAME NOT FOUND: '{pick_name}' - not on ESPN leaderboard yet")
     return {
@@ -206,6 +212,8 @@ def main():
     golfer_lookup = build_golfer_lookup(scores)
     espn_names = [g["name"] for g in scores.get("golfers", [])]
 
+    wd_players = picks_data.get("wd_players", [])
+
     # Load name match cache (avoids fuzzy matching on every 5-min cycle)
     name_cache = load_name_cache()
     _cache_size_before = len(name_cache)
@@ -217,7 +225,7 @@ def main():
         for pick in team.get("picks", []):
             name = pick["name"]
             ppv = pick.get("ppv", 0)
-            g = resolve_pick(name, golfer_lookup, espn_names, name_cache)
+            g = resolve_pick(name, golfer_lookup, espn_names, name_cache, wd_players)
             g["ppv"] = ppv
             resolved_golfers.append(g)
 
