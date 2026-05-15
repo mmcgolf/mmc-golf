@@ -730,6 +730,7 @@
     <button class="nav-tab" data-tab="golfers">Golfers</button>
     <button class="nav-tab" data-tab="grid">Grid</button>
     <button class="nav-tab" data-tab="ppv">Point Values</button>
+  <button class="nav-tab" data-tab="uniqueness">Uniqueness</button>
     <button class="nav-tab" data-tab="payouts">Payouts</button>
     <button class="nav-tab" data-tab="charity">❤️ Charity</button>
     <button class="nav-tab" data-tab="trophy">🏆 Trophy Room</button>
@@ -760,7 +761,7 @@
             <th class="c" style="width:48px">#</th>
             <th>Team</th>
             <th class="r">Total</th>
-            <th class="r hide-mobile" title="Tiebreaker: lowest individual score">Low</th>
+            <th class="r hide-mobile">Today</th><th class="r hide-mobile">Thru</th>
             <th class="c">Status</th>
             <th class="r hide-mobile">Payout</th>
           </tr>
@@ -1295,7 +1296,13 @@ function renderLeaderboard(filter) {
     const teamNum = t.name.match(/#\d+/)?.[0] || '';
     html += '<td class="team-name">' + displayName + ' <span style="color:var(--text-dim);font-weight:400;font-size:12px">' + teamNum + '</span>' + _starT(t.name) + '</td>';
     html += '<td class="r score-cell ' + scoreClass(t.teamTotal) + '">' + (t.teamTotal >= 500 ? 'N/A' : fmtScore(t.teamTotal)) + '</td>';
-    html += '<td class="r tb-cell hide-mobile">' + (t.lowestIndividual !== null ? fmtScore(t.lowestIndividual) : '-') + '</td>';
+    const _todayVals = t.golfers.filter(g => !g.cut);
+        const _hasToday = _todayVals.some(g => g.today !== null);
+        const _todayScore = _hasToday ? _todayVals.reduce((s, g) => s + (g.today || 0), 0) : null;
+        const _thruVals = _todayVals.map(g => g.thru).filter(v => v !== null);
+        const _teamThru = _thruVals.length === 0 ? '--' : (_thruVals.every(v => v === 'F') ? 'F' : Math.min(..._thruVals.filter(v => v !== 'F').map(Number)));
+        html += '<td class="r tb-cell hide-mobile">' + (_todayScore !== null ? fmtScore(_todayScore) : '--') + '</td>';
+        html += '<td class="r tb-cell hide-mobile">' + _teamThru + '</td>';
     html += '<td class="c"><span class="cut-dots">' + dots + '</span><span class="cut-summary ' + summaryClass + '">' + summaryText + '</span></td>';
     html += '<td class="r payout-cell hide-mobile">' + (payout ? '$' + Math.round(payout).toLocaleString() : '') + '</td>';
     html += '</tr>';
@@ -1582,7 +1589,7 @@ document.getElementById('uniqSearch').addEventListener('input', (e) => renderUni
 
 // Grid tab
 function renderGrid(teamCount, highlight) {
-  teamCount = teamCount || 20;
+  teamCount = teamCount ?? 20;
   const teams = teamCount === 0 ? DATA.teams : DATA.teams.slice(0, teamCount);
   const hl = (highlight || '').toLowerCase();
 
