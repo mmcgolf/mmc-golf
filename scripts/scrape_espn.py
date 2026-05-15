@@ -88,16 +88,12 @@ def build_scores_json(event_id, event_name, venue):
         athlete = p.get("athlete", {})
         name = athlete.get("displayName", athlete.get("name", "Unknown"))
 
-        score_display = p.get("score", {}).get("displayValue", None)
-        score_to_par = parse_score(score_display)
-
         linescores = p.get("linescores", [])
-        today = None
-        if linescores:
-            # Filter out empty placeholder rounds (future rounds have no displayValue)
-            active = [r for r in linescores if r.get("displayValue") is not None]
-            if active:
-                today = parse_score(active[-1].get("displayValue"))
+        # Filter out empty placeholder rounds (future rounds have no displayValue)
+        active = [r for r in linescores if r.get("displayValue") is not None]
+
+        # Total score = sum of all active round scores (score field only has current round)
+        score_to_par = sum(parse_score(r.get("displayValue")) or 0 for r in active) if active else None
 
         status = p.get("status", {})
         thru_raw = status.get("thru", None)
@@ -112,6 +108,9 @@ def build_scores_json(event_id, event_name, venue):
                 thru = str(thru_int)
         else:
             thru = None
+
+        # Today = most recent active round, only if player has started (thru != None)
+        today = parse_score(active[-1].get("displayValue")) if (active and thru is not None) else None
 
         pos_display = status.get("position", {}).get("displayName", "")
         cut = status.get("type", {}).get("name", "") == "STATUS_CUT"
