@@ -94,7 +94,10 @@ def build_scores_json(event_id, event_name, venue):
         linescores = p.get("linescores", [])
         today = None
         if linescores:
-            today = parse_score(linescores[-1].get("displayValue"))
+            # Filter out empty placeholder rounds (future rounds have no displayValue)
+            active = [r for r in linescores if r.get("displayValue") is not None]
+            if active:
+                today = parse_score(active[-1].get("displayValue"))
 
         status = p.get("status", {})
         thru_raw = status.get("thru", None)
