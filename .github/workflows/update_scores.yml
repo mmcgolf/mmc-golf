@@ -13,6 +13,12 @@ on:
 permissions:
   contents: write
 
+# Prevent concurrent runs from racing to push - only one at a time.
+# cancel-in-progress: the newest run wins; older in-flight run is cancelled.
+concurrency:
+  group: update-scores
+  cancel-in-progress: true
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -48,6 +54,7 @@ jobs:
           git config user.name  "MMC Bot"
           git config user.email "mmc-bot@users.noreply.github.com"
           git add data/scores.json data/data.json data/name_cache.json
-          git diff --staged --quiet || git commit -m "Auto-update scores $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git diff --staged --quiet && exit 0
+          git commit -m "Auto-update scores $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase origin main
           git push
