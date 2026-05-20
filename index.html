@@ -1025,6 +1025,7 @@
     <label for="hist-tournament">Tournament</label>
     <select class="history-select" id="hist-tournament" onchange="histSelectionChanged()">
       <option value="masters-2026">Masters Tournament</option>
+      <option value="pga-2026">PGA Championship</option>
     </select>
   </div>
   <div id="hist-content"><div class="history-loading">Loading...</div></div>
@@ -2374,6 +2375,12 @@ const HISTORY_INDEX = {
     year: 2026,
     course: "Augusta National Golf Club",
     url: "data/history/masters-2026.json"
+  },
+  "pga-2026": {
+    label: "PGA Championship",
+    year: 2026,
+    course: "",
+    url: "data/history/pga-2026.json"
   }
 };
 
