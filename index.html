@@ -628,6 +628,7 @@
   .tg-ppv { font-size: 10px; color: var(--text-dim); margin-left: 3px; flex-shrink: 0; }
   .tg-pos { font-size: 11px; color: var(--text-muted); min-width: 28px; text-align: right; font-family: monospace; flex-shrink: 0; }
   .tg-score { font-family: monospace; font-weight: 700; font-size: 12px; min-width: 28px; text-align: right; flex-shrink: 0; }
+  .tg-today { font-family: monospace; font-weight: 500; font-size: 11px; min-width: 28px; text-align: right; flex-shrink: 0; color: var(--text-muted); }
   .tg-thru { font-size: 10px; color: var(--text-dim); min-width: 18px; text-align: center; flex-shrink: 0; }
   @media (max-width: 600px) { .team-golfers { grid-template-columns: 1fr; } }
 .table-wrap thead th{position:sticky;top:43px;z-index:2;background:var(--bg-card)}
@@ -1783,6 +1784,7 @@ function renderTeams(filter) {
       html += '<span class="tg-name">' + g.name + '<span class="tg-ppv">' + g.ppv + '</span></span>';
       html += '<span class="tg-pos">' + (g.position?.displayName || '') + '</span>';
       html += '<span class="tg-score score-cell ' + scoreClass(g.scoreToPar) + '">' + (g.cut ? 'CUT' : ns ? '-' : fmtScore(g.scoreToPar)) + '</span>';
+      html += '<span class="tg-today score-cell ' + (g.cut || ns || g.today == null ? '' : scoreClass(g.today)) + '">' + (g.cut ? '' : ns || g.today == null ? '-' : fmtScore(g.today)) + '</span>';
       html += '<span class="tg-thru">' + fmtThru(g) + '</span>';
       html += '</div>';
     });
@@ -2300,17 +2302,125 @@ function _sortTable(tbodyId, colIdx, type, th, forcedir) {
 
 // ===== HISTORY TAB =====
 const HISTORY_INDEX = {
+  "pga-2026": {
+    label: "PGA Championship",
+    year: 2026,
+    course: "Quail Hollow Club",
+    url: "data/history/pga-2026.json"
+  },
   "masters-2026": {
     label: "Masters Tournament",
     year: 2026,
     course: "Augusta National Golf Club",
     url: "data/history/masters-2026.json"
   },
-  "pga-2026": {
+  "open-2025": {
+    label: "The Open Championship",
+    year: 2025,
+    course: "Royal Portrush Golf Club",
+    url: "data/history/open-2025.json"
+  },
+  "usopen-2025": {
+    label: "U.S. Open",
+    year: 2025,
+    course: "Oakmont Country Club",
+    url: "data/history/usopen-2025.json"
+  },
+  "pga-2025": {
     label: "PGA Championship",
-    year: 2026,
-    course: "",
-    url: "data/history/pga-2026.json"
+    year: 2025,
+    course: "Quail Hollow Club",
+    url: "data/history/pga-2025.json"
+  },
+  "masters-2025": {
+    label: "Masters Tournament",
+    year: 2025,
+    course: "Augusta National Golf Club",
+    url: "data/history/masters-2025.json"
+  },
+  "open-2024": {
+    label: "The Open Championship",
+    year: 2024,
+    course: "Royal Troon Golf Club",
+    url: "data/history/open-2024.json"
+  },
+  "usopen-2024": {
+    label: "U.S. Open",
+    year: 2024,
+    course: "Pinehurst No. 2",
+    url: "data/history/usopen-2024.json"
+  },
+  "pga-2024": {
+    label: "PGA Championship",
+    year: 2024,
+    course: "Valhalla Golf Club",
+    url: "data/history/pga-2024.json"
+  },
+  "masters-2024": {
+    label: "Masters Tournament",
+    year: 2024,
+    course: "Augusta National Golf Club",
+    url: "data/history/masters-2024.json"
+  },
+  "usopen-2023": {
+    label: "U.S. Open",
+    year: 2023,
+    course: "Los Angeles Country Club",
+    url: "data/history/usopen-2023.json"
+  },
+  "open-2022": {
+    label: "The Open Championship",
+    year: 2022,
+    course: "St Andrews Links",
+    url: "data/history/open-2022.json"
+  },
+  "usopen-2022": {
+    label: "U.S. Open",
+    year: 2022,
+    course: "The Country Club",
+    url: "data/history/usopen-2022.json"
+  },
+  "pga-2022": {
+    label: "PGA Championship",
+    year: 2022,
+    course: "Southern Hills Country Club",
+    url: "data/history/pga-2022.json"
+  },
+  "masters-2022": {
+    label: "Masters Tournament",
+    year: 2022,
+    course: "Augusta National Golf Club",
+    url: "data/history/masters-2022.json"
+  },
+  "open-2021": {
+    label: "The Open Championship",
+    year: 2021,
+    course: "Royal St. George's Golf Club",
+    url: "data/history/open-2021.json"
+  },
+  "usopen-2021": {
+    label: "U.S. Open",
+    year: 2021,
+    course: "Torrey Pines Golf Course",
+    url: "data/history/usopen-2021.json"
+  },
+  "masters-2021": {
+    label: "Masters Tournament",
+    year: 2021,
+    course: "Augusta National Golf Club",
+    url: "data/history/masters-2021.json"
+  },
+  "usopen-2020": {
+    label: "U.S. Open",
+    year: 2020,
+    course: "Winged Foot Golf Club",
+    url: "data/history/usopen-2020.json"
+  },
+  "masters-2020": {
+    label: "Masters Tournament",
+    year: 2020,
+    course: "Augusta National Golf Club",
+    url: "data/history/masters-2020.json"
   }
 };
 
