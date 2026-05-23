@@ -1020,14 +1020,9 @@
 <div class="section" id="sec-history">
   <div class="history-controls">
     <label for="hist-year">Year</label>
-    <select class="history-select" id="hist-year" onchange="histSelectionChanged()">
-      <option value="2026">2026</option>
-    </select>
+    <select class="history-select" id="hist-year" onchange="histYearChanged()"></select>
     <label for="hist-tournament">Tournament</label>
-    <select class="history-select" id="hist-tournament" onchange="histSelectionChanged()">
-      <option value="masters-2026">Masters Tournament</option>
-      <option value="pga-2026">PGA Championship</option>
-    </select>
+    <select class="history-select" id="hist-tournament" onchange="histSelectionChanged()"></select>
   </div>
   <div id="hist-content"><div class="history-loading">Loading...</div></div>
 </div>
@@ -2427,6 +2422,26 @@ const HISTORY_INDEX = {
 let _histCache = {};
 let _histLoaded = false;
 
+function initHistoryUI() {
+  const yearSel = document.getElementById('hist-year');
+  const years = [...new Set(Object.values(HISTORY_INDEX).map(m => m.year))].sort((a,b) => b-a);
+  yearSel.innerHTML = years.map(y => '<option value="' + y + '">' + y + '</option>').join('');
+  histYearChanged();
+}
+function histYearChanged() {
+  const year = +document.getElementById('hist-year').value;
+  const t = document.getElementById('hist-tournament');
+  const order = ['masters','pga','usopen','open'];
+  const entries = Object.entries(HISTORY_INDEX)
+    .filter(([,meta]) => meta.year === year)
+    .sort(([ka],[kb]) => {
+      const ai = order.findIndex(o => ka.startsWith(o));
+      const bi = order.findIndex(o => kb.startsWith(o));
+      return (ai===-1?99:ai) - (bi===-1?99:bi);
+    });
+  t.innerHTML = entries.map(([key,meta]) => '<option value="' + key + '">' + meta.label + '</option>').join('');
+  if (t.options[0]) renderHistoryTab(t.options[0].value);
+}
 function histSelectionChanged() {
   const key = document.getElementById('hist-tournament').value;
   renderHistoryTab(key);
@@ -2545,7 +2560,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.addEventListener('click', () => {
         if (!_histLoaded) {
           _histLoaded = true;
-          renderHistoryTab('masters-2026');
+          initHistoryUI();
         }
       });
     }
