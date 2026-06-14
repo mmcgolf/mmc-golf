@@ -218,9 +218,17 @@ def main():
     name_cache = load_name_cache()
     _cache_size_before = len(name_cache)
 
+    # Deduplicate: if someone submitted multiple times, keep the latest entry
+    raw_teams = picks_data.get("teams", [])
+    seen_names = {}
+    for t in raw_teams:
+        seen_names[t["name"]] = t  # later entries overwrite earlier ones
+    deduped_teams = list(seen_names.values())
+    print(f"  Teams: {len(raw_teams)} raw, {len(deduped_teams)} after dedup")
+
     # Build teams
     teams = []
-    for team in picks_data.get("teams", []):
+    for team in deduped_teams:
         resolved_golfers = []
         for pick in team.get("picks", []):
             name = pick["name"]
