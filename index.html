@@ -2215,6 +2215,7 @@ function buildGrid(){
     var params=new URLSearchParams();
     params.append("email",email);
     params.append("team",team);
+    params.append("tournament",(window.DATA&&window.DATA.tournament)||"MMC Major");
     sel.forEach(function(g){params.append("golfers",g.n+" - "+g.p.toFixed(1));});
     document.getElementById("et-submit").disabled=true;
     fetch(FORM_URL+"?"+params.toString(),{method:"GET",mode:"no-cors"})
