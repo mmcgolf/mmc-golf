@@ -2230,6 +2230,7 @@ function buildGrid(){
       });
   });
   var _etInit=false;
+  if(!_etInit&&document.getElementById('sec-enterteam').classList.contains('active')){buildGrid();buildTeams();checkLockout();_etInit=true;}
   document.querySelectorAll(".nav-tab").forEach(function(btn){
     btn.addEventListener("click",function(){
       if(btn.dataset.tab==="enterteam"&&!_etInit){buildGrid();buildTeams();checkLockout();_etInit=true;}
