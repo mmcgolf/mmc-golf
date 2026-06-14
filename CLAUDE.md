@@ -336,3 +336,31 @@ everything is always in sync from one source of truth.
 - Browser tab ID used for JS execution: 1328856660 (mmc-golf.com)
 - Content filter blocks direct string output of anything resembling URL params or base64 --
   use char code arrays + Python decode, or keyword-only analysis for JS source inspection
+
+
+## Session: 2026-06-14 -- US Open 2026 Setup
+
+Files pushed (all via GitHub Contents API from browser console):
+- `data/ppvs.json` (SHA 34485c47) -- 146 players, PPV 7.6-18.9. Top: Scheffler 18.9, McIlroy 17.6, Rahm 16.6, DeChambeau 14.9, Cameron Young 14.9
+- `data/picks.json` (SHA b73d6dee) -- tournament="2026 US Open", budget=72, teams cleared to [], same 12-place payout
+- `scripts/build_data.py` (SHA 7c45b5ff) -- added deduplication: if same team name appears multiple times, latest entry wins
+- `index.html` (SHA 69aeb5c2) -- GOLFERS array (146 players), LOCKOUT_TIME updated to 2026-06-18T10:30:00Z (US Open R1 6:30am ET), Enter Team tab moved to first position and set as default active tab
+
+### Enter Team tab changes
+- Tab moved from 2nd-to-last position to FIRST in nav bar
+- Set as the default active section (was leaderboard)
+- Lockout: June 18, 2026 6:30am ET (R1 first tee time)
+
+### Deduplication logic (build_data.py)
+If picks.json has multiple entries for the same team name, only the LAST occurrence is kept.
+This means: when copying entries from the Google Sheet into picks.json, put them in chronological order and duplicates will be resolved automatically.
+
+### NAME_ALIASES to verify for US Open 2026
+- Jayden Trey Schaper -> jayden schaper (middle name) -- same as PGA
+- Other aliases may be needed once ESPN field is known
+
+### Google Sheet (entries)
+The entry form POSTs to the Google Apps Script at the FORM_URL in index.html.
+That script writes to a Google Sheet. To find it: go to script.google.com, open the
+project, and look for the SpreadsheetApp reference to find the sheet ID.
+Clear the sheet of PGA Championship entries before US Open submissions open.
