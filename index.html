@@ -923,11 +923,11 @@
         </div>
         <div id="et-form-body">
         <h2 class="et-title">Enter Your Team</h2>
-        <p class="et-subtitle">Select exactly 6 golfers Â· 72-point maximum budget</p>
+        <p class="et-subtitle">Select exactly 6 golfers · 72-point maximum budget</p>
         <div class="et-budget">
           <div class="et-budget-top">
             <span class="et-budget-lbl">Points Used</span>
-            <span class="et-budget-val"><span id="et-pts">0.0</span> / 72.0 &nbsp;Â·&nbsp; <span id="et-cnt">0</span> / 6</span>
+            <span class="et-budget-val"><span id="et-pts">0.0</span> / 72.0 &nbsp;·&nbsp; <span id="et-cnt">0</span> / 6</span>
           </div>
           <div class="et-budget-avgs"><span class="et-avg-stat">Avg Spent: <strong id="et-avg-spent">&#x2014;</strong></span><span class="et-avg-stat">Avg Remaining: <strong id="et-avg-rem">&#x2014;</strong></span></div>
           <div class="et-bar-track"><div class="et-bar-fill" id="et-bar"></div></div>
@@ -1717,9 +1717,9 @@ function initApp(data) {
   const subtitle = document.getElementById('tournSubtitle');
   if (subtitle) {
     let statusText = String(DATA.year || '');
-    if (DATA.course) statusText += ' Â· ' + DATA.course;
-    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' Â· ' + _displayStatus;
-    if (DATA.status === 'In Progress' && DATA.round) statusText += ' Â· Round ' + DATA.round;
+    if (DATA.course) statusText += ' · ' + DATA.course;
+    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' · ' + _displayStatus;
+    if (DATA.status === 'In Progress' && DATA.round) statusText += ' · Round ' + DATA.round;
     subtitle.textContent = statusText;
   }
   const lastUpdEl = document.getElementById('lastUpdated');
@@ -1825,7 +1825,8 @@ setInterval(() => {
 // ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ Enter Team Form ÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¢ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ
 (function(){
   var BUDGET=72.0, REQUIRED=6;
-  var LOCKOUT_TIME = new Date("2026-06-18T10:30:00Z"); // US Open R1 first tee time (6:30am ET)
+  var LOCKOUT_TIME = new Date("2026-06-18T10:30:00Z");
+      var TOURNAMENT_NAME = "2026 US Open"; // ← change this each major // US Open R1 first tee time (6:30am ET)
   var FORM_URL="https://script.google.com/macros/s/AKfycbwPLKEOE8yc2xyrtk5TAA3aUnzCUGAmB1q96PoMFoJrlasc3VfgSyS0dXyUz2rHJEHZ1w/exec";
   var TEAMS=[
     "#1 - Dylan Morris",
@@ -2215,7 +2216,7 @@ function buildGrid(){
     var params=new URLSearchParams();
     params.append("email",email);
     params.append("team",team);
-    params.append("tournament",(window.DATA&&window.DATA.tournament)||"MMC Major");
+    params.append("tournament",TOURNAMENT_NAME||(window.DATA&&window.DATA.tournament)||"MMC Major");
     sel.forEach(function(g){params.append("golfers",g.n+" - "+g.p.toFixed(1));});
     document.getElementById("et-submit").disabled=true;
     fetch(FORM_URL+"?"+params.toString(),{method:"GET",mode:"no-cors"})
