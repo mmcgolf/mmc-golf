@@ -282,7 +282,7 @@ def main():
     payouts = [{"place": i + 1, "amount": amt} for i, amt in enumerate(payouts_raw)]
 
     out = {
-        "tournament": scores.get("tournament", "The Masters"),
+        "tournament": picks_data.get("tournament", scores.get("tournament", "MMC Major")),
         "year": picks_data.get("year", 2026),
         "course": scores.get("venue", "Augusta National Golf Club"),
         "status": scores.get("status", "Upcoming"),
