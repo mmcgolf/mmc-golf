@@ -1717,9 +1717,9 @@ function initApp(data) {
   const subtitle = document.getElementById('tournSubtitle');
   if (subtitle) {
     let statusText = String(DATA.year || '');
-    if (DATA.course) statusText += ' · ' + DATA.course;
-    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' · ' + _displayStatus;
-    if (DATA.status === 'In Progress' && DATA.round) statusText += ' · Round ' + DATA.round;
+    if (DATA.course) statusText += ' \u00B7 ' + DATA.course;
+    if (DATA.status && DATA.status !== 'Upcoming') statusText += ' \u00B7 ' + _displayStatus;
+    if (DATA.status === 'In Progress' && DATA.round) statusText += ' \u00B7 Round ' + DATA.round;
     subtitle.textContent = statusText;
   }
   const lastUpdEl = document.getElementById('lastUpdated');
