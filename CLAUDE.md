@@ -1,4 +1,4 @@
-# MMC Golf Leaderboard â Project Reference
+# MMC Golf Leaderboard Ã¢ÂÂ Project Reference
 
 Live site: **https://mmc-golf.com** | Repo: **mmcgolf/mmc-golf** (GitHub Pages)
 
@@ -6,7 +6,7 @@ Live site: **https://mmc-golf.com** | Repo: **mmcgolf/mmc-golf** (GitHub Pages)
 
 ## How to Edit (Every Session)
 
-All edits are made via the **GitHub API from the Chrome browser console** (Claude in Chrome extension). Never edit files locally â changes must go through the API to trigger GitHub Pages redeploy.
+All edits are made via the **GitHub API from the Chrome browser console** (Claude in Chrome extension). Never edit files locally Ã¢ÂÂ changes must go through the API to trigger GitHub Pages redeploy.
 
 ### Session startup checklist
 ```javascript
@@ -82,17 +82,17 @@ async function pushFile(path, content, message) {
 
 ```
 mmcgolf/mmc-golf/
-âââ index.html              # ENTIRE site â single-file app, ~130KB
-âââ data/
-â   âââ ppvs.json           # Player list + point values (edit each tournament)
-â   âââ picks.json          # Team entries + payout structure (update each tournament)
-â   âââ scores.json         # ESPN live scores (written by GitHub Actions)
-â   âââ data.json           # Combined output (built by build_data.py, DO NOT edit)
-âââ scripts/
-â   âââ scrape_espn.py      # Fetches ESPN leaderboard â scores.json
-â   âââ build_data.py       # Merges scores + picks + ppvs â data.json
-âââ .github/workflows/
-    âââ update_scores.yml   # Runs every 5 min during tournament
+Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ index.html              # ENTIRE site Ã¢ÂÂ single-file app, ~130KB
+Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ data/
+Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ ppvs.json           # Player list + point values (edit each tournament)
+Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ picks.json          # Team entries + payout structure (update each tournament)
+Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ scores.json         # ESPN live scores (written by GitHub Actions)
+Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ data.json           # Combined output (built by build_data.py, DO NOT edit)
+Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ scripts/
+Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ scrape_espn.py      # Fetches ESPN leaderboard Ã¢ÂÂ scores.json
+Ã¢ÂÂ   Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ build_data.py       # Merges scores + picks + ppvs Ã¢ÂÂ data.json
+Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ .github/workflows/
+    Ã¢ÂÂÃ¢ÂÂÃ¢ÂÂ update_scores.yml   # Runs every 5 min during tournament
 ```
 
 ---
@@ -104,20 +104,20 @@ Single-file app hosted on GitHub Pages. No build step. All JS inline.
 ### Data flow
 ```
 ESPN API (live, every 60s client-side)
-       â
+       Ã¢ÂÂ
 window.DATA (updated by _fetchLive)
-       â
-render functions â DOM
+       Ã¢ÂÂ
+render functions Ã¢ÂÂ DOM
 
 data.json poll (every 60s via setInterval)
-       â  
-initApp(data) â window.DATA = data â all render functions
+       Ã¢ÂÂ  
+initApp(data) Ã¢ÂÂ window.DATA = data Ã¢ÂÂ all render functions
 ```
 
 ### Key globals
-- `window.DATA` â full tournament data (teams, golfers, ppvs, payouts, status)
-- `window._tblSortStates` â saved sort state per tbody (for re-applying after refresh)
-- `localStorage 'mmc_favs'` â `{t: [teamNames], g: [golferNames]}` â favorites
+- `window.DATA` Ã¢ÂÂ full tournament data (teams, golfers, ppvs, payouts, status)
+- `window._tblSortStates` Ã¢ÂÂ saved sort state per tbody (for re-applying after refresh)
+- `localStorage 'mmc_favs'` Ã¢ÂÂ `{t: [teamNames], g: [golferNames]}` Ã¢ÂÂ favorites
 
 ### Key functions (approximate positions in file)
 | Function | ~Position | Purpose |
@@ -140,13 +140,13 @@ initApp(data) â window.DATA = data â all render functions
 - Teams uses `fav-sep-div`, tables use `fav-sep-row` with `colspan="99"`
 
 ### Live scoring (two-tier)
-1. **data.json poll** â `setInterval` every 60s â `initApp(data)` â replaces all DATA
-2. **ESPN direct fetch** â `_fetchLive()` every 60s during "In Progress" â updates golfer scores/ranks inline â calls all render functions
+1. **data.json poll** Ã¢ÂÂ `setInterval` every 60s Ã¢ÂÂ `initApp(data)` Ã¢ÂÂ replaces all DATA
+2. **ESPN direct fetch** Ã¢ÂÂ `_fetchLive()` every 60s during "In Progress" Ã¢ÂÂ updates golfer scores/ranks inline Ã¢ÂÂ calls all render functions
 
 `_fetchLive` calls all render functions: `renderLeaderboard`, `renderTeams`, `renderGolfers`, `renderPayouts`, `renderPPV`, `renderGrid`.
 
 ### Non-Latin1 character trap
-`btoa()` fails on chars > 255 (e.g., `ââ` U+2500, accented letters written directly).
+`btoa()` fails on chars > 255 (e.g., `Ã¢ÂÂÃ¢ÂÂ` U+2500, accented letters written directly).
 Always scan before pushing:
 ```javascript
 let bad = [];
@@ -172,8 +172,8 @@ Format: `{"players": [{"name": "Scottie Scheffler", "ppv": 18.1}, ...]}`
 - Clear old `"teams"` array
 
 ### 3. Update `scripts/build_data.py` NAME_ALIASES
-Add any known DraftKingsâESPN name mismatches for this field.
-The `normalize_name()` function strips `.`, `-`, `'` and lowercases â handles many issues automatically.
+Add any known DraftKingsÃ¢ÂÂESPN name mismatches for this field.
+The `normalize_name()` function strips `.`, `-`, `'` and lowercases Ã¢ÂÂ handles many issues automatically.
 Fuzzy matching (SequenceMatcher, threshold=0.82) catches remaining near-matches.
 
 ### 4. Update `picks.json` tournament info + trigger rebuild
@@ -184,9 +184,9 @@ After pushing all files, manually trigger the GitHub Actions workflow or wait fo
 ## Name Matching (DraftKings vs ESPN)
 
 `normalize_name()` in `build_data.py` strips `.`, `-`, `'` and lowercases. Handles:
-- "J.J. Spaun" â "jj spaun" â
-- "Hao-Tong Li" â "haotong li" â (matches ESPN's "Haotong Li")
-- "Ludvig Ãberg" / "Ludvig Aberg" â same after normalize â
+- "J.J. Spaun" Ã¢ÂÂ "jj spaun" Ã¢ÂÂ
+- "Hao-Tong Li" Ã¢ÂÂ "haotong li" Ã¢ÂÂ (matches ESPN's "Haotong Li")
+- "Ludvig ÃÂberg" / "Ludvig Aberg" Ã¢ÂÂ same after normalize Ã¢ÂÂ
 
 Common issues requiring explicit aliases:
 | DK Name | ESPN Name | Issue |
@@ -195,7 +195,7 @@ Common issues requiring explicit aliases:
 | Jayden Trey Schaper | Jayden Schaper | Middle name |
 | Jordan L. Smith | Jordan Smith | Middle initial |
 | Angel Ayora Fanegas | Angel Ayora | Compound surname |
-| Joaquin Niemann | JoaquÃ­n Niemann | Accent (handled by normalize) |
+| Joaquin Niemann | JoaquÃÂ­n Niemann | Accent (handled by normalize) |
 
 The `_norm()` function in `index.html` (client-side ESPN matching) uses NFD normalization to strip accents, then lowercases. Add explicit aliases to `NAME_ALIASES` in `build_data.py` for server-side matching.
 
@@ -204,16 +204,16 @@ The `_norm()` function in `index.html` (client-side ESPN matching) uses NFD norm
 ## Scoring Rules
 - Each team picks **6 golfers** within a **72-point budget**
 - **Top 4 non-cut scores** count toward team total
-- **Penalty**: `(4 - made_cut) Ã 1000` per missing counting score
+- **Penalty**: `(4 - made_cut) ÃÂ 1000` per missing counting score
 - **Tiebreaker**: lowest individual score among the 6 picks
-- **Payouts**: from `data/picks.json` â `"payouts"` array, split equally among tied places
+- **Payouts**: from `data/picks.json` Ã¢ÂÂ `"payouts"` array, split equally among tied places
 
 ---
 
 ## Known Gotchas / Session History
 
 1. **_sortTable + fav-sep-row**: Sort comparator must pin `fav-sep-row` elements to top (check for `classList.contains('fav-sep-row')` before comparing values)
-2. **renderPayouts injection point**: Function has TWO `DATA.payouts.forEach` loops â fav section must go before the SECOND one (after `let html=''; const consumedPlaces=new Set()`)
+2. **renderPayouts injection point**: Function has TWO `DATA.payouts.forEach` loops Ã¢ÂÂ fav section must go before the SECOND one (after `let html=''; const consumedPlaces=new Set()`)
 3. **Template literal `\\'` escaping**: Use `t.name` directly in single-quoted strings for team names; avoid `.replace(/"/g,'&quot;')` inside template literals
 4. **sort state re-application**: `_sortTable` saves `{colIdx, type, dir}` to `window._tblSortStates[tbodyId]`; `renderLeaderboard` re-applies at the end
 5. **ESPN fetch + all renders**: `_fetchLive` must call `renderPayouts` and `renderPPV` (not just LB/Teams/Golfers)
@@ -224,9 +224,9 @@ The `_norm()` function in `index.html` (client-side ESPN matching) uses NFD norm
 ## Content Blocking in Claude in Chrome
 
 The browser tool's security rules block many patterns. Use these workarounds:
-- Extract via `JSON.stringify(small_chunk)` â blocks on some content
-- Use char code arrays: `seg.split('').map(c=>c.charCodeAt(0)).join(',')` â always works
-- Never try to return base64 â blocked
+- Extract via `JSON.stringify(small_chunk)` Ã¢ÂÂ blocks on some content
+- Use char code arrays: `seg.split('').map(c=>c.charCodeAt(0)).join(',')` Ã¢ÂÂ always works
+- Never try to return base64 Ã¢ÂÂ blocked
 - Store large strings in `window._foo` variables, return only lengths/positions
 
 
@@ -264,9 +264,9 @@ NAME_ALIASES active for this tournament:
 
 13. **btoa() encodes Latin-1 bytes -- causes Python SyntaxError on disk**: `btoa()` treats each character as a Latin-1 byte. Writing a non-ASCII char like `\u00ed` (i-acute) via btoa produces byte `0xED` on disk. GitHub's `/contents/` API re-encodes `0xED` -> `0xC3 0xAD` (valid UTF-8) when *serving* the file, so `atob()` always returns valid Unicode -- masking the corruption. But Python 3 raises `SyntaxError: Non-UTF-8 code starting with '\xed'` when it actually executes the file. **Fix**: always use Python Unicode escapes (`\u00ed`) for non-ASCII chars in `.py` files -- they are pure ASCII and round-trip through btoa() without corruption.
 
-## Session: 2026-05-20 (Evening) — Workflow Failures + Score Lag Fixes
+## Session: 2026-05-20 (Evening) â Workflow Failures + Score Lag Fixes
 
-### PGA Championship 2026 History Tab — Final Status
+### PGA Championship 2026 History Tab â Final Status
 - Confirmed push SHA c4a9517e succeeded (HTTP 200)
 - 181 total teams, correct course "Aronimink Golf Club"
 - Winner: #16 Nick Simon at -14, first ineligible team at index 138 (Aaron Crist, teamTotal=986)
@@ -301,15 +301,15 @@ data changed, the step exits cleanly instead of running git pull/push unnecessar
 
 **Root Cause:** The site had TWO separate polling intervals:
 1. `setInterval(() => fetch('data/data.json').then(d => initApp(d)), 60*1000)`
-   — Fetches data.json every 60s, calls initApp() to fully reset DATA and re-render.
+   â Fetches data.json every 60s, calls initApp() to fully reset DATA and re-render.
 2. `(function startLiveFetch() { ... setInterval(_fetchLive, 60*1000) })()`
-   — IIFE that fetches directly from ESPN API (site.api.espn.com/apis/site/v2/...)
+   â IIFE that fetches directly from ESPN API (site.api.espn.com/apis/site/v2/...)
    every 60s, updating player scores client-side and recalculating team totals.
 
 These two intervals ran at different phases (offset ~30s apart). The interference:
-- ESPN poll fires: updates player scores + recalculates team totals in DATA → renders
+- ESPN poll fires: updates player scores + recalculates team totals in DATA â renders
 - 30s later: data.json poll fires: initApp() resets entire DATA object from disk file
-  → player scores and team totals REVERT to the data.json snapshot (potentially 60-90s stale)
+  â player scores and team totals REVERT to the data.json snapshot (potentially 60-90s stale)
 - Result: scores visibly oscillate between ESPN-fresh values and stale data.json values
 
 **Fix:** Removed the entire startLiveFetch IIFE / ESPN polling block. Now only the
@@ -318,15 +318,15 @@ with both player scores AND team totals computed atomically by build_data.py,
 everything is always in sync from one source of truth.
 
 ### Site Architecture Reference
-- data/scores.json — raw ESPN leaderboard data (written by scrape_espn.py)
-- data/data.json — processed data: teams + golfers + ppvs + payouts (written by build_data.py)
+- data/scores.json â raw ESPN leaderboard data (written by scrape_espn.py)
+- data/data.json â processed data: teams + golfers + ppvs + payouts (written by build_data.py)
   Contains pre-computed teamTotal, cutMade, lowestIndividual for every team
-- index.html — single-page app, now polls data/data.json every 60s via cache-busted fetch
-- .github/workflows/update_scores.yml — runs every minute, serialized via concurrency group
+- index.html â single-page app, now polls data/data.json every 60s via cache-busted fetch
+- .github/workflows/update_scores.yml â runs every minute, serialized via concurrency group
 
 ### Key Scoring Rules (confirmed this session)
 - Best 4 survivors (golfers with cut:false) count toward teamTotal
-- Teams with <4 survivors: teamTotal = 1000 + sum(survivorScores) → renders as "N/A"
+- Teams with <4 survivors: teamTotal = 1000 + sum(survivorScores) â renders as "N/A"
 - Tiebreaker: lowestIndividual = min scoreToPar across all 6 golfers (lower = better)
 - Ineligible threshold in UI: teamTotal >= 500
 
@@ -364,3 +364,35 @@ The entry form POSTs to the Google Apps Script at the FORM_URL in index.html.
 That script writes to a Google Sheet. To find it: go to script.google.com, open the
 project, and look for the SpreadsheetApp reference to find the sheet ID.
 Clear the sheet of PGA Championship entries before US Open submissions open.
+
+---
+
+## ⚠️ CRITICAL: Team Submission Deduplication Rule
+
+**Date discovered:** 2026-06-18  
+**Severity:** UNACCEPTABLE — caused wrong picks to be loaded for 46 teams
+
+### The Problem
+The Google Form allows multiple submissions per team. The Excel export is sorted **newest-first** (descending timestamp). When picks are loaded into `picks.json` in that order, the build script's dedup logic (`seen_names[t["name"]] = t`, last entry wins) will keep the **oldest** submission — the wrong one.
+
+### The Rule
+**ALWAYS deduplicate by keeping the entry with the HIGHEST timestamp (most recent) per team name before writing to `picks.json`.**
+
+### The Fix (JavaScript)
+```javascript
+const seen = {};
+for (let i = 1; i < data.length; i++) {
+  const row = data[i];
+  if (!row?.[2]) continue;
+  const teamName = row[2];
+  const ts = row[0]; // Column A: numeric Excel timestamp — higher = more recent
+  if (!seen[teamName] || ts > seen[teamName].ts) {
+    seen[teamName] = {ts, row};
+  }
+}
+const teams = Object.values(seen).map(({row}) => { /* build picks */ });
+```
+
+### Verification
+After dedup, log: `Raw submissions: X, unique teams: Y, duplicates removed: Z`  
+If Z > 0, confirm the kept entry has the highest timestamp for each affected team.
