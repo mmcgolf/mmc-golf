@@ -4,7 +4,7 @@
   "course": "",
   "status": "In Progress",
   "round": 4,
-  "lastUpdated": "2026-06-21T18:32:14.229845+00:00",
+  "lastUpdated": "2026-06-21T18:33:14.208077+00:00",
   "totalTeams": 177,
   "teams": [
     {
@@ -13,7 +13,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -24,7 +24,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -46,7 +46,7 @@
         {
           "name": "Keith Mitchell",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -103,7 +103,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -125,11 +125,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -140,7 +140,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -156,7 +156,7 @@
           "ppv": 7.6
         }
       ],
-      "teamTotal": -6,
+      "teamTotal": -7,
       "validTeam": true,
       "cutMade": 4,
       "cutMissed": 2,
@@ -171,7 +171,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -226,7 +226,7 @@
         {
           "name": "Sahith Theegala",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -242,7 +242,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "exact",
-      "rank": 2
+      "rank": 3
     },
     {
       "name": "#150 - Matthew Somerman",
@@ -250,7 +250,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -324,12 +324,170 @@
       "rank": 4
     },
     {
+      "name": "#38 - Brad Kropp",
+      "golfers": [
+        {
+          "name": "Cameron Young",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 3,
+          "thru": "14",
+          "cut": false,
+          "ppv": 14.9
+        },
+        {
+          "name": "Justin Rose",
+          "position": {
+            "displayName": "T11"
+          },
+          "scoreToPar": 1,
+          "today": -3,
+          "thru": "13",
+          "cut": false,
+          "ppv": 12.7
+        },
+        {
+          "name": "Wyndham Clark",
+          "position": {
+            "displayName": "1"
+          },
+          "scoreToPar": -7,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 11.8
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Patrick Cantlay",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 11
+        },
+        {
+          "name": "Ryan Fox",
+          "position": {
+            "displayName": "T34"
+          },
+          "scoreToPar": 5,
+          "today": -2,
+          "thru": "F",
+          "cut": false,
+          "ppv": 9.6
+        }
+      ],
+      "teamTotal": -3,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -7,
+      "cutStatus": "safe",
+      "rank": 5
+    },
+    {
+      "name": "#93 - Kevin Ball",
+      "golfers": [
+        {
+          "name": "Scottie Scheffler",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 18.9
+        },
+        {
+          "name": "Wyndham Clark",
+          "position": {
+            "displayName": "1"
+          },
+          "scoreToPar": -7,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 11.8
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Robert MacIntyre",
+          "position": {
+            "displayName": "T41"
+          },
+          "scoreToPar": 7,
+          "today": 0,
+          "thru": "F",
+          "cut": false,
+          "ppv": 10.6
+        },
+        {
+          "name": "Si Woo Kim",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.9
+        },
+        {
+          "name": "Preston Stout",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 9,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 8
+        }
+      ],
+      "teamTotal": -3,
+      "validTeam": true,
+      "cutMade": 4,
+      "cutMissed": 2,
+      "pending": 0,
+      "lowestIndividual": -7,
+      "cutStatus": "exact",
+      "rank": 5
+    },
+    {
       "name": "#98 - Matt Henderson",
       "golfers": [
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -403,86 +561,7 @@
       "rank": 5
     },
     {
-      "name": "#123 - Steve Francis",
-      "golfers": [
-        {
-          "name": "Rory McIlroy",
-          "position": {
-            "displayName": "T41"
-          },
-          "scoreToPar": 7,
-          "today": 4,
-          "thru": "9",
-          "cut": false,
-          "ppv": 17.6
-        },
-        {
-          "name": "Collin Morikawa",
-          "position": {
-            "displayName": "T8"
-          },
-          "scoreToPar": 0,
-          "today": -1,
-          "thru": "4",
-          "cut": false,
-          "ppv": 12.8
-        },
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -2,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Max McGreevy",
-          "position": {
-            "displayName": "T34"
-          },
-          "scoreToPar": 5,
-          "today": 1,
-          "thru": "13",
-          "cut": false,
-          "ppv": 8.8
-        },
-        {
-          "name": "Sam Stevens",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": 0,
-          "thru": "1",
-          "cut": false,
-          "ppv": 9.3
-        },
-        {
-          "name": "Tom Kim",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 9.3
-        }
-      ],
-      "teamTotal": -3,
-      "validTeam": true,
-      "cutMade": 6,
-      "cutMissed": 0,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 6
-    },
-    {
-      "name": "#38 - Brad Kropp",
+      "name": "#56 - Eric Platt",
       "golfers": [
         {
           "name": "Cameron Young",
@@ -496,6 +575,85 @@
           "ppv": 14.9
         },
         {
+          "name": "Sungjae Im",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 0,
+          "thru": "6",
+          "cut": false,
+          "ppv": 9.7
+        },
+        {
+          "name": "Wyndham Clark",
+          "position": {
+            "displayName": "1"
+          },
+          "scoreToPar": -7,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 11.8
+        },
+        {
+          "name": "David Puig",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 9,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 9.9
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        }
+      ],
+      "teamTotal": -3,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -7,
+      "cutStatus": "safe",
+      "rank": 5
+    },
+    {
+      "name": "#158 - Jesse Schultz",
+      "golfers": [
+        {
+          "name": "Scottie Scheffler",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 18.9
+        },
+        {
           "name": "Justin Rose",
           "position": {
             "displayName": "T11"
@@ -507,119 +665,40 @@
           "ppv": 12.7
         },
         {
-          "name": "Wyndham Clark",
+          "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "1"
+            "displayName": "T66"
           },
-          "scoreToPar": -7,
+          "scoreToPar": 14,
+          "today": 3,
+          "thru": "F",
+          "cut": false,
+          "ppv": 11.4
+        },
+        {
+          "name": "Sahith Theegala",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
           "today": null,
           "thru": null,
           "cut": false,
-          "ppv": 11.8
+          "ppv": 9.7
         },
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Patrick Cantlay",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 11
-        },
-        {
-          "name": "Ryan Fox",
-          "position": {
-            "displayName": "T34"
-          },
-          "scoreToPar": 5,
+          "scoreToPar": -2,
           "today": -2,
-          "thru": "F",
-          "cut": false,
-          "ppv": 9.6
-        }
-      ],
-      "teamTotal": -2,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -7,
-      "cutStatus": "safe",
-      "rank": 7
-    },
-    {
-      "name": "#93 - Kevin Ball",
-      "golfers": [
-        {
-          "name": "Scottie Scheffler",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 18.9
-        },
-        {
-          "name": "Wyndham Clark",
-          "position": {
-            "displayName": "1"
-          },
-          "scoreToPar": -7,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 11.8
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
         {
-          "name": "Robert MacIntyre",
-          "position": {
-            "displayName": "T41"
-          },
-          "scoreToPar": 7,
-          "today": 0,
-          "thru": "F",
-          "cut": false,
-          "ppv": 10.6
-        },
-        {
-          "name": "Si Woo Kim",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.9
-        },
-        {
-          "name": "Preston Stout",
+          "name": "J.B. Holmes",
           "position": {
             "displayName": "-"
           },
@@ -627,17 +706,17 @@
           "today": null,
           "thru": null,
           "cut": true,
-          "ppv": 8
+          "ppv": 7.6
         }
       ],
-      "teamTotal": -2,
+      "teamTotal": -3,
       "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
+      "cutMade": 5,
+      "cutMissed": 1,
       "pending": 0,
-      "lowestIndividual": -7,
-      "cutStatus": "exact",
-      "rank": 7
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 9
     },
     {
       "name": "#43 - Jack Knauss",
@@ -645,7 +724,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -682,7 +761,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -716,7 +795,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "safe",
-      "rank": 7
+      "rank": 10
     },
     {
       "name": "#122 - Sean McKeon",
@@ -724,7 +803,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -795,165 +874,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "exact",
-      "rank": 7
-    },
-    {
-      "name": "#56 - Eric Platt",
-      "golfers": [
-        {
-          "name": "Cameron Young",
-          "position": {
-            "displayName": "T49"
-          },
-          "scoreToPar": 8,
-          "today": 3,
-          "thru": "14",
-          "cut": false,
-          "ppv": 14.9
-        },
-        {
-          "name": "Sungjae Im",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "6",
-          "cut": false,
-          "ppv": 9.7
-        },
-        {
-          "name": "Wyndham Clark",
-          "position": {
-            "displayName": "1"
-          },
-          "scoreToPar": -7,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 11.8
-        },
-        {
-          "name": "David Puig",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 9,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 9.9
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        }
-      ],
-      "teamTotal": -2,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -7,
-      "cutStatus": "safe",
-      "rank": 7
-    },
-    {
-      "name": "#158 - Jesse Schultz",
-      "golfers": [
-        {
-          "name": "Scottie Scheffler",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 18.9
-        },
-        {
-          "name": "Justin Rose",
-          "position": {
-            "displayName": "T11"
-          },
-          "scoreToPar": 1,
-          "today": -3,
-          "thru": "13",
-          "cut": false,
-          "ppv": 12.7
-        },
-        {
-          "name": "Hideki Matsuyama",
-          "position": {
-            "displayName": "T66"
-          },
-          "scoreToPar": 14,
-          "today": 3,
-          "thru": "F",
-          "cut": false,
-          "ppv": 11.4
-        },
-        {
-          "name": "Sahith Theegala",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 9.7
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "J.B. Holmes",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 9,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 7.6
-        }
-      ],
-      "teamTotal": -2,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 12
+      "rank": 10
     },
     {
       "name": "#83 - Jamie Allen",
@@ -961,7 +882,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -983,11 +904,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -1005,7 +926,7 @@
         {
           "name": "Sahith Theegala",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -1025,10 +946,89 @@
           "ppv": 8.5
         }
       ],
-      "teamTotal": -1,
+      "teamTotal": -2,
       "validTeam": true,
       "cutMade": 5,
       "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 12
+    },
+    {
+      "name": "#123 - Steve Francis",
+      "golfers": [
+        {
+          "name": "Rory McIlroy",
+          "position": {
+            "displayName": "T41"
+          },
+          "scoreToPar": 7,
+          "today": 4,
+          "thru": "9",
+          "cut": false,
+          "ppv": 17.6
+        },
+        {
+          "name": "Collin Morikawa",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": -1,
+          "thru": "4",
+          "cut": false,
+          "ppv": 12.8
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Max McGreevy",
+          "position": {
+            "displayName": "T34"
+          },
+          "scoreToPar": 5,
+          "today": 1,
+          "thru": "13",
+          "cut": false,
+          "ppv": 8.8
+        },
+        {
+          "name": "Sam Stevens",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": 0,
+          "thru": "1",
+          "cut": false,
+          "ppv": 9.3
+        },
+        {
+          "name": "Tom Kim",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": 1,
+          "thru": "1",
+          "cut": false,
+          "ppv": 9.3
+        }
+      ],
+      "teamTotal": -2,
+      "validTeam": true,
+      "cutMade": 6,
+      "cutMissed": 0,
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
@@ -1040,7 +1040,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -1073,11 +1073,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -1104,7 +1104,7 @@
           "ppv": 10.4
         }
       ],
-      "teamTotal": 0,
+      "teamTotal": -1,
       "validTeam": true,
       "cutMade": 4,
       "cutMissed": 2,
@@ -1152,11 +1152,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -1183,7 +1183,7 @@
           "ppv": 10
         }
       ],
-      "teamTotal": 0,
+      "teamTotal": -1,
       "validTeam": true,
       "cutMade": 5,
       "cutMissed": 1,
@@ -1198,7 +1198,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -1269,86 +1269,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "safe",
-      "rank": 14
-    },
-    {
-      "name": "#89 - Jerry Von Deylen",
-      "golfers": [
-        {
-          "name": "Scottie Scheffler",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 18.9
-        },
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -2,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Adam Scott",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 8,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10
-        },
-        {
-          "name": "Ryan Gerard",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10
-        },
-        {
-          "name": "Sahith Theegala",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 9.7
-        },
-        {
-          "name": "Brian Harman",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "9",
-          "cut": false,
-          "ppv": 9.3
-        }
-      ],
-      "teamTotal": 0,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 17
+      "rank": 16
     },
     {
       "name": "#151 - Michael Kirstein",
@@ -1378,11 +1299,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -1420,14 +1341,14 @@
           "ppv": 9.2
         }
       ],
-      "teamTotal": 1,
+      "teamTotal": 0,
       "validTeam": true,
       "cutMade": 5,
       "cutMissed": 1,
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "safe",
-      "rank": 18
+      "rank": 16
     },
     {
       "name": "#63 - Ben Phillips",
@@ -1435,7 +1356,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -1446,7 +1367,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -1468,11 +1389,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -1499,14 +1420,14 @@
           "ppv": 7.7
         }
       ],
-      "teamTotal": 1,
+      "teamTotal": 0,
       "validTeam": true,
       "cutMade": 4,
       "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "exact",
-      "rank": 19
+      "rank": 18
     },
     {
       "name": "#5 - Brody Connolly",
@@ -1514,7 +1435,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -1525,7 +1446,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -1547,11 +1468,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -1578,14 +1499,14 @@
           "ppv": 8
         }
       ],
-      "teamTotal": 1,
+      "teamTotal": 0,
       "validTeam": true,
       "cutMade": 5,
       "cutMissed": 1,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "safe",
-      "rank": 19
+      "rank": 18
     },
     {
       "name": "#80 - Haines Maxwell",
@@ -1593,7 +1514,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -1626,7 +1547,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -1648,23 +1569,23 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         }
       ],
-      "teamTotal": 1,
+      "teamTotal": 0,
       "validTeam": true,
       "cutMade": 5,
       "cutMissed": 1,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "safe",
-      "rank": 19
+      "rank": 18
     },
     {
       "name": "#36 - Adam Stone",
@@ -1672,7 +1593,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -1694,7 +1615,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -1705,11 +1626,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -1736,93 +1657,14 @@
           "ppv": 8
         }
       ],
-      "teamTotal": 1,
+      "teamTotal": 0,
       "validTeam": true,
       "cutMade": 5,
       "cutMissed": 1,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "safe",
-      "rank": 19
-    },
-    {
-      "name": "#103 - Mickey Knauss",
-      "golfers": [
-        {
-          "name": "Corey Conners",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 1,
-          "thru": "4",
-          "cut": false,
-          "ppv": 9.9
-        },
-        {
-          "name": "Alex Noren",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 9.7
-        },
-        {
-          "name": "Tom Kim",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 9.3
-        },
-        {
-          "name": "Scottie Scheffler",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 18.9
-        },
-        {
-          "name": "Xander Schauffele",
-          "position": {
-            "displayName": "T8"
-          },
-          "scoreToPar": 0,
-          "today": 0,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14.5
-        },
-        {
-          "name": "Brian Harman",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "9",
-          "cut": false,
-          "ppv": 9.3
-        }
-      ],
-      "teamTotal": 1,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 19
+      "rank": 18
     },
     {
       "name": "#48 - Kevin Beers",
@@ -1830,7 +1672,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -1856,18 +1698,18 @@
           },
           "scoreToPar": 3,
           "today": 1,
-          "thru": "4",
+          "thru": "5",
           "cut": false,
           "ppv": 9.9
         },
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -1885,7 +1727,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -1894,22 +1736,22 @@
           "ppv": 14.5
         }
       ],
-      "teamTotal": 1,
+      "teamTotal": 0,
       "validTeam": true,
       "cutMade": 4,
       "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "exact",
-      "rank": 19
+      "rank": 18
     },
     {
-      "name": "#92 - Kelin Althoff",
+      "name": "#89 - Jerry Von Deylen",
       "golfers": [
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -1918,69 +1760,69 @@
           "ppv": 18.9
         },
         {
-          "name": "Xander Schauffele",
+          "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T8"
+            "displayName": "T3"
           },
-          "scoreToPar": 0,
-          "today": 0,
+          "scoreToPar": -1,
+          "today": -2,
           "thru": "3",
           "cut": false,
-          "ppv": 14.5
+          "ppv": 14
         },
         {
-          "name": "Collin Morikawa",
+          "name": "Adam Scott",
           "position": {
-            "displayName": "T8"
+            "displayName": "-"
           },
-          "scoreToPar": 0,
-          "today": -1,
-          "thru": "4",
-          "cut": false,
-          "ppv": 12.8
+          "scoreToPar": 8,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10
         },
         {
-          "name": "Corey Conners",
+          "name": "Ryan Gerard",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10
+        },
+        {
+          "name": "Sahith Theegala",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 9.7
+        },
+        {
+          "name": "Brian Harman",
           "position": {
             "displayName": "T21"
           },
           "scoreToPar": 3,
-          "today": 1,
-          "thru": "4",
+          "today": 0,
+          "thru": "9",
           "cut": false,
-          "ppv": 9.9
-        },
-        {
-          "name": "Padraig Harrington",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 11,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 8.3
-        },
-        {
-          "name": "J.B. Holmes",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 9,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 7.6
+          "ppv": 9.3
         }
       ],
-      "teamTotal": 2,
+      "teamTotal": 0,
       "validTeam": true,
       "cutMade": 4,
       "cutMissed": 2,
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 25
+      "rank": 23
     },
     {
       "name": "#165 - Rob James",
@@ -1999,7 +1841,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -2010,11 +1852,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -2052,14 +1894,14 @@
           "ppv": 9.7
         }
       ],
-      "teamTotal": 3,
+      "teamTotal": 2,
       "validTeam": true,
       "cutMade": 6,
       "cutMissed": 0,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "safe",
-      "rank": 26
+      "rank": 24
     },
     {
       "name": "#134 - Jason Hulbert",
@@ -2111,11 +1953,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -2131,14 +1973,725 @@
           "ppv": 8.8
         }
       ],
+      "teamTotal": 2,
+      "validTeam": true,
+      "cutMade": 6,
+      "cutMissed": 0,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 24
+    },
+    {
+      "name": "#92 - Kelin Althoff",
+      "golfers": [
+        {
+          "name": "Scottie Scheffler",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 18.9
+        },
+        {
+          "name": "Xander Schauffele",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14.5
+        },
+        {
+          "name": "Collin Morikawa",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": -1,
+          "thru": "4",
+          "cut": false,
+          "ppv": 12.8
+        },
+        {
+          "name": "Corey Conners",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 1,
+          "thru": "5",
+          "cut": false,
+          "ppv": 9.9
+        },
+        {
+          "name": "Padraig Harrington",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 11,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 8.3
+        },
+        {
+          "name": "J.B. Holmes",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 9,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 7.6
+        }
+      ],
+      "teamTotal": 2,
+      "validTeam": true,
+      "cutMade": 4,
+      "cutMissed": 2,
+      "pending": 0,
+      "lowestIndividual": -1,
+      "cutStatus": "exact",
+      "rank": 26
+    },
+    {
+      "name": "#103 - Mickey Knauss",
+      "golfers": [
+        {
+          "name": "Corey Conners",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 1,
+          "thru": "5",
+          "cut": false,
+          "ppv": 9.9
+        },
+        {
+          "name": "Alex Noren",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 9.7
+        },
+        {
+          "name": "Tom Kim",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": 1,
+          "thru": "1",
+          "cut": false,
+          "ppv": 9.3
+        },
+        {
+          "name": "Scottie Scheffler",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 18.9
+        },
+        {
+          "name": "Xander Schauffele",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14.5
+        },
+        {
+          "name": "Brian Harman",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 0,
+          "thru": "9",
+          "cut": false,
+          "ppv": 9.3
+        }
+      ],
+      "teamTotal": 2,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -1,
+      "cutStatus": "safe",
+      "rank": 26
+    },
+    {
+      "name": "#11 - Chris Ernst",
+      "golfers": [
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Tyrrell Hatton",
+          "position": {
+            "displayName": "T11"
+          },
+          "scoreToPar": 1,
+          "today": -3,
+          "thru": "13",
+          "cut": false,
+          "ppv": 13.1
+        },
+        {
+          "name": "Justin Rose",
+          "position": {
+            "displayName": "T11"
+          },
+          "scoreToPar": 1,
+          "today": -3,
+          "thru": "13",
+          "cut": false,
+          "ppv": 12.7
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "position": {
+            "displayName": "T66"
+          },
+          "scoreToPar": 14,
+          "today": 3,
+          "thru": "F",
+          "cut": false,
+          "ppv": 11.4
+        },
+        {
+          "name": "Dustin Johnson",
+          "position": {
+            "displayName": "T38"
+          },
+          "scoreToPar": 6,
+          "today": 2,
+          "thru": "11",
+          "cut": false,
+          "ppv": 9.6
+        }
+      ],
       "teamTotal": 3,
       "validTeam": true,
       "cutMade": 6,
       "cutMissed": 0,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "safe",
-      "rank": 26
+      "rank": 28
+    },
+    {
+      "name": "#50 - Matt Krochmalny",
+      "golfers": [
+        {
+          "name": "Tommy Fleetwood",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Russell Henley",
+          "position": {
+            "displayName": "T66"
+          },
+          "scoreToPar": 14,
+          "today": 1,
+          "thru": "F",
+          "cut": false,
+          "ppv": 12.1
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Alex Noren",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 9.7
+        },
+        {
+          "name": "Corey Conners",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 1,
+          "thru": "5",
+          "cut": false,
+          "ppv": 9.9
+        }
+      ],
+      "teamTotal": 3,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 28
+    },
+    {
+      "name": "#177 - Steve Astrein",
+      "golfers": [
+        {
+          "name": "Aaron Rai",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 0,
+          "thru": "8",
+          "cut": false,
+          "ppv": 10.3
+        },
+        {
+          "name": "Adam Scott",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 8,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Chris Gotterup",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 1,
+          "thru": "F",
+          "cut": false,
+          "ppv": 12.4
+        }
+      ],
+      "teamTotal": 3,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 28
+    },
+    {
+      "name": "#62 - Alex Sklar",
+      "golfers": [
+        {
+          "name": "Scottie Scheffler",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 18.9
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Si Woo Kim",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.9
+        },
+        {
+          "name": "Brian Harman",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 0,
+          "thru": "9",
+          "cut": false,
+          "ppv": 9.3
+        },
+        {
+          "name": "Mason Howell",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 8,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 7.7
+        }
+      ],
+      "teamTotal": 3,
+      "validTeam": true,
+      "cutMade": 4,
+      "cutMissed": 2,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "exact",
+      "rank": 28
+    },
+    {
+      "name": "#70 - Chris Caesar",
+      "golfers": [
+        {
+          "name": "Ludvig \u00c5berg",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": -4,
+          "thru": "F",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Patrick Reed",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 12
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "position": {
+            "displayName": "T66"
+          },
+          "scoreToPar": 14,
+          "today": 3,
+          "thru": "F",
+          "cut": false,
+          "ppv": 11.4
+        },
+        {
+          "name": "Sam Stevens",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": 0,
+          "thru": "1",
+          "cut": false,
+          "ppv": 9.3
+        }
+      ],
+      "teamTotal": 3,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 28
+    },
+    {
+      "name": "#131 - Wanda Warford",
+      "golfers": [
+        {
+          "name": "Tommy Fleetwood",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Chris Gotterup",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 1,
+          "thru": "F",
+          "cut": false,
+          "ppv": 12.4
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Aaron Rai",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 0,
+          "thru": "8",
+          "cut": false,
+          "ppv": 10.3
+        },
+        {
+          "name": "Harris English",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.1
+        }
+      ],
+      "teamTotal": 3,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 28
+    },
+    {
+      "name": "#159 - Nate Coleman & Jesse Schultz",
+      "golfers": [
+        {
+          "name": "Xander Schauffele",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14.5
+        },
+        {
+          "name": "Ludvig \u00c5berg",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": -4,
+          "thru": "F",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Ben Griffin",
+          "position": {
+            "displayName": "T16"
+          },
+          "scoreToPar": 2,
+          "today": -2,
+          "thru": "13",
+          "cut": false,
+          "ppv": 10.6
+        },
+        {
+          "name": "Jake Peacock",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 11,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 7.6
+        }
+      ],
+      "teamTotal": 3,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 28
     },
     {
       "name": "#27 - Jay Evans",
@@ -2146,7 +2699,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -2157,7 +2710,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -2217,7 +2770,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 26
+      "rank": 35
     },
     {
       "name": "#47 - Ken Koncilja",
@@ -2225,7 +2778,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -2236,7 +2789,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -2296,7 +2849,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 26
+      "rank": 35
     },
     {
       "name": "#28 - John Krall",
@@ -2304,7 +2857,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -2348,7 +2901,7 @@
         {
           "name": "Collin Morikawa",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": -1,
@@ -2375,348 +2928,21 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "safe",
-      "rank": 30
+      "rank": 37
     },
     {
-      "name": "#11 - Chris Ernst",
+      "name": "#108 - Nick Dose",
       "golfers": [
         {
-          "name": "Matt Fitzpatrick",
+          "name": "Xander Schauffele",
           "position": {
-            "displayName": "T21"
+            "displayName": "T7"
           },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Tyrrell Hatton",
-          "position": {
-            "displayName": "T11"
-          },
-          "scoreToPar": 1,
-          "today": -3,
-          "thru": "13",
-          "cut": false,
-          "ppv": 13.1
-        },
-        {
-          "name": "Justin Rose",
-          "position": {
-            "displayName": "T11"
-          },
-          "scoreToPar": 1,
-          "today": -3,
-          "thru": "13",
-          "cut": false,
-          "ppv": 12.7
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Hideki Matsuyama",
-          "position": {
-            "displayName": "T66"
-          },
-          "scoreToPar": 14,
-          "today": 3,
-          "thru": "F",
-          "cut": false,
-          "ppv": 11.4
-        },
-        {
-          "name": "Dustin Johnson",
-          "position": {
-            "displayName": "T38"
-          },
-          "scoreToPar": 6,
-          "today": 2,
-          "thru": "11",
-          "cut": false,
-          "ppv": 9.6
-        }
-      ],
-      "teamTotal": 4,
-      "validTeam": true,
-      "cutMade": 6,
-      "cutMissed": 0,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 31
-    },
-    {
-      "name": "#50 - Matt Krochmalny",
-      "golfers": [
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -2,
+          "scoreToPar": 0,
+          "today": 0,
           "thru": "3",
           "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Russell Henley",
-          "position": {
-            "displayName": "T66"
-          },
-          "scoreToPar": 14,
-          "today": 1,
-          "thru": "F",
-          "cut": false,
-          "ppv": 12.1
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Alex Noren",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 9.7
-        },
-        {
-          "name": "Corey Conners",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 1,
-          "thru": "4",
-          "cut": false,
-          "ppv": 9.9
-        }
-      ],
-      "teamTotal": 4,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 31
-    },
-    {
-      "name": "#177 - Steve Astrein",
-      "golfers": [
-        {
-          "name": "Aaron Rai",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "7",
-          "cut": false,
-          "ppv": 10.3
-        },
-        {
-          "name": "Adam Scott",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 8,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -2,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Chris Gotterup",
-          "position": {
-            "displayName": "T49"
-          },
-          "scoreToPar": 8,
-          "today": 1,
-          "thru": "F",
-          "cut": false,
-          "ppv": 12.4
-        }
-      ],
-      "teamTotal": 4,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 31
-    },
-    {
-      "name": "#62 - Alex Sklar",
-      "golfers": [
-        {
-          "name": "Scottie Scheffler",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 18.9
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Si Woo Kim",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.9
-        },
-        {
-          "name": "Brian Harman",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "9",
-          "cut": false,
-          "ppv": 9.3
-        },
-        {
-          "name": "Mason Howell",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 8,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 7.7
-        }
-      ],
-      "teamTotal": 4,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 31
-    },
-    {
-      "name": "#70 - Chris Caesar",
-      "golfers": [
-        {
-          "name": "Ludvig \u00c5berg",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": -4,
-          "thru": "F",
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
+          "ppv": 14.5
         },
         {
           "name": "Patrick Reed",
@@ -2732,59 +2958,13 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Hideki Matsuyama",
-          "position": {
-            "displayName": "T66"
-          },
-          "scoreToPar": 14,
-          "today": 3,
-          "thru": "F",
-          "cut": false,
-          "ppv": 11.4
-        },
-        {
-          "name": "Sam Stevens",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": 0,
-          "thru": "1",
-          "cut": false,
-          "ppv": 9.3
-        }
-      ],
-      "teamTotal": 4,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 31
-    },
-    {
-      "name": "#131 - Wanda Warford",
-      "golfers": [
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
+          "scoreToPar": -2,
           "today": -2,
           "thru": "3",
           "cut": false,
-          "ppv": 14
+          "ppv": 11.7
         },
         {
           "name": "Matt Fitzpatrick",
@@ -2796,39 +2976,6 @@
           "thru": "4",
           "cut": false,
           "ppv": 13.5
-        },
-        {
-          "name": "Chris Gotterup",
-          "position": {
-            "displayName": "T49"
-          },
-          "scoreToPar": 8,
-          "today": 1,
-          "thru": "F",
-          "cut": false,
-          "ppv": 12.4
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Aaron Rai",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "7",
-          "cut": false,
-          "ppv": 10.3
         },
         {
           "name": "Harris English",
@@ -2840,95 +2987,27 @@
           "thru": null,
           "cut": true,
           "ppv": 10.1
-        }
-      ],
-      "teamTotal": 4,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 31
-    },
-    {
-      "name": "#159 - Nate Coleman & Jesse Schultz",
-      "golfers": [
-        {
-          "name": "Xander Schauffele",
-          "position": {
-            "displayName": "T8"
-          },
-          "scoreToPar": 0,
-          "today": 0,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14.5
         },
         {
-          "name": "Ludvig \u00c5berg",
+          "name": "Alex Fitzpatrick",
           "position": {
             "displayName": "T21"
           },
           "scoreToPar": 3,
-          "today": -4,
-          "thru": "F",
+          "today": 1,
+          "thru": "5",
           "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Ben Griffin",
-          "position": {
-            "displayName": "T16"
-          },
-          "scoreToPar": 2,
-          "today": -2,
-          "thru": "13",
-          "cut": false,
-          "ppv": 10.6
-        },
-        {
-          "name": "Jake Peacock",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 11,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 7.6
+          "ppv": 10
         }
       ],
       "teamTotal": 4,
       "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
+      "cutMade": 4,
+      "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 31
+      "lowestIndividual": -2,
+      "cutStatus": "exact",
+      "rank": 38
     },
     {
       "name": "#29 - Joshua Marsh",
@@ -2936,7 +3015,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -2947,7 +3026,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -2962,7 +3041,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -3007,7 +3086,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 31
+      "rank": 39
     },
     {
       "name": "#20 - Garth Tymeson",
@@ -3015,7 +3094,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -3026,7 +3105,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -3086,7 +3165,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "exact",
-      "rank": 39
+      "rank": 40
     },
     {
       "name": "#138 - Kyle Tully",
@@ -3094,7 +3173,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -3165,7 +3244,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "exact",
-      "rank": 39
+      "rank": 40
     },
     {
       "name": "#146 - Kenny Leavitt",
@@ -3195,7 +3274,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -3221,14 +3300,14 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -3244,86 +3323,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 41
-    },
-    {
-      "name": "#108 - Nick Dose",
-      "golfers": [
-        {
-          "name": "Xander Schauffele",
-          "position": {
-            "displayName": "T8"
-          },
-          "scoreToPar": 0,
-          "today": 0,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14.5
-        },
-        {
-          "name": "Patrick Reed",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 12
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Harris English",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.1
-        },
-        {
-          "name": "Alex Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 1,
-          "thru": "5",
-          "cut": false,
-          "ppv": 10
-        }
-      ],
-      "teamTotal": 5,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 41
+      "rank": 42
     },
     {
       "name": "#32 - Paul Hussmann",
@@ -3342,7 +3342,7 @@
         {
           "name": "Collin Morikawa",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": -1,
@@ -3405,12 +3405,170 @@
       "rank": 43
     },
     {
+      "name": "#154 - Jack Lane",
+      "golfers": [
+        {
+          "name": "Cameron Young",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 3,
+          "thru": "14",
+          "cut": false,
+          "ppv": 14.9
+        },
+        {
+          "name": "Patrick Cantlay",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 11
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Aaron Rai",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 0,
+          "thru": "8",
+          "cut": false,
+          "ppv": 10.3
+        },
+        {
+          "name": "Ben Griffin",
+          "position": {
+            "displayName": "T16"
+          },
+          "scoreToPar": 2,
+          "today": -2,
+          "thru": "13",
+          "cut": false,
+          "ppv": 10.6
+        }
+      ],
+      "teamTotal": 6,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 44
+    },
+    {
+      "name": "#132 - John Westrup",
+      "golfers": [
+        {
+          "name": "Cameron Young",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 3,
+          "thru": "14",
+          "cut": false,
+          "ppv": 14.9
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Shane Lowry",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.7
+        },
+        {
+          "name": "Harris English",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.1
+        },
+        {
+          "name": "Gary Woodland",
+          "position": {
+            "displayName": "T11"
+          },
+          "scoreToPar": 1,
+          "today": -2,
+          "thru": "10",
+          "cut": false,
+          "ppv": 10
+        }
+      ],
+      "teamTotal": 6,
+      "validTeam": true,
+      "cutMade": 4,
+      "cutMissed": 2,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "exact",
+      "rank": 44
+    },
+    {
       "name": "#6 - Kerry Coker",
       "golfers": [
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -3481,10 +3639,10 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "exact",
-      "rank": 44
+      "rank": 46
     },
     {
-      "name": "#154 - Jack Lane",
+      "name": "#15 - Keith Taylor",
       "golfers": [
         {
           "name": "Cameron Young",
@@ -3498,28 +3656,6 @@
           "ppv": 14.9
         },
         {
-          "name": "Patrick Cantlay",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 11
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
           "name": "Matt Fitzpatrick",
           "position": {
             "displayName": "T21"
@@ -3531,36 +3667,58 @@
           "ppv": 13.5
         },
         {
-          "name": "Aaron Rai",
+          "name": "Chris Gotterup",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 1,
+          "thru": "F",
+          "cut": false,
+          "ppv": 12.4
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Alex Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 1,
+          "thru": "5",
+          "cut": false,
+          "ppv": 10
+        },
+        {
+          "name": "Brian Harman",
           "position": {
             "displayName": "T21"
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "9",
           "cut": false,
-          "ppv": 10.3
-        },
-        {
-          "name": "Ben Griffin",
-          "position": {
-            "displayName": "T16"
-          },
-          "scoreToPar": 2,
-          "today": -2,
-          "thru": "13",
-          "cut": false,
-          "ppv": 10.6
+          "ppv": 9.3
         }
       ],
       "teamTotal": 7,
       "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
+      "cutMade": 6,
+      "cutMissed": 0,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "safe",
-      "rank": 45
+      "rank": 47
     },
     {
       "name": "#161 - Stephen Meek",
@@ -3568,7 +3726,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -3639,86 +3797,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 45
-    },
-    {
-      "name": "#132 - John Westrup",
-      "golfers": [
-        {
-          "name": "Cameron Young",
-          "position": {
-            "displayName": "T49"
-          },
-          "scoreToPar": 8,
-          "today": 3,
-          "thru": "14",
-          "cut": false,
-          "ppv": 14.9
-        },
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -2,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Shane Lowry",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.7
-        },
-        {
-          "name": "Harris English",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.1
-        },
-        {
-          "name": "Gary Woodland",
-          "position": {
-            "displayName": "T11"
-          },
-          "scoreToPar": 1,
-          "today": -2,
-          "thru": "10",
-          "cut": false,
-          "ppv": 10
-        }
-      ],
-      "teamTotal": 7,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 45
+      "rank": 48
     },
     {
       "name": "#71 - Chuck Droege",
@@ -3737,7 +3816,7 @@
         {
           "name": "Collin Morikawa",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": -1,
@@ -3797,7 +3876,7 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "safe",
-      "rank": 48
+      "rank": 49
     },
     {
       "name": "#37 - Ben Freedland",
@@ -3860,7 +3939,7 @@
         {
           "name": "Collin Morikawa",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": -1,
@@ -3876,7 +3955,86 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "exact",
-      "rank": 49
+      "rank": 50
+    },
+    {
+      "name": "#141 - Alec Knauss",
+      "golfers": [
+        {
+          "name": "Xander Schauffele",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14.5
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Patrick Cantlay",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 11
+        },
+        {
+          "name": "Jordan Spieth",
+          "position": {
+            "displayName": "T56"
+          },
+          "scoreToPar": 10,
+          "today": 4,
+          "thru": "17",
+          "cut": false,
+          "ppv": 10.7
+        },
+        {
+          "name": "Robert MacIntyre",
+          "position": {
+            "displayName": "T41"
+          },
+          "scoreToPar": 7,
+          "today": 0,
+          "thru": "F",
+          "cut": false,
+          "ppv": 10.6
+        }
+      ],
+      "teamTotal": 8,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 51
     },
     {
       "name": "#180 - David Fliehs",
@@ -3884,7 +4042,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -3921,7 +4079,7 @@
           },
           "scoreToPar": 3,
           "today": 1,
-          "thru": "4",
+          "thru": "5",
           "cut": false,
           "ppv": 9.9
         },
@@ -3955,86 +4113,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 50
-    },
-    {
-      "name": "#15 - Keith Taylor",
-      "golfers": [
-        {
-          "name": "Cameron Young",
-          "position": {
-            "displayName": "T49"
-          },
-          "scoreToPar": 8,
-          "today": 3,
-          "thru": "14",
-          "cut": false,
-          "ppv": 14.9
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Chris Gotterup",
-          "position": {
-            "displayName": "T49"
-          },
-          "scoreToPar": 8,
-          "today": 1,
-          "thru": "F",
-          "cut": false,
-          "ppv": 12.4
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Alex Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 1,
-          "thru": "5",
-          "cut": false,
-          "ppv": 10
-        },
-        {
-          "name": "Brian Harman",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "9",
-          "cut": false,
-          "ppv": 9.3
-        }
-      ],
-      "teamTotal": 8,
-      "validTeam": true,
-      "cutMade": 6,
-      "cutMissed": 0,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 50
+      "rank": 52
     },
     {
       "name": "#65 - Brad Jalovec",
@@ -4042,7 +4121,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -4086,7 +4165,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4113,7 +4192,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 50
+      "rank": 52
     },
     {
       "name": "#78 - George Beran",
@@ -4121,7 +4200,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -4132,7 +4211,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4192,7 +4271,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 50
+      "rank": 52
     },
     {
       "name": "#64 - Blake Morris",
@@ -4211,7 +4290,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -4271,7 +4350,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 50
+      "rank": 52
     },
     {
       "name": "#91 - Jon Von Deylen",
@@ -4279,7 +4358,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4327,7 +4406,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -4350,7 +4429,7 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "exact",
-      "rank": 55
+      "rank": 56
     },
     {
       "name": "#140 - Jamie Jelinek",
@@ -4358,7 +4437,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4429,15 +4508,15 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "exact",
-      "rank": 55
+      "rank": 56
     },
     {
-      "name": "#141 - Alec Knauss",
+      "name": "#49 - Mark Grady",
       "golfers": [
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4446,37 +4525,37 @@
           "ppv": 14.5
         },
         {
-          "name": "Matt Fitzpatrick",
+          "name": "Tyrrell Hatton",
           "position": {
-            "displayName": "T21"
+            "displayName": "T11"
           },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
+          "scoreToPar": 1,
+          "today": -3,
+          "thru": "13",
           "cut": false,
-          "ppv": 13.5
+          "ppv": 13.1
+        },
+        {
+          "name": "Patrick Reed",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 12
         },
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
-        },
-        {
-          "name": "Patrick Cantlay",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 11
         },
         {
           "name": "Jordan Spieth",
@@ -4490,25 +4569,104 @@
           "ppv": 10.7
         },
         {
-          "name": "Robert MacIntyre",
+          "name": "Adam Scott",
           "position": {
-            "displayName": "T41"
+            "displayName": "-"
           },
-          "scoreToPar": 7,
-          "today": 0,
-          "thru": "F",
-          "cut": false,
-          "ppv": 10.6
+          "scoreToPar": 8,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10
         }
       ],
       "teamTotal": 9,
       "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
+      "cutMade": 4,
+      "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 57
+      "lowestIndividual": -2,
+      "cutStatus": "exact",
+      "rank": 58
+    },
+    {
+      "name": "#55 - Ryan Dalton",
+      "golfers": [
+        {
+          "name": "Rory McIlroy",
+          "position": {
+            "displayName": "T41"
+          },
+          "scoreToPar": 7,
+          "today": 4,
+          "thru": "9",
+          "cut": false,
+          "ppv": 17.6
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Viktor Hovland",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 12.3
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Max McGreevy",
+          "position": {
+            "displayName": "T34"
+          },
+          "scoreToPar": 5,
+          "today": 1,
+          "thru": "13",
+          "cut": false,
+          "ppv": 8.8
+        },
+        {
+          "name": "J.B. Holmes",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 9,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 7.6
+        }
+      ],
+      "teamTotal": 9,
+      "validTeam": true,
+      "cutMade": 4,
+      "cutMissed": 2,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "exact",
+      "rank": 58
     },
     {
       "name": "#9 - Ryan Dunn",
@@ -4516,7 +4674,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -4553,7 +4711,7 @@
           },
           "scoreToPar": 3,
           "today": 1,
-          "thru": "4",
+          "thru": "5",
           "cut": false,
           "ppv": 9.9
         },
@@ -4587,7 +4745,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 57
+      "rank": 60
     },
     {
       "name": "#128 - Todd Casabella",
@@ -4595,7 +4753,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4606,7 +4764,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -4666,7 +4824,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 57
+      "rank": 60
     },
     {
       "name": "#101 - Matthew Spering",
@@ -4674,7 +4832,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4745,7 +4903,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "safe",
-      "rank": 60
+      "rank": 62
     },
     {
       "name": "#7 - Wesley Osborne",
@@ -4775,7 +4933,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4824,15 +4982,26 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "exact",
-      "rank": 60
+      "rank": 62
     },
     {
-      "name": "#49 - Mark Grady",
+      "name": "#179 - Alex Griffiths",
       "golfers": [
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -4841,69 +5010,58 @@
           "ppv": 14.5
         },
         {
-          "name": "Tyrrell Hatton",
-          "position": {
-            "displayName": "T11"
-          },
-          "scoreToPar": 1,
-          "today": -3,
-          "thru": "13",
-          "cut": false,
-          "ppv": 13.1
-        },
-        {
-          "name": "Patrick Reed",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 12
-        },
-        {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
         {
-          "name": "Jordan Spieth",
+          "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T56"
+            "displayName": "T66"
           },
-          "scoreToPar": 10,
-          "today": 4,
-          "thru": "17",
+          "scoreToPar": 14,
+          "today": 3,
+          "thru": "F",
           "cut": false,
-          "ppv": 10.7
+          "ppv": 11.4
         },
         {
-          "name": "Adam Scott",
+          "name": "Kurt Kitayama",
+          "position": {
+            "displayName": "T53"
+          },
+          "scoreToPar": 9,
+          "today": 1,
+          "thru": "F",
+          "cut": false,
+          "ppv": 9.9
+        },
+        {
+          "name": "Patrick Cantlay",
           "position": {
             "displayName": "-"
           },
-          "scoreToPar": 8,
+          "scoreToPar": 6,
           "today": null,
           "thru": null,
           "cut": true,
-          "ppv": 10
+          "ppv": 11
         }
       ],
       "teamTotal": 10,
       "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
+      "cutMade": 5,
+      "cutMissed": 1,
       "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 62
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 64
     },
     {
       "name": "#18 - Piper Morris",
@@ -4911,7 +5069,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -4937,7 +5095,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -4982,7 +5140,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 62
+      "rank": 65
     },
     {
       "name": "#170 - Peter Gilfillan",
@@ -4990,7 +5148,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -5001,7 +5159,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -5027,7 +5185,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -5061,86 +5219,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 62
-    },
-    {
-      "name": "#55 - Ryan Dalton",
-      "golfers": [
-        {
-          "name": "Rory McIlroy",
-          "position": {
-            "displayName": "T41"
-          },
-          "scoreToPar": 7,
-          "today": 4,
-          "thru": "9",
-          "cut": false,
-          "ppv": 17.6
-        },
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -2,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Viktor Hovland",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 12.3
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Max McGreevy",
-          "position": {
-            "displayName": "T34"
-          },
-          "scoreToPar": 5,
-          "today": 1,
-          "thru": "13",
-          "cut": false,
-          "ppv": 8.8
-        },
-        {
-          "name": "J.B. Holmes",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 9,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 7.6
-        }
-      ],
-      "teamTotal": 10,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 62
+      "rank": 65
     },
     {
       "name": "#84 - Jason Skaggs",
@@ -5219,7 +5298,7 @@
       "pending": 0,
       "lowestIndividual": 1,
       "cutStatus": "exact",
-      "rank": 66
+      "rank": 67
     },
     {
       "name": "#126 - Tim Shields and KD",
@@ -5298,7 +5377,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "safe",
-      "rank": 67
+      "rank": 68
     },
     {
       "name": "#135 - Joe Clifford & Bill Okeefe",
@@ -5377,86 +5456,7 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "exact",
-      "rank": 67
-    },
-    {
-      "name": "#179 - Alex Griffiths",
-      "golfers": [
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Xander Schauffele",
-          "position": {
-            "displayName": "T8"
-          },
-          "scoreToPar": 0,
-          "today": 0,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14.5
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Hideki Matsuyama",
-          "position": {
-            "displayName": "T66"
-          },
-          "scoreToPar": 14,
-          "today": 3,
-          "thru": "F",
-          "cut": false,
-          "ppv": 11.4
-        },
-        {
-          "name": "Kurt Kitayama",
-          "position": {
-            "displayName": "T53"
-          },
-          "scoreToPar": 9,
-          "today": 1,
-          "thru": "F",
-          "cut": false,
-          "ppv": 9.9
-        },
-        {
-          "name": "Patrick Cantlay",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 11
-        }
-      ],
-      "teamTotal": 11,
-      "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 69
+      "rank": 68
     },
     {
       "name": "#175 - David Phillips",
@@ -5497,7 +5497,7 @@
         {
           "name": "Sahith Theegala",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -5543,7 +5543,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -5617,6 +5617,164 @@
       "rank": 70
     },
     {
+      "name": "#79 - Gordy Grafflin",
+      "golfers": [
+        {
+          "name": "Rory McIlroy",
+          "position": {
+            "displayName": "T41"
+          },
+          "scoreToPar": 7,
+          "today": 4,
+          "thru": "9",
+          "cut": false,
+          "ppv": 17.6
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Cameron Smith",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.4
+        },
+        {
+          "name": "Ryan Gerard",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10
+        },
+        {
+          "name": "Max McGreevy",
+          "position": {
+            "displayName": "T34"
+          },
+          "scoreToPar": 5,
+          "today": 1,
+          "thru": "13",
+          "cut": false,
+          "ppv": 8.8
+        }
+      ],
+      "teamTotal": 13,
+      "validTeam": true,
+      "cutMade": 4,
+      "cutMissed": 2,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "exact",
+      "rank": 72
+    },
+    {
+      "name": "#53 - Nelson Adcock",
+      "golfers": [
+        {
+          "name": "Rory McIlroy",
+          "position": {
+            "displayName": "T41"
+          },
+          "scoreToPar": 7,
+          "today": 4,
+          "thru": "9",
+          "cut": false,
+          "ppv": 17.6
+        },
+        {
+          "name": "Ryan Fox",
+          "position": {
+            "displayName": "T34"
+          },
+          "scoreToPar": 5,
+          "today": -2,
+          "thru": "F",
+          "cut": false,
+          "ppv": 9.6
+        },
+        {
+          "name": "Alex Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 1,
+          "thru": "5",
+          "cut": false,
+          "ppv": 10
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Hideki Matsuyama",
+          "position": {
+            "displayName": "T66"
+          },
+          "scoreToPar": 14,
+          "today": 3,
+          "thru": "F",
+          "cut": false,
+          "ppv": 11.4
+        },
+        {
+          "name": "J.J. Spaun",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 8,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 11.3
+        }
+      ],
+      "teamTotal": 13,
+      "validTeam": true,
+      "cutMade": 5,
+      "cutMissed": 1,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "safe",
+      "rank": 72
+    },
+    {
       "name": "#152 - Nate Coleman and Greg Worden",
       "golfers": [
         {
@@ -5633,7 +5791,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -5693,7 +5851,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 72
+      "rank": 74
     },
     {
       "name": "#4 - David Kater",
@@ -5701,7 +5859,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -5712,7 +5870,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -5723,7 +5881,7 @@
         {
           "name": "Collin Morikawa",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": -1,
@@ -5772,7 +5930,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 72
+      "rank": 74
     },
     {
       "name": "#102 - Michael Molnar",
@@ -5828,14 +5986,14 @@
           },
           "scoreToPar": 3,
           "today": 1,
-          "thru": "4",
+          "thru": "5",
           "cut": false,
           "ppv": 9.9
         },
         {
           "name": "Sahith Theegala",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -5851,7 +6009,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 72
+      "rank": 74
     },
     {
       "name": "#160 - Nick Stout",
@@ -5859,7 +6017,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -5885,7 +6043,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -5930,7 +6088,7 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "safe",
-      "rank": 75
+      "rank": 77
     },
     {
       "name": "#143 - Andrew Wernick",
@@ -5938,7 +6096,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -6009,46 +6167,46 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "exact",
-      "rank": 75
+      "rank": 77
     },
     {
-      "name": "#79 - Gordy Grafflin",
+      "name": "#41 - Elliot Krochmalny",
       "golfers": [
         {
-          "name": "Rory McIlroy",
+          "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T41"
+            "displayName": "T3"
           },
-          "scoreToPar": 7,
-          "today": 4,
-          "thru": "9",
+          "scoreToPar": -1,
+          "today": null,
+          "thru": null,
           "cut": false,
-          "ppv": 17.6
+          "ppv": 18.9
         },
         {
-          "name": "Matt Fitzpatrick",
+          "name": "Russell Henley",
           "position": {
-            "displayName": "T21"
+            "displayName": "T66"
           },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
+          "scoreToPar": 14,
+          "today": 1,
+          "thru": "F",
           "cut": false,
-          "ppv": 13.5
+          "ppv": 12.1
         },
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
         {
-          "name": "Cameron Smith",
+          "name": "Si Woo Kim",
           "position": {
             "displayName": "-"
           },
@@ -6056,29 +6214,29 @@
           "today": null,
           "thru": null,
           "cut": true,
-          "ppv": 10.4
+          "ppv": 10.9
         },
         {
-          "name": "Ryan Gerard",
+          "name": "Maverick McNealy",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 0,
+          "thru": "9",
+          "cut": false,
+          "ppv": 10.3
+        },
+        {
+          "name": "Brandon Wu",
           "position": {
             "displayName": "-"
           },
-          "scoreToPar": 5,
+          "scoreToPar": 7,
           "today": null,
           "thru": null,
           "cut": true,
-          "ppv": 10
-        },
-        {
-          "name": "Max McGreevy",
-          "position": {
-            "displayName": "T34"
-          },
-          "scoreToPar": 5,
-          "today": 1,
-          "thru": "13",
-          "cut": false,
-          "ppv": 8.8
+          "ppv": 8
         }
       ],
       "teamTotal": 14,
@@ -6086,12 +6244,12 @@
       "cutMade": 4,
       "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "exact",
-      "rank": 77
+      "rank": 79
     },
     {
-      "name": "#53 - Nelson Adcock",
+      "name": "#13 - George Simon",
       "golfers": [
         {
           "name": "Rory McIlroy",
@@ -6105,69 +6263,69 @@
           "ppv": 17.6
         },
         {
-          "name": "Ryan Fox",
+          "name": "Xander Schauffele",
           "position": {
-            "displayName": "T34"
+            "displayName": "T7"
           },
-          "scoreToPar": 5,
-          "today": -2,
-          "thru": "F",
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
           "cut": false,
-          "ppv": 9.6
-        },
-        {
-          "name": "Alex Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 1,
-          "thru": "5",
-          "cut": false,
-          "ppv": 10
+          "ppv": 14.5
         },
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
         {
-          "name": "Hideki Matsuyama",
-          "position": {
-            "displayName": "T66"
-          },
-          "scoreToPar": 14,
-          "today": 3,
-          "thru": "F",
-          "cut": false,
-          "ppv": 11.4
-        },
-        {
-          "name": "J.J. Spaun",
+          "name": "Shane Lowry",
           "position": {
             "displayName": "-"
           },
-          "scoreToPar": 8,
+          "scoreToPar": 6,
           "today": null,
           "thru": null,
           "cut": true,
-          "ppv": 11.3
+          "ppv": 10.7
+        },
+        {
+          "name": "Kurt Kitayama",
+          "position": {
+            "displayName": "T53"
+          },
+          "scoreToPar": 9,
+          "today": 1,
+          "thru": "F",
+          "cut": false,
+          "ppv": 9.9
+        },
+        {
+          "name": "Giuseppe Puebla",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 7,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 7.6
         }
       ],
       "teamTotal": 14,
       "validTeam": true,
-      "cutMade": 5,
-      "cutMissed": 1,
+      "cutMade": 4,
+      "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "safe",
-      "rank": 77
+      "lowestIndividual": -2,
+      "cutStatus": "exact",
+      "rank": 79
     },
     {
       "name": "#39 - Chris Whipple",
@@ -6186,7 +6344,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -6246,7 +6404,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 77
+      "rank": 81
     },
     {
       "name": "#112 - Porter Sesnon",
@@ -6254,7 +6412,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -6265,7 +6423,7 @@
         {
           "name": "Collin Morikawa",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": -1,
@@ -6325,7 +6483,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 77
+      "rank": 81
     },
     {
       "name": "#85 - Jason Wachs",
@@ -6333,7 +6491,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -6344,7 +6502,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -6404,7 +6562,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 77
+      "rank": 81
     },
     {
       "name": "#149 - Luke Miller",
@@ -6412,7 +6570,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -6449,7 +6607,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -6483,7 +6641,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 77
+      "rank": 81
     },
     {
       "name": "#22 - Ed Sclater",
@@ -6491,7 +6649,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -6562,7 +6720,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 77
+      "rank": 81
     },
     {
       "name": "#31 - Michael Reardon",
@@ -6629,7 +6787,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         }
@@ -6641,7 +6799,7 @@
       "pending": 0,
       "lowestIndividual": 1,
       "cutStatus": "safe",
-      "rank": 84
+      "rank": 86
     },
     {
       "name": "#59 - Dale Davis",
@@ -6660,7 +6818,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -6720,122 +6878,32 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "exact",
-      "rank": 85
+      "rank": 87
     },
     {
-      "name": "#41 - Elliot Krochmalny",
+      "name": "#148 - Kyle Kolbet",
       "golfers": [
         {
-          "name": "Scottie Scheffler",
+          "name": "Cameron Young",
           "position": {
-            "displayName": "T2"
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 3,
+          "thru": "14",
+          "cut": false,
+          "ppv": 14.9
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "position": {
+            "displayName": "T3"
           },
           "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 18.9
-        },
-        {
-          "name": "Russell Henley",
-          "position": {
-            "displayName": "T66"
-          },
-          "scoreToPar": 14,
-          "today": 1,
-          "thru": "F",
-          "cut": false,
-          "ppv": 12.1
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Si Woo Kim",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.9
-        },
-        {
-          "name": "Maverick McNealy",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "9",
-          "cut": false,
-          "ppv": 10.3
-        },
-        {
-          "name": "Brandon Wu",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 7,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 8
-        }
-      ],
-      "teamTotal": 15,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 86
-    },
-    {
-      "name": "#13 - George Simon",
-      "golfers": [
-        {
-          "name": "Rory McIlroy",
-          "position": {
-            "displayName": "T41"
-          },
-          "scoreToPar": 7,
-          "today": 4,
-          "thru": "9",
-          "cut": false,
-          "ppv": 17.6
-        },
-        {
-          "name": "Xander Schauffele",
-          "position": {
-            "displayName": "T8"
-          },
-          "scoreToPar": 0,
-          "today": 0,
+          "today": -2,
           "thru": "3",
           "cut": false,
-          "ppv": 14.5
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
+          "ppv": 14
         },
         {
           "name": "Shane Lowry",
@@ -6849,26 +6917,37 @@
           "ppv": 10.7
         },
         {
-          "name": "Kurt Kitayama",
+          "name": "Jordan Spieth",
           "position": {
-            "displayName": "T53"
+            "displayName": "T56"
           },
-          "scoreToPar": 9,
-          "today": 1,
-          "thru": "F",
+          "scoreToPar": 10,
+          "today": 4,
+          "thru": "17",
           "cut": false,
-          "ppv": 9.9
+          "ppv": 10.7
         },
         {
-          "name": "Giuseppe Puebla",
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Adam Scott",
           "position": {
             "displayName": "-"
           },
-          "scoreToPar": 7,
+          "scoreToPar": 8,
           "today": null,
           "thru": null,
           "cut": true,
-          "ppv": 7.6
+          "ppv": 10
         }
       ],
       "teamTotal": 15,
@@ -6876,9 +6955,9 @@
       "cutMade": 4,
       "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "exact",
-      "rank": 86
+      "rank": 88
     },
     {
       "name": "#30 - Kevin Oakes",
@@ -6957,76 +7036,76 @@
       "pending": 0,
       "lowestIndividual": 1,
       "cutStatus": "safe",
-      "rank": 88
+      "rank": 89
     },
     {
-      "name": "#148 - Kyle Kolbet",
+      "name": "#117 - Ryan Shane",
       "golfers": [
         {
-          "name": "Cameron Young",
+          "name": "Ludvig \u00c5berg",
           "position": {
-            "displayName": "T49"
+            "displayName": "T21"
           },
-          "scoreToPar": 8,
-          "today": 3,
-          "thru": "14",
-          "cut": false,
-          "ppv": 14.9
-        },
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -2,
-          "thru": "3",
+          "scoreToPar": 3,
+          "today": -4,
+          "thru": "F",
           "cut": false,
           "ppv": 14
         },
         {
-          "name": "Shane Lowry",
+          "name": "Tyrrell Hatton",
+          "position": {
+            "displayName": "T11"
+          },
+          "scoreToPar": 1,
+          "today": -3,
+          "thru": "13",
+          "cut": false,
+          "ppv": 13.1
+        },
+        {
+          "name": "Viktor Hovland",
           "position": {
             "displayName": "-"
           },
-          "scoreToPar": 6,
+          "scoreToPar": 5,
           "today": null,
           "thru": null,
           "cut": true,
-          "ppv": 10.7
+          "ppv": 12.3
         },
         {
-          "name": "Jordan Spieth",
+          "name": "Patrick Reed",
           "position": {
-            "displayName": "T56"
+            "displayName": "-"
           },
-          "scoreToPar": 10,
-          "today": 4,
-          "thru": "17",
-          "cut": false,
-          "ppv": 10.7
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 12
         },
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
         {
-          "name": "Adam Scott",
+          "name": "Andrew Putnam",
           "position": {
-            "displayName": "-"
+            "displayName": "T66"
           },
-          "scoreToPar": 8,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10
+          "scoreToPar": 14,
+          "today": 8,
+          "thru": "F",
+          "cut": false,
+          "ppv": 8.9
         }
       ],
       "teamTotal": 16,
@@ -7034,9 +7113,88 @@
       "cutMade": 4,
       "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "exact",
-      "rank": 89
+      "rank": 90
+    },
+    {
+      "name": "#121 - Sean Kelleher",
+      "golfers": [
+        {
+          "name": "Rory McIlroy",
+          "position": {
+            "displayName": "T41"
+          },
+          "scoreToPar": 7,
+          "today": 4,
+          "thru": "9",
+          "cut": false,
+          "ppv": 17.6
+        },
+        {
+          "name": "Chris Gotterup",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 1,
+          "thru": "F",
+          "cut": false,
+          "ppv": 12.4
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Maverick McNealy",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 0,
+          "thru": "9",
+          "cut": false,
+          "ppv": 10.3
+        },
+        {
+          "name": "Ryan Gerard",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10
+        },
+        {
+          "name": "Daniel Berger",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 10,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 9.9
+        }
+      ],
+      "teamTotal": 16,
+      "validTeam": true,
+      "cutMade": 4,
+      "cutMissed": 2,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "exact",
+      "rank": 90
     },
     {
       "name": "#163 - Whitney Saulsberry",
@@ -7044,7 +7202,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -7055,7 +7213,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -7115,7 +7273,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "safe",
-      "rank": 89
+      "rank": 92
     },
     {
       "name": "#104 - Mike Alexander",
@@ -7134,7 +7292,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -7194,7 +7352,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 89
+      "rank": 92
     },
     {
       "name": "#145 - Jamie Ostarchvic",
@@ -7202,7 +7360,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -7224,7 +7382,7 @@
         {
           "name": "Keith Mitchell",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -7273,7 +7431,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 89
+      "rank": 92
     },
     {
       "name": "#97 - Mark Bernstein",
@@ -7292,7 +7450,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -7352,7 +7510,7 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "exact",
-      "rank": 93
+      "rank": 95
     },
     {
       "name": "#157 - Drew Bell",
@@ -7360,7 +7518,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -7419,7 +7577,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         }
@@ -7431,7 +7589,7 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "safe",
-      "rank": 93
+      "rank": 95
     },
     {
       "name": "#46 - Josh Phillips",
@@ -7439,7 +7597,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -7510,7 +7668,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 95
+      "rank": 97
     },
     {
       "name": "#88 - Jeremy Meyer",
@@ -7518,7 +7676,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -7589,165 +7747,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 95
-    },
-    {
-      "name": "#117 - Ryan Shane",
-      "golfers": [
-        {
-          "name": "Ludvig \u00c5berg",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": -4,
-          "thru": "F",
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Tyrrell Hatton",
-          "position": {
-            "displayName": "T11"
-          },
-          "scoreToPar": 1,
-          "today": -3,
-          "thru": "13",
-          "cut": false,
-          "ppv": 13.1
-        },
-        {
-          "name": "Viktor Hovland",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 12.3
-        },
-        {
-          "name": "Patrick Reed",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 12
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Andrew Putnam",
-          "position": {
-            "displayName": "T66"
-          },
-          "scoreToPar": 14,
-          "today": 8,
-          "thru": "F",
-          "cut": false,
-          "ppv": 8.9
-        }
-      ],
-      "teamTotal": 17,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 95
-    },
-    {
-      "name": "#121 - Sean Kelleher",
-      "golfers": [
-        {
-          "name": "Rory McIlroy",
-          "position": {
-            "displayName": "T41"
-          },
-          "scoreToPar": 7,
-          "today": 4,
-          "thru": "9",
-          "cut": false,
-          "ppv": 17.6
-        },
-        {
-          "name": "Chris Gotterup",
-          "position": {
-            "displayName": "T49"
-          },
-          "scoreToPar": 8,
-          "today": 1,
-          "thru": "F",
-          "cut": false,
-          "ppv": 12.4
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Maverick McNealy",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 0,
-          "thru": "9",
-          "cut": false,
-          "ppv": 10.3
-        },
-        {
-          "name": "Ryan Gerard",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10
-        },
-        {
-          "name": "Daniel Berger",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 10,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 9.9
-        }
-      ],
-      "teamTotal": 17,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "exact",
-      "rank": 95
+      "rank": 97
     },
     {
       "name": "#125 - Tim Shields",
@@ -7755,7 +7755,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -7826,7 +7826,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "exact",
-      "rank": 95
+      "rank": 97
     },
     {
       "name": "#17 - J.J. Bitove",
@@ -7882,7 +7882,7 @@
           },
           "scoreToPar": 3,
           "today": 1,
-          "thru": "4",
+          "thru": "5",
           "cut": false,
           "ppv": 9.9
         },
@@ -7913,7 +7913,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -7924,7 +7924,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -7992,7 +7992,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -8205,7 +8205,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -8240,7 +8240,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -8319,7 +8319,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -8420,7 +8420,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -8466,7 +8466,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -8525,7 +8525,7 @@
           },
           "scoreToPar": 3,
           "today": 1,
-          "thru": "4",
+          "thru": "5",
           "cut": false,
           "ppv": 9.9
         }
@@ -8545,7 +8545,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -8624,7 +8624,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -8725,7 +8725,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -8815,11 +8815,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -8846,12 +8846,12 @@
           "ppv": 9.2
         }
       ],
-      "teamTotal": 23,
+      "teamTotal": 22,
       "validTeam": true,
       "cutMade": 6,
       "cutMissed": 0,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "safe",
       "rank": 112
     },
@@ -8894,7 +8894,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -8938,7 +8938,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -9096,7 +9096,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -9175,7 +9175,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -9254,7 +9254,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -9333,7 +9333,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -9412,7 +9412,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -9491,7 +9491,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -9570,7 +9570,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -9772,11 +9772,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -9792,12 +9792,12 @@
           "ppv": 11.4
         }
       ],
-      "teamTotal": 35,
+      "teamTotal": 34,
       "validTeam": true,
       "cutMade": 4,
       "cutMissed": 2,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "exact",
       "rank": 124
     },
@@ -9897,7 +9897,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -9919,11 +9919,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -9950,7 +9950,7 @@
           "ppv": 7.6
         }
       ],
-      "teamTotal": 991,
+      "teamTotal": 990,
       "validTeam": false,
       "cutMade": 3,
       "cutMissed": 3,
@@ -9976,7 +9976,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -9998,11 +9998,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -10029,7 +10029,7 @@
           "ppv": 10.6
         }
       ],
-      "teamTotal": 991,
+      "teamTotal": 990,
       "validTeam": false,
       "cutMade": 3,
       "cutMissed": 3,
@@ -10039,12 +10039,91 @@
       "rank": 126
     },
     {
+      "name": "#40 - Danny Grimes",
+      "golfers": [
+        {
+          "name": "Jon Rahm",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 16.6
+        },
+        {
+          "name": "Justin Thomas",
+          "position": {
+            "displayName": "T16"
+          },
+          "scoreToPar": 2,
+          "today": -2,
+          "thru": "14",
+          "cut": false,
+          "ppv": 12.6
+        },
+        {
+          "name": "Wyndham Clark",
+          "position": {
+            "displayName": "1"
+          },
+          "scoreToPar": -7,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 11.8
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Shane Lowry",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.7
+        },
+        {
+          "name": "Jackson Suber",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 8.5
+        }
+      ],
+      "teamTotal": 993,
+      "validTeam": false,
+      "cutMade": 3,
+      "cutMissed": 3,
+      "pending": 0,
+      "lowestIndividual": -7,
+      "cutStatus": "danger",
+      "rank": 128
+    },
+    {
       "name": "#136 - Joe Clifford & Steve Shaughnessy",
       "golfers": [
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -10118,95 +10197,16 @@
       "rank": 128
     },
     {
-      "name": "#40 - Danny Grimes",
-      "golfers": [
-        {
-          "name": "Jon Rahm",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 16.6
-        },
-        {
-          "name": "Justin Thomas",
-          "position": {
-            "displayName": "T16"
-          },
-          "scoreToPar": 2,
-          "today": -2,
-          "thru": "14",
-          "cut": false,
-          "ppv": 12.6
-        },
-        {
-          "name": "Wyndham Clark",
-          "position": {
-            "displayName": "1"
-          },
-          "scoreToPar": -7,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 11.8
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Shane Lowry",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.7
-        },
-        {
-          "name": "Jackson Suber",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 8.5
-        }
-      ],
-      "teamTotal": 994,
-      "validTeam": false,
-      "cutMade": 3,
-      "cutMissed": 3,
-      "pending": 0,
-      "lowestIndividual": -7,
-      "cutStatus": "danger",
-      "rank": 129
-    },
-    {
       "name": "#133 - Dan Winters",
       "golfers": [
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -10266,7 +10266,7 @@
           "ppv": 11.8
         }
       ],
-      "teamTotal": 995,
+      "teamTotal": 994,
       "validTeam": false,
       "cutMade": 3,
       "cutMissed": 3,
@@ -10281,7 +10281,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -10303,7 +10303,7 @@
         {
           "name": "Collin Morikawa",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": -1,
@@ -10336,21 +10336,21 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         }
       ],
-      "teamTotal": 998,
+      "teamTotal": 997,
       "validTeam": false,
       "cutMade": 3,
       "cutMissed": 3,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "danger",
       "rank": 131
     },
@@ -10360,7 +10360,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -10371,7 +10371,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -10434,12 +10434,91 @@
       "rank": 132
     },
     {
+      "name": "#2 - Chris Chiles",
+      "golfers": [
+        {
+          "name": "Xander Schauffele",
+          "position": {
+            "displayName": "T7"
+          },
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14.5
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Si Woo Kim",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.9
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Patrick Cantlay",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 11
+        },
+        {
+          "name": "Min Woo Lee",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 7,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.4
+        }
+      ],
+      "teamTotal": 1001,
+      "validTeam": false,
+      "cutMade": 3,
+      "cutMissed": 3,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "danger",
+      "rank": 133
+    },
+    {
       "name": "#74 - Dominic Musarra",
       "golfers": [
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -10450,7 +10529,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -10510,7 +10589,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 133
+      "rank": 134
     },
     {
       "name": "#51 - Matthew Stephens",
@@ -10518,7 +10597,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -10562,7 +10641,7 @@
         {
           "name": "Sahith Theegala",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -10589,7 +10668,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 133
+      "rank": 134
     },
     {
       "name": "#100 - Matthew Perry",
@@ -10597,7 +10676,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -10652,7 +10731,7 @@
         {
           "name": "Keith Mitchell",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -10668,7 +10747,7 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 135
+      "rank": 136
     },
     {
       "name": "#3 - Jim Pendergast",
@@ -10747,85 +10826,6 @@
       "pending": 0,
       "lowestIndividual": -7,
       "cutStatus": "danger",
-      "rank": 136
-    },
-    {
-      "name": "#2 - Chris Chiles",
-      "golfers": [
-        {
-          "name": "Xander Schauffele",
-          "position": {
-            "displayName": "T8"
-          },
-          "scoreToPar": 0,
-          "today": 0,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14.5
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Si Woo Kim",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.9
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Patrick Cantlay",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 11
-        },
-        {
-          "name": "Min Woo Lee",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 7,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.4
-        }
-      ],
-      "teamTotal": 1002,
-      "validTeam": false,
-      "cutMade": 3,
-      "cutMissed": 3,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "danger",
       "rank": 137
     },
     {
@@ -10834,7 +10834,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -10845,7 +10845,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -10905,7 +10905,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 137
+      "rank": 138
     },
     {
       "name": "#45 - Joseph Kirby",
@@ -10913,7 +10913,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -10924,7 +10924,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -10992,7 +10992,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -11051,7 +11051,7 @@
           },
           "scoreToPar": 3,
           "today": 1,
-          "thru": "4",
+          "thru": "5",
           "cut": false,
           "ppv": 9.9
         }
@@ -11071,7 +11071,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -11150,7 +11150,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -11240,7 +11240,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -11251,7 +11251,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -11308,7 +11308,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -11382,6 +11382,164 @@
       "rank": 144
     },
     {
+      "name": "#76 - Doug Logan",
+      "golfers": [
+        {
+          "name": "Cameron Young",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 3,
+          "thru": "14",
+          "cut": false,
+          "ppv": 14.9
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": 2,
+          "thru": "4",
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Si Woo Kim",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.9
+        },
+        {
+          "name": "Shane Lowry",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.7
+        },
+        {
+          "name": "Jake Knapp",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 8,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.3
+        }
+      ],
+      "teamTotal": 1009,
+      "validTeam": false,
+      "cutMade": 3,
+      "cutMissed": 3,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "danger",
+      "rank": 145
+    },
+    {
+      "name": "#119 - Scott Hole",
+      "golfers": [
+        {
+          "name": "Cameron Young",
+          "position": {
+            "displayName": "T49"
+          },
+          "scoreToPar": 8,
+          "today": 3,
+          "thru": "14",
+          "cut": false,
+          "ppv": 14.9
+        },
+        {
+          "name": "Ludvig \u00c5berg",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": 3,
+          "today": -4,
+          "thru": "F",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Sam Burns",
+          "position": {
+            "displayName": "2"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
+        },
+        {
+          "name": "Shane Lowry",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.7
+        },
+        {
+          "name": "Min Woo Lee",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 7,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.4
+        },
+        {
+          "name": "Harris English",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.1
+        }
+      ],
+      "teamTotal": 1009,
+      "validTeam": false,
+      "cutMade": 3,
+      "cutMissed": 3,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "danger",
+      "rank": 145
+    },
+    {
       "name": "#73 - Dan Judge",
       "golfers": [
         {
@@ -11398,7 +11556,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -11458,86 +11616,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 145
-    },
-    {
-      "name": "#76 - Doug Logan",
-      "golfers": [
-        {
-          "name": "Cameron Young",
-          "position": {
-            "displayName": "T49"
-          },
-          "scoreToPar": 8,
-          "today": 3,
-          "thru": "14",
-          "cut": false,
-          "ppv": 14.9
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Si Woo Kim",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.9
-        },
-        {
-          "name": "Shane Lowry",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.7
-        },
-        {
-          "name": "Jake Knapp",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 8,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.3
-        }
-      ],
-      "teamTotal": 1010,
-      "validTeam": false,
-      "cutMade": 3,
-      "cutMissed": 3,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "danger",
-      "rank": 145
+      "rank": 147
     },
     {
       "name": "#69 - Chase Neilson",
@@ -11545,7 +11624,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -11616,43 +11695,43 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 145
+      "rank": 147
     },
     {
-      "name": "#119 - Scott Hole",
+      "name": "#106 - Murray Matheson",
       "golfers": [
         {
-          "name": "Cameron Young",
+          "name": "Jon Rahm",
           "position": {
-            "displayName": "T49"
+            "displayName": "-"
           },
-          "scoreToPar": 8,
-          "today": 3,
-          "thru": "14",
-          "cut": false,
-          "ppv": 14.9
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 16.6
         },
         {
-          "name": "Ludvig \u00c5berg",
+          "name": "Matt Fitzpatrick",
           "position": {
             "displayName": "T21"
           },
           "scoreToPar": 3,
-          "today": -4,
-          "thru": "F",
+          "today": 2,
+          "thru": "4",
           "cut": false,
-          "ppv": 14
+          "ppv": 13.5
         },
         {
-          "name": "Sam Burns",
+          "name": "Padraig Harrington",
           "position": {
-            "displayName": "T2"
+            "displayName": "-"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
+          "scoreToPar": 11,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 8.3
         },
         {
           "name": "Shane Lowry",
@@ -11666,36 +11745,36 @@
           "ppv": 10.7
         },
         {
-          "name": "Min Woo Lee",
+          "name": "Sam Burns",
           "position": {
-            "displayName": "-"
+            "displayName": "2"
           },
-          "scoreToPar": 7,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.4
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 11.7
         },
         {
-          "name": "Harris English",
+          "name": "Jordan Spieth",
           "position": {
-            "displayName": "-"
+            "displayName": "T56"
           },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.1
+          "scoreToPar": 10,
+          "today": 4,
+          "thru": "17",
+          "cut": false,
+          "ppv": 10.7
         }
       ],
-      "teamTotal": 1010,
+      "teamTotal": 1011,
       "validTeam": false,
       "cutMade": 3,
       "cutMissed": 3,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "danger",
-      "rank": 145
+      "rank": 149
     },
     {
       "name": "#77 - Drew Chintala",
@@ -11703,7 +11782,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -11774,7 +11853,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 149
+      "rank": 150
     },
     {
       "name": "#61 - Adam Ewald",
@@ -11793,7 +11872,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -11853,85 +11932,6 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 150
-    },
-    {
-      "name": "#106 - Murray Matheson",
-      "golfers": [
-        {
-          "name": "Jon Rahm",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 16.6
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": 3,
-          "today": 2,
-          "thru": "4",
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Padraig Harrington",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 11,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 8.3
-        },
-        {
-          "name": "Shane Lowry",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.7
-        },
-        {
-          "name": "Sam Burns",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 11.7
-        },
-        {
-          "name": "Jordan Spieth",
-          "position": {
-            "displayName": "T56"
-          },
-          "scoreToPar": 10,
-          "today": 4,
-          "thru": "17",
-          "cut": false,
-          "ppv": 10.7
-        }
-      ],
-      "teamTotal": 1012,
-      "validTeam": false,
-      "cutMade": 3,
-      "cutMissed": 3,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "danger",
       "rank": 151
     },
     {
@@ -11940,7 +11940,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -11988,7 +11988,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -12011,7 +12011,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 151
+      "rank": 152
     },
     {
       "name": "#72 - Craig Hill",
@@ -12019,7 +12019,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -12030,7 +12030,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -12256,7 +12256,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -12335,7 +12335,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -12436,7 +12436,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -12493,7 +12493,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -12583,7 +12583,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -12730,7 +12730,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -12888,7 +12888,7 @@
         {
           "name": "Xander Schauffele",
           "position": {
-            "displayName": "T8"
+            "displayName": "T7"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -12967,7 +12967,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -13090,7 +13090,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -13125,7 +13125,7 @@
         {
           "name": "Tommy Fleetwood",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": -2,
@@ -13204,7 +13204,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -13230,7 +13230,7 @@
           },
           "scoreToPar": 3,
           "today": 0,
-          "thru": "7",
+          "thru": "8",
           "cut": false,
           "ppv": 10.3
         },
@@ -13395,11 +13395,11 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
         },
@@ -13426,12 +13426,12 @@
           "ppv": 11
         }
       ],
-      "teamTotal": 2006,
+      "teamTotal": 2005,
       "validTeam": false,
       "cutMade": 2,
       "cutMissed": 4,
       "pending": 0,
-      "lowestIndividual": -1,
+      "lowestIndividual": -2,
       "cutStatus": "danger",
       "rank": 170
     },
@@ -13599,7 +13599,7 @@
         {
           "name": "Scottie Scheffler",
           "position": {
-            "displayName": "T2"
+            "displayName": "T3"
           },
           "scoreToPar": -1,
           "today": null,
@@ -13831,85 +13831,6 @@
       "rank": 174
     },
     {
-      "name": "#178 - James Wright",
-      "golfers": [
-        {
-          "name": "Jon Rahm",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 16.6
-        },
-        {
-          "name": "Tommy Fleetwood",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": -2,
-          "thru": "3",
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Patrick Reed",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 5,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 12
-        },
-        {
-          "name": "Si Woo Kim",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.9
-        },
-        {
-          "name": "Harry Hall",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 11,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 9.3
-        },
-        {
-          "name": "Jayden Schaper",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 10,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 9
-        }
-      ],
-      "teamTotal": 2999,
-      "validTeam": false,
-      "cutMade": 1,
-      "cutMissed": 5,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "danger",
-      "rank": 176
-    },
-    {
       "name": "#16 - Nick Simon",
       "golfers": [
         {
@@ -13970,13 +13891,92 @@
         {
           "name": "Sam Burns",
           "position": {
-            "displayName": "T2"
+            "displayName": "2"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "3",
           "cut": false,
           "ppv": 11.7
+        }
+      ],
+      "teamTotal": 2998,
+      "validTeam": false,
+      "cutMade": 1,
+      "cutMissed": 5,
+      "pending": 0,
+      "lowestIndividual": -2,
+      "cutStatus": "danger",
+      "rank": 176
+    },
+    {
+      "name": "#178 - James Wright",
+      "golfers": [
+        {
+          "name": "Jon Rahm",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 16.6
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "position": {
+            "displayName": "T3"
+          },
+          "scoreToPar": -1,
+          "today": -2,
+          "thru": "3",
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Patrick Reed",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 5,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 12
+        },
+        {
+          "name": "Si Woo Kim",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.9
+        },
+        {
+          "name": "Harry Hall",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 11,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 9.3
+        },
+        {
+          "name": "Jayden Schaper",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 10,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 9
         }
       ],
       "teamTotal": 2999,
@@ -13986,7 +13986,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 176
+      "rank": 177
     }
   ],
   "golfers": [
@@ -14023,7 +14023,7 @@
     {
       "name": "Xander Schauffele",
       "position": {
-        "displayName": "T8"
+        "displayName": "T7"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -14073,7 +14073,7 @@
     {
       "name": "Collin Morikawa",
       "position": {
-        "displayName": "T8"
+        "displayName": "T7"
       },
       "scoreToPar": 0,
       "today": -1,
@@ -14097,7 +14097,7 @@
       },
       "scoreToPar": 3,
       "today": 0,
-      "thru": "7",
+      "thru": "8",
       "cut": false
     },
     {
@@ -14113,7 +14113,7 @@
     {
       "name": "Sahith Theegala",
       "position": {
-        "displayName": "T2"
+        "displayName": "T3"
       },
       "scoreToPar": -1,
       "today": null,
@@ -14573,7 +14573,7 @@
     {
       "name": "Sam Stevens",
       "position": {
-        "displayName": "T2"
+        "displayName": "T3"
       },
       "scoreToPar": -1,
       "today": 0,
@@ -14653,11 +14653,11 @@
     {
       "name": "Tom Kim",
       "position": {
-        "displayName": "T2"
+        "displayName": "T7"
       },
-      "scoreToPar": -1,
-      "today": null,
-      "thru": null,
+      "scoreToPar": 0,
+      "today": 1,
+      "thru": "1",
       "cut": false
     },
     {
@@ -15243,7 +15243,7 @@
     {
       "name": "Tommy Fleetwood",
       "position": {
-        "displayName": "T2"
+        "displayName": "T3"
       },
       "scoreToPar": -1,
       "today": -2,
@@ -15383,7 +15383,7 @@
     {
       "name": "Keith Mitchell",
       "position": {
-        "displayName": "T8"
+        "displayName": "T7"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -15457,7 +15457,7 @@
       },
       "scoreToPar": 3,
       "today": 1,
-      "thru": "4",
+      "thru": "5",
       "cut": false
     },
     {
@@ -15473,7 +15473,7 @@
     {
       "name": "Scottie Scheffler",
       "position": {
-        "displayName": "T2"
+        "displayName": "T3"
       },
       "scoreToPar": -1,
       "today": null,
@@ -15533,11 +15533,11 @@
     {
       "name": "Sam Burns",
       "position": {
-        "displayName": "T2"
+        "displayName": "2"
       },
-      "scoreToPar": -1,
-      "today": -1,
-      "thru": "2",
+      "scoreToPar": -2,
+      "today": -2,
+      "thru": "3",
       "cut": false
     },
     {
