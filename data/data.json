@@ -4,7 +4,7 @@
   "course": "",
   "status": "In Progress",
   "round": 4,
-  "lastUpdated": "2026-06-21T13:04:12.421624+00:00",
+  "lastUpdated": "2026-06-21T13:05:14.972646+00:00",
   "totalTeams": 177,
   "teams": [
     {
@@ -8363,7 +8363,7 @@
         {
           "name": "Caleb Surratt",
           "position": {
-            "displayName": "63"
+            "displayName": "T62"
           },
           "scoreToPar": 9,
           "today": 0,
@@ -9208,11 +9208,11 @@
         {
           "name": "Ben James",
           "position": {
-            "displayName": "T55"
+            "displayName": "T62"
           },
-          "scoreToPar": 8,
-          "today": 0,
-          "thru": "1",
+          "scoreToPar": 9,
+          "today": 1,
+          "thru": "2",
           "cut": false,
           "ppv": 8.6
         },
@@ -9239,14 +9239,14 @@
           "ppv": 10.1
         }
       ],
-      "teamTotal": 20,
+      "teamTotal": 21,
       "validTeam": true,
       "cutMade": 5,
       "cutMissed": 1,
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "safe",
-      "rank": 115
+      "rank": 117
     },
     {
       "name": "#96 - Marc Foster",
@@ -9325,7 +9325,7 @@
       "pending": 0,
       "lowestIndividual": 0,
       "cutStatus": "exact",
-      "rank": 118
+      "rank": 117
     },
     {
       "name": "#1 - Dylan Morris",
@@ -11303,85 +11303,6 @@
       "rank": 141
     },
     {
-      "name": "#45 - Joseph Kirby",
-      "golfers": [
-        {
-          "name": "Scottie Scheffler",
-          "position": {
-            "displayName": "T2"
-          },
-          "scoreToPar": -1,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 18.9
-        },
-        {
-          "name": "Xander Schauffele",
-          "position": {
-            "displayName": "T6"
-          },
-          "scoreToPar": 0,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 14.5
-        },
-        {
-          "name": "Kevin Roy",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 9,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 8.6
-        },
-        {
-          "name": "Ben James",
-          "position": {
-            "displayName": "T55"
-          },
-          "scoreToPar": 8,
-          "today": 0,
-          "thru": "1",
-          "cut": false,
-          "ppv": 8.6
-        },
-        {
-          "name": "Patrick Cantlay",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 11
-        },
-        {
-          "name": "Cameron Smith",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 6,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 10.4
-        }
-      ],
-      "teamTotal": 1007,
-      "validTeam": false,
-      "cutMade": 3,
-      "cutMissed": 3,
-      "pending": 0,
-      "lowestIndividual": -1,
-      "cutStatus": "danger",
-      "rank": 144
-    },
-    {
       "name": "#73 - Dan Judge",
       "golfers": [
         {
@@ -11458,7 +11379,7 @@
       "pending": 0,
       "lowestIndividual": 1,
       "cutStatus": "danger",
-      "rank": 145
+      "rank": 144
     },
     {
       "name": "#106 - Murray Matheson",
@@ -11536,6 +11457,85 @@
       "cutMissed": 3,
       "pending": 0,
       "lowestIndividual": 0,
+      "cutStatus": "danger",
+      "rank": 145
+    },
+    {
+      "name": "#45 - Joseph Kirby",
+      "golfers": [
+        {
+          "name": "Scottie Scheffler",
+          "position": {
+            "displayName": "T2"
+          },
+          "scoreToPar": -1,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 18.9
+        },
+        {
+          "name": "Xander Schauffele",
+          "position": {
+            "displayName": "T6"
+          },
+          "scoreToPar": 0,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 14.5
+        },
+        {
+          "name": "Kevin Roy",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 9,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 8.6
+        },
+        {
+          "name": "Ben James",
+          "position": {
+            "displayName": "T62"
+          },
+          "scoreToPar": 9,
+          "today": 1,
+          "thru": "2",
+          "cut": false,
+          "ppv": 8.6
+        },
+        {
+          "name": "Patrick Cantlay",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 11
+        },
+        {
+          "name": "Cameron Smith",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 6,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 10.4
+        }
+      ],
+      "teamTotal": 1008,
+      "validTeam": false,
+      "cutMade": 3,
+      "cutMissed": 3,
+      "pending": 0,
+      "lowestIndividual": -1,
       "cutStatus": "danger",
       "rank": 146
     },
@@ -11616,7 +11616,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 147
+      "rank": 146
     },
     {
       "name": "#94 - Kevin Rose",
@@ -11695,7 +11695,7 @@
       "pending": 0,
       "lowestIndividual": -1,
       "cutStatus": "danger",
-      "rank": 147
+      "rank": 146
     },
     {
       "name": "#77 - Drew Chintala",
@@ -14873,17 +14873,17 @@
     {
       "name": "Ben James",
       "position": {
-        "displayName": "T55"
+        "displayName": "T62"
       },
-      "scoreToPar": 8,
-      "today": 0,
-      "thru": "1",
+      "scoreToPar": 9,
+      "today": 1,
+      "thru": "2",
       "cut": false
     },
     {
       "name": "Caleb Surratt",
       "position": {
-        "displayName": "63"
+        "displayName": "T62"
       },
       "scoreToPar": 9,
       "today": 0,
