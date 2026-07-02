@@ -4,7 +4,7 @@
   "course": "",
   "status": "In Progress",
   "round": 1,
-  "lastUpdated": "2026-07-02T18:01:13.165725+00:00",
+  "lastUpdated": "2026-07-02T18:02:16.910526+00:00",
   "totalTeams": 177,
   "teams": [
     {
@@ -42,11 +42,11 @@
         {
           "name": "Sudarshan Yellamaraju",
           "position": {
-            "displayName": "T47"
+            "displayName": "T65"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
           "cut": false,
           "ppv": 9.2
         },
@@ -73,7 +73,7 @@
           "ppv": 10.7
         }
       ],
-      "teamTotal": -8,
+      "teamTotal": -7,
       "validTeam": true,
       "cutMade": 4,
       "cutMissed": 0,
@@ -188,7 +188,7 @@
         {
           "name": "Keith Mitchell",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -199,7 +199,7 @@
         {
           "name": "Max Greyserman",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -347,7 +347,7 @@
         {
           "name": "Michael Kim",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -429,7 +429,7 @@
         {
           "name": "Michael Kim",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -575,7 +575,7 @@
         {
           "name": "Max Greyserman",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -867,7 +867,7 @@
         {
           "name": "Max Greyserman",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -900,7 +900,7 @@
         {
           "name": "Michael Kim",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -1366,7 +1366,7 @@
         {
           "name": "Michael Kim",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -1444,77 +1444,6 @@
           "thru": "F",
           "cut": false,
           "ppv": 10.6
-        }
-      ],
-      "teamTotal": 1997,
-      "validTeam": false,
-      "cutMade": 2,
-      "cutMissed": 0,
-      "pending": 4,
-      "lowestIndividual": -2,
-      "cutStatus": "danger",
-      "rank": 20
-    },
-    {
-      "name": "#139 - Ish Bhalla",
-      "golfers": [
-        {
-          "name": "Matt Fitzpatrick",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Xander Schauffele",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 14.5
-        },
-        {
-          "name": "Patrick Reed",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 12
-        },
-        {
-          "name": "Russell Henley",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 12.1
-        },
-        {
-          "name": "Ben Griffin",
-          "position": {
-            "displayName": "T37"
-          },
-          "scoreToPar": -2,
-          "today": -2,
-          "thru": "F",
-          "cut": false,
-          "ppv": 10.6
-        },
-        {
-          "name": "Sudarshan Yellamaraju",
-          "position": {
-            "displayName": "T47"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 9.2
         }
       ],
       "teamTotal": 1997,
@@ -1737,7 +1666,78 @@
       "pending": 4,
       "lowestIndividual": -2,
       "cutStatus": "danger",
-      "rank": 24
+      "rank": 23
+    },
+    {
+      "name": "#139 - Ish Bhalla",
+      "golfers": [
+        {
+          "name": "Matt Fitzpatrick",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Xander Schauffele",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 14.5
+        },
+        {
+          "name": "Patrick Reed",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 12
+        },
+        {
+          "name": "Russell Henley",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 12.1
+        },
+        {
+          "name": "Ben Griffin",
+          "position": {
+            "displayName": "T37"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "F",
+          "cut": false,
+          "ppv": 10.6
+        },
+        {
+          "name": "Sudarshan Yellamaraju",
+          "position": {
+            "displayName": "T65"
+          },
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
+          "cut": false,
+          "ppv": 9.2
+        }
+      ],
+      "teamTotal": 1998,
+      "validTeam": false,
+      "cutMade": 2,
+      "cutMissed": 0,
+      "pending": 4,
+      "lowestIndividual": -2,
+      "cutStatus": "danger",
+      "rank": 23
     },
     {
       "name": "#83 - Jamie Allen",
@@ -1808,7 +1808,7 @@
       "pending": 4,
       "lowestIndividual": -2,
       "cutStatus": "danger",
-      "rank": 24
+      "rank": 23
     },
     {
       "name": "#148 - Kyle Kolbet",
@@ -2644,7 +2644,7 @@
         {
           "name": "Tom Kim",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -5153,75 +5153,6 @@
       "rank": 56
     },
     {
-      "name": "#84 - Jason Skaggs",
-      "golfers": [
-        {
-          "name": "Jon Rahm",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 16.6
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 13.5
-        },
-        {
-          "name": "Tyrrell Hatton",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 13.1
-        },
-        {
-          "name": "Maverick McNealy",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 10.3
-        },
-        {
-          "name": "Brian Harman",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 9.3
-        },
-        {
-          "name": "Sudarshan Yellamaraju",
-          "position": {
-            "displayName": "T47"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "2",
-          "cut": false,
-          "ppv": 9.2
-        }
-      ],
-      "teamTotal": 2999,
-      "validTeam": false,
-      "cutMade": 1,
-      "cutMissed": 0,
-      "pending": 5,
-      "lowestIndividual": -1,
-      "cutStatus": "danger",
-      "rank": 56
-    },
-    {
       "name": "#144 - Bill Hunt",
       "golfers": [
         {
@@ -6668,7 +6599,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#62 - Alex Sklar",
@@ -6737,7 +6668,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#40 - Danny Grimes",
@@ -6806,7 +6737,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#25 - Chris Coleman",
@@ -6875,7 +6806,76 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
+    },
+    {
+      "name": "#84 - Jason Skaggs",
+      "golfers": [
+        {
+          "name": "Jon Rahm",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 16.6
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 13.5
+        },
+        {
+          "name": "Tyrrell Hatton",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 13.1
+        },
+        {
+          "name": "Maverick McNealy",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 10.3
+        },
+        {
+          "name": "Brian Harman",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 9.3
+        },
+        {
+          "name": "Sudarshan Yellamaraju",
+          "position": {
+            "displayName": "T65"
+          },
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "3",
+          "cut": false,
+          "ppv": 9.2
+        }
+      ],
+      "teamTotal": 3000,
+      "validTeam": false,
+      "cutMade": 1,
+      "cutMissed": 0,
+      "pending": 5,
+      "lowestIndividual": 0,
+      "cutStatus": "danger",
+      "rank": 94
     },
     {
       "name": "#145 - Jamie Ostarchvic",
@@ -6901,7 +6901,7 @@
         {
           "name": "Keith Mitchell",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -6944,7 +6944,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#74 - Dominic Musarra",
@@ -7013,7 +7013,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#24 - Aaron Crandall",
@@ -7082,7 +7082,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#72 - Craig Hill",
@@ -7151,7 +7151,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#103 - Mickey Knauss",
@@ -7177,7 +7177,7 @@
         {
           "name": "Tom Kim",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -7220,7 +7220,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#69 - Chase Neilson",
@@ -7264,7 +7264,7 @@
         {
           "name": "Max Greyserman",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -7289,7 +7289,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#100 - Matthew Perry",
@@ -7342,7 +7342,7 @@
         {
           "name": "Keith Mitchell",
           "position": {
-            "displayName": "T66"
+            "displayName": "T65"
           },
           "scoreToPar": 0,
           "today": 0,
@@ -7358,7 +7358,7 @@
       "pending": 5,
       "lowestIndividual": 0,
       "cutStatus": "danger",
-      "rank": 95
+      "rank": 94
     },
     {
       "name": "#63 - Ben Phillips",
@@ -12249,7 +12249,7 @@
     {
       "name": "Adam Schenk",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -12339,7 +12339,7 @@
     {
       "name": "Taylor Moore",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -12399,7 +12399,7 @@
     {
       "name": "Max Greyserman",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -12519,7 +12519,7 @@
     {
       "name": "Camilo Villegas",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -12649,7 +12649,7 @@
     {
       "name": "Patton Kizzire",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -12799,7 +12799,7 @@
     {
       "name": "Takumi Kanaya",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -12819,7 +12819,7 @@
     {
       "name": "Austin Eckroat",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -12843,7 +12843,7 @@
       },
       "scoreToPar": -3,
       "today": -3,
-      "thru": "15",
+      "thru": "16",
       "cut": false
     },
     {
@@ -12899,7 +12899,7 @@
     {
       "name": "Tom Kim",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -12999,7 +12999,7 @@
     {
       "name": "Joe Highsmith",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -13129,11 +13129,11 @@
     {
       "name": "Sudarshan Yellamaraju",
       "position": {
-        "displayName": "T47"
+        "displayName": "T65"
       },
-      "scoreToPar": -1,
-      "today": -1,
-      "thru": "2",
+      "scoreToPar": 0,
+      "today": 0,
+      "thru": "3",
       "cut": false
     },
     {
@@ -13289,7 +13289,7 @@
     {
       "name": "Robert Streb",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -13469,7 +13469,7 @@
     {
       "name": "Keith Mitchell",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -13479,7 +13479,7 @@
     {
       "name": "Ben Silverman",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -13499,7 +13499,7 @@
     {
       "name": "Michael Kim",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
@@ -13529,7 +13529,7 @@
     {
       "name": "Adam Svensson",
       "position": {
-        "displayName": "T66"
+        "displayName": "T65"
       },
       "scoreToPar": 0,
       "today": 0,
