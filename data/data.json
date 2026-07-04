@@ -4,7 +4,7 @@
   "course": "",
   "status": "In Progress",
   "round": 3,
-  "lastUpdated": "2026-07-04T18:35:13.253360+00:00",
+  "lastUpdated": "2026-07-04T18:36:11.092692+00:00",
   "totalTeams": 177,
   "teams": [
     {
@@ -921,7 +921,7 @@
           },
           "scoreToPar": -9,
           "today": -2,
-          "thru": "11",
+          "thru": "12",
           "cut": false,
           "ppv": 8.9
         },
@@ -1018,6 +1018,79 @@
       "rank": 14
     },
     {
+      "name": "#153 - Randy Roggow",
+      "golfers": [
+        {
+          "name": "Scottie Scheffler",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 18.9
+        },
+        {
+          "name": "Tommy Fleetwood",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 14
+        },
+        {
+          "name": "Wyndham Clark",
+          "position": null,
+          "scoreToPar": null,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 11.8
+        },
+        {
+          "name": "Keith Mitchell",
+          "position": {
+            "displayName": "T69"
+          },
+          "scoreToPar": -3,
+          "today": 0,
+          "thru": "11",
+          "cut": false,
+          "ppv": 9.3
+        },
+        {
+          "name": "Max Greyserman",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": -2,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 9.2
+        },
+        {
+          "name": "Ben Kohles",
+          "position": {
+            "displayName": "T5"
+          },
+          "scoreToPar": -12,
+          "today": -2,
+          "thru": "8",
+          "cut": false,
+          "ppv": 8.6
+        }
+      ],
+      "teamTotal": 1985,
+      "validTeam": false,
+      "cutMade": 2,
+      "cutMissed": 1,
+      "pending": 3,
+      "lowestIndividual": -12,
+      "cutStatus": "danger",
+      "rank": 15
+    },
+    {
       "name": "#81 - Hunter DeCoudres",
       "golfers": [
         {
@@ -1085,79 +1158,6 @@
       "cutMissed": 0,
       "pending": 4,
       "lowestIndividual": -10,
-      "cutStatus": "danger",
-      "rank": 15
-    },
-    {
-      "name": "#153 - Randy Roggow",
-      "golfers": [
-        {
-          "name": "Scottie Scheffler",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 18.9
-        },
-        {
-          "name": "Tommy Fleetwood",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 14
-        },
-        {
-          "name": "Wyndham Clark",
-          "position": null,
-          "scoreToPar": null,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 11.8
-        },
-        {
-          "name": "Keith Mitchell",
-          "position": {
-            "displayName": "T72"
-          },
-          "scoreToPar": -2,
-          "today": 1,
-          "thru": "10",
-          "cut": false,
-          "ppv": 9.3
-        },
-        {
-          "name": "Max Greyserman",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": -2,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 9.2
-        },
-        {
-          "name": "Ben Kohles",
-          "position": {
-            "displayName": "T5"
-          },
-          "scoreToPar": -12,
-          "today": -2,
-          "thru": "8",
-          "cut": false,
-          "ppv": 8.6
-        }
-      ],
-      "teamTotal": 1986,
-      "validTeam": false,
-      "cutMade": 2,
-      "cutMissed": 1,
-      "pending": 3,
-      "lowestIndividual": -12,
       "cutStatus": "danger",
       "rank": 16
     },
@@ -3939,7 +3939,7 @@
           },
           "scoreToPar": -9,
           "today": -2,
-          "thru": "11",
+          "thru": "12",
           "cut": false,
           "ppv": 8.9
         }
@@ -4146,7 +4146,7 @@
           },
           "scoreToPar": -9,
           "today": -2,
-          "thru": "11",
+          "thru": "12",
           "cut": false,
           "ppv": 8.9
         }
@@ -4286,7 +4286,7 @@
           },
           "scoreToPar": -9,
           "today": -2,
-          "thru": "11",
+          "thru": "12",
           "cut": false,
           "ppv": 8.9
         }
@@ -5789,11 +5789,11 @@
         {
           "name": "Keith Mitchell",
           "position": {
-            "displayName": "T72"
+            "displayName": "T69"
           },
-          "scoreToPar": -2,
-          "today": 1,
-          "thru": "10",
+          "scoreToPar": -3,
+          "today": 0,
+          "thru": "11",
           "cut": false,
           "ppv": 9.3
         },
@@ -5825,12 +5825,12 @@
           "ppv": 11.4
         }
       ],
-      "teamTotal": 2998,
+      "teamTotal": 2997,
       "validTeam": false,
       "cutMade": 1,
       "cutMissed": 0,
       "pending": 5,
-      "lowestIndividual": -2,
+      "lowestIndividual": -3,
       "cutStatus": "danger",
       "rank": 83
     },
@@ -5885,21 +5885,21 @@
         {
           "name": "Keith Mitchell",
           "position": {
-            "displayName": "T72"
+            "displayName": "T69"
           },
-          "scoreToPar": -2,
-          "today": 1,
-          "thru": "10",
+          "scoreToPar": -3,
+          "today": 0,
+          "thru": "11",
           "cut": false,
           "ppv": 9.3
         }
       ],
-      "teamTotal": 2998,
+      "teamTotal": 2997,
       "validTeam": false,
       "cutMade": 1,
       "cutMissed": 0,
       "pending": 5,
-      "lowestIndividual": -2,
+      "lowestIndividual": -3,
       "cutStatus": "danger",
       "rank": 83
     },
@@ -12433,7 +12433,7 @@
       },
       "scoreToPar": -6,
       "today": -2,
-      "thru": "11",
+      "thru": "12",
       "cut": false
     },
     {
@@ -12519,7 +12519,7 @@
     {
       "name": "Camilo Villegas",
       "position": {
-        "displayName": "T72"
+        "displayName": "T73"
       },
       "scoreToPar": -2,
       "today": 2,
@@ -12839,7 +12839,7 @@
     {
       "name": "Michael Feagles",
       "position": {
-        "displayName": "T72"
+        "displayName": "T73"
       },
       "scoreToPar": -2,
       "today": 1,
@@ -12869,7 +12869,7 @@
     {
       "name": "Will Gordon",
       "position": {
-        "displayName": "T72"
+        "displayName": "T73"
       },
       "scoreToPar": -2,
       "today": 1,
@@ -13079,7 +13079,7 @@
     {
       "name": "Jonathan Byrd",
       "position": {
-        "displayName": "T72"
+        "displayName": "T73"
       },
       "scoreToPar": -2,
       "today": 1,
@@ -13273,7 +13273,7 @@
       },
       "scoreToPar": -9,
       "today": -2,
-      "thru": "11",
+      "thru": "12",
       "cut": false
     },
     {
@@ -13419,11 +13419,11 @@
     {
       "name": "Mackenzie Hughes",
       "position": {
-        "displayName": "T72"
+        "displayName": "T73"
       },
       "scoreToPar": -2,
       "today": 1,
-      "thru": "8",
+      "thru": "9",
       "cut": false
     },
     {
@@ -13469,11 +13469,11 @@
     {
       "name": "Keith Mitchell",
       "position": {
-        "displayName": "T72"
+        "displayName": "T69"
       },
-      "scoreToPar": -2,
-      "today": 1,
-      "thru": "10",
+      "scoreToPar": -3,
+      "today": 0,
+      "thru": "11",
       "cut": false
     },
     {
