@@ -2224,15 +2224,20 @@ function buildGrid(){
     params.append("tournament",TOURNAMENT_NAME||(window.DATA&&window.DATA.tournament)||"MMC Major");
     sel.forEach(function(g){params.append("golfers",g.n+" - "+g.p.toFixed(1));});
     document.getElementById("et-submit").disabled=true;
-    fetch(FORM_URL+"?"+params.toString(),{method:"GET",mode:"no-cors"})
-      .then(function(){
+    fetch(FORM_URL+"?"+params.toString(),{method:"GET"})
+      .then(function(r){
+        if(!r.ok){throw new Error("HTTP "+r.status);}
+        return r.json().catch(function(){return null;});
+      })
+      .then(function(j){
+        if(j && j.status && j.status!=="ok"){throw new Error(j.message||("Backend returned status: "+j.status));}
         msg.className="et-msg success";
         msg.textContent="\u2713 Team submitted! A confirmation will be sent to "+email;
         sel=[];document.getElementById("et-email").value="";
         document.getElementById("et-team").value="";updateUI();
-      }).catch(function(){
+      }).catch(function(err){
         msg.className="et-msg error";
-        msg.textContent="Submission failed. Please try again.";
+        msg.textContent="Submission failed ("+(err&&err.message?err.message:"network error")+"). Please try again or email me directly.";
         document.getElementById("et-submit").disabled=false;
       });
   });
