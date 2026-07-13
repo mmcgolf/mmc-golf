@@ -1,27 +1,36 @@
 # MMC Golf - Automatic Score Updater
-# Runs every minute during tournament days and pushes updated data.json.
-# GitHub Actions free tier gives unlimited minutes on public repos.
+# Self-looping design: each run pulls scores every 60s for ~340 minutes (just under
+# GitHub Actions' 6-hour hard job cap), then exits. The `schedule` trigger fires every
+# 10 minutes as a queue refresher - thanks to GitHub's concurrency-group behavior, only
+# the single most-recently-queued run is kept pending, so as soon as the active loop
+# exits, the next queued run picks up immediately with no external dependency at all.
+# This replaces the old external cron-job.org pinger (removed after repeated 401s from
+# GitHub that couldn't be resolved) with a fully self-contained mechanism.
 
 name: Update Live Scores
 
 on:
   schedule:
-    # Every minute. GitHub minimum is 1 minute. Public repo = free.
-    - cron: '* * * * *'
+    # Every 10 minutes - just a queue refresher/restarter, not the actual update cadence.
+    # Real updates happen every 60s inside the loop below.
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# Prevent concurrent runs from racing to push - only one at a time.
-# cancel-in-progress: the newest run wins; older in-flight run is cancelled.
+# Only one run active at a time. Do NOT cancel-in-progress: a healthy in-progress loop
+# should be left alone; newer schedule triggers just refresh the single queued "next"
+# run (GitHub auto-supersedes older queued runs in the same group), so the next loop
+# starts the instant the current one finishes.
 concurrency:
   group: update-scores
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
 
     steps:
       - name: Check out repo
@@ -43,23 +52,41 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Fetch ESPN scores
-        run: python scripts/scrape_espn.py
-
-      - name: Build combined data.json
-        run: python scripts/build_data.py
-
-      - name: Commit and push if data changed
+      - name: Live update loop (every 60s for ~340 minutes)
         run: |
           git config user.name "MMC Bot"
           git config user.email "mmc-bot@users.noreply.github.com"
-          git add data/scores.json data/data.json data/name_cache.json
-          git diff --staged --quiet && exit 0
-          git commit -m "Auto-update scores $(date -u '+%Y-%m-%d %H:%M UTC')"
-          # Retry push up to 3 times to handle concurrent run collisions
-          for attempt in 1 2 3; do
-            git pull --rebase -X ours origin main
-            git push && break
-            echo "Push attempt $attempt failed, retrying in $((attempt * 5))s..."
-            sleep $((attempt * 5))
+
+          END_TIME=$(( $(date +%s) + 340*60 ))
+          i=0
+          while [ "$(date +%s)" -lt "$END_TIME" ]; do
+            i=$((i+1))
+            echo "=== Iteration $i at $(date -u '+%Y-%m-%d %H:%M:%S UTC') ==="
+
+            python scripts/scrape_espn.py || echo "scrape_espn.py failed, will retry next iteration"
+            python scripts/build_data.py || echo "build_data.py failed, will retry next iteration"
+
+            git add data/scores.json data/data.json data/name_cache.json
+            if ! git diff --staged --quiet; then
+              git commit -m "Auto-update scores $(date -u '+%Y-%m-%d %H:%M UTC')"
+              pushed=false
+              for attempt in 1 2 3; do
+                git pull --rebase -X ours origin main
+                if git push; then
+                  pushed=true
+                  break
+                fi
+                echo "Push attempt $attempt failed, retrying in $((attempt * 5))s..."
+                sleep $((attempt * 5))
+              done
+              if [ "$pushed" != true ]; then
+                echo "WARNING: push failed after 3 attempts, continuing loop anyway"
+              fi
+            else
+              echo "No data changes this iteration."
+            fi
+
+            sleep 60
           done
+
+          echo "Loop budget exhausted after $i iterations; exiting so the next queued run can take over."
