@@ -13,7 +13,14 @@ import os
 import re
 from difflib import SequenceMatcher
 
+import requests
+
 DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
+
+# Apps Script web app URL (same one the site's Enter Team form posts to).
+# Used read-only here via ?action=list to fetch which team NAMES have been
+# submitted so far -- this must never fetch or expose golfer picks.
+SUBMISSION_FORM_URL = "https://script.google.com/macros/s/AKfycbwPLKEOE8yc2xyrtk5TAA3aUnzCUGAmB1q96PoMFoJrlasc3VfgSyS0dXyUz2rHJEHZ1w/exec"
 
 
 def load_json(filename):
@@ -202,12 +209,42 @@ def calc_team_total(golfers):
     return total, valid, made_cut, cut_count, pending, lowest, cut_status
 
 
+def fetch_submission_status(roster):
+    """
+    Returns a list of {"name": <team name>, "submitted": bool} in roster order.
+    Reads ONLY team names via the Apps Script ?action=list endpoint -- never
+    golfer picks. On any failure, returns None so the caller can fall back to
+    the previous data.json value instead of wrongly flipping everyone to
+    "not submitted".
+    """
+    try:
+        resp = requests.get(SUBMISSION_FORM_URL, params={"action": "list"}, timeout=15)
+        resp.raise_for_status()
+        payload = resp.json()
+        submitted_names = set(payload.get("submitted", []))
+    except Exception as e:
+        print(f"  WARNING: could not fetch submission status ({e}); keeping previous data")
+        return None
+
+    return [{"name": name, "submitted": name in submitted_names} for name in roster]
+
+
 def main():
     print("Building data.json...")
 
     scores = load_json("scores.json")
     picks_data = load_json("picks.json")
     ppvs_data = load_json("ppvs.json")
+    teams_roster = load_json("teams.json")
+    if not isinstance(teams_roster, list):
+        teams_roster = []
+
+    submission_status = fetch_submission_status(teams_roster)
+    if submission_status is None:
+        # Fall back to whatever was in the previous data.json so a transient
+        # network error doesn't wrongly mark everyone as "not submitted".
+        prev_data = load_json("data.json")
+        submission_status = prev_data.get("submissionStatus", [])
 
     golfer_lookup = build_golfer_lookup(scores)
     espn_names = [g["name"] for g in scores.get("golfers", [])]
@@ -292,7 +329,8 @@ def main():
         "teams": teams,
         "golfers": scores.get("golfers", []),
         "ppvs": ppvs,
-        "payouts": payouts
+        "payouts": payouts,
+        "submissionStatus": submission_status
     }
 
     # Save name cache if any new matches were discovered
@@ -303,7 +341,9 @@ def main():
     with open(out_path, "w") as f:
         json.dump(out, f, indent=2)
 
+    submitted_count = sum(1 for s in submission_status if s.get("submitted"))
     print(f"  Done. {len(teams)} teams, {len(ppvs)} players, {len(out['golfers'])} on leaderboard.")
+    print(f"  Submission status: {submitted_count}/{len(submission_status)} teams submitted.")
     print(f"  Saved to data/data.json")
 
 
