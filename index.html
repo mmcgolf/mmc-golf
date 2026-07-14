@@ -598,6 +598,15 @@
   .et-golfer-name{font-size:12px;color:rgba(255,255,255,.88)}
   .et-golfer.et-sel .et-golfer-name{color:var(--gold);font-weight:600}
   .et-golfer-pts{font-size:11px;color:rgba(212,168,67,.65);font-weight:600;white-space:nowrap}
+  /* Who's In (submission status) */
+  .subm-progress{color:rgba(255,255,255,.55);font-size:13px;text-align:center;margin:0 0 18px}
+  .subm-search{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(212,168,67,.25);border-radius:6px;padding:9px 11px;color:#fff;font-size:14px;box-sizing:border-box;margin-bottom:16px}
+  .subm-list{display:flex;flex-direction:column;gap:6px;max-height:520px;overflow-y:auto;padding-right:3px}
+  .subm-row{display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:7px;padding:9px 13px}
+  .subm-name{font-size:13px;color:rgba(255,255,255,.88)}
+  .subm-badge{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;border-radius:20px;padding:3px 10px;white-space:nowrap}
+  .subm-badge.in{background:rgba(76,175,80,.18);border:1px solid var(--green-accent);color:var(--green-accent)}
+  .subm-badge.out{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4)}
   .et-golfer.et-sel .et-golfer-pts{color:var(--gold)}
   .et-submit-btn{width:100%;padding:13px;background:var(--gold);color:#0a1a0a;font-size:15px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;transition:opacity .2s}
   .et-submit-btn:disabled{opacity:.28;cursor:not-allowed}
@@ -727,6 +736,7 @@
 <div class="nav">
   <div class="nav-inner">
   <button class="nav-tab active" data-tab="enterteam">Enter Team</button>
+  <button class="nav-tab" data-tab="submissions">Who's In</button>
   <button class="nav-tab" data-tab="leaderboard">Leaderboard</button>
   <button class="nav-tab" data-tab="teams">Teams</button>
   <button class="nav-tab" data-tab="golfers">Golfers</button>
@@ -946,7 +956,16 @@
     </div>
   </div>
 
-
+<div class="section" id="sec-submissions">
+    <div class="et-wrap">
+      <div class="et-card">
+        <h2 class="et-title">Who's In</h2>
+        <p class="subm-progress" id="subm-progress">Loading...</p>
+        <input type="text" class="subm-search" id="subm-search" placeholder="Search participants...">
+        <div class="subm-list" id="subm-list"></div>
+      </div>
+    </div>
+  </div>
 
 
 <div class="section" id="sec-charity">
@@ -1737,6 +1756,7 @@ function initApp(data) {
   renderPPV();
   renderPayouts();
   renderTeams();
+  renderSubmissions();
 }
 
 
@@ -1788,6 +1808,28 @@ function renderTeams(filter) {
   document.getElementById('teamsGrid').innerHTML = html || '<div style="padding:20px;color:var(--text-muted)">No teams found</div>';
 }
 document.getElementById('teamsSearch').addEventListener('input', e => renderTeams(e.target.value));
+
+// Who's In (submission status) tab
+function renderSubmissions(filter) {
+  var list = (DATA.submissionStatus || []).slice();
+  var submittedCount = list.filter(function(s){ return s.submitted; }).length;
+  var progressEl = document.getElementById('subm-progress');
+  if (progressEl) progressEl.textContent = submittedCount + ' / ' + list.length + ' teams submitted';
+
+  if (filter) {
+    var q = filter.toLowerCase();
+    list = list.filter(function(s){ return s.name.toLowerCase().includes(q); });
+  }
+
+  var html = list.map(function(s){
+    return '<div class="subm-row"><span class="subm-name">' + s.name + '</span>' +
+      '<span class="subm-badge ' + (s.submitted ? 'in">Submitted' : 'out">Not Yet') + '</span></div>';
+  }).join('');
+
+  document.getElementById('subm-list').innerHTML = html || '<div style="padding:20px;color:var(--text-muted)">No participants found</div>';
+}
+var _submSearchEl = document.getElementById('subm-search');
+if (_submSearchEl) _submSearchEl.addEventListener('input', function(e){ renderSubmissions(e.target.value); });
 
 fetch('data/data.json')
   .then(r => {
