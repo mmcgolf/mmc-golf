@@ -17,6 +17,19 @@ HEADERS = {"User-Agent": "Mozilla/5.0"}
 MAX_RETRIES = 3
 RETRY_DELAY = 5  # seconds between retries
 
+# Keywords used to confirm ESPN's "current" event is actually THIS tournament.
+# ESPN's leaderboard endpoint returns whatever event is most recent/active -
+# in the days between majors that can still be LAST week's (already-Final)
+# event, which would otherwise get mislabeled as this tournament. Update this
+# list each time you set up a new major.
+TARGET_TOURNAMENT_KEYWORDS = ["open championship", "british open"]
+
+# Used for the placeholder scores.json when no matching ESPN event is found yet
+# (i.e. this tournament hasn't started and ESPN hasn't published it). Update
+# these each time you set up a new major/tournament.
+PLACEHOLDER_TOURNAMENT_NAME = "The Open Championship"
+PLACEHOLDER_VENUE = "Royal Birkdale"
+
 
 def fetch_with_retry(url, retries=MAX_RETRIES):
     """GET a URL, retrying up to `retries` times on failure."""
@@ -48,21 +61,31 @@ def parse_score(value):
 
 
 def fetch_current_event_id():
-    """Auto-discover the active tournament event ID."""
+    """
+    Find the ESPN event that matches TARGET_TOURNAMENT_KEYWORDS.
+    Returns (event_id, event_name, venue) or (None, None, None) if ESPN
+    hasn't published this tournament yet (e.g. it hasn't started and the
+    top "current" event is still last week's, already-completed one).
+    """
     r = fetch_with_retry(SCOREBOARD_URL)
     data = r.json()
     events = data.get("events", [])
     if not events:
-        raise ValueError("No events found in ESPN scoreboard response")
-    event = events[0]
-    event_id = event["id"]
-    event_name = event.get("name", "Unknown Tournament")
-    venue = ""
-    try:
-        venue = event["competitions"][0]["venue"]["fullName"]
-    except (KeyError, IndexError):
-        pass
-    return event_id, event_name, venue
+        return None, None, None
+
+    for event in events:
+        name = (event.get("name") or "").lower()
+        if any(kw in name for kw in TARGET_TOURNAMENT_KEYWORDS):
+            event_id = event["id"]
+            event_name = event.get("name", "Unknown Tournament")
+            venue = ""
+            try:
+                venue = event["competitions"][0]["venue"]["fullName"]
+            except (KeyError, IndexError):
+                pass
+            return event_id, event_name, venue
+
+    return None, None, None
 
 
 def fetch_leaderboard(event_id):
@@ -162,17 +185,30 @@ def main():
 
     try:
         event_id, event_name, venue = fetch_current_event_id()
-        print(f"  Event: {event_name} (ID: {event_id})")
     except Exception as e:
         print(f"  ERROR discovering event: {e}")
         raise
 
-    try:
-        scores = build_scores_json(event_id, event_name, venue)
-        print(f"  Parsed {len(scores['golfers'])} players | Status: {scores['status']} | Round: {scores['round']}")
-    except Exception as e:
-        print(f"  ERROR parsing leaderboard: {e}")
-        raise
+    if event_id is None:
+        print(f"  No ESPN event matching {TARGET_TOURNAMENT_KEYWORDS} yet - "
+              f"writing an 'Upcoming' placeholder instead of misattributing "
+              f"another event's (possibly Final) data to this tournament.")
+        scores = {
+            "tournament": PLACEHOLDER_TOURNAMENT_NAME,
+            "venue": PLACEHOLDER_VENUE,
+            "status": "Upcoming",
+            "round": 0,
+            "lastUpdated": datetime.now(timezone.utc).isoformat(),
+            "golfers": []
+        }
+    else:
+        print(f"  Event: {event_name} (ID: {event_id})")
+        try:
+            scores = build_scores_json(event_id, event_name, venue)
+            print(f"  Parsed {len(scores['golfers'])} players | Status: {scores['status']} | Round: {scores['round']}")
+        except Exception as e:
+            print(f"  ERROR parsing leaderboard: {e}")
+            raise
 
     out_path = os.path.join(DATA_DIR, "scores.json")
     with open(out_path, "w") as f:
