@@ -134,7 +134,17 @@ def resolve_pick(pick_name, golfer_lookup, espn_names, name_cache=None, wd_playe
     """
     Resolve a DK/pick name to ESPN golfer data.
     Returns golfer dict (possibly with score=None if not found on leaderboard).
+
+    If the tournament has started (golfer_lookup is populated from a real
+    leaderboard) and a pick still can't be found anywhere - direct match,
+    fuzzy match, or explicit WD list - it almost certainly means the player
+    withdrew or was never in the final field. In that case we treat them as
+    a missed cut (cut=True) so they contribute 0 and don't block the team's
+    total forever waiting on a score that will never arrive. Before the
+    tournament starts (empty leaderboard), every pick is legitimately
+    "not found yet" and should stay pending (cut=False) instead.
     """
+    tournament_started = len(golfer_lookup) > 0
     # Direct lookup
     if pick_name in golfer_lookup:
         return golfer_lookup[pick_name].copy()
@@ -168,7 +178,20 @@ def resolve_pick(pick_name, golfer_lookup, espn_names, name_cache=None, wd_playe
         if any(normalize_name(w) == norm for w in wd_players):
             print(f"  WD: '{pick_name}' - treating as missed cut")
             return {"name": pick_name, "position": "WD", "scoreToPar": None, "today": None, "thru": "WD", "cut": True}
-    # Not found - return a placeholder (pre-tournament or withdrew)
+    # Not found anywhere. If the tournament is underway, this means the
+    # player withdrew or isn't in the field - treat as a missed cut so
+    # scoring doesn't wait on them forever. Before the tournament starts,
+    # it just means we don't have leaderboard data yet - leave as pending.
+    if tournament_started:
+        print(f"  NOT IN FIELD: '{pick_name}' - not on ESPN leaderboard, treating as missed cut")
+        return {
+            "name": pick_name,
+            "position": "WD",
+            "scoreToPar": None,
+            "today": None,
+            "thru": "WD",
+            "cut": True
+        }
     print(f"  NAME NOT FOUND: '{pick_name}' - not on ESPN leaderboard yet")
     return {
         "name": pick_name,
