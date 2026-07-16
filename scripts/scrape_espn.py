@@ -22,7 +22,7 @@ RETRY_DELAY = 5  # seconds between retries
 # in the days between majors that can still be LAST week's (already-Final)
 # event, which would otherwise get mislabeled as this tournament. Update this
 # list each time you set up a new major.
-TARGET_TOURNAMENT_KEYWORDS = ["open championship", "british open"]
+TARGET_TOURNAMENT_KEYWORDS = ["open championship", "british open", "the open"]
 
 # Used for the placeholder scores.json when no matching ESPN event is found yet
 # (i.e. this tournament hasn't started and ESPN hasn't published it). Update
