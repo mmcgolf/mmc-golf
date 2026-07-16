@@ -735,9 +735,7 @@
 
 <div class="nav">
   <div class="nav-inner">
-  <button class="nav-tab active" data-tab="enterteam">Enter Team</button>
-  <button class="nav-tab" data-tab="submissions">Who's In</button>
-  <button class="nav-tab" data-tab="leaderboard">Leaderboard</button>
+  <button class="nav-tab active" data-tab="leaderboard">Leaderboard</button>
   <button class="nav-tab" data-tab="teams">Teams</button>
   <button class="nav-tab" data-tab="golfers">Golfers</button>
   <button class="nav-tab" data-tab="grid">Grid</button>
@@ -747,13 +745,15 @@
   <button class="nav-tab" data-tab="charity">&#x2764;&#xFE0F; Charity</button>
   <button class="nav-tab" data-tab="trophy">&#x1F3C6; Trophy Room</button>
   <button class="nav-tab" data-tab="history">History</button>
+  <button class="nav-tab" data-tab="enterteam">Enter Team</button>
+  <button class="nav-tab" data-tab="submissions">Who's In</button>
   </div>
 </div>
 
 <div class="main">
 
   <!-- LEADERBOARD -->
-  <div class="section" id="sec-leaderboard">
+  <div class="section active" id="sec-leaderboard">
     <div class="search-bar">
       <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>
       <input type="text" id="teamSearch" placeholder="Search for a team or participant...">
@@ -923,7 +923,7 @@
     <div class="teams-grid" id="teamsGrid"></div>
   </div>
 <!-- ENTER TEAM -->
-  <div class="section active" id="sec-enterteam">
+  <div class="section" id="sec-enterteam">
     <div class="et-wrap">
       <div class="et-card">
         <div class="et-closed" id="et-closed-banner" style="display:none">
