@@ -97,6 +97,11 @@ def fetch_leaderboard(event_id):
 
 def build_scores_json(event_id, event_name, venue):
     """Parse ESPN leaderboard JSON into our data format."""
+    # ESPN's "The Open" event doesn't populate the venue field at all -
+    # fall back to the known venue for this major rather than showing blank.
+    if not venue:
+        venue = PLACEHOLDER_VENUE
+
     raw = fetch_leaderboard(event_id)
 
     try:
