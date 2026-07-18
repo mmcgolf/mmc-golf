@@ -4,7 +4,7 @@
   "course": "Royal Birkdale",
   "status": "In Progress",
   "round": 3,
-  "lastUpdated": "2026-07-18T13:52:20.768971+00:00",
+  "lastUpdated": "2026-07-18T13:53:24.102640+00:00",
   "totalTeams": 175,
   "teams": [
     {
@@ -1020,7 +1020,7 @@
           },
           "scoreToPar": -3,
           "today": -3,
-          "thru": "16",
+          "thru": "17",
           "cut": false,
           "ppv": 8.9
         }
@@ -1457,7 +1457,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -1525,7 +1525,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -1825,85 +1825,6 @@
       "rank": 19
     },
     {
-      "name": "#128 - Todd Casabella",
-      "golfers": [
-        {
-          "name": "Hennie Du Plessis",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": -3,
-          "today": -2,
-          "thru": "12",
-          "cut": false,
-          "ppv": 8.2
-        },
-        {
-          "name": "Scottie Scheffler",
-          "position": {
-            "displayName": "T10"
-          },
-          "scoreToPar": -4,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 17.7
-        },
-        {
-          "name": "Rory McIlroy",
-          "position": {
-            "displayName": "T45"
-          },
-          "scoreToPar": -1,
-          "today": 0,
-          "thru": "12",
-          "cut": false,
-          "ppv": 17.7
-        },
-        {
-          "name": "Patrick Reed",
-          "position": {
-            "displayName": "T10"
-          },
-          "scoreToPar": -4,
-          "today": -2,
-          "thru": "5",
-          "cut": false,
-          "ppv": 10.1
-        },
-        {
-          "name": "Kristoffer Reitan",
-          "position": {
-            "displayName": "T39"
-          },
-          "scoreToPar": -2,
-          "today": -2,
-          "thru": "F",
-          "cut": false,
-          "ppv": 9.4
-        },
-        {
-          "name": "Sahith Theegala",
-          "position": {
-            "displayName": "T21"
-          },
-          "scoreToPar": -3,
-          "today": -3,
-          "thru": "16",
-          "cut": false,
-          "ppv": 8.9
-        }
-      ],
-      "teamTotal": -14,
-      "validTeam": true,
-      "cutMade": 6,
-      "cutMissed": 0,
-      "pending": 0,
-      "lowestIndividual": -4,
-      "cutStatus": "safe",
-      "rank": 24
-    },
-    {
       "name": "#28 - John Krall",
       "golfers": [
         {
@@ -2115,7 +2036,7 @@
           },
           "scoreToPar": 2,
           "today": 3,
-          "thru": "12",
+          "thru": "13",
           "cut": false,
           "ppv": 9.8
         },
@@ -2138,7 +2059,7 @@
       "pending": 0,
       "lowestIndividual": -5,
       "cutStatus": "safe",
-      "rank": 27
+      "rank": 26
     },
     {
       "name": "#25 - Chris Coleman",
@@ -2217,7 +2138,7 @@
       "pending": 0,
       "lowestIndividual": -5,
       "cutStatus": "exact",
-      "rank": 27
+      "rank": 26
     },
     {
       "name": "#27 - Jay Evans",
@@ -2296,7 +2217,7 @@
       "pending": 0,
       "lowestIndividual": -5,
       "cutStatus": "exact",
-      "rank": 27
+      "rank": 26
     },
     {
       "name": "#19 - Will Rawley",
@@ -2375,7 +2296,86 @@
       "pending": 0,
       "lowestIndividual": -4,
       "cutStatus": "exact",
-      "rank": 30
+      "rank": 29
+    },
+    {
+      "name": "#128 - Todd Casabella",
+      "golfers": [
+        {
+          "name": "Hennie Du Plessis",
+          "position": {
+            "displayName": "T38"
+          },
+          "scoreToPar": -2,
+          "today": -1,
+          "thru": "13",
+          "cut": false,
+          "ppv": 8.2
+        },
+        {
+          "name": "Scottie Scheffler",
+          "position": {
+            "displayName": "T10"
+          },
+          "scoreToPar": -4,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 17.7
+        },
+        {
+          "name": "Rory McIlroy",
+          "position": {
+            "displayName": "T45"
+          },
+          "scoreToPar": -1,
+          "today": 0,
+          "thru": "12",
+          "cut": false,
+          "ppv": 17.7
+        },
+        {
+          "name": "Patrick Reed",
+          "position": {
+            "displayName": "T10"
+          },
+          "scoreToPar": -4,
+          "today": -2,
+          "thru": "5",
+          "cut": false,
+          "ppv": 10.1
+        },
+        {
+          "name": "Kristoffer Reitan",
+          "position": {
+            "displayName": "T38"
+          },
+          "scoreToPar": -2,
+          "today": -2,
+          "thru": "F",
+          "cut": false,
+          "ppv": 9.4
+        },
+        {
+          "name": "Sahith Theegala",
+          "position": {
+            "displayName": "T21"
+          },
+          "scoreToPar": -3,
+          "today": -3,
+          "thru": "17",
+          "cut": false,
+          "ppv": 8.9
+        }
+      ],
+      "teamTotal": -13,
+      "validTeam": true,
+      "cutMade": 6,
+      "cutMissed": 0,
+      "pending": 0,
+      "lowestIndividual": -4,
+      "cutStatus": "safe",
+      "rank": 29
     },
     {
       "name": "#55 - Ryan Dalton",
@@ -2454,7 +2454,7 @@
       "pending": 0,
       "lowestIndividual": -4,
       "cutStatus": "exact",
-      "rank": 30
+      "rank": 29
     },
     {
       "name": "#39 - Chris Whipple",
@@ -2533,7 +2533,7 @@
       "pending": 0,
       "lowestIndividual": -4,
       "cutStatus": "exact",
-      "rank": 30
+      "rank": 29
     },
     {
       "name": "#178 - James Wright",
@@ -2612,7 +2612,7 @@
       "pending": 0,
       "lowestIndividual": -4,
       "cutStatus": "safe",
-      "rank": 30
+      "rank": 29
     },
     {
       "name": "#53 - Nelson Adcock",
@@ -2642,7 +2642,7 @@
         {
           "name": "Kristoffer Reitan",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -2,
@@ -2691,7 +2691,7 @@
       "pending": 0,
       "lowestIndividual": -4,
       "cutStatus": "safe",
-      "rank": 30
+      "rank": 29
     },
     {
       "name": "#10 - Brett Bitove",
@@ -2833,7 +2833,7 @@
         {
           "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -1,
@@ -2879,7 +2879,7 @@
         {
           "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -1,
@@ -4011,7 +4011,7 @@
           },
           "scoreToPar": -3,
           "today": -3,
-          "thru": "16",
+          "thru": "17",
           "cut": false,
           "ppv": 8.9
         },
@@ -4253,7 +4253,7 @@
         {
           "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -1,
@@ -4310,7 +4310,7 @@
         {
           "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -1,
@@ -4604,7 +4604,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -5363,7 +5363,7 @@
           },
           "scoreToPar": -3,
           "today": -3,
-          "thru": "16",
+          "thru": "17",
           "cut": false,
           "ppv": 8.9
         }
@@ -5631,7 +5631,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -5826,7 +5826,7 @@
           },
           "scoreToPar": 2,
           "today": 3,
-          "thru": "12",
+          "thru": "13",
           "cut": false,
           "ppv": 9.8
         },
@@ -6138,7 +6138,7 @@
         {
           "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -1,
@@ -6289,7 +6289,7 @@
           },
           "scoreToPar": 2,
           "today": 3,
-          "thru": "12",
+          "thru": "13",
           "cut": false,
           "ppv": 9.8
         },
@@ -6465,7 +6465,7 @@
         {
           "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -1,
@@ -8001,7 +8001,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -8306,7 +8306,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -8339,7 +8339,7 @@
         {
           "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -1,
@@ -8644,7 +8644,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -9175,7 +9175,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -9287,7 +9287,7 @@
         {
           "name": "Hideki Matsuyama",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": -1,
@@ -9377,7 +9377,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -10450,7 +10450,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -11367,7 +11367,7 @@
           },
           "scoreToPar": -3,
           "today": -3,
-          "thru": "16",
+          "thru": "17",
           "cut": false,
           "ppv": 8.9
         }
@@ -12256,7 +12256,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -12394,7 +12394,7 @@
           },
           "scoreToPar": -3,
           "today": -3,
-          "thru": "16",
+          "thru": "17",
           "cut": false,
           "ppv": 8.9
         }
@@ -12899,7 +12899,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -13125,7 +13125,7 @@
         {
           "name": "Jon Rahm",
           "position": {
-            "displayName": "T39"
+            "displayName": "T38"
           },
           "scoreToPar": -2,
           "today": 2,
@@ -13895,7 +13895,7 @@
     {
       "name": "Eric Cole",
       "position": {
-        "displayName": "T39"
+        "displayName": "T38"
       },
       "scoreToPar": -2,
       "today": -2,
@@ -13939,7 +13939,7 @@
       },
       "scoreToPar": -3,
       "today": -3,
-      "thru": "16",
+      "thru": "17",
       "cut": false
     },
     {
@@ -14225,7 +14225,7 @@
     {
       "name": "Kristoffer Reitan",
       "position": {
-        "displayName": "T39"
+        "displayName": "T38"
       },
       "scoreToPar": -2,
       "today": -2,
@@ -14289,7 +14289,7 @@
       },
       "scoreToPar": 2,
       "today": 3,
-      "thru": "12",
+      "thru": "13",
       "cut": false
     },
     {
@@ -14345,7 +14345,7 @@
     {
       "name": "Michael Thorbjornsen",
       "position": {
-        "displayName": "T39"
+        "displayName": "T38"
       },
       "scoreToPar": -2,
       "today": 0,
@@ -14495,11 +14495,11 @@
     {
       "name": "Casey Jarvis",
       "position": {
-        "displayName": "T39"
+        "displayName": "T38"
       },
       "scoreToPar": -2,
       "today": -2,
-      "thru": "17",
+      "thru": "F",
       "cut": false
     },
     {
@@ -15085,7 +15085,7 @@
     {
       "name": "Hideki Matsuyama",
       "position": {
-        "displayName": "T39"
+        "displayName": "T38"
       },
       "scoreToPar": -2,
       "today": -1,
@@ -15345,7 +15345,7 @@
     {
       "name": "Jon Rahm",
       "position": {
-        "displayName": "T39"
+        "displayName": "T38"
       },
       "scoreToPar": -2,
       "today": 2,
@@ -15365,11 +15365,11 @@
     {
       "name": "Hennie Du Plessis",
       "position": {
-        "displayName": "T21"
+        "displayName": "T38"
       },
-      "scoreToPar": -3,
-      "today": -2,
-      "thru": "12",
+      "scoreToPar": -2,
+      "today": -1,
+      "thru": "13",
       "cut": false
     },
     {
