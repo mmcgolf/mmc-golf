@@ -4,7 +4,7 @@
   "course": "Royal Birkdale",
   "status": "In Progress",
   "round": 3,
-  "lastUpdated": "2026-07-18T12:26:00.915117+00:00",
+  "lastUpdated": "2026-07-18T12:27:04.420708+00:00",
   "totalTeams": 175,
   "teams": [
     {
@@ -836,11 +836,11 @@
         {
           "name": "Max Homa",
           "position": {
-            "displayName": "T57"
+            "displayName": "T46"
           },
-          "scoreToPar": 0,
-          "today": 0,
-          "thru": "13",
+          "scoreToPar": -1,
+          "today": -1,
+          "thru": "14",
           "cut": false,
           "ppv": 9.2
         },
@@ -2299,85 +2299,6 @@
       "rank": 29
     },
     {
-      "name": "#19 - Will Rawley",
-      "golfers": [
-        {
-          "name": "Scottie Scheffler",
-          "position": {
-            "displayName": "T9"
-          },
-          "scoreToPar": -4,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 17.7
-        },
-        {
-          "name": "Matt Fitzpatrick",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 4,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 15.0
-        },
-        {
-          "name": "Robert MacIntyre",
-          "position": {
-            "displayName": "T9"
-          },
-          "scoreToPar": -4,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 11.5
-        },
-        {
-          "name": "Tom Kim",
-          "position": {
-            "displayName": "-"
-          },
-          "scoreToPar": 3,
-          "today": null,
-          "thru": null,
-          "cut": true,
-          "ppv": 9.8
-        },
-        {
-          "name": "Alex Noren",
-          "position": {
-            "displayName": "T46"
-          },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "14",
-          "cut": false,
-          "ppv": 9.2
-        },
-        {
-          "name": "Thomas Detry",
-          "position": {
-            "displayName": "T9"
-          },
-          "scoreToPar": -4,
-          "today": null,
-          "thru": null,
-          "cut": false,
-          "ppv": 8.8
-        }
-      ],
-      "teamTotal": -13,
-      "validTeam": true,
-      "cutMade": 4,
-      "cutMissed": 2,
-      "pending": 0,
-      "lowestIndividual": -4,
-      "cutStatus": "exact",
-      "rank": 30
-    },
-    {
       "name": "#55 - Ryan Dalton",
       "golfers": [
         {
@@ -3007,7 +2928,7 @@
       "pending": 0,
       "lowestIndividual": -5,
       "cutStatus": "safe",
-      "rank": 38
+      "rank": 37
     },
     {
       "name": "#25 - Chris Coleman",
@@ -3086,7 +3007,7 @@
       "pending": 0,
       "lowestIndividual": -5,
       "cutStatus": "exact",
-      "rank": 38
+      "rank": 37
     },
     {
       "name": "#153 - Randy Roggow",
@@ -3165,7 +3086,86 @@
       "pending": 0,
       "lowestIndividual": -4,
       "cutStatus": "safe",
-      "rank": 40
+      "rank": 39
+    },
+    {
+      "name": "#19 - Will Rawley",
+      "golfers": [
+        {
+          "name": "Scottie Scheffler",
+          "position": {
+            "displayName": "T9"
+          },
+          "scoreToPar": -4,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 17.7
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 4,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 15.0
+        },
+        {
+          "name": "Robert MacIntyre",
+          "position": {
+            "displayName": "T9"
+          },
+          "scoreToPar": -4,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 11.5
+        },
+        {
+          "name": "Tom Kim",
+          "position": {
+            "displayName": "-"
+          },
+          "scoreToPar": 3,
+          "today": null,
+          "thru": null,
+          "cut": true,
+          "ppv": 9.8
+        },
+        {
+          "name": "Alex Noren",
+          "position": {
+            "displayName": "T57"
+          },
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "15",
+          "cut": false,
+          "ppv": 9.2
+        },
+        {
+          "name": "Thomas Detry",
+          "position": {
+            "displayName": "T9"
+          },
+          "scoreToPar": -4,
+          "today": null,
+          "thru": null,
+          "cut": false,
+          "ppv": 8.8
+        }
+      ],
+      "teamTotal": -12,
+      "validTeam": true,
+      "cutMade": 4,
+      "cutMissed": 2,
+      "pending": 0,
+      "lowestIndividual": -4,
+      "cutStatus": "exact",
+      "rank": 39
     },
     {
       "name": "#126 - Tim Shields and KD",
@@ -3244,7 +3244,7 @@
       "pending": 0,
       "lowestIndividual": -4,
       "cutStatus": "safe",
-      "rank": 40
+      "rank": 39
     },
     {
       "name": "#61 - Adam Ewald",
@@ -3323,7 +3323,7 @@
       "pending": 0,
       "lowestIndividual": -4,
       "cutStatus": "exact",
-      "rank": 40
+      "rank": 39
     },
     {
       "name": "#155 - Jeremy Rosen",
@@ -3899,7 +3899,7 @@
           },
           "scoreToPar": 1,
           "today": 1,
-          "thru": "13",
+          "thru": "14",
           "cut": false,
           "ppv": 9.4
         },
@@ -4490,11 +4490,11 @@
         {
           "name": "Alex Noren",
           "position": {
-            "displayName": "T46"
+            "displayName": "T57"
           },
-          "scoreToPar": -1,
-          "today": -1,
-          "thru": "14",
+          "scoreToPar": 0,
+          "today": 0,
+          "thru": "15",
           "cut": false,
           "ppv": 9.2
         }
@@ -5657,7 +5657,7 @@
           },
           "scoreToPar": 1,
           "today": 1,
-          "thru": "13",
+          "thru": "14",
           "cut": false,
           "ppv": 9.4
         },
@@ -5991,11 +5991,11 @@
         {
           "name": "Max Homa",
           "position": {
-            "displayName": "T57"
+            "displayName": "T46"
           },
-          "scoreToPar": 0,
-          "today": 0,
-          "thru": "13",
+          "scoreToPar": -1,
+          "today": -1,
+          "thru": "14",
           "cut": false,
           "ppv": 9.2
         }
@@ -11424,7 +11424,7 @@
           },
           "scoreToPar": 1,
           "today": 1,
-          "thru": "13",
+          "thru": "14",
           "cut": false,
           "ppv": 9.4
         },
@@ -14159,7 +14159,7 @@
       },
       "scoreToPar": 1,
       "today": 1,
-      "thru": "13",
+      "thru": "14",
       "cut": false
     },
     {
@@ -14175,11 +14175,11 @@
     {
       "name": "Alex Noren",
       "position": {
-        "displayName": "T46"
+        "displayName": "T57"
       },
-      "scoreToPar": -1,
-      "today": -1,
-      "thru": "14",
+      "scoreToPar": 0,
+      "today": 0,
+      "thru": "15",
       "cut": false
     },
     {
@@ -15225,11 +15225,11 @@
     {
       "name": "Max Homa",
       "position": {
-        "displayName": "T57"
+        "displayName": "T46"
       },
-      "scoreToPar": 0,
-      "today": 0,
-      "thru": "13",
+      "scoreToPar": -1,
+      "today": -1,
+      "thru": "14",
       "cut": false
     },
     {
