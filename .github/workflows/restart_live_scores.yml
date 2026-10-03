@@ -1,0 +1,39 @@
+# MMC Golf - Restart the live-score loop after a failed run
+# GitHub-hosted runners are occasionally reclaimed mid-job ("The runner has received a
+# shutdown signal", exit 143). Scheduled triggers are often delayed by an hour or more, so
+# without this the site can go stale until the next schedule event happens to fire.
+# Only failures are handled: cancelled runs are just superseded queued runs, and restarting
+# on those would make dispatched runs keep cancelling each other.
+
+name: Restart Live Scores
+
+on:
+  workflow_run:
+    workflows: ["Update Live Scores"]
+    types: [completed]
+
+permissions:
+  actions: write
+
+jobs:
+  restart:
+    if: github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Re-dispatch Update Live Scores
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STARTED: ${{ github.event.workflow_run.run_started_at }}
+          ENDED: ${{ github.event.workflow_run.updated_at }}
+        run: |
+          # A run that dies within minutes is a real breakage (bad checkout, broken setup),
+          # not a reclaimed runner - don't restart it, or it would fail and restart forever.
+          ran=$(( $(date -d "$ENDED" +%s) - $(date -d "$STARTED" +%s) ))
+          echo "Failed run lasted ${ran}s"
+          if [ "$ran" -lt 600 ]; then
+            echo "Run failed in under 10 minutes; not restarting."
+            exit 0
+          fi
+          gh workflow run update_scores.yml --ref main -R "${{ github.repository }}"
+          echo "Dispatched a fresh Update Live Scores run."
