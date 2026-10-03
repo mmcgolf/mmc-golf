@@ -14,23 +14,39 @@ on:
     # Every 10 minutes - just a queue refresher/restarter, not the actual update cadence.
     # Real updates happen every 60s inside the loop below.
     - cron: '*/10 * * * *'
+    # Weekly keepalive (Mon 12:05 UTC). GitHub disables scheduled workflows after 60 days
+    # without repo activity, which can happen in the off-season when no scores change.
+    - cron: '5 12 * * 1'
   workflow_dispatch:
 
 permissions:
   contents: write
-
-# Only one run active at a time. Do NOT cancel-in-progress: a healthy in-progress loop
-# should be left alone; newer schedule triggers just refresh the single queued "next"
-# run (GitHub auto-supersedes older queued runs in the same group), so the next loop
-# starts the instant the current one finishes.
-concurrency:
-  group: update-scores
-  cancel-in-progress: false
+  actions: write
 
 jobs:
+  # Re-enables this workflow via the API, which resets GitHub's 60-day inactivity timer.
+  # Runs outside the update-scores concurrency group so it never waits behind the loop.
+  keepalive:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '5 12 * * 1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Keep scheduled workflow enabled
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/update_scores.yml/enable"
+
   update:
+    if: github.event.schedule != '5 12 * * 1'
     runs-on: ubuntu-latest
     timeout-minutes: 350
+    # Only one loop active at a time. Do NOT cancel-in-progress: a healthy in-progress loop
+    # should be left alone; newer schedule triggers just refresh the single queued "next"
+    # run (GitHub auto-supersedes older queued runs in the same group), so the next loop
+    # starts the instant the current one finishes.
+    concurrency:
+      group: update-scores
+      cancel-in-progress: false
 
     steps:
       - name: Check out repo
